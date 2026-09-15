@@ -3,253 +3,389 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta id="meta-description" name="description" content="AuraGlobal vergleicht ausgewählte Premium E-Bikes anhand relevanter Herstellerdaten – klar, kompakt und unabhängig aufbereitet.">
+  <meta id="meta-description" name="description" content="Premium E-Bikes klar verglichen: URWAHN STADTFUCHS für Stadt & Pendeln und WALDWIESEL für Gravel & Adventure.">
   <meta name="robots" content="index,follow">
-  <title>AuraGlobal — Premium E-Bikes vergleichen</title>
+  <title>AuraGlobal — Premium E-Bikes klar verglichen</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     html { scroll-behavior: smooth; }
     body {
       background:
-        radial-gradient(circle at 10% 0%, rgba(16,185,129,.08), transparent 28rem),
-        radial-gradient(circle at 90% 15%, rgba(59,130,246,.06), transparent 28rem),
+        radial-gradient(circle at 12% -4%, rgba(16,185,129,.09), transparent 31rem),
+        radial-gradient(circle at 90% 15%, rgba(56,189,248,.045), transparent 28rem),
         #020617;
     }
     .glass {
-      background: rgba(15, 23, 42, .72);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
+      background: rgba(2,6,23,.78);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
     }
     .lang-btn[aria-pressed="true"] {
       color: #fff;
-      border-color: rgba(52, 211, 153, .5);
-      background: rgba(52, 211, 153, .08);
+      border-color: rgba(52,211,153,.42);
+      background: rgba(52,211,153,.08);
+    }
+    .soft-card {
+      background: linear-gradient(180deg, rgba(15,23,42,.78), rgba(15,23,42,.48));
     }
   </style>
 </head>
+
 <body class="text-slate-100 antialiased selection:bg-emerald-300 selection:text-slate-950">
   <header class="sticky top-0 z-50 border-b border-slate-800/80 glass">
-    <div class="max-w-7xl mx-auto px-5 md:px-8 h-16 flex items-center justify-between gap-4">
-      <a href="#" class="font-black tracking-[-0.04em] text-lg shrink-0">AURA<span class="text-emerald-400">GLOBAL</span></a>
+    <div class="max-w-6xl mx-auto px-5 md:px-8 h-16 flex items-center justify-between gap-4">
+      <a href="#top" class="font-black tracking-[-0.045em] text-lg shrink-0">AURA<span class="text-emerald-400">GLOBAL</span></a>
+
       <nav class="hidden md:flex items-center gap-7 text-sm text-slate-400">
         <a href="#vergleich" class="hover:text-white transition" data-i18n="nav.compare">Vergleich</a>
-        <a href="#auswahl" class="hover:text-white transition" data-i18n="nav.selection">Auswahl</a>
+        <a href="#entscheidung" class="hover:text-white transition" data-i18n="nav.decision">Entscheidungshilfe</a>
         <a href="#methodik" class="hover:text-white transition" data-i18n="nav.methodology">Methodik</a>
       </nav>
+
       <div class="flex items-center gap-3 shrink-0">
         <div class="flex items-center gap-1 rounded-lg border border-slate-800 p-1" aria-label="Language selector">
           <button id="lang-de" type="button" class="lang-btn rounded-md border border-transparent px-2.5 py-1 text-[11px] font-bold tracking-wider text-slate-500 transition hover:text-white" aria-pressed="true">DE</button>
           <button id="lang-en" type="button" class="lang-btn rounded-md border border-transparent px-2.5 py-1 text-[11px] font-bold tracking-wider text-slate-500 transition hover:text-white" aria-pressed="false">EN</button>
         </div>
-        <span class="hidden sm:inline text-[11px] uppercase tracking-[0.18em] text-slate-500">Premium Comparison</span>
       </div>
     </div>
   </header>
 
-  <main>
-    <section class="max-w-7xl mx-auto px-5 md:px-8 pt-20 md:pt-28 pb-14 md:pb-20">
+  <main id="top">
+    <!-- HERO -->
+    <section class="max-w-6xl mx-auto px-5 md:px-8 pt-16 md:pt-24 pb-12 md:pb-16">
       <div class="max-w-4xl">
-        <div class="inline-flex items-center gap-2 border border-emerald-400/20 bg-emerald-400/5 text-emerald-300 rounded-full px-3 py-1 text-xs font-medium mb-7">
+        <div class="inline-flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-400/[0.055] px-3 py-1 text-xs font-semibold text-emerald-300 mb-7">
           <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-          <span data-i18n="hero.badge">Erster Vertikalschwerpunkt: Premium E-Bikes</span>
+          <span data-i18n="hero.badge">Stadt & Pendeln vs. Gravel & Touren</span>
         </div>
-        <h1 class="text-5xl md:text-7xl font-black tracking-[-0.055em] leading-[0.98] mb-7">
-          <span data-i18n="hero.title1">Premium E-Bikes.</span><br><span class="text-slate-400" data-i18n="hero.title2">Klar verglichen.</span>
+
+        <h1 class="text-5xl md:text-7xl font-black tracking-[-0.058em] leading-[0.98] mb-7">
+          <span data-i18n="hero.title1">Premium E-Bikes.</span><br>
+          <span class="text-slate-400" data-i18n="hero.title2">Klar verglichen.</span>
         </h1>
+
         <p class="max-w-2xl text-lg md:text-xl leading-relaxed text-slate-400 mb-9" data-i18n="hero.copy">
-          AuraGlobal strukturiert die wichtigsten Herstellerdaten hochpreisiger Produkte, damit Kaufentscheidungen schneller und nachvollziehbarer werden.
+          Zwei leichte E-Bikes mit derselben elektrischen Basis, aber für unterschiedliche Einsatzzwecke. In wenigen Minuten siehst du, welches besser zu dir passt.
         </p>
+
         <div class="flex flex-col sm:flex-row gap-3">
-          <a href="#vergleich" class="inline-flex justify-center items-center rounded-xl bg-white text-slate-950 px-6 py-3.5 font-semibold hover:bg-slate-200 transition" data-i18n="hero.cta1">E-Bikes vergleichen</a>
-          <a href="#methodik" class="inline-flex justify-center items-center rounded-xl border border-slate-700 px-6 py-3.5 font-semibold text-slate-300 hover:border-slate-500 hover:text-white transition" data-i18n="hero.cta2">So vergleichen wir</a>
+          <a href="#vergleich" class="inline-flex justify-center items-center rounded-xl bg-white text-slate-950 px-6 py-3.5 font-semibold hover:bg-slate-200 transition" data-i18n="hero.cta1">
+            Modelle vergleichen
+          </a>
+          <a href="#entscheidung" class="inline-flex justify-center items-center rounded-xl border border-slate-700 px-6 py-3.5 font-semibold text-slate-300 hover:border-slate-500 hover:text-white transition" data-i18n="hero.cta2">
+            Welches passt zu mir?
+          </a>
         </div>
       </div>
     </section>
 
-    <section class="max-w-7xl mx-auto px-5 md:px-8 pb-8">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-px rounded-2xl overflow-hidden border border-slate-800 bg-slate-800">
-        <div class="bg-slate-950 p-5"><div class="text-2xl font-bold">4</div><div class="text-xs text-slate-500 mt-1" data-i18n="stats.models">Modelle im Startvergleich</div></div>
-        <div class="bg-slate-950 p-5"><div class="text-2xl font-bold">€2.999–10.990</div><div class="text-xs text-slate-500 mt-1" data-i18n="stats.price">aktueller Preisrahmen*</div></div>
-        <div class="bg-slate-950 p-5"><div class="text-2xl font-bold">236–983 Wh</div><div class="text-xs text-slate-500 mt-1" data-i18n="stats.battery">Akkukapazität*</div></div>
-        <div class="bg-slate-950 p-5"><div class="text-2xl font-bold">25–45 km/h</div><div class="text-xs text-slate-500 mt-1" data-i18n="stats.speed">Unterstützung / S-Pedelec*</div></div>
-      </div>
-      <p class="text-[11px] text-slate-600 mt-2" data-i18n="stats.note">*Herstellerangaben, Datenstand 14.09.2026. Preise und Verfügbarkeit können sich ändern.</p>
-      <p class="text-[11px] text-slate-600 mt-1" data-i18n="stats.market">Referenzmarkt der aktuellen Vergleichsdaten: Deutschland / EU.</p>
-    </section>
-
-    <section id="vergleich" class="max-w-7xl mx-auto px-5 md:px-8 py-16">
-      <div class="flex items-end justify-between gap-6 mb-7">
-        <div>
-          <p class="text-emerald-400 text-xs font-bold uppercase tracking-[0.18em] mb-2" data-i18n="compare.eyebrow">Direktvergleich</p>
-          <h2 class="text-3xl md:text-4xl font-bold tracking-tight" data-i18n="compare.title">Vier unterschiedliche Premium-Konzepte</h2>
+    <!-- SHARED BASIS -->
+    <section class="max-w-6xl mx-auto px-5 md:px-8 pb-12">
+      <div class="rounded-2xl border border-slate-800 bg-slate-900/35 px-5 py-4 md:px-6">
+        <div class="flex flex-wrap items-center gap-x-7 gap-y-3 text-sm">
+          <span class="text-slate-500" data-i18n="basis.label">Gemeinsame Basis</span>
+          <span class="font-semibold">MAHLE X20</span>
+          <span class="text-slate-700">•</span>
+          <span class="font-semibold">236 Wh</span>
+          <span class="text-slate-700">•</span>
+          <span class="font-semibold">bis 65 Nm</span>
+          <span class="text-slate-700">•</span>
+          <span class="font-semibold">25 km/h</span>
         </div>
-        <p class="hidden md:block text-sm text-slate-500 max-w-sm text-right" data-i18n="compare.note">Kein künstliches Gesamtrating: Wir zeigen die Daten, damit der passende Einsatzzweck entscheidet.</p>
-      </div>
-
-      <div class="overflow-x-auto rounded-2xl border border-slate-800 bg-slate-900/40">
-        <table class="w-full min-w-[850px] text-left">
-          <thead class="border-b border-slate-800 text-xs uppercase tracking-wider text-slate-500">
-            <tr>
-              <th class="p-5 font-medium" data-i18n="table.model">Modell</th>
-              <th class="p-5 font-medium" data-i18n="table.price">Preis ab</th>
-              <th class="p-5 font-medium" data-i18n="table.battery">Akku</th>
-              <th class="p-5 font-medium" data-i18n="table.motor">Motor / Leistung</th>
-              <th class="p-5 font-medium" data-i18n="table.speed">Tempo</th>
-              <th class="p-5 font-medium" data-i18n="table.manufacturer">Hersteller</th>
-            </tr>
-          </thead>
-          <tbody class="divide-y divide-slate-800">
-            <tr class="hover:bg-slate-900/80 transition">
-              <td class="p-5"><div class="font-bold">Himiway D7 (Cobra)</div><div class="text-xs text-slate-500 mt-1" data-i18n="products.himiway.type">E-Mountainbike / Fatbike</div></td>
-              <td class="p-5 font-semibold">€2.999</td><td class="p-5">960 Wh</td><td class="p-5">86 Nm Nabenmotor</td><td class="p-5">25 km/h</td>
-              <td class="p-5"><a href="https://de.himiwaybike.com/products/himiway-elektrisches-mountain-bike" target="_blank" rel="noopener" data-product="himiway-d7" data-affiliate-status="pending" class="text-emerald-400 hover:text-emerald-300 font-medium" data-i18n="table.view">Produkt ansehen →</a></td>
-            </tr>
-            <tr class="hover:bg-slate-900/80 transition">
-              <td class="p-5"><div class="font-bold">Riese &amp; Müller Charger5 silent CORE</div><div class="text-xs text-slate-500 mt-1" data-i18n="products.rm.type">Premium Alltags- und Touren-E-Bike</div></td>
-              <td class="p-5 font-semibold">€4.499</td><td class="p-5">540 Wh</td><td class="p-5">Bosch Performance Line</td><td class="p-5">25 km/h</td>
-              <td class="p-5"><a href="https://www.r-m.de/de/bikes/charger5/charger5-silent-core/" target="_blank" rel="noopener" data-product="riese-mueller-charger5-silent-core" data-affiliate-status="pending" class="text-emerald-400 hover:text-emerald-300 font-medium" data-i18n="table.view">Produkt ansehen →</a></td>
-            </tr>
-            <tr class="hover:bg-slate-900/80 transition">
-              <td class="p-5"><div class="font-bold">Stromer ST5</div><div class="text-xs text-slate-500 mt-1" data-i18n="products.stromer.type">Premium Speed-Pedelec</div></td>
-              <td class="p-5 font-semibold">€10.990</td><td class="p-5">983 Wh</td><td class="p-5">850 W / 48 Nm</td><td class="p-5">45 km/h</td>
-              <td class="p-5"><a href="https://www.stromerbike.com/de/bikes/st5" target="_blank" rel="noopener" data-product="stromer-st5" data-affiliate-status="pending" class="text-emerald-400 hover:text-emerald-300 font-medium" data-i18n="table.view">Produkt ansehen →</a></td>
-            </tr>
-            <tr class="hover:bg-slate-900/80 transition">
-              <td class="p-5"><div class="font-bold">URWAHN STADTFUCHS</div><div class="text-xs text-slate-500 mt-1" data-i18n="products.urwahn.type">Premium Urban E-Bike</div></td>
-              <td class="p-5 font-semibold">€3.749</td><td class="p-5">236 Wh</td><td class="p-5">MAHLE X20 / 55 Nm</td><td class="p-5">25 km/h</td>
-              <td class="p-5"><a href="https://www.awin1.com/cread.php?awinmid=68034&awinaffid=3076553&ued=https%3A%2F%2Fwww.urwahn.com%2Febikes%2Furban" target="_blank" rel="sponsored noopener" data-product="urwahn-stadtfuchs" data-affiliate-status="active" data-affiliate-network="awin" class="text-emerald-400 hover:text-emerald-300 font-medium" data-i18n="table.affiliateView">Produkt ansehen* →</a></td>
-            </tr>
-          </tbody>
-        </table>
       </div>
     </section>
 
-    <section id="auswahl" class="max-w-7xl mx-auto px-5 md:px-8 py-10 md:py-16">
-      <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-5">
-        <article class="rounded-2xl border border-slate-800 bg-slate-900/45 p-6">
-          <div class="flex items-center justify-between mb-8"><span class="text-xs uppercase tracking-[0.18em] text-emerald-400">Himiway</span><span class="text-xs text-slate-600">01</span></div>
-          <h3 class="text-2xl font-bold tracking-tight mb-3">D7 (Cobra)</h3>
-          <p class="text-slate-400 leading-relaxed mb-7" data-i18n="products.himiway.copy">960-Wh-Akku, 86 Nm und breite 26×4,5-Zoll-Reifen machen das Modell zum technisch auffälligen Einstieg in den Vergleich.</p>
-          <div class="grid grid-cols-2 gap-3 text-sm mb-7"><div class="rounded-xl bg-slate-950/80 p-3"><div class="text-slate-500 text-xs mb-1" data-i18n="cards.battery">Akku</div><div class="font-semibold">960 Wh</div></div><div class="rounded-xl bg-slate-950/80 p-3"><div class="text-slate-500 text-xs mb-1" data-i18n="cards.price">Preis</div><div class="font-semibold">€2.999</div></div></div>
-          <a href="https://de.himiwaybike.com/products/himiway-elektrisches-mountain-bike" target="_blank" rel="noopener" class="inline-flex w-full justify-center rounded-xl border border-slate-700 py-3 font-semibold hover:border-slate-500 transition" data-i18n="cards.manufacturer">Herstellerseite</a>
+    <!-- PRIMARY COMPARISON -->
+    <section id="vergleich" class="max-w-6xl mx-auto px-5 md:px-8 py-12 md:py-16">
+      <div class="mb-8">
+        <p class="text-emerald-400 text-xs font-bold uppercase tracking-[0.18em] mb-2" data-i18n="compare.eyebrow">Direktvergleich</p>
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tight" data-i18n="compare.title">Der Unterschied liegt im Einsatzzweck.</h2>
+        <p class="text-slate-500 mt-3 max-w-2xl" data-i18n="compare.copy">
+          Die technische Basis ist ähnlich. Entscheidend ist deshalb vor allem, wie und wo du fahren willst.
+        </p>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-5">
+        <article class="soft-card rounded-3xl border border-slate-800 p-6 md:p-8">
+          <div class="flex items-start justify-between gap-4 mb-7">
+            <div>
+              <div class="text-[11px] uppercase tracking-[0.18em] text-emerald-400 mb-2">URWAHN</div>
+              <h3 class="text-3xl font-black tracking-[-0.035em]">STADTFUCHS</h3>
+            </div>
+            <span class="rounded-full border border-slate-700 px-3 py-1 text-[11px] font-semibold text-slate-400" data-i18n="stadt.tag">Urban</span>
+          </div>
+
+          <p class="text-slate-400 leading-relaxed mb-7" data-i18n="stadt.copy">
+            Für Stadt, Alltag und Pendelstrecken. Das ruhigere, urbane Konzept für alle, die ein reduziertes Premium E-Bike suchen.
+          </p>
+
+          <div class="space-y-3 mb-8">
+            <div class="flex items-center justify-between gap-5 border-b border-slate-800/80 pb-3">
+              <span class="text-sm text-slate-500" data-i18n="row.use">Am stärksten bei</span>
+              <span class="text-sm font-semibold text-right" data-i18n="stadt.use">Stadt & Pendeln</span>
+            </div>
+            <div class="flex items-center justify-between gap-5 border-b border-slate-800/80 pb-3">
+              <span class="text-sm text-slate-500" data-i18n="row.drive">Antrieb</span>
+              <span class="text-sm font-semibold text-right">MAHLE X20 · bis 65 Nm</span>
+            </div>
+            <div class="flex items-center justify-between gap-5 border-b border-slate-800/80 pb-3">
+              <span class="text-sm text-slate-500" data-i18n="row.battery">Akku</span>
+              <span class="text-sm font-semibold text-right">236 Wh</span>
+            </div>
+            <div class="flex items-center justify-between gap-5">
+              <span class="text-sm text-slate-500" data-i18n="row.price">Preis ab</span>
+              <span class="text-sm font-semibold text-right">€3.749</span>
+            </div>
+          </div>
+
+          <a href="https://www.awin1.com/cread.php?awinmid=68034&awinaffid=3076553&ued=https%3A%2F%2Fwww.urwahn.com%2Febikes%2Furban" target="_blank" rel="sponsored noopener"
+             data-product="urwahn-stadtfuchs" data-affiliate-network="awin"
+             class="inline-flex w-full justify-center items-center rounded-xl bg-white text-slate-950 px-6 py-3.5 font-bold hover:bg-slate-200 transition"
+             data-i18n="stadt.cta">STADTFUCHS ansehen</a>
+          <p class="mt-2 text-[10px] leading-relaxed text-slate-600" data-i18n="disclosure">
+            Werbelink · Bei einem Kauf können wir eine Provision erhalten. Für dich entstehen keine Mehrkosten.
+          </p>
         </article>
 
-        <article class="rounded-2xl border border-emerald-400/30 bg-gradient-to-b from-emerald-400/[0.06] to-slate-900/45 p-6 relative overflow-hidden">
-          <div class="absolute top-4 right-4 rounded-full bg-emerald-400 text-slate-950 text-[10px] font-black uppercase tracking-wider px-2.5 py-1">Middle Tier</div>
-          <div class="flex items-center justify-between mb-8"><span class="text-xs uppercase tracking-[0.18em] text-emerald-400">Riese &amp; Müller</span><span class="text-xs text-slate-600 mr-20">02</span></div>
-          <h3 class="text-2xl font-bold tracking-tight mb-3">Charger5 silent CORE</h3>
-          <p class="text-slate-400 leading-relaxed mb-7" data-i18n="products.rm.copy">Bosch Performance Line, 540-Wh-PowerTube und Nabenschaltung: ein klar anders positioniertes Premium-Konzept als Fatbike oder S-Pedelec.</p>
-          <div class="grid grid-cols-2 gap-3 text-sm mb-7"><div class="rounded-xl bg-slate-950/80 p-3"><div class="text-slate-500 text-xs mb-1" data-i18n="cards.battery">Akku</div><div class="font-semibold">540 Wh</div></div><div class="rounded-xl bg-slate-950/80 p-3"><div class="text-slate-500 text-xs mb-1" data-i18n="cards.price">Preis</div><div class="font-semibold">€4.499</div></div></div>
-          <a href="https://www.r-m.de/de/bikes/charger5/charger5-silent-core/" target="_blank" rel="noopener" class="inline-flex w-full justify-center rounded-xl bg-white text-slate-950 py-3 font-semibold hover:bg-slate-200 transition" data-i18n="cards.manufacturer">Herstellerseite</a>
-        </article>
+        <article class="soft-card rounded-3xl border border-slate-800 p-6 md:p-8">
+          <div class="flex items-start justify-between gap-4 mb-7">
+            <div>
+              <div class="text-[11px] uppercase tracking-[0.18em] text-emerald-400 mb-2">URWAHN</div>
+              <h3 class="text-3xl font-black tracking-[-0.035em]">WALDWIESEL</h3>
+            </div>
+            <span class="rounded-full border border-slate-700 px-3 py-1 text-[11px] font-semibold text-slate-400" data-i18n="wald.tag">Gravel</span>
+          </div>
 
-        <article class="rounded-2xl border border-slate-800 bg-slate-900/45 p-6">
-          <div class="flex items-center justify-between mb-8"><span class="text-xs uppercase tracking-[0.18em] text-emerald-400">Stromer</span><span class="text-xs text-slate-600">03</span></div>
-          <h3 class="text-2xl font-bold tracking-tight mb-3">ST5</h3>
-          <p class="text-slate-400 leading-relaxed mb-7" data-i18n="products.stromer.copy">45-km/h-Speed-Pedelec mit 983-Wh-Akku, 9-Gang-Pinion und integriertem High-End-Technikpaket.</p>
-          <div class="grid grid-cols-2 gap-3 text-sm mb-7"><div class="rounded-xl bg-slate-950/80 p-3"><div class="text-slate-500 text-xs mb-1" data-i18n="cards.battery">Akku</div><div class="font-semibold">983 Wh</div></div><div class="rounded-xl bg-slate-950/80 p-3"><div class="text-slate-500 text-xs mb-1" data-i18n="cards.price">Preis</div><div class="font-semibold">€10.990</div></div></div>
-          <a href="https://www.stromerbike.com/de/bikes/st5" target="_blank" rel="noopener" class="inline-flex w-full justify-center rounded-xl border border-slate-700 py-3 font-semibold hover:border-slate-500 transition" data-i18n="cards.manufacturer">Herstellerseite</a>
-        </article>
+          <p class="text-slate-400 leading-relaxed mb-7" data-i18n="wald.copy">
+            Für Gravel, Bikepacking und Touren abseits reiner Stadtstrecken. Das vielseitigere Konzept für mehr Adventure-Fokus.
+          </p>
 
-        <article class="rounded-2xl border border-emerald-400/30 bg-gradient-to-b from-emerald-400/[0.06] to-slate-900/45 p-6 relative overflow-hidden">
-          <div class="absolute top-4 right-4 rounded-full border border-emerald-400/30 bg-emerald-400/10 text-emerald-300 text-[10px] font-black uppercase tracking-wider px-2.5 py-1" data-i18n="cards.affiliateBadge">Affiliate</div>
-          <div class="flex items-center justify-between mb-8"><span class="text-xs uppercase tracking-[0.18em] text-emerald-400">URWAHN</span><span class="text-xs text-slate-600 mr-16">04</span></div>
-          <h3 class="text-2xl font-bold tracking-tight mb-3">STADTFUCHS</h3>
-          <p class="text-slate-400 leading-relaxed mb-7" data-i18n="products.urwahn.copy">Leichtes Urban E-Bike mit MAHLE-X20-Heckmotor, 236-Wh-Akku, 55 Nm und integriertem SOFTRIDE-Stahlrahmen.</p>
-          <div class="grid grid-cols-2 gap-3 text-sm mb-7"><div class="rounded-xl bg-slate-950/80 p-3"><div class="text-slate-500 text-xs mb-1" data-i18n="cards.battery">Akku</div><div class="font-semibold">236 Wh</div></div><div class="rounded-xl bg-slate-950/80 p-3"><div class="text-slate-500 text-xs mb-1" data-i18n="cards.price">Preis</div><div class="font-semibold">€3.749</div></div></div>
-          <a href="https://www.awin1.com/cread.php?awinmid=68034&awinaffid=3076553&ued=https%3A%2F%2Fwww.urwahn.com%2Febikes%2Furban" target="_blank" rel="sponsored noopener" data-product="urwahn-stadtfuchs" data-affiliate-status="active" data-affiliate-network="awin" class="inline-flex w-full justify-center rounded-xl bg-white text-slate-950 py-3 font-semibold hover:bg-slate-200 transition" data-i18n="cards.affiliateCta">Zum Angebot*</a>
-          <p class="text-[10px] leading-relaxed text-slate-600 mt-3" data-i18n="cards.affiliateNote">* Affiliate-Link: Bei einem Kauf kann AuraGlobal eine Provision erhalten. Für dich entstehen keine Mehrkosten.</p>
+          <div class="space-y-3 mb-8">
+            <div class="flex items-center justify-between gap-5 border-b border-slate-800/80 pb-3">
+              <span class="text-sm text-slate-500" data-i18n="row.use">Am stärksten bei</span>
+              <span class="text-sm font-semibold text-right" data-i18n="wald.use">Gravel & Adventure</span>
+            </div>
+            <div class="flex items-center justify-between gap-5 border-b border-slate-800/80 pb-3">
+              <span class="text-sm text-slate-500" data-i18n="row.drive">Antrieb</span>
+              <span class="text-sm font-semibold text-right">MAHLE X20 · bis 65 Nm</span>
+            </div>
+            <div class="flex items-center justify-between gap-5 border-b border-slate-800/80 pb-3">
+              <span class="text-sm text-slate-500" data-i18n="row.battery">Akku</span>
+              <span class="text-sm font-semibold text-right">236 Wh</span>
+            </div>
+            <div class="flex items-center justify-between gap-5">
+              <span class="text-sm text-slate-500" data-i18n="row.price">Preis ab</span>
+              <span class="text-sm font-semibold text-right">€3.749</span>
+            </div>
+          </div>
+
+          <a href="https://www.awin1.com/cread.php?awinmid=68034&awinaffid=3076553&ued=https%3A%2F%2Fwww.urwahn.com%2Febikes%2Fgravel" target="_blank" rel="sponsored noopener"
+             data-product="urwahn-waldwiesel" data-affiliate-network="awin"
+             class="inline-flex w-full justify-center items-center rounded-xl bg-white text-slate-950 px-6 py-3.5 font-bold hover:bg-slate-200 transition"
+             data-i18n="wald.cta">WALDWIESEL ansehen</a>
+          <p class="mt-2 text-[10px] leading-relaxed text-slate-600" data-i18n="disclosure">
+            Werbelink · Bei einem Kauf können wir eine Provision erhalten. Für dich entstehen keine Mehrkosten.
+          </p>
         </article>
       </div>
     </section>
 
-    <section id="methodik" class="max-w-7xl mx-auto px-5 md:px-8 py-16">
-      <div class="rounded-3xl border border-slate-800 bg-slate-900/40 p-7 md:p-10">
-        <div class="grid md:grid-cols-[1fr_1.2fr] gap-10">
-          <div><p class="text-emerald-400 text-xs font-bold uppercase tracking-[0.18em] mb-3" data-i18n="method.eyebrow">Methodik</p><h2 class="text-3xl font-bold tracking-tight" data-i18n="method.title">Keine Fantasie-Scores. Relevante Daten.</h2></div>
-          <div class="grid sm:grid-cols-2 gap-5 text-sm">
-            <div><h3 class="font-semibold mb-2" data-i18n="method.m1t">Herstellerdaten zuerst</h3><p class="text-slate-400 leading-relaxed" data-i18n="method.m1c">Preise, Akku, Motor und technische Eckdaten werden direkt aus aktuellen Herstellerangaben übernommen.</p></div>
-            <div><h3 class="font-semibold mb-2" data-i18n="method.m2t">Vergleich statt Ranking-Zwang</h3><p class="text-slate-400 leading-relaxed" data-i18n="method.m2c">Ein Fatbike, Touren-E-Bike und Speed-Pedelec erfüllen unterschiedliche Zwecke. AuraGlobal macht diese Unterschiede sichtbar.</p></div>
-            <div><h3 class="font-semibold mb-2" data-i18n="method.m3t">Daten werden aktualisiert</h3><p class="text-slate-400 leading-relaxed" data-i18n="method.m3c">Preise, Verfügbarkeit und Varianten können sich ändern und werden vor Kampagnenstarts erneut geprüft.</p></div>
-            <div><h3 class="font-semibold mb-2" data-i18n="method.m4t">Monetarisierung transparent</h3><p class="text-slate-400 leading-relaxed" data-i18n="method.m4c">Der URWAHN-Link ist ein Affiliate-Link. Bei einem Kauf kann AuraGlobal eine Provision erhalten; für Nutzer entstehen dadurch keine zusätzlichen Kosten. Andere Produktlinks führen aktuell direkt zu Herstellerseiten.</p></div>
+    <!-- DECISION HELP -->
+    <section id="entscheidung" class="max-w-6xl mx-auto px-5 md:px-8 py-12 md:py-16">
+      <div class="rounded-3xl border border-slate-800 bg-slate-900/35 p-6 md:p-10">
+        <div class="max-w-3xl mb-9">
+          <p class="text-emerald-400 text-xs font-bold uppercase tracking-[0.18em] mb-2" data-i18n="decision.eyebrow">Entscheidungshilfe</p>
+          <h2 class="text-3xl md:text-4xl font-bold tracking-tight" data-i18n="decision.title">In 20 Sekunden zum passenden Modell.</h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-5">
+          <div class="rounded-2xl border border-slate-800 bg-slate-950/55 p-6">
+            <div class="text-lg font-bold mb-4" data-i18n="decision.stadt.title">Nimm das STADTFUCHS, wenn …</div>
+            <ul class="space-y-3 text-sm text-slate-400">
+              <li class="flex gap-3"><span class="text-emerald-400">✓</span><span data-i18n="decision.stadt.1">deine Fahrten überwiegend in Stadt und Alltag stattfinden.</span></li>
+              <li class="flex gap-3"><span class="text-emerald-400">✓</span><span data-i18n="decision.stadt.2">du ein reduziertes, urbanes Konzept bevorzugst.</span></li>
+              <li class="flex gap-3"><span class="text-emerald-400">✓</span><span data-i18n="decision.stadt.3">Pendeln wichtiger ist als Gravel- und Adventure-Einsatz.</span></li>
+            </ul>
+          </div>
+
+          <div class="rounded-2xl border border-slate-800 bg-slate-950/55 p-6">
+            <div class="text-lg font-bold mb-4" data-i18n="decision.wald.title">Nimm das WALDWIESEL, wenn …</div>
+            <ul class="space-y-3 text-sm text-slate-400">
+              <li class="flex gap-3"><span class="text-emerald-400">✓</span><span data-i18n="decision.wald.1">du regelmäßig Gravel, Touren oder Bikepacking fahren willst.</span></li>
+              <li class="flex gap-3"><span class="text-emerald-400">✓</span><span data-i18n="decision.wald.2">du mehr Vielseitigkeit abseits reiner Stadtstrecken suchst.</span></li>
+              <li class="flex gap-3"><span class="text-emerald-400">✓</span><span data-i18n="decision.wald.3">Adventure-Fokus für dich wichtiger ist als ein reines Urban-Konzept.</span></li>
+            </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="max-w-7xl mx-auto px-5 md:px-8 pb-20">
+    <!-- METHOD -->
+    <section id="methodik" class="max-w-6xl mx-auto px-5 md:px-8 py-12 md:py-16">
+      <div class="grid md:grid-cols-[.9fr_1.1fr] gap-10 items-start">
+        <div>
+          <p class="text-emerald-400 text-xs font-bold uppercase tracking-[0.18em] mb-2" data-i18n="method.eyebrow">Methodik</p>
+          <h2 class="text-3xl md:text-4xl font-bold tracking-tight" data-i18n="method.title">Weniger Marketing. Mehr Klarheit.</h2>
+        </div>
+
+        <div class="grid sm:grid-cols-3 gap-5 text-sm">
+          <div>
+            <h3 class="font-semibold mb-2" data-i18n="method.m1t">Herstellerdaten zuerst</h3>
+            <p class="text-slate-400 leading-relaxed" data-i18n="method.m1c">Wir strukturieren technische Eckdaten so, dass Unterschiede schnell verständlich werden.</p>
+          </div>
+          <div>
+            <h3 class="font-semibold mb-2" data-i18n="method.m2t">Einsatzzweck vor Score</h3>
+            <p class="text-slate-400 leading-relaxed" data-i18n="method.m2c">Kein künstlicher Gesamtsieger: Das bessere Modell hängt davon ab, wie du fahren willst.</p>
+          </div>
+          <div>
+            <h3 class="font-semibold mb-2" data-i18n="method.m3t">Aktuelle Daten</h3>
+            <p class="text-slate-400 leading-relaxed" data-i18n="method.m3c">Preise, Verfügbarkeit und Produktdaten können sich ändern und werden vor Kampagnenstarts erneut geprüft.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <section class="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-10">
       <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row gap-5 md:items-center md:justify-between">
-        <div><div class="font-black tracking-[-0.04em]">AURA<span class="text-emerald-400">GLOBAL</span></div><p class="text-xs text-slate-500 mt-1">Independent premium product comparison.</p></div>
-        <p class="text-xs text-slate-600 max-w-xl md:text-right" data-i18n="footer.notice">Hinweis: Der URWAHN-Link ist ein gekennzeichneter Affiliate-Link. Bei einem Kauf kann AuraGlobal eine Provision erhalten; für Nutzer entstehen keine Mehrkosten. Andere Produktbuttons führen aktuell direkt zu Herstellerseiten.</p>
+        <div>
+          <div class="font-black tracking-[-0.04em]">AURA<span class="text-emerald-400">GLOBAL</span></div>
+          <p class="text-xs text-slate-500 mt-1" data-i18n="footer.tagline">Premium products, clearly compared.</p>
+        </div>
+        <div class="flex flex-wrap gap-x-5 gap-y-2 text-xs text-slate-500">
+          <a href="impressum.html" class="hover:text-white transition" data-i18n="footer.imprint">Impressum</a>
+          <a href="datenschutz.html" class="hover:text-white transition" data-i18n="footer.privacy">Datenschutz</a>
+          <a href="affiliate-disclosure.html" class="hover:text-white transition" data-i18n="footer.partner">Partnerhinweis</a>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer class="max-w-7xl mx-auto px-5 md:px-8 pb-10">
-    <div class="flex flex-wrap gap-x-5 gap-y-2 text-xs text-slate-500">
-      <a href="impressum.html" class="hover:text-white transition" data-i18n="footer.imprint">Impressum</a>
-      <a href="datenschutz.html" class="hover:text-white transition" data-i18n="footer.privacy">Datenschutz</a>
-      <a href="affiliate-disclosure.html" class="hover:text-white transition" data-i18n="footer.affiliate">Affiliate-Hinweis</a>
-    </div>
-  </footer>
-
   <script>
     const translations = {
       de: {
-        title: 'AuraGlobal — Premium E-Bikes vergleichen',
-        description: 'AuraGlobal vergleicht ausgewählte Premium E-Bikes anhand relevanter Herstellerdaten – klar, kompakt und unabhängig aufbereitet.',
-        'nav.compare': 'Vergleich', 'nav.selection': 'Auswahl', 'nav.methodology': 'Methodik',
-        'hero.badge': 'Erster Vertikalschwerpunkt: Premium E-Bikes',
-        'hero.title1': 'Premium E-Bikes.', 'hero.title2': 'Klar verglichen.',
-        'hero.copy': 'AuraGlobal strukturiert die wichtigsten Herstellerdaten hochpreisiger Produkte, damit Kaufentscheidungen schneller und nachvollziehbarer werden.',
-        'hero.cta1': 'E-Bikes vergleichen', 'hero.cta2': 'So vergleichen wir',
-        'stats.models': 'Modelle im Startvergleich', 'stats.price': 'aktueller Preisrahmen*', 'stats.battery': 'Akkukapazität*', 'stats.speed': 'Unterstützung / S-Pedelec*',
-        'stats.note': '*Herstellerangaben, Datenstand 14.09.2026. Preise und Verfügbarkeit können sich ändern.',
-        'stats.market': 'Referenzmarkt der aktuellen Vergleichsdaten: Deutschland / EU.',
-        'compare.eyebrow': 'Direktvergleich', 'compare.title': 'Vier unterschiedliche Premium-Konzepte',
-        'compare.note': 'Kein künstliches Gesamtrating: Wir zeigen die Daten, damit der passende Einsatzzweck entscheidet.',
-        'table.model': 'Modell', 'table.price': 'Preis ab', 'table.battery': 'Akku', 'table.motor': 'Motor / Leistung', 'table.speed': 'Tempo', 'table.manufacturer': 'Hersteller', 'table.view': 'Produkt ansehen →', 'table.affiliateView': 'Produkt ansehen* →',
-        'products.himiway.type': 'E-Mountainbike / Fatbike', 'products.rm.type': 'Premium Alltags- und Touren-E-Bike', 'products.stromer.type': 'Premium Speed-Pedelec', 'products.urwahn.type': 'Premium Urban E-Bike',
-        'products.himiway.copy': '960-Wh-Akku, 86 Nm und breite 26×4,5-Zoll-Reifen machen das Modell zum technisch auffälligen Einstieg in den Vergleich.',
-        'products.rm.copy': 'Bosch Performance Line, 540-Wh-PowerTube und Nabenschaltung: ein klar anders positioniertes Premium-Konzept als Fatbike oder S-Pedelec.',
-        'products.stromer.copy': '45-km/h-Speed-Pedelec mit 983-Wh-Akku, 9-Gang-Pinion und integriertem High-End-Technikpaket.',
-        'products.urwahn.copy': 'Leichtes Urban E-Bike mit MAHLE-X20-Heckmotor, 236-Wh-Akku, 55 Nm und integriertem SOFTRIDE-Stahlrahmen.',
-        'cards.battery': 'Akku', 'cards.price': 'Preis', 'cards.manufacturer': 'Herstellerseite', 'cards.affiliateBadge': 'Affiliate', 'cards.affiliateCta': 'Zum Angebot*', 'cards.affiliateNote': '* Affiliate-Link: Bei einem Kauf kann AuraGlobal eine Provision erhalten. Für dich entstehen keine Mehrkosten.',
-        'method.eyebrow': 'Methodik', 'method.title': 'Keine Fantasie-Scores. Relevante Daten.',
-        'method.m1t': 'Herstellerdaten zuerst', 'method.m1c': 'Preise, Akku, Motor und technische Eckdaten werden direkt aus aktuellen Herstellerangaben übernommen.',
-        'method.m2t': 'Vergleich statt Ranking-Zwang', 'method.m2c': 'Ein Fatbike, Touren-E-Bike und Speed-Pedelec erfüllen unterschiedliche Zwecke. AuraGlobal macht diese Unterschiede sichtbar.',
-        'method.m3t': 'Daten werden aktualisiert', 'method.m3c': 'Preise, Verfügbarkeit und Varianten können sich ändern und werden vor Kampagnenstarts erneut geprüft.',
-        'method.m4t': 'Monetarisierung transparent', 'method.m4c': 'Der URWAHN-Link ist ein Affiliate-Link. Bei einem Kauf kann AuraGlobal eine Provision erhalten; für Nutzer entstehen dadurch keine zusätzlichen Kosten. Andere Produktlinks führen aktuell direkt zu Herstellerseiten.',
-        'footer.notice': 'Hinweis: Der URWAHN-Link ist ein gekennzeichneter Affiliate-Link. Bei einem Kauf kann AuraGlobal eine Provision erhalten; für Nutzer entstehen keine Mehrkosten. Andere Produktbuttons führen aktuell direkt zu Herstellerseiten.',
-        'footer.imprint': 'Impressum', 'footer.privacy': 'Datenschutz', 'footer.affiliate': 'Affiliate-Hinweis'
+        title: 'AuraGlobal — Premium E-Bikes klar verglichen',
+        description: 'Premium E-Bikes klar verglichen: URWAHN STADTFUCHS für Stadt & Pendeln und WALDWIESEL für Gravel & Adventure.',
+        'nav.compare': 'Vergleich',
+        'nav.decision': 'Entscheidungshilfe',
+        'nav.methodology': 'Methodik',
+
+        'hero.badge': 'Stadt & Pendeln vs. Gravel & Touren',
+        'hero.title1': 'Premium E-Bikes.',
+        'hero.title2': 'Klar verglichen.',
+        'hero.copy': 'Zwei leichte E-Bikes mit derselben elektrischen Basis, aber für unterschiedliche Einsatzzwecke. In wenigen Minuten siehst du, welches besser zu dir passt.',
+        'hero.cta1': 'Modelle vergleichen',
+        'hero.cta2': 'Welches passt zu mir?',
+
+        'basis.label': 'Gemeinsame E-Bike-Basis',
+
+        'compare.eyebrow': 'Direktvergleich',
+        'compare.title': 'Der Unterschied liegt im Einsatzzweck.',
+        'compare.copy': 'Die technische Basis ist ähnlich. Entscheidend ist deshalb vor allem, wie und wo du fahren willst.',
+
+        'stadt.tag': 'Urban',
+        'stadt.copy': 'Für Stadt, Alltag und Pendelstrecken. Das ruhigere, urbane Konzept für alle, die ein reduziertes Premium E-Bike suchen.',
+        'stadt.use': 'Stadt & Pendeln',
+        'stadt.cta': 'STADTFUCHS ansehen',
+
+        'wald.tag': 'Gravel',
+        'wald.copy': 'Für Gravel, Bikepacking und Touren abseits reiner Stadtstrecken. Das vielseitigere Konzept für mehr Adventure-Fokus.',
+        'wald.use': 'Gravel & Adventure',
+        'wald.cta': 'WALDWIESEL ansehen',
+
+        'row.use': 'Am stärksten bei',
+        'row.drive': 'Antrieb',
+        'row.battery': 'Akku',
+        'row.price': 'Preis ab',
+        'disclosure': 'Werbelink · Bei einem Kauf können wir eine Provision erhalten. Für dich entstehen keine Mehrkosten.',
+
+        'decision.eyebrow': 'Entscheidungshilfe',
+        'decision.title': 'In 20 Sekunden zum passenden Modell.',
+        'decision.stadt.title': 'Nimm das STADTFUCHS, wenn …',
+        'decision.stadt.1': 'deine Fahrten überwiegend in Stadt und Alltag stattfinden.',
+        'decision.stadt.2': 'du ein reduziertes, urbanes Konzept bevorzugst.',
+        'decision.stadt.3': 'Pendeln wichtiger ist als Gravel- und Adventure-Einsatz.',
+        'decision.wald.title': 'Nimm das WALDWIESEL, wenn …',
+        'decision.wald.1': 'du regelmäßig Gravel, Touren oder Bikepacking fahren willst.',
+        'decision.wald.2': 'du mehr Vielseitigkeit abseits reiner Stadtstrecken suchst.',
+        'decision.wald.3': 'Adventure-Fokus für dich wichtiger ist als ein reines Urban-Konzept.',
+
+        'method.eyebrow': 'Methodik',
+        'method.title': 'Weniger Marketing. Mehr Klarheit.',
+        'method.m1t': 'Herstellerdaten zuerst',
+        'method.m1c': 'Wir strukturieren technische Eckdaten so, dass Unterschiede schnell verständlich werden.',
+        'method.m2t': 'Einsatzzweck vor Score',
+        'method.m2c': 'Kein künstlicher Gesamtsieger: Das bessere Modell hängt davon ab, wie du fahren willst.',
+        'method.m3t': 'Aktuelle Daten',
+        'method.m3c': 'Preise, Verfügbarkeit und Produktdaten können sich ändern und werden vor Kampagnenstarts erneut geprüft.',
+
+        'footer.tagline': 'Premium products, clearly compared.',
+        'footer.imprint': 'Impressum',
+        'footer.privacy': 'Datenschutz',
+        'footer.partner': 'Partnerhinweis'
       },
+
       en: {
-        title: 'AuraGlobal — Compare Premium E-Bikes',
-        description: 'AuraGlobal compares selected premium e-bikes using relevant manufacturer data — clearly, concisely and independently presented.',
-        'nav.compare': 'Compare', 'nav.selection': 'Selection', 'nav.methodology': 'Methodology',
-        'hero.badge': 'First vertical focus: Premium E-Bikes',
-        'hero.title1': 'Premium E-Bikes.', 'hero.title2': 'Clearly compared.',
-        'hero.copy': 'AuraGlobal structures the most relevant manufacturer data for high-ticket products so purchase decisions become faster and easier to understand.',
-        'hero.cta1': 'Compare E-Bikes', 'hero.cta2': 'How we compare',
-        'stats.models': 'Models in the initial comparison', 'stats.price': 'current price range*', 'stats.battery': 'battery capacity*', 'stats.speed': 'assistance / speed pedelec*',
-        'stats.note': '*Manufacturer data as of 14 Sep 2026. Prices and availability may change.',
-        'stats.market': 'Reference market for the current comparison data: Germany / EU.',
-        'compare.eyebrow': 'Direct comparison', 'compare.title': 'Four distinct premium concepts',
-        'compare.note': 'No artificial overall score: we show the data so the right use case can decide.',
-        'table.model': 'Model', 'table.price': 'Price from', 'table.battery': 'Battery', 'table.motor': 'Motor / output', 'table.speed': 'Speed', 'table.manufacturer': 'Manufacturer', 'table.view': 'View product →', 'table.affiliateView': 'View product* →',
-        'products.himiway.type': 'E-mountain bike / fat bike', 'products.rm.type': 'Premium everyday & touring e-bike', 'products.stromer.type': 'Premium speed pedelec', 'products.urwahn.type': 'Premium urban e-bike',
-        'products.himiway.copy': 'A 960 Wh battery, 86 Nm and wide 26×4.5-inch tires make this model a technically distinctive entry in the comparison.',
-        'products.rm.copy': 'Bosch Performance Line, a 540 Wh PowerTube and hub gearing: a premium concept positioned very differently from a fat bike or speed pedelec.',
-        'products.stromer.copy': 'A 45 km/h speed pedelec with a 983 Wh battery, 9-speed Pinion drivetrain and an integrated high-end technology package.',
-        'products.urwahn.copy': 'A lightweight urban e-bike with a MAHLE X20 rear motor, 236 Wh battery, 55 Nm and an integrated SOFTRIDE steel frame.',
-        'cards.battery': 'Battery', 'cards.price': 'Price', 'cards.manufacturer': 'Manufacturer site', 'cards.affiliateBadge': 'Affiliate', 'cards.affiliateCta': 'View offer*', 'cards.affiliateNote': '* Affiliate link: AuraGlobal may earn a commission if you buy. There is no additional cost to you.',
-        'method.eyebrow': 'Methodology', 'method.title': 'No made-up scores. Relevant data.',
-        'method.m1t': 'Manufacturer data first', 'method.m1c': 'Prices, battery, motor and key technical specifications are taken directly from current manufacturer information.',
-        'method.m2t': 'Comparison instead of forced rankings', 'method.m2c': 'A fat bike, touring e-bike and speed pedelec serve different purposes. AuraGlobal makes those differences visible.',
-        'method.m3t': 'Data is kept up to date', 'method.m3c': 'Prices, availability and variants can change and are reviewed again before campaign launches.',
-        'method.m4t': 'Transparent monetization', 'method.m4c': 'The URWAHN link is an affiliate link. AuraGlobal may earn a commission from a purchase at no additional cost to users. Other product links currently lead directly to manufacturer websites.',
-        'footer.notice': 'Note: The URWAHN link is a clearly disclosed affiliate link. AuraGlobal may earn a commission from a purchase at no additional cost to users. Other product buttons currently lead directly to manufacturer websites.',
-        'footer.imprint': 'Legal notice', 'footer.privacy': 'Privacy', 'footer.affiliate': 'Affiliate disclosure'
+        title: 'AuraGlobal — Premium E-Bikes, clearly compared',
+        description: 'Premium e-bikes clearly compared: URWAHN STADTFUCHS for city and commuting, WALDWIESEL for gravel and adventure.',
+        'nav.compare': 'Compare',
+        'nav.decision': 'Decision guide',
+        'nav.methodology': 'Methodology',
+
+        'hero.badge': 'Stadt & Pendeln vs. Gravel & Touren',
+        'hero.title1': 'Premium E-Bikes.',
+        'hero.title2': 'Clearly compared.',
+        'hero.copy': 'Two lightweight e-bikes with the same electric foundation but different use cases. In a few minutes you can see which one fits you better.',
+        'hero.cta1': 'Compare models',
+        'hero.cta2': 'Which one fits me?',
+
+        'basis.label': 'Shared e-bike foundation',
+
+        'compare.eyebrow': 'Direct comparison',
+        'compare.title': 'The real difference is the use case.',
+        'compare.copy': 'The technical foundation is similar. What matters most is how and where you want to ride.',
+
+        'stadt.tag': 'Urban',
+        'stadt.copy': 'For city riding, everyday use and commuting. The calmer urban concept for riders who want a refined premium e-bike.',
+        'stadt.use': 'City & commuting',
+        'stadt.cta': 'View STADTFUCHS',
+
+        'wald.tag': 'Gravel',
+        'wald.copy': 'For gravel, bikepacking and touring beyond pure city routes. The more versatile concept with a stronger adventure focus.',
+        'wald.use': 'Gravel & adventure',
+        'wald.cta': 'View WALDWIESEL',
+
+        'row.use': 'Best suited for',
+        'row.drive': 'Drive',
+        'row.battery': 'Battery',
+        'row.price': 'Price from',
+        'disclosure': 'Advertising link · We may earn a commission if you buy. There is no additional cost to you.',
+
+        'decision.eyebrow': 'Decision guide',
+        'decision.title': 'Find the better fit in 20 seconds.',
+        'decision.stadt.title': 'Choose STADTFUCHS if …',
+        'decision.stadt.1': 'most of your rides are in the city and everyday life.',
+        'decision.stadt.2': 'you prefer a cleaner, more urban concept.',
+        'decision.stadt.3': 'commuting matters more than gravel and adventure use.',
+        'decision.wald.title': 'Choose WALDWIESEL if …',
+        'decision.wald.1': 'you regularly ride gravel, tours or bikepacking routes.',
+        'decision.wald.2': 'you want more versatility beyond pure city riding.',
+        'decision.wald.3': 'adventure use matters more than a pure urban concept.',
+
+        'method.eyebrow': 'Methodology',
+        'method.title': 'Less marketing. More clarity.',
+        'method.m1t': 'Manufacturer data first',
+        'method.m1c': 'We structure technical specifications so the important differences are easy to understand.',
+        'method.m2t': 'Use case before scores',
+        'method.m2c': 'No artificial overall winner: the better model depends on how you want to ride.',
+        'method.m3t': 'Current data',
+        'method.m3c': 'Prices, availability and product data can change and are reviewed again before campaign launches.',
+
+        'footer.tagline': 'Premium products, clearly compared.',
+        'footer.imprint': 'Legal notice',
+        'footer.privacy': 'Privacy',
+        'footer.partner': 'Partner disclosure'
       }
     };
 
@@ -258,12 +394,15 @@
       document.documentElement.lang = selected;
       document.title = translations[selected].title;
       document.getElementById('meta-description').setAttribute('content', translations[selected].description);
+
       document.querySelectorAll('[data-i18n]').forEach((el) => {
         const key = el.getAttribute('data-i18n');
         if (translations[selected][key]) el.textContent = translations[selected][key];
       });
+
       document.getElementById('lang-de').setAttribute('aria-pressed', String(selected === 'de'));
       document.getElementById('lang-en').setAttribute('aria-pressed', String(selected === 'en'));
+
       if (persist) localStorage.setItem('auraglobal_lang', selected);
     }
 
