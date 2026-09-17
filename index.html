@@ -1,418 +1,185 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta id="meta-description" name="description" content="Premium E-Bikes klar verglichen: URWAHN STADTFUCHS für Stadt & Pendeln und WALDWIESEL für Gravel & Adventure.">
-  <meta name="robots" content="index,follow">
-  <title>AuraGlobal — Premium E-Bikes klar verglichen</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="AuraGlobal hilft dir, Produkte, Eigenschaften und Angebote schnell zu vergleichen – klar, unabhängig und ohne stundenlange Recherche." />
+  <meta name="robots" content="index,follow" />
+  <title>AuraGlobal — Produkte vergleichen. Besser entscheiden.</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    html { scroll-behavior: smooth; }
-    body {
-      background:
-        radial-gradient(circle at 12% -4%, rgba(16,185,129,.09), transparent 31rem),
-        radial-gradient(circle at 90% 15%, rgba(56,189,248,.045), transparent 28rem),
-        #020617;
-    }
-    .glass {
-      background: rgba(2,6,23,.78);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-    }
-    .lang-btn[aria-pressed="true"] {
-      color: #fff;
-      border-color: rgba(52,211,153,.42);
-      background: rgba(52,211,153,.08);
-    }
-    .soft-card {
-      background: linear-gradient(180deg, rgba(15,23,42,.78), rgba(15,23,42,.48));
-    }
+    html{scroll-behavior:smooth}
+    body{background:radial-gradient(circle at 15% -10%,rgba(16,185,129,.10),transparent 30rem),radial-gradient(circle at 88% 8%,rgba(59,130,246,.06),transparent 30rem),#020617}
+    .glass{background:rgba(2,6,23,.80);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+    .soft-card{background:linear-gradient(180deg,rgba(15,23,42,.78),rgba(15,23,42,.46))}
+    .search-glow:focus-within{box-shadow:0 0 0 1px rgba(52,211,153,.35),0 24px 70px rgba(16,185,129,.08)}
   </style>
 </head>
-
 <body class="text-slate-100 antialiased selection:bg-emerald-300 selection:text-slate-950">
   <header class="sticky top-0 z-50 border-b border-slate-800/80 glass">
-    <div class="max-w-6xl mx-auto px-5 md:px-8 h-16 flex items-center justify-between gap-4">
-      <a href="#top" class="font-black tracking-[-0.045em] text-lg shrink-0">AURA<span class="text-emerald-400">GLOBAL</span></a>
-
+    <div class="max-w-7xl mx-auto px-5 md:px-8 h-16 flex items-center justify-between gap-4">
+      <a href="/" class="font-black tracking-[-0.045em] text-lg">AURA<span class="text-emerald-400">GLOBAL</span></a>
       <nav class="hidden md:flex items-center gap-7 text-sm text-slate-400">
-        <a href="#vergleich" class="hover:text-white transition" data-i18n="nav.compare">Vergleich</a>
-        <a href="#entscheidung" class="hover:text-white transition" data-i18n="nav.decision">Entscheidungshilfe</a>
-        <a href="#methodik" class="hover:text-white transition" data-i18n="nav.methodology">Methodik</a>
+        <a href="#kategorien" class="hover:text-white transition">Kategorien</a>
+        <a href="#vergleiche" class="hover:text-white transition">Vergleiche</a>
+        <a href="#so-funktionierts" class="hover:text-white transition">So funktioniert's</a>
       </nav>
-
-      <div class="flex items-center gap-3 shrink-0">
-        <div class="flex items-center gap-1 rounded-lg border border-slate-800 p-1" aria-label="Language selector">
-          <button id="lang-de" type="button" class="lang-btn rounded-md border border-transparent px-2.5 py-1 text-[11px] font-bold tracking-wider text-slate-500 transition hover:text-white" aria-pressed="true">DE</button>
-          <button id="lang-en" type="button" class="lang-btn rounded-md border border-transparent px-2.5 py-1 text-[11px] font-bold tracking-wider text-slate-500 transition hover:text-white" aria-pressed="false">EN</button>
-        </div>
-      </div>
+      <a href="#suche" class="text-sm font-semibold text-slate-300 hover:text-white transition">Produkt finden</a>
     </div>
   </header>
 
-  <main id="top">
-    <!-- HERO -->
-    <section class="max-w-6xl mx-auto px-5 md:px-8 pt-16 md:pt-24 pb-12 md:pb-16">
-      <div class="max-w-4xl">
+  <main>
+    <section class="max-w-7xl mx-auto px-5 md:px-8 pt-16 md:pt-24 pb-14 md:pb-20">
+      <div class="max-w-5xl mx-auto text-center">
         <div class="inline-flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-400/[0.055] px-3 py-1 text-xs font-semibold text-emerald-300 mb-7">
           <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-          <span data-i18n="hero.badge">Stadt & Pendeln vs. Gravel & Touren</span>
+          Produkte verstehen statt Marketing durchsuchen
         </div>
-
-        <h1 class="text-5xl md:text-7xl font-black tracking-[-0.058em] leading-[0.98] mb-7">
-          <span data-i18n="hero.title1">Premium E-Bikes.</span><br>
-          <span class="text-slate-400" data-i18n="hero.title2">Klar verglichen.</span>
+        <h1 class="text-5xl md:text-7xl lg:text-8xl font-black tracking-[-0.06em] leading-[.95] mb-7">
+          Finde das Produkt,<br><span class="text-slate-400">das wirklich zu dir passt.</span>
         </h1>
-
-        <p class="max-w-2xl text-lg md:text-xl leading-relaxed text-slate-400 mb-9" data-i18n="hero.copy">
-          Zwei leichte E-Bikes mit derselben elektrischen Basis, aber für unterschiedliche Einsatzzwecke. In wenigen Minuten siehst du, welches besser zu dir passt.
+        <p class="max-w-3xl mx-auto text-lg md:text-xl leading-relaxed text-slate-400 mb-10">
+          Vergleiche Produkte, Eigenschaften und Angebote schnell und übersichtlich. AuraGlobal bringt die wichtigsten Unterschiede auf den Punkt.
         </p>
 
-        <div class="flex flex-col sm:flex-row gap-3">
-          <a href="#vergleich" class="inline-flex justify-center items-center rounded-xl bg-white text-slate-950 px-6 py-3.5 font-semibold hover:bg-slate-200 transition" data-i18n="hero.cta1">
-            Modelle vergleichen
-          </a>
-          <a href="#entscheidung" class="inline-flex justify-center items-center rounded-xl border border-slate-700 px-6 py-3.5 font-semibold text-slate-300 hover:border-slate-500 hover:text-white transition" data-i18n="hero.cta2">
-            Welches passt zu mir?
-          </a>
+        <div id="suche" class="relative max-w-3xl mx-auto">
+          <div class="search-glow flex items-center gap-3 rounded-2xl border border-slate-700 bg-slate-900/90 p-2 transition">
+            <svg class="w-5 h-5 ml-3 text-slate-500 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+            <input id="searchInput" type="search" autocomplete="off" placeholder="Was möchtest du vergleichen? Produkt, Marke oder Kategorie …" class="w-full bg-transparent py-3 text-base md:text-lg text-white placeholder:text-slate-500 outline-none" />
+            <button id="searchButton" class="hidden sm:inline-flex rounded-xl bg-white px-5 py-3 font-bold text-slate-950 hover:bg-slate-200 transition">Suchen</button>
+          </div>
+          <div id="searchResults" class="hidden absolute left-0 right-0 top-full mt-2 rounded-2xl border border-slate-800 bg-slate-950 shadow-2xl overflow-hidden text-left z-20"></div>
+        </div>
+
+        <div class="mt-5 flex flex-wrap justify-center gap-2 text-xs text-slate-500">
+          <span>Beliebt:</span>
+          <button class="quick-search hover:text-white transition" data-query="E-Bikes">E-Bikes</button>
+          <span>·</span>
+          <button class="quick-search hover:text-white transition" data-query="TENWAYS">TENWAYS</button>
+          <span>·</span>
+          <button class="quick-search hover:text-white transition" data-query="URWAHN">URWAHN</button>
         </div>
       </div>
     </section>
 
-    <!-- SHARED BASIS -->
-    <section class="max-w-6xl mx-auto px-5 md:px-8 pb-12">
-      <div class="rounded-2xl border border-slate-800 bg-slate-900/35 px-5 py-4 md:px-6">
-        <div class="flex flex-wrap items-center gap-x-7 gap-y-3 text-sm">
-          <span class="text-slate-500" data-i18n="basis.label">Gemeinsame Basis</span>
-          <span class="font-semibold">MAHLE X20</span>
-          <span class="text-slate-700">•</span>
-          <span class="font-semibold">236 Wh</span>
-          <span class="text-slate-700">•</span>
-          <span class="font-semibold">bis 65 Nm</span>
-          <span class="text-slate-700">•</span>
-          <span class="font-semibold">25 km/h</span>
+    <section id="kategorien" class="max-w-7xl mx-auto px-5 md:px-8 py-14 md:py-20">
+      <div class="flex items-end justify-between gap-6 mb-8">
+        <div>
+          <p class="text-emerald-400 text-xs font-bold uppercase tracking-[.18em] mb-2">Kategorien</p>
+          <h2 class="text-3xl md:text-4xl font-bold tracking-tight">Ein Portal. Viele Kaufentscheidungen.</h2>
+        </div>
+        <p class="hidden md:block max-w-md text-sm text-slate-500 text-right">Die Struktur ist von Anfang an für viele Kategorien, Marken und Produkte aufgebaut.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <a href="/e-bikes.html" class="soft-card group rounded-3xl border border-emerald-400/30 p-6 md:p-7 hover:border-emerald-400/60 transition">
+          <div class="flex items-start justify-between gap-4 mb-8">
+            <div class="w-12 h-12 rounded-2xl bg-emerald-400/10 flex items-center justify-center text-2xl">🚲</div>
+            <span class="rounded-full border border-emerald-400/20 bg-emerald-400/[.06] px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-emerald-300">Live</span>
+          </div>
+          <h3 class="text-xl font-bold mb-2">E-Bikes</h3>
+          <p class="text-sm leading-relaxed text-slate-500 mb-5">City, Gravel und Pendler-E-Bikes nach Preis, Gewicht, Komfort und Einsatz vergleichen.</p>
+          <span class="text-sm font-semibold text-white group-hover:text-emerald-300 transition">Kategorie öffnen →</span>
+        </a>
+
+        <div class="soft-card rounded-3xl border border-slate-800 p-6 md:p-7">
+          <div class="flex items-start justify-between gap-4 mb-8"><div class="w-12 h-12 rounded-2xl bg-slate-800/70 flex items-center justify-center text-2xl">📱</div><span class="text-[10px] font-bold uppercase tracking-wider text-slate-600">Als Nächstes</span></div>
+          <h3 class="text-xl font-bold mb-2">Smartphones</h3><p class="text-sm leading-relaxed text-slate-500">Modelle, Kameras, Akkus, Speicher und Preise direkt vergleichbar.</p>
+        </div>
+        <div class="soft-card rounded-3xl border border-slate-800 p-6 md:p-7">
+          <div class="flex items-start justify-between gap-4 mb-8"><div class="w-12 h-12 rounded-2xl bg-slate-800/70 flex items-center justify-center text-2xl">💻</div><span class="text-[10px] font-bold uppercase tracking-wider text-slate-600">Geplant</span></div>
+          <h3 class="text-xl font-bold mb-2">Laptops</h3><p class="text-sm leading-relaxed text-slate-500">Leistung, Display, Akku und Preis für Arbeit, Studium und Gaming.</p>
+        </div>
+        <div class="soft-card rounded-3xl border border-slate-800 p-6 md:p-7">
+          <div class="flex items-start justify-between gap-4 mb-8"><div class="w-12 h-12 rounded-2xl bg-slate-800/70 flex items-center justify-center text-2xl">📺</div><span class="text-[10px] font-bold uppercase tracking-wider text-slate-600">Geplant</span></div>
+          <h3 class="text-xl font-bold mb-2">TV & Entertainment</h3><p class="text-sm leading-relaxed text-slate-500">Größe, Panel, Bildqualität und Ausstattung verständlich gegenübergestellt.</p>
+        </div>
+        <div class="soft-card rounded-3xl border border-slate-800 p-6 md:p-7">
+          <div class="flex items-start justify-between gap-4 mb-8"><div class="w-12 h-12 rounded-2xl bg-slate-800/70 flex items-center justify-center text-2xl">🎧</div><span class="text-[10px] font-bold uppercase tracking-wider text-slate-600">Geplant</span></div>
+          <h3 class="text-xl font-bold mb-2">Audio</h3><p class="text-sm leading-relaxed text-slate-500">Kopfhörer und Lautsprecher nach Klang, Features und Preis einordnen.</p>
+        </div>
+        <div class="soft-card rounded-3xl border border-slate-800 p-6 md:p-7">
+          <div class="flex items-start justify-between gap-4 mb-8"><div class="w-12 h-12 rounded-2xl bg-slate-800/70 flex items-center justify-center text-2xl">🏠</div><span class="text-[10px] font-bold uppercase tracking-wider text-slate-600">Geplant</span></div>
+          <h3 class="text-xl font-bold mb-2">Haushalt</h3><p class="text-sm leading-relaxed text-slate-500">Geräte nach Nutzen, Ausstattung, Effizienz und Preis vergleichen.</p>
         </div>
       </div>
     </section>
 
-    <!-- PRIMARY COMPARISON -->
-    <section id="vergleich" class="max-w-6xl mx-auto px-5 md:px-8 py-12 md:py-16">
+    <section id="vergleiche" class="max-w-7xl mx-auto px-5 md:px-8 py-14 md:py-20">
       <div class="mb-8">
-        <p class="text-emerald-400 text-xs font-bold uppercase tracking-[0.18em] mb-2" data-i18n="compare.eyebrow">Direktvergleich</p>
-        <h2 class="text-3xl md:text-4xl font-bold tracking-tight" data-i18n="compare.title">Der Unterschied liegt im Einsatzzweck.</h2>
-        <p class="text-slate-500 mt-3 max-w-2xl" data-i18n="compare.copy">
-          Die technische Basis ist ähnlich. Entscheidend ist deshalb vor allem, wie und wo du fahren willst.
-        </p>
+        <p class="text-emerald-400 text-xs font-bold uppercase tracking-[.18em] mb-2">Aktuell live</p>
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tight">Vergleiche, die du schon nutzen kannst.</h2>
       </div>
-
-      <div class="grid lg:grid-cols-2 gap-5">
-        <article class="soft-card rounded-3xl border border-slate-800 p-6 md:p-8">
-          <div class="flex items-start justify-between gap-4 mb-7">
-            <div>
-              <div class="text-[11px] uppercase tracking-[0.18em] text-emerald-400 mb-2">URWAHN</div>
-              <h3 class="text-3xl font-black tracking-[-0.035em]">STADTFUCHS</h3>
-            </div>
-            <span class="rounded-full border border-slate-700 px-3 py-1 text-[11px] font-semibold text-slate-400" data-i18n="stadt.tag">Urban</span>
-          </div>
-
-          <p class="text-slate-400 leading-relaxed mb-7" data-i18n="stadt.copy">
-            Für Stadt, Alltag und Pendelstrecken. Das ruhigere, urbane Konzept für alle, die ein reduziertes Premium E-Bike suchen.
-          </p>
-
-          <div class="space-y-3 mb-8">
-            <div class="flex items-center justify-between gap-5 border-b border-slate-800/80 pb-3">
-              <span class="text-sm text-slate-500" data-i18n="row.use">Am stärksten bei</span>
-              <span class="text-sm font-semibold text-right" data-i18n="stadt.use">Stadt & Pendeln</span>
-            </div>
-            <div class="flex items-center justify-between gap-5 border-b border-slate-800/80 pb-3">
-              <span class="text-sm text-slate-500" data-i18n="row.drive">Antrieb</span>
-              <span class="text-sm font-semibold text-right">MAHLE X20 · bis 65 Nm</span>
-            </div>
-            <div class="flex items-center justify-between gap-5 border-b border-slate-800/80 pb-3">
-              <span class="text-sm text-slate-500" data-i18n="row.battery">Akku</span>
-              <span class="text-sm font-semibold text-right">236 Wh</span>
-            </div>
-            <div class="flex items-center justify-between gap-5">
-              <span class="text-sm text-slate-500" data-i18n="row.price">Preis ab</span>
-              <span class="text-sm font-semibold text-right">€3.749</span>
-            </div>
-          </div>
-
-          <a href="https://www.awin1.com/cread.php?awinmid=68034&awinaffid=3076553&ued=https%3A%2F%2Fwww.urwahn.com%2Febikes%2Furban" target="_blank" rel="sponsored noopener"
-             data-product="urwahn-stadtfuchs" data-affiliate-network="awin"
-             class="inline-flex w-full justify-center items-center rounded-xl bg-white text-slate-950 px-6 py-3.5 font-bold hover:bg-slate-200 transition"
-             data-i18n="stadt.cta">STADTFUCHS ansehen</a>
-          <p class="mt-2 text-[10px] leading-relaxed text-slate-600" data-i18n="disclosure">
-            Werbelink · Bei einem Kauf können wir eine Provision erhalten. Für dich entstehen keine Mehrkosten.
-          </p>
-        </article>
-
-        <article class="soft-card rounded-3xl border border-slate-800 p-6 md:p-8">
-          <div class="flex items-start justify-between gap-4 mb-7">
-            <div>
-              <div class="text-[11px] uppercase tracking-[0.18em] text-emerald-400 mb-2">URWAHN</div>
-              <h3 class="text-3xl font-black tracking-[-0.035em]">WALDWIESEL</h3>
-            </div>
-            <span class="rounded-full border border-slate-700 px-3 py-1 text-[11px] font-semibold text-slate-400" data-i18n="wald.tag">Gravel</span>
-          </div>
-
-          <p class="text-slate-400 leading-relaxed mb-7" data-i18n="wald.copy">
-            Für Gravel, Bikepacking und Touren abseits reiner Stadtstrecken. Das vielseitigere Konzept für mehr Adventure-Fokus.
-          </p>
-
-          <div class="space-y-3 mb-8">
-            <div class="flex items-center justify-between gap-5 border-b border-slate-800/80 pb-3">
-              <span class="text-sm text-slate-500" data-i18n="row.use">Am stärksten bei</span>
-              <span class="text-sm font-semibold text-right" data-i18n="wald.use">Gravel & Adventure</span>
-            </div>
-            <div class="flex items-center justify-between gap-5 border-b border-slate-800/80 pb-3">
-              <span class="text-sm text-slate-500" data-i18n="row.drive">Antrieb</span>
-              <span class="text-sm font-semibold text-right">MAHLE X20 · bis 65 Nm</span>
-            </div>
-            <div class="flex items-center justify-between gap-5 border-b border-slate-800/80 pb-3">
-              <span class="text-sm text-slate-500" data-i18n="row.battery">Akku</span>
-              <span class="text-sm font-semibold text-right">236 Wh</span>
-            </div>
-            <div class="flex items-center justify-between gap-5">
-              <span class="text-sm text-slate-500" data-i18n="row.price">Preis ab</span>
-              <span class="text-sm font-semibold text-right">€3.749</span>
-            </div>
-          </div>
-
-          <a href="https://www.awin1.com/cread.php?awinmid=68034&awinaffid=3076553&ued=https%3A%2F%2Fwww.urwahn.com%2Febikes%2Fgravel" target="_blank" rel="sponsored noopener"
-             data-product="urwahn-waldwiesel" data-affiliate-network="awin"
-             class="inline-flex w-full justify-center items-center rounded-xl bg-white text-slate-950 px-6 py-3.5 font-bold hover:bg-slate-200 transition"
-             data-i18n="wald.cta">WALDWIESEL ansehen</a>
-          <p class="mt-2 text-[10px] leading-relaxed text-slate-600" data-i18n="disclosure">
-            Werbelink · Bei einem Kauf können wir eine Provision erhalten. Für dich entstehen keine Mehrkosten.
-          </p>
-        </article>
+      <div class="grid md:grid-cols-2 gap-5">
+        <a href="/tenways.html" class="soft-card group rounded-3xl border border-slate-800 p-7 md:p-8 hover:border-slate-600 transition">
+          <div class="text-[11px] uppercase tracking-[.18em] text-emerald-400 mb-3">E-Bikes · TENWAYS</div>
+          <h3 class="text-2xl md:text-3xl font-black tracking-tight mb-3">CGO600 vs. CGO600 Pro vs. CGO800S</h3>
+          <p class="text-slate-500 leading-relaxed mb-7">Drei City-E-Bikes für unterschiedliche Prioritäten bei Gewicht, Komfort, Ausstattung und Preis.</p>
+          <span class="font-semibold group-hover:text-emerald-300 transition">TENWAYS vergleichen →</span>
+        </a>
+        <a href="/urwahn.html" class="soft-card group rounded-3xl border border-slate-800 p-7 md:p-8 hover:border-slate-600 transition">
+          <div class="text-[11px] uppercase tracking-[.18em] text-emerald-400 mb-3">E-Bikes · URWAHN</div>
+          <h3 class="text-2xl md:text-3xl font-black tracking-tight mb-3">STADTFUCHS vs. WALDWIESEL</h3>
+          <p class="text-slate-500 leading-relaxed mb-7">Urbanes Pendeln oder Gravel und Touren: zwei Premium-E-Bikes mit unterschiedlichen Einsatzprofilen.</p>
+          <span class="font-semibold group-hover:text-emerald-300 transition">URWAHN vergleichen →</span>
+        </a>
       </div>
     </section>
 
-    <!-- DECISION HELP -->
-    <section id="entscheidung" class="max-w-6xl mx-auto px-5 md:px-8 py-12 md:py-16">
-      <div class="rounded-3xl border border-slate-800 bg-slate-900/35 p-6 md:p-10">
-        <div class="max-w-3xl mb-9">
-          <p class="text-emerald-400 text-xs font-bold uppercase tracking-[0.18em] mb-2" data-i18n="decision.eyebrow">Entscheidungshilfe</p>
-          <h2 class="text-3xl md:text-4xl font-bold tracking-tight" data-i18n="decision.title">In 20 Sekunden zum passenden Modell.</h2>
+    <section id="so-funktionierts" class="max-w-7xl mx-auto px-5 md:px-8 py-14 md:py-20">
+      <div class="rounded-[2rem] border border-slate-800 bg-slate-900/35 p-7 md:p-10 lg:p-12">
+        <div class="max-w-3xl mb-10">
+          <p class="text-emerald-400 text-xs font-bold uppercase tracking-[.18em] mb-2">So funktioniert AuraGlobal</p>
+          <h2 class="text-3xl md:text-4xl font-bold tracking-tight">Von hundert Datenpunkten zu einer klaren Entscheidung.</h2>
         </div>
-
-        <div class="grid md:grid-cols-2 gap-5">
-          <div class="rounded-2xl border border-slate-800 bg-slate-950/55 p-6">
-            <div class="text-lg font-bold mb-4" data-i18n="decision.stadt.title">Nimm das STADTFUCHS, wenn …</div>
-            <ul class="space-y-3 text-sm text-slate-400">
-              <li class="flex gap-3"><span class="text-emerald-400">✓</span><span data-i18n="decision.stadt.1">deine Fahrten überwiegend in Stadt und Alltag stattfinden.</span></li>
-              <li class="flex gap-3"><span class="text-emerald-400">✓</span><span data-i18n="decision.stadt.2">du ein reduziertes, urbanes Konzept bevorzugst.</span></li>
-              <li class="flex gap-3"><span class="text-emerald-400">✓</span><span data-i18n="decision.stadt.3">Pendeln wichtiger ist als Gravel- und Adventure-Einsatz.</span></li>
-            </ul>
-          </div>
-
-          <div class="rounded-2xl border border-slate-800 bg-slate-950/55 p-6">
-            <div class="text-lg font-bold mb-4" data-i18n="decision.wald.title">Nimm das WALDWIESEL, wenn …</div>
-            <ul class="space-y-3 text-sm text-slate-400">
-              <li class="flex gap-3"><span class="text-emerald-400">✓</span><span data-i18n="decision.wald.1">du regelmäßig Gravel, Touren oder Bikepacking fahren willst.</span></li>
-              <li class="flex gap-3"><span class="text-emerald-400">✓</span><span data-i18n="decision.wald.2">du mehr Vielseitigkeit abseits reiner Stadtstrecken suchst.</span></li>
-              <li class="flex gap-3"><span class="text-emerald-400">✓</span><span data-i18n="decision.wald.3">Adventure-Fokus für dich wichtiger ist als ein reines Urban-Konzept.</span></li>
-            </ul>
-          </div>
+        <div class="grid md:grid-cols-3 gap-5">
+          <div class="rounded-2xl border border-slate-800 bg-slate-950/50 p-6"><div class="text-xs font-black text-emerald-400 mb-5">01</div><h3 class="font-bold text-lg mb-2">Suchen</h3><p class="text-sm text-slate-500 leading-relaxed">Kategorie, Marke oder Produkt finden – ohne durch Shops und Werbeseiten springen zu müssen.</p></div>
+          <div class="rounded-2xl border border-slate-800 bg-slate-950/50 p-6"><div class="text-xs font-black text-emerald-400 mb-5">02</div><h3 class="font-bold text-lg mb-2">Vergleichen</h3><p class="text-sm text-slate-500 leading-relaxed">Die wichtigsten Unterschiede bei Preis, Ausstattung, Nutzung und technischen Daten direkt sehen.</p></div>
+          <div class="rounded-2xl border border-slate-800 bg-slate-950/50 p-6"><div class="text-xs font-black text-emerald-400 mb-5">03</div><h3 class="font-bold text-lg mb-2">Entscheiden</h3><p class="text-sm text-slate-500 leading-relaxed">Passende Option auswählen und für Preis, Verfügbarkeit und Kauf zum jeweiligen Anbieter wechseln.</p></div>
         </div>
       </div>
     </section>
 
-    <!-- METHOD -->
-    <section id="methodik" class="max-w-6xl mx-auto px-5 md:px-8 py-12 md:py-16">
-      <div class="grid md:grid-cols-[.9fr_1.1fr] gap-10 items-start">
-        <div>
-          <p class="text-emerald-400 text-xs font-bold uppercase tracking-[0.18em] mb-2" data-i18n="method.eyebrow">Methodik</p>
-          <h2 class="text-3xl md:text-4xl font-bold tracking-tight" data-i18n="method.title">Weniger Marketing. Mehr Klarheit.</h2>
-        </div>
-
-        <div class="grid sm:grid-cols-3 gap-5 text-sm">
-          <div>
-            <h3 class="font-semibold mb-2" data-i18n="method.m1t">Herstellerdaten zuerst</h3>
-            <p class="text-slate-400 leading-relaxed" data-i18n="method.m1c">Wir strukturieren technische Eckdaten so, dass Unterschiede schnell verständlich werden.</p>
-          </div>
-          <div>
-            <h3 class="font-semibold mb-2" data-i18n="method.m2t">Einsatzzweck vor Score</h3>
-            <p class="text-slate-400 leading-relaxed" data-i18n="method.m2c">Kein künstlicher Gesamtsieger: Das bessere Modell hängt davon ab, wie du fahren willst.</p>
-          </div>
-          <div>
-            <h3 class="font-semibold mb-2" data-i18n="method.m3t">Aktuelle Daten</h3>
-            <p class="text-slate-400 leading-relaxed" data-i18n="method.m3c">Preise, Verfügbarkeit und Produktdaten können sich ändern und werden vor Kampagnenstarts erneut geprüft.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FOOTER -->
-    <section class="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-10">
-      <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row gap-5 md:items-center md:justify-between">
-        <div>
-          <div class="font-black tracking-[-0.04em]">AURA<span class="text-emerald-400">GLOBAL</span></div>
-          <p class="text-xs text-slate-500 mt-1" data-i18n="footer.tagline">Premium products, clearly compared.</p>
-        </div>
-        <div class="flex flex-wrap gap-x-5 gap-y-2 text-xs text-slate-500">
-          <a href="impressum.html" class="hover:text-white transition" data-i18n="footer.imprint">Impressum</a>
-          <a href="datenschutz.html" class="hover:text-white transition" data-i18n="footer.privacy">Datenschutz</a>
-          <a href="affiliate-disclosure.html" class="hover:text-white transition" data-i18n="footer.partner">Partnerhinweis</a>
-        </div>
+    <section class="max-w-7xl mx-auto px-5 md:px-8 py-14 md:py-20">
+      <div class="grid lg:grid-cols-[1fr_.9fr] gap-10 items-start">
+        <div><p class="text-emerald-400 text-xs font-bold uppercase tracking-[.18em] mb-2">Unser Ansatz</p><h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-5">Weniger Hype. Mehr Vergleichbarkeit.</h2><p class="text-slate-400 leading-relaxed max-w-2xl">AuraGlobal verkauft die Produkte nicht selbst. Wir strukturieren öffentlich verfügbare Produktinformationen so, dass Unterschiede schneller erkennbar werden. Preise und Verfügbarkeit können sich ändern; maßgeblich sind die Angaben beim jeweiligen Anbieter.</p></div>
+        <div class="rounded-3xl border border-slate-800 bg-slate-900/35 p-7 text-sm text-slate-500 leading-relaxed"><strong class="text-slate-300">Affiliate-Hinweis:</strong> Einige Links zu Händlern oder Herstellern sind Werbelinks. Wenn du darüber kaufst, können wir eine Provision erhalten. Für dich entstehen dadurch keine Mehrkosten.</div>
       </div>
     </section>
   </main>
 
+  <footer class="border-t border-slate-800/80 mt-8">
+    <div class="max-w-7xl mx-auto px-5 md:px-8 py-9 flex flex-col md:flex-row justify-between gap-5 text-xs text-slate-500">
+      <div>© 2026 AuraGlobal · Produkte vergleichen. Besser entscheiden.</div>
+      <div class="flex flex-wrap gap-5"><a href="/impressum.html" class="hover:text-white">Impressum</a><a href="/datenschutz.html" class="hover:text-white">Datenschutz</a><a href="/affiliate-disclosure.html" class="hover:text-white">Affiliate-Hinweis</a></div>
+    </div>
+  </footer>
+
   <script>
-    const translations = {
-      de: {
-        title: 'AuraGlobal — Premium E-Bikes klar verglichen',
-        description: 'Premium E-Bikes klar verglichen: URWAHN STADTFUCHS für Stadt & Pendeln und WALDWIESEL für Gravel & Adventure.',
-        'nav.compare': 'Vergleich',
-        'nav.decision': 'Entscheidungshilfe',
-        'nav.methodology': 'Methodik',
+    const catalog = [
+      {name:'E-Bikes', type:'Kategorie', href:'/e-bikes.html', keywords:'ebike e-bike fahrrad city gravel pendeln'},
+      {name:'TENWAYS E-Bikes', type:'Vergleich', href:'/tenways.html', keywords:'tenways cgo600 cgo600 pro cgo800s city ebike'},
+      {name:'URWAHN STADTFUCHS vs. WALDWIESEL', type:'Vergleich', href:'/urwahn.html', keywords:'urwahn stadtfuchs waldwiesel gravel city ebike'}
+    ];
+    const input = document.getElementById('searchInput');
+    const results = document.getElementById('searchResults');
+    const button = document.getElementById('searchButton');
 
-        'hero.badge': 'Stadt & Pendeln vs. Gravel & Touren',
-        'hero.title1': 'Premium E-Bikes.',
-        'hero.title2': 'Klar verglichen.',
-        'hero.copy': 'Zwei leichte E-Bikes mit derselben elektrischen Basis, aber für unterschiedliche Einsatzzwecke. In wenigen Minuten siehst du, welches besser zu dir passt.',
-        'hero.cta1': 'Modelle vergleichen',
-        'hero.cta2': 'Welches passt zu mir?',
-
-        'basis.label': 'Gemeinsame E-Bike-Basis',
-
-        'compare.eyebrow': 'Direktvergleich',
-        'compare.title': 'Der Unterschied liegt im Einsatzzweck.',
-        'compare.copy': 'Die technische Basis ist ähnlich. Entscheidend ist deshalb vor allem, wie und wo du fahren willst.',
-
-        'stadt.tag': 'Urban',
-        'stadt.copy': 'Für Stadt, Alltag und Pendelstrecken. Das ruhigere, urbane Konzept für alle, die ein reduziertes Premium E-Bike suchen.',
-        'stadt.use': 'Stadt & Pendeln',
-        'stadt.cta': 'STADTFUCHS ansehen',
-
-        'wald.tag': 'Gravel',
-        'wald.copy': 'Für Gravel, Bikepacking und Touren abseits reiner Stadtstrecken. Das vielseitigere Konzept für mehr Adventure-Fokus.',
-        'wald.use': 'Gravel & Adventure',
-        'wald.cta': 'WALDWIESEL ansehen',
-
-        'row.use': 'Am stärksten bei',
-        'row.drive': 'Antrieb',
-        'row.battery': 'Akku',
-        'row.price': 'Preis ab',
-        'disclosure': 'Werbelink · Bei einem Kauf können wir eine Provision erhalten. Für dich entstehen keine Mehrkosten.',
-
-        'decision.eyebrow': 'Entscheidungshilfe',
-        'decision.title': 'In 20 Sekunden zum passenden Modell.',
-        'decision.stadt.title': 'Nimm das STADTFUCHS, wenn …',
-        'decision.stadt.1': 'deine Fahrten überwiegend in Stadt und Alltag stattfinden.',
-        'decision.stadt.2': 'du ein reduziertes, urbanes Konzept bevorzugst.',
-        'decision.stadt.3': 'Pendeln wichtiger ist als Gravel- und Adventure-Einsatz.',
-        'decision.wald.title': 'Nimm das WALDWIESEL, wenn …',
-        'decision.wald.1': 'du regelmäßig Gravel, Touren oder Bikepacking fahren willst.',
-        'decision.wald.2': 'du mehr Vielseitigkeit abseits reiner Stadtstrecken suchst.',
-        'decision.wald.3': 'Adventure-Fokus für dich wichtiger ist als ein reines Urban-Konzept.',
-
-        'method.eyebrow': 'Methodik',
-        'method.title': 'Weniger Marketing. Mehr Klarheit.',
-        'method.m1t': 'Herstellerdaten zuerst',
-        'method.m1c': 'Wir strukturieren technische Eckdaten so, dass Unterschiede schnell verständlich werden.',
-        'method.m2t': 'Einsatzzweck vor Score',
-        'method.m2c': 'Kein künstlicher Gesamtsieger: Das bessere Modell hängt davon ab, wie du fahren willst.',
-        'method.m3t': 'Aktuelle Daten',
-        'method.m3c': 'Preise, Verfügbarkeit und Produktdaten können sich ändern und werden vor Kampagnenstarts erneut geprüft.',
-
-        'footer.tagline': 'Premium products, clearly compared.',
-        'footer.imprint': 'Impressum',
-        'footer.privacy': 'Datenschutz',
-        'footer.partner': 'Partnerhinweis'
-      },
-
-      en: {
-        title: 'AuraGlobal — Premium E-Bikes, clearly compared',
-        description: 'Premium e-bikes clearly compared: URWAHN STADTFUCHS for city and commuting, WALDWIESEL for gravel and adventure.',
-        'nav.compare': 'Compare',
-        'nav.decision': 'Decision guide',
-        'nav.methodology': 'Methodology',
-
-        'hero.badge': 'Stadt & Pendeln vs. Gravel & Touren',
-        'hero.title1': 'Premium E-Bikes.',
-        'hero.title2': 'Clearly compared.',
-        'hero.copy': 'Two lightweight e-bikes with the same electric foundation but different use cases. In a few minutes you can see which one fits you better.',
-        'hero.cta1': 'Compare models',
-        'hero.cta2': 'Which one fits me?',
-
-        'basis.label': 'Shared e-bike foundation',
-
-        'compare.eyebrow': 'Direct comparison',
-        'compare.title': 'The real difference is the use case.',
-        'compare.copy': 'The technical foundation is similar. What matters most is how and where you want to ride.',
-
-        'stadt.tag': 'Urban',
-        'stadt.copy': 'For city riding, everyday use and commuting. The calmer urban concept for riders who want a refined premium e-bike.',
-        'stadt.use': 'City & commuting',
-        'stadt.cta': 'View STADTFUCHS',
-
-        'wald.tag': 'Gravel',
-        'wald.copy': 'For gravel, bikepacking and touring beyond pure city routes. The more versatile concept with a stronger adventure focus.',
-        'wald.use': 'Gravel & adventure',
-        'wald.cta': 'View WALDWIESEL',
-
-        'row.use': 'Best suited for',
-        'row.drive': 'Drive',
-        'row.battery': 'Battery',
-        'row.price': 'Price from',
-        'disclosure': 'Advertising link · We may earn a commission if you buy. There is no additional cost to you.',
-
-        'decision.eyebrow': 'Decision guide',
-        'decision.title': 'Find the better fit in 20 seconds.',
-        'decision.stadt.title': 'Choose STADTFUCHS if …',
-        'decision.stadt.1': 'most of your rides are in the city and everyday life.',
-        'decision.stadt.2': 'you prefer a cleaner, more urban concept.',
-        'decision.stadt.3': 'commuting matters more than gravel and adventure use.',
-        'decision.wald.title': 'Choose WALDWIESEL if …',
-        'decision.wald.1': 'you regularly ride gravel, tours or bikepacking routes.',
-        'decision.wald.2': 'you want more versatility beyond pure city riding.',
-        'decision.wald.3': 'adventure use matters more than a pure urban concept.',
-
-        'method.eyebrow': 'Methodology',
-        'method.title': 'Less marketing. More clarity.',
-        'method.m1t': 'Manufacturer data first',
-        'method.m1c': 'We structure technical specifications so the important differences are easy to understand.',
-        'method.m2t': 'Use case before scores',
-        'method.m2c': 'No artificial overall winner: the better model depends on how you want to ride.',
-        'method.m3t': 'Current data',
-        'method.m3c': 'Prices, availability and product data can change and are reviewed again before campaign launches.',
-
-        'footer.tagline': 'Premium products, clearly compared.',
-        'footer.imprint': 'Legal notice',
-        'footer.privacy': 'Privacy',
-        'footer.partner': 'Partner disclosure'
-      }
-    };
-
-    function setLanguage(lang, persist = true) {
-      const selected = translations[lang] ? lang : 'en';
-      document.documentElement.lang = selected;
-      document.title = translations[selected].title;
-      document.getElementById('meta-description').setAttribute('content', translations[selected].description);
-
-      document.querySelectorAll('[data-i18n]').forEach((el) => {
-        const key = el.getAttribute('data-i18n');
-        if (translations[selected][key]) el.textContent = translations[selected][key];
-      });
-
-      document.getElementById('lang-de').setAttribute('aria-pressed', String(selected === 'de'));
-      document.getElementById('lang-en').setAttribute('aria-pressed', String(selected === 'en'));
-
-      if (persist) localStorage.setItem('auraglobal_lang', selected);
+    function runSearch(value){
+      const q = value.trim().toLowerCase();
+      if(!q){ results.classList.add('hidden'); return; }
+      const matches = catalog.filter(item => (item.name+' '+item.keywords).toLowerCase().includes(q));
+      results.innerHTML = matches.length ? matches.map(item => `
+        <a href="${item.href}" class="flex items-center justify-between gap-4 px-5 py-4 border-b border-slate-800 last:border-0 hover:bg-slate-900 transition">
+          <div><div class="font-semibold text-slate-100">${item.name}</div><div class="text-xs text-slate-500 mt-1">${item.type}</div></div><span class="text-slate-600">→</span>
+        </a>`).join('') : `<div class="px-5 py-5"><div class="font-semibold">Noch kein direkter Treffer.</div><div class="text-sm text-slate-500 mt-1">Diese Kategorie ist noch nicht live. AuraGlobal wird Schritt für Schritt erweitert.</div></div>`;
+      results.classList.remove('hidden');
     }
-
-    document.getElementById('lang-de').addEventListener('click', () => setLanguage('de'));
-    document.getElementById('lang-en').addEventListener('click', () => setLanguage('en'));
-
-    const savedLanguage = localStorage.getItem('auraglobal_lang');
-    const browserLanguage = (navigator.language || '').toLowerCase();
-    const initialLanguage = savedLanguage || (browserLanguage.startsWith('de') ? 'de' : 'en');
-    setLanguage(initialLanguage, false);
+    input.addEventListener('input', e => runSearch(e.target.value));
+    input.addEventListener('keydown', e => { if(e.key === 'Enter'){ const q=input.value.trim().toLowerCase(); const match=catalog.find(item => (item.name+' '+item.keywords).toLowerCase().includes(q)); if(match) location.href=match.href; else runSearch(input.value); }});
+    button.addEventListener('click', () => { const q=input.value.trim().toLowerCase(); const match=catalog.find(item => (item.name+' '+item.keywords).toLowerCase().includes(q)); if(match) location.href=match.href; else runSearch(input.value); });
+    document.querySelectorAll('.quick-search').forEach(el => el.addEventListener('click', () => { input.value=el.dataset.query; runSearch(input.value); input.focus(); }));
+    document.addEventListener('click', e => { if(!e.target.closest('#suche')) results.classList.add('hidden'); });
   </script>
 </body>
 </html>
