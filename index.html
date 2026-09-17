@@ -1,185 +1,27 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="AuraGlobal hilft dir, Produkte, Eigenschaften und Angebote schnell zu vergleichen – klar, unabhängig und ohne stundenlange Recherche." />
-  <meta name="robots" content="index,follow" />
-  <title>AuraGlobal — Produkte vergleichen. Besser entscheiden.</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    html{scroll-behavior:smooth}
-    body{background:radial-gradient(circle at 15% -10%,rgba(16,185,129,.10),transparent 30rem),radial-gradient(circle at 88% 8%,rgba(59,130,246,.06),transparent 30rem),#020617}
-    .glass{background:rgba(2,6,23,.80);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
-    .soft-card{background:linear-gradient(180deg,rgba(15,23,42,.78),rgba(15,23,42,.46))}
-    .search-glow:focus-within{box-shadow:0 0 0 1px rgba(52,211,153,.35),0 24px 70px rgba(16,185,129,.08)}
-  </style>
-</head>
-<body class="text-slate-100 antialiased selection:bg-emerald-300 selection:text-slate-950">
-  <header class="sticky top-0 z-50 border-b border-slate-800/80 glass">
-    <div class="max-w-7xl mx-auto px-5 md:px-8 h-16 flex items-center justify-between gap-4">
-      <a href="/" class="font-black tracking-[-0.045em] text-lg">AURA<span class="text-emerald-400">GLOBAL</span></a>
-      <nav class="hidden md:flex items-center gap-7 text-sm text-slate-400">
-        <a href="#kategorien" class="hover:text-white transition">Kategorien</a>
-        <a href="#vergleiche" class="hover:text-white transition">Vergleiche</a>
-        <a href="#so-funktionierts" class="hover:text-white transition">So funktioniert's</a>
-      </nav>
-      <a href="#suche" class="text-sm font-semibold text-slate-300 hover:text-white transition">Produkt finden</a>
-    </div>
-  </header>
+<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="AuraGlobal macht Produktrecherche visuell, schnell und verständlich – Vergleiche, Produktwelten und passende Alternativen an einem Ort."><title>AuraGlobal V2 — Entdecken. Vergleichen. Entscheiden.</title><link rel="stylesheet" href="/aura-v2.css"></head><body>
+<header class="topbar"><div class="shell nav"><a class="brand" href="/">AURA<span>GLOBAL</span></a><nav class="navlinks"><a href="#discover">Entdecken</a><a href="#worlds">Produktwelten</a><a href="/e-bikes.html">Vergleiche</a></nav><a class="nav-cta" href="#search">Produkt finden</a></div></header>
+<main>
+<section class="hero"><div class="shell hero-grid"><div><span class="eyebrow"><i></i> Dein Shortcut zur besseren Kaufentscheidung</span><h1>Finde Dinge,<br>die wirklich <span style="color:#8fa2bb">zu dir passen.</span></h1><p>Vergleichen, entdecken, weiterscrollen. AuraGlobal verbindet klare Kaufentscheidungen mit visuellen Produktwelten – damit Recherche nicht nach Arbeit aussieht.</p><div class="search-wrap"><div id="search" class="searchbox"><input data-search placeholder="Was möchtest du vergleichen? Produkt, Marke oder Kategorie …"><button>Entdecken</button></div><div class="search-results" data-results></div></div><div class="quick"><button class="chip" data-query="E-Bikes">E-Bikes</button><button class="chip" data-query="TENWAYS">TENWAYS</button><button class="chip" data-query="Staubsauger">Staubsauger</button><button class="chip" data-query="Home Office">Home Office</button><button class="chip" data-query="Smartphones">Smartphones</button></div></div>
+<div class="hero-stack"><a class="float-card fc1" href="/tenways.html"><img src="https://www.tenways.com/cdn/shop/files/willow_mist-1_1500x.webp?v=1775096126" alt="TENWAYS CGO600 Pro"><div class="label"><b>TENWAYS City Bikes</b><span>Drei Modelle. Drei komplett unterschiedliche Prioritäten.</span></div></a><a class="float-card fc2" href="#worlds"><img src="https://images.unsplash.com/photo-1755436612165-56c6bfa5218b?auto=format&fit=crop&w=1600&q=85" alt="Modernes Home Office"><div class="label"><b>Home Office</b><span>Setup statt Einzelprodukt.</span></div></a><a class="float-card fc3" href="#worlds"><img src="https://images.unsplash.com/photo-1774767701234-408f546ce52f?auto=format&fit=crop&w=1000&q=80" alt="Smartphone"><div class="label"><b>Tech</b><span>Mehr entdecken.</span></div></a></div></div></section>
 
-  <main>
-    <section class="max-w-7xl mx-auto px-5 md:px-8 pt-16 md:pt-24 pb-14 md:pb-20">
-      <div class="max-w-5xl mx-auto text-center">
-        <div class="inline-flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-400/[0.055] px-3 py-1 text-xs font-semibold text-emerald-300 mb-7">
-          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-          Produkte verstehen statt Marketing durchsuchen
-        </div>
-        <h1 class="text-5xl md:text-7xl lg:text-8xl font-black tracking-[-0.06em] leading-[.95] mb-7">
-          Finde das Produkt,<br><span class="text-slate-400">das wirklich zu dir passt.</span>
-        </h1>
-        <p class="max-w-3xl mx-auto text-lg md:text-xl leading-relaxed text-slate-400 mb-10">
-          Vergleiche Produkte, Eigenschaften und Angebote schnell und übersichtlich. AuraGlobal bringt die wichtigsten Unterschiede auf den Punkt.
-        </p>
+<section id="discover" class="section"><div class="shell"><div class="section-head"><div><div class="kicker">Gerade live</div><h2>Scroll rein. Vergleich schneller.</h2></div><p>Große Bilder zuerst, klare Unterschiede direkt danach. Der erste Live-Bereich zeigt, wie AuraGlobal V2 künftig auf jede Produktkategorie skaliert.</p></div><div class="rail">
+<a class="card" href="/tenways.html#cgo600"><div class="card-media product"><span class="pill green">Leicht & clean</span><img src="https://www.tenways.com/cdn/shop/files/Greygreen-1_1500x.webp?v=1758781276" alt="TENWAYS CGO600"></div><div class="card-body"><h3>CGO600</h3><p>Für Stadt, wenig Gewicht und möglichst wenig Wartungsstress.</p><div class="price">ab 1.099 €*</div><div class="meta"><span>ca. 15 kg</span><span>Riemen</span><span>City</span></div></div></a>
+<a class="card" href="/tenways.html#cgo600-pro"><div class="card-media product"><span class="pill green">Allround City</span><img src="https://www.tenways.com/cdn/shop/files/willow_mist-1_1500x.webp?v=1775096126" alt="TENWAYS CGO600 Pro"></div><div class="card-body"><h3>CGO600 Pro</h3><p>Mehr Reichweite, herausnehmbarer Akku und starkes Pendlerpaket.</p><div class="price">1.699 €*</div><div class="meta"><span>bis 100 km</span><span>Akku entnehmbar</span><span>Pendeln</span></div></div></a>
+<a class="card" href="/tenways.html#cgo800s"><div class="card-media product"><span class="pill">Komfort</span><img src="https://www.tenways.com/cdn/shop/files/1_9509765f-8235-4b62-8710-4d6a1d7bb8b2_1500x.webp?v=1788247075" alt="TENWAYS CGO800S"></div><div class="card-body"><h3>CGO800S</h3><p>Aufrechter, komfortabler und entspannter für den täglichen Stadtverkehr.</p><div class="price">1.799 €*</div><div class="meta"><span>Federgabel</span><span>Durchstieg</span><span>Komfort</span></div></div></a>
+<a class="card" href="/urwahn.html"><div class="card-media"><span class="pill">Nächster Vergleich</span><img src="https://images.unsplash.com/photo-1687662604688-0ead112c346a?auto=format&fit=crop&w=1400&q=82" alt="Modernes Setup"></div><div class="card-body"><h3>Weiter entdecken</h3><p>AuraGlobal endet nicht beim ersten Produkt. Genau hier beginnt der Discovery-Loop.</p><div class="meta"><span>Vergleiche</span><span>Welten</span><span>Setups</span></div></div></a>
+</div><div class="notice">* Preise und Verfügbarkeit können sich ändern. Maßgeblich sind die Angaben des jeweiligen Anbieters.</div></div></section>
 
-        <div id="suche" class="relative max-w-3xl mx-auto">
-          <div class="search-glow flex items-center gap-3 rounded-2xl border border-slate-700 bg-slate-900/90 p-2 transition">
-            <svg class="w-5 h-5 ml-3 text-slate-500 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
-            <input id="searchInput" type="search" autocomplete="off" placeholder="Was möchtest du vergleichen? Produkt, Marke oder Kategorie …" class="w-full bg-transparent py-3 text-base md:text-lg text-white placeholder:text-slate-500 outline-none" />
-            <button id="searchButton" class="hidden sm:inline-flex rounded-xl bg-white px-5 py-3 font-bold text-slate-950 hover:bg-slate-200 transition">Suchen</button>
-          </div>
-          <div id="searchResults" class="hidden absolute left-0 right-0 top-full mt-2 rounded-2xl border border-slate-800 bg-slate-950 shadow-2xl overflow-hidden text-left z-20"></div>
-        </div>
+<section id="worlds" class="section"><div class="shell"><div class="section-head"><div><div class="kicker">Produktwelten</div><h2>Nicht nur suchen. Auf Ideen kommen.</h2></div><p>Der nächste Wachstumsschritt: Interessen verbinden. Ein Produkt führt logisch zur nächsten relevanten Produktwelt.</p></div><div class="world-grid">
+<a class="world big" href="/e-bikes.html"><img src="https://www.tenways.com/cdn/shop/files/willow_mist-1_1500x.webp?v=1775096126" alt="E-Bike"><div class="world-copy"><small>Mobilität</small><h3>E-Bikes, die zu deinem Alltag passen.</h3></div></a>
+<a class="world" href="#"><img src="https://images.unsplash.com/photo-1758523670739-0d26a3ee976d?auto=format&fit=crop&w=1200&q=82" alt="Haushalt und Reinigung"><div class="world-copy"><small>Bald live</small><h3>Haushalt & Reinigung</h3></div></a>
+<a class="world" href="#"><img src="https://images.unsplash.com/photo-1774767701234-408f546ce52f?auto=format&fit=crop&w=1200&q=82" alt="Smartphone"><div class="world-copy"><small>Bald live</small><h3>Smartphones & Tech</h3></div></a>
+<a class="world" href="#"><img src="https://images.unsplash.com/photo-1755436612165-56c6bfa5218b?auto=format&fit=crop&w=1200&q=82" alt="Home Office"><div class="world-copy"><small>Bald live</small><h3>Home Office</h3></div></a>
+<a class="world" href="#"><img src="https://images.unsplash.com/photo-1687662604688-0ead112c346a?auto=format&fit=crop&w=1200&q=82" alt="Setup und Monitore"><div class="world-copy"><small>Bald live</small><h3>Monitore & Setups</h3></div></a>
+</div></div></section>
 
-        <div class="mt-5 flex flex-wrap justify-center gap-2 text-xs text-slate-500">
-          <span>Beliebt:</span>
-          <button class="quick-search hover:text-white transition" data-query="E-Bikes">E-Bikes</button>
-          <span>·</span>
-          <button class="quick-search hover:text-white transition" data-query="TENWAYS">TENWAYS</button>
-          <span>·</span>
-          <button class="quick-search hover:text-white transition" data-query="URWAHN">URWAHN</button>
-        </div>
-      </div>
-    </section>
-
-    <section id="kategorien" class="max-w-7xl mx-auto px-5 md:px-8 py-14 md:py-20">
-      <div class="flex items-end justify-between gap-6 mb-8">
-        <div>
-          <p class="text-emerald-400 text-xs font-bold uppercase tracking-[.18em] mb-2">Kategorien</p>
-          <h2 class="text-3xl md:text-4xl font-bold tracking-tight">Ein Portal. Viele Kaufentscheidungen.</h2>
-        </div>
-        <p class="hidden md:block max-w-md text-sm text-slate-500 text-right">Die Struktur ist von Anfang an für viele Kategorien, Marken und Produkte aufgebaut.</p>
-      </div>
-
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        <a href="/e-bikes.html" class="soft-card group rounded-3xl border border-emerald-400/30 p-6 md:p-7 hover:border-emerald-400/60 transition">
-          <div class="flex items-start justify-between gap-4 mb-8">
-            <div class="w-12 h-12 rounded-2xl bg-emerald-400/10 flex items-center justify-center text-2xl">🚲</div>
-            <span class="rounded-full border border-emerald-400/20 bg-emerald-400/[.06] px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-emerald-300">Live</span>
-          </div>
-          <h3 class="text-xl font-bold mb-2">E-Bikes</h3>
-          <p class="text-sm leading-relaxed text-slate-500 mb-5">City, Gravel und Pendler-E-Bikes nach Preis, Gewicht, Komfort und Einsatz vergleichen.</p>
-          <span class="text-sm font-semibold text-white group-hover:text-emerald-300 transition">Kategorie öffnen →</span>
-        </a>
-
-        <div class="soft-card rounded-3xl border border-slate-800 p-6 md:p-7">
-          <div class="flex items-start justify-between gap-4 mb-8"><div class="w-12 h-12 rounded-2xl bg-slate-800/70 flex items-center justify-center text-2xl">📱</div><span class="text-[10px] font-bold uppercase tracking-wider text-slate-600">Als Nächstes</span></div>
-          <h3 class="text-xl font-bold mb-2">Smartphones</h3><p class="text-sm leading-relaxed text-slate-500">Modelle, Kameras, Akkus, Speicher und Preise direkt vergleichbar.</p>
-        </div>
-        <div class="soft-card rounded-3xl border border-slate-800 p-6 md:p-7">
-          <div class="flex items-start justify-between gap-4 mb-8"><div class="w-12 h-12 rounded-2xl bg-slate-800/70 flex items-center justify-center text-2xl">💻</div><span class="text-[10px] font-bold uppercase tracking-wider text-slate-600">Geplant</span></div>
-          <h3 class="text-xl font-bold mb-2">Laptops</h3><p class="text-sm leading-relaxed text-slate-500">Leistung, Display, Akku und Preis für Arbeit, Studium und Gaming.</p>
-        </div>
-        <div class="soft-card rounded-3xl border border-slate-800 p-6 md:p-7">
-          <div class="flex items-start justify-between gap-4 mb-8"><div class="w-12 h-12 rounded-2xl bg-slate-800/70 flex items-center justify-center text-2xl">📺</div><span class="text-[10px] font-bold uppercase tracking-wider text-slate-600">Geplant</span></div>
-          <h3 class="text-xl font-bold mb-2">TV & Entertainment</h3><p class="text-sm leading-relaxed text-slate-500">Größe, Panel, Bildqualität und Ausstattung verständlich gegenübergestellt.</p>
-        </div>
-        <div class="soft-card rounded-3xl border border-slate-800 p-6 md:p-7">
-          <div class="flex items-start justify-between gap-4 mb-8"><div class="w-12 h-12 rounded-2xl bg-slate-800/70 flex items-center justify-center text-2xl">🎧</div><span class="text-[10px] font-bold uppercase tracking-wider text-slate-600">Geplant</span></div>
-          <h3 class="text-xl font-bold mb-2">Audio</h3><p class="text-sm leading-relaxed text-slate-500">Kopfhörer und Lautsprecher nach Klang, Features und Preis einordnen.</p>
-        </div>
-        <div class="soft-card rounded-3xl border border-slate-800 p-6 md:p-7">
-          <div class="flex items-start justify-between gap-4 mb-8"><div class="w-12 h-12 rounded-2xl bg-slate-800/70 flex items-center justify-center text-2xl">🏠</div><span class="text-[10px] font-bold uppercase tracking-wider text-slate-600">Geplant</span></div>
-          <h3 class="text-xl font-bold mb-2">Haushalt</h3><p class="text-sm leading-relaxed text-slate-500">Geräte nach Nutzen, Ausstattung, Effizienz und Preis vergleichen.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="vergleiche" class="max-w-7xl mx-auto px-5 md:px-8 py-14 md:py-20">
-      <div class="mb-8">
-        <p class="text-emerald-400 text-xs font-bold uppercase tracking-[.18em] mb-2">Aktuell live</p>
-        <h2 class="text-3xl md:text-4xl font-bold tracking-tight">Vergleiche, die du schon nutzen kannst.</h2>
-      </div>
-      <div class="grid md:grid-cols-2 gap-5">
-        <a href="/tenways.html" class="soft-card group rounded-3xl border border-slate-800 p-7 md:p-8 hover:border-slate-600 transition">
-          <div class="text-[11px] uppercase tracking-[.18em] text-emerald-400 mb-3">E-Bikes · TENWAYS</div>
-          <h3 class="text-2xl md:text-3xl font-black tracking-tight mb-3">CGO600 vs. CGO600 Pro vs. CGO800S</h3>
-          <p class="text-slate-500 leading-relaxed mb-7">Drei City-E-Bikes für unterschiedliche Prioritäten bei Gewicht, Komfort, Ausstattung und Preis.</p>
-          <span class="font-semibold group-hover:text-emerald-300 transition">TENWAYS vergleichen →</span>
-        </a>
-        <a href="/urwahn.html" class="soft-card group rounded-3xl border border-slate-800 p-7 md:p-8 hover:border-slate-600 transition">
-          <div class="text-[11px] uppercase tracking-[.18em] text-emerald-400 mb-3">E-Bikes · URWAHN</div>
-          <h3 class="text-2xl md:text-3xl font-black tracking-tight mb-3">STADTFUCHS vs. WALDWIESEL</h3>
-          <p class="text-slate-500 leading-relaxed mb-7">Urbanes Pendeln oder Gravel und Touren: zwei Premium-E-Bikes mit unterschiedlichen Einsatzprofilen.</p>
-          <span class="font-semibold group-hover:text-emerald-300 transition">URWAHN vergleichen →</span>
-        </a>
-      </div>
-    </section>
-
-    <section id="so-funktionierts" class="max-w-7xl mx-auto px-5 md:px-8 py-14 md:py-20">
-      <div class="rounded-[2rem] border border-slate-800 bg-slate-900/35 p-7 md:p-10 lg:p-12">
-        <div class="max-w-3xl mb-10">
-          <p class="text-emerald-400 text-xs font-bold uppercase tracking-[.18em] mb-2">So funktioniert AuraGlobal</p>
-          <h2 class="text-3xl md:text-4xl font-bold tracking-tight">Von hundert Datenpunkten zu einer klaren Entscheidung.</h2>
-        </div>
-        <div class="grid md:grid-cols-3 gap-5">
-          <div class="rounded-2xl border border-slate-800 bg-slate-950/50 p-6"><div class="text-xs font-black text-emerald-400 mb-5">01</div><h3 class="font-bold text-lg mb-2">Suchen</h3><p class="text-sm text-slate-500 leading-relaxed">Kategorie, Marke oder Produkt finden – ohne durch Shops und Werbeseiten springen zu müssen.</p></div>
-          <div class="rounded-2xl border border-slate-800 bg-slate-950/50 p-6"><div class="text-xs font-black text-emerald-400 mb-5">02</div><h3 class="font-bold text-lg mb-2">Vergleichen</h3><p class="text-sm text-slate-500 leading-relaxed">Die wichtigsten Unterschiede bei Preis, Ausstattung, Nutzung und technischen Daten direkt sehen.</p></div>
-          <div class="rounded-2xl border border-slate-800 bg-slate-950/50 p-6"><div class="text-xs font-black text-emerald-400 mb-5">03</div><h3 class="font-bold text-lg mb-2">Entscheiden</h3><p class="text-sm text-slate-500 leading-relaxed">Passende Option auswählen und für Preis, Verfügbarkeit und Kauf zum jeweiligen Anbieter wechseln.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="max-w-7xl mx-auto px-5 md:px-8 py-14 md:py-20">
-      <div class="grid lg:grid-cols-[1fr_.9fr] gap-10 items-start">
-        <div><p class="text-emerald-400 text-xs font-bold uppercase tracking-[.18em] mb-2">Unser Ansatz</p><h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-5">Weniger Hype. Mehr Vergleichbarkeit.</h2><p class="text-slate-400 leading-relaxed max-w-2xl">AuraGlobal verkauft die Produkte nicht selbst. Wir strukturieren öffentlich verfügbare Produktinformationen so, dass Unterschiede schneller erkennbar werden. Preise und Verfügbarkeit können sich ändern; maßgeblich sind die Angaben beim jeweiligen Anbieter.</p></div>
-        <div class="rounded-3xl border border-slate-800 bg-slate-900/35 p-7 text-sm text-slate-500 leading-relaxed"><strong class="text-slate-300">Affiliate-Hinweis:</strong> Einige Links zu Händlern oder Herstellern sind Werbelinks. Wenn du darüber kaufst, können wir eine Provision erhalten. Für dich entstehen dadurch keine Mehrkosten.</div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="border-t border-slate-800/80 mt-8">
-    <div class="max-w-7xl mx-auto px-5 md:px-8 py-9 flex flex-col md:flex-row justify-between gap-5 text-xs text-slate-500">
-      <div>© 2026 AuraGlobal · Produkte vergleichen. Besser entscheiden.</div>
-      <div class="flex flex-wrap gap-5"><a href="/impressum.html" class="hover:text-white">Impressum</a><a href="/datenschutz.html" class="hover:text-white">Datenschutz</a><a href="/affiliate-disclosure.html" class="hover:text-white">Affiliate-Hinweis</a></div>
-    </div>
-  </footer>
-
-  <script>
-    const catalog = [
-      {name:'E-Bikes', type:'Kategorie', href:'/e-bikes.html', keywords:'ebike e-bike fahrrad city gravel pendeln'},
-      {name:'TENWAYS E-Bikes', type:'Vergleich', href:'/tenways.html', keywords:'tenways cgo600 cgo600 pro cgo800s city ebike'},
-      {name:'URWAHN STADTFUCHS vs. WALDWIESEL', type:'Vergleich', href:'/urwahn.html', keywords:'urwahn stadtfuchs waldwiesel gravel city ebike'}
-    ];
-    const input = document.getElementById('searchInput');
-    const results = document.getElementById('searchResults');
-    const button = document.getElementById('searchButton');
-
-    function runSearch(value){
-      const q = value.trim().toLowerCase();
-      if(!q){ results.classList.add('hidden'); return; }
-      const matches = catalog.filter(item => (item.name+' '+item.keywords).toLowerCase().includes(q));
-      results.innerHTML = matches.length ? matches.map(item => `
-        <a href="${item.href}" class="flex items-center justify-between gap-4 px-5 py-4 border-b border-slate-800 last:border-0 hover:bg-slate-900 transition">
-          <div><div class="font-semibold text-slate-100">${item.name}</div><div class="text-xs text-slate-500 mt-1">${item.type}</div></div><span class="text-slate-600">→</span>
-        </a>`).join('') : `<div class="px-5 py-5"><div class="font-semibold">Noch kein direkter Treffer.</div><div class="text-sm text-slate-500 mt-1">Diese Kategorie ist noch nicht live. AuraGlobal wird Schritt für Schritt erweitert.</div></div>`;
-      results.classList.remove('hidden');
-    }
-    input.addEventListener('input', e => runSearch(e.target.value));
-    input.addEventListener('keydown', e => { if(e.key === 'Enter'){ const q=input.value.trim().toLowerCase(); const match=catalog.find(item => (item.name+' '+item.keywords).toLowerCase().includes(q)); if(match) location.href=match.href; else runSearch(input.value); }});
-    button.addEventListener('click', () => { const q=input.value.trim().toLowerCase(); const match=catalog.find(item => (item.name+' '+item.keywords).toLowerCase().includes(q)); if(match) location.href=match.href; else runSearch(input.value); });
-    document.querySelectorAll('.quick-search').forEach(el => el.addEventListener('click', () => { input.value=el.dataset.query; runSearch(input.value); input.focus(); }));
-    document.addEventListener('click', e => { if(!e.target.closest('#suche')) results.classList.add('hidden'); });
-  </script>
-</body>
-</html>
+<section class="section"><div class="shell"><div class="section-head"><div><div class="kicker">AuraGlobal Prinzip</div><h2>Ein Interesse öffnet die nächste Welt.</h2></div><p>Der Feed soll relevant weiterführen – nicht mit zufälligen Bannern, sondern mit nachvollziehbaren nächsten Kaufentscheidungen.</p></div><div class="feed">
+<div class="feed-row"><div class="feed-media"><img src="https://images.unsplash.com/photo-1758523670739-0d26a3ee976d?auto=format&fit=crop&w=1500&q=84" alt="Staubsauger in modernem Zuhause"></div><div class="feed-copy"><div class="kicker">Beispiel Haushalt</div><h3>Du vergleichst Staubsauger. Danach wird dein Zuhause zur Produktwelt.</h3><p>Dyson-Modelle vergleichen, anschließend Luftreiniger, Smart-Home, Möbel oder Reinigungshelfer entdecken – wenn es thematisch wirklich passt.</p><a class="inline-link" href="#">Vertical in Vorbereitung <span>→</span></a></div></div>
+<div class="feed-row"><div class="feed-media"><img src="https://images.unsplash.com/photo-1755436612165-56c6bfa5218b?auto=format&fit=crop&w=1500&q=84" alt="Home Office Setup"></div><div class="feed-copy"><div class="kicker">Beispiel Setup</div><h3>Ein Tisch wird zum kompletten Workspace.</h3><p>Tisch → Monitor → Licht → Stuhl → Audio → Kabelmanagement. So entsteht echte Inspiration statt einer Sackgasse nach dem ersten Klick.</p><a class="inline-link" href="#">Home Office kommt als nächstes <span>→</span></a></div></div>
+</div></div></section>
+</main>
+<footer class="footer"><div class="shell"><div>© 2026 AuraGlobal · Produktbilder TENWAYS; Lifestyle-Bilder via Unsplash.</div><div class="footer-links"><a href="/impressum.html">Impressum</a><a href="/datenschutz.html">Datenschutz</a><a href="/affiliate-disclosure.html">Affiliate-Hinweis</a></div></div></footer><script src="/aura-v2.js"></script></body></html>
