@@ -35,3 +35,23 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;bac
 
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:8px}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+
+/* image-led commerce polish */
+.gallery-grid{display:grid;grid-template-columns:1.3fr .7fr .7fr;grid-template-rows:240px 240px;gap:14px}
+.gallery-item{position:relative;overflow:hidden;border-radius:26px;border:1px solid var(--line);background:#0b111b;min-height:220px}
+.gallery-item.big{grid-row:span 2}
+.gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .55s ease}
+.gallery-item.product-shot img{object-fit:contain;padding:24px;background:radial-gradient(circle at 50% 45%,rgba(94,240,178,.08),transparent 56%),#0b111b}
+.gallery-item:hover img{transform:scale(1.035)}
+.gallery-item:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 48%,rgba(3,6,11,.86))}
+.gallery-copy{position:absolute;z-index:2;left:18px;right:18px;bottom:16px}
+.gallery-copy b{display:block;font-size:18px;letter-spacing:-.025em}.gallery-copy span{display:block;color:#c4ccd8;font-size:11px;margin-top:4px}
+.emotion-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.emotion-card{position:relative;overflow:hidden;border-radius:26px;border:1px solid var(--line);min-height:320px;background:#0b111b}
+.emotion-card img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.emotion-card:hover img{transform:scale(1.035)}
+.emotion-card:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.02),rgba(2,5,10,.88))}
+.emotion-card .copy{position:absolute;z-index:2;left:20px;right:20px;bottom:18px}.emotion-card .copy small{color:var(--accent);font-weight:800;text-transform:uppercase;letter-spacing:.13em}.emotion-card .copy h3{font-size:25px;margin:6px 0 0;letter-spacing:-.035em}
+.product-stage.two{grid-template-columns:repeat(2,1fr)}
+@media(max-width:900px){.gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:320px 220px 220px}.gallery-item.big{grid-column:span 2;grid-row:auto}.emotion-strip{grid-template-columns:1fr 1fr}.product-stage.two{grid-template-columns:1fr}}
+@media(max-width:620px){.gallery-grid{grid-template-columns:1fr;grid-template-rows:none}.gallery-item.big{grid-column:auto}.gallery-item{height:260px}.gallery-item.big{height:340px}.emotion-strip{grid-template-columns:1fr}.emotion-card{min-height:300px}}
