@@ -55,3 +55,13 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;bac
 .product-stage.two{grid-template-columns:repeat(2,1fr)}
 @media(max-width:900px){.gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:320px 220px 220px}.gallery-item.big{grid-column:span 2;grid-row:auto}.emotion-strip{grid-template-columns:1fr 1fr}.product-stage.two{grid-template-columns:1fr}}
 @media(max-width:620px){.gallery-grid{grid-template-columns:1fr;grid-template-rows:none}.gallery-item.big{grid-column:auto}.gallery-item{height:260px}.gallery-item.big{height:340px}.emotion-strip{grid-template-columns:1fr}.emotion-card{min-height:300px}}
+
+.emotion-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:16px}
+.emotion-card{position:relative;margin:0;min-height:390px;border:1px solid var(--line);border-radius:28px;overflow:hidden;background:#0b1019}
+.emotion-card img{width:100%;height:100%;object-fit:cover}
+.emotion-card:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(3,6,10,.9))}
+.emotion-card figcaption{position:absolute;left:22px;right:22px;bottom:20px;z-index:2}
+.emotion-card figcaption b{display:block;font-size:25px;letter-spacing:-.03em}
+.emotion-card figcaption span{display:block;color:#c7ced9;font-size:13px;margin-top:4px}
+.stage-img img[src*="urwahn.com"]{filter:drop-shadow(0 24px 32px rgba(0,0,0,.32))}
+@media(max-width:760px){.emotion-grid{grid-template-columns:1fr}.emotion-card{min-height:300px}}
