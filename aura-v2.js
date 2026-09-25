@@ -1,15 +1,78 @@
 const catalog=[
-  {title:'E-Bikes',type:'Kategorie',href:'/e-bikes.html',tags:'ebike e-bike fahrrad bike city'},
+  {title:'E-Bikes',type:'Kategorie',href:'/e-bikes.html',tags:'ebike e-bike fahrrad bike city mobilität'},
+  {title:'TENWAYS Vergleich',type:'Vergleich',href:'/tenways.html',tags:'tenways cgo600 cgo600 pro cgo800s city pendeln komfort'},
   {title:'TENWAYS CGO600',type:'Produkt',href:'/tenways.html#cgo600',tags:'tenways leicht city ebike'},
-  {title:'TENWAYS CGO600 Pro',type:'Produkt',href:'/tenways.html#cgo600-pro',tags:'tenways pendler reichweite'},
-  {title:'TENWAYS CGO800S',type:'Produkt',href:'/tenways.html#cgo800s',tags:'tenways komfort ebike'},
-  {title:'TENWAYS Vergleich',type:'Vergleich',href:'/tenways.html',tags:'tenways vergleich'},
-  {title:'URWAHN',type:'Vergleich',href:'/urwahn.html',tags:'urwahn stadtfuchs waldwiesel'},
-  {title:'OutIn Nano vs Mino',type:'Vergleich',href:'/outin.html',tags:'outin nano mino espresso kaffee portable reise'},
-  {title:'DEKVIO Leder & Reise',type:'Partner',href:'/dekvio.html',tags:'dekvio leder tasche rucksack reise laptop'},
-  {title:'URWAHN STADTFUCHS',type:'Produkt',href:'/urwahn.html',tags:'urwahn stadtfuchs city urban ebike'},
-  {title:'URWAHN WALDWIESEL',type:'Produkt',href:'/urwahn.html',tags:'urwahn waldwiesel gravel adventure ebike'}
+  {title:'TENWAYS CGO600 Pro',type:'Produkt',href:'/tenways.html#cgo600-pro',tags:'tenways pendler reichweite akku'},
+  {title:'TENWAYS CGO800S',type:'Produkt',href:'/tenways.html#cgo800s',tags:'tenways komfort durchstieg federgabel'},
+  {title:'URWAHN',type:'Vergleich',href:'/urwahn.html',tags:'urwahn stadtfuchs waldwiesel urban gravel ebike'},
+  {title:'OutIn Nano vs Mino',type:'Vergleich',href:'/outin.html',tags:'outin nano mino espresso kaffee portable reise camping'},
+  {title:'DEKVIO Leder & Reise',type:'Partner',href:'/dekvio.html',tags:'dekvio leder tasche rucksack reise laptop work travel'}
 ];
-function initSearch(){const input=document.querySelector('[data-search]'),out=document.querySelector('[data-results]');if(!input||!out)return;function render(q){q=q.trim().toLowerCase();if(!q){out.style.display='none';return;}const hits=catalog.filter(x=>(x.title+' '+x.tags).toLowerCase().includes(q)).slice(0,6);out.innerHTML=hits.length?hits.map(x=>`<a class="result" href="${x.href}"><b>${x.title}</b><small>${x.type}</small></a>`).join(''):`<div class="result"><b>Noch nicht im Katalog</b><small>Wir bauen laufend neue Kategorien.</small></div>`;out.style.display='block';}input.addEventListener('input',e=>render(e.target.value));document.addEventListener('click',e=>{if(!out.contains(e.target)&&e.target!==input)out.style.display='none'});document.querySelectorAll('[data-query]').forEach(b=>b.addEventListener('click',()=>{input.value=b.dataset.query;render(input.value);input.focus()}));}
-function initReveal(){const els=[...document.querySelectorAll('.card,.world,.feed-row,.stage-card,.choice')];if(!('IntersectionObserver'in window))return;els.forEach(el=>{el.style.opacity='.001';el.style.transform='translateY(18px)'});const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.style.transition='opacity .5s ease, transform .5s ease, border-color .25s ease';e.target.style.opacity='1';e.target.style.transform='translateY(0)';io.unobserve(e.target)}}),{threshold:.08});els.forEach(el=>io.observe(el));}
+
+function getHits(query){
+  const q=query.trim().toLowerCase();
+  if(!q) return [];
+  return catalog
+    .map(item=>{
+      const hay=(item.title+' '+item.tags).toLowerCase();
+      const score=(item.title.toLowerCase().startsWith(q)?3:0)+(item.title.toLowerCase().includes(q)?2:0)+(hay.includes(q)?1:0);
+      return {...item,score};
+    })
+    .filter(x=>x.score>0)
+    .sort((a,b)=>b.score-a.score)
+    .slice(0,6);
+}
+
+function initSearch(){
+  const input=document.querySelector('[data-search]');
+  const out=document.querySelector('[data-results]');
+  if(!input||!out) return;
+  const button=input.closest('.searchbox')?.querySelector('button');
+
+  function render(q){
+    const hits=getHits(q);
+    if(!q.trim()){out.style.display='none';return hits;}
+    out.innerHTML=hits.length
+      ?hits.map(x=>`<a class="result" href="${x.href}"><b>${x.title}</b><small>${x.type}</small></a>`).join('')
+      :'<div class="result"><b>Noch nicht im Katalog</b><small>Weitere Kategorien folgen laufend.</small></div>';
+    out.style.display='block';
+    return hits;
+  }
+
+  function go(){
+    const hits=render(input.value);
+    if(hits.length===1) window.location.href=hits[0].href;
+  }
+
+  input.addEventListener('input',e=>render(e.target.value));
+  input.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();go()}});
+  button?.addEventListener('click',go);
+
+  document.addEventListener('click',e=>{
+    if(!out.contains(e.target)&&e.target!==input&&e.target!==button) out.style.display='none';
+  });
+
+  document.querySelectorAll('[data-query]').forEach(el=>el.addEventListener('click',()=>{
+    input.value=el.dataset.query||'';
+    render(input.value);
+    input.focus();
+    document.getElementById('search')?.scrollIntoView({behavior:'smooth',block:'center'});
+  }));
+}
+
+function initReveal(){
+  if(!('IntersectionObserver' in window)) return;
+  const els=[...document.querySelectorAll('.card,.world,.feed-row,.stage-card,.choice,.feature,.stat,.cta-banner')];
+  els.forEach(el=>{el.style.opacity='.001';el.style.transform='translateY(16px)'});
+  const io=new IntersectionObserver(entries=>entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.style.transition='opacity .5s ease, transform .5s ease, border-color .25s ease';
+      entry.target.style.opacity='1';
+      entry.target.style.transform='translateY(0)';
+      io.unobserve(entry.target);
+    }
+  }),{threshold:.08});
+  els.forEach(el=>io.observe(el));
+}
+
 document.addEventListener('DOMContentLoaded',()=>{initSearch();initReveal();});
