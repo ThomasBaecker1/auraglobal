@@ -4,7 +4,9 @@ const catalog=[
   {title:'TENWAYS CGO600 Pro',type:'Produkt',href:'/tenways.html#cgo600-pro',tags:'tenways pendler reichweite'},
   {title:'TENWAYS CGO800S',type:'Produkt',href:'/tenways.html#cgo800s',tags:'tenways komfort ebike'},
   {title:'TENWAYS Vergleich',type:'Vergleich',href:'/tenways.html',tags:'tenways vergleich'},
-  {title:'URWAHN',type:'Vergleich',href:'/urwahn.html',tags:'urwahn stadfuchs waldwiesel'},
+  {title:'URWAHN',type:'Vergleich',href:'/urwahn.html',tags:'urwahn stadtfuchs waldwiesel'},
+  {title:'OutIn Nano vs Mino',type:'Vergleich',href:'/outin.html',tags:'outin nano mino espresso kaffee portable reise'},
+  {title:'DEKVIO Leder & Reise',type:'Partner',href:'/dekvio.html',tags:'dekvio leder tasche rucksack reise laptop'},
   {title:'URWAHN STADTFUCHS',type:'Produkt',href:'/urwahn.html',tags:'urwahn stadtfuchs city urban ebike'},
   {title:'URWAHN WALDWIESEL',type:'Produkt',href:'/urwahn.html',tags:'urwahn waldwiesel gravel adventure ebike'}
 ];
