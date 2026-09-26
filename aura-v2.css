@@ -305,3 +305,37 @@ html,body{max-width:100%;overflow-x:hidden}
   .fc3{height:128px}
   .universe-hero{min-height:460px}
 }
+
+
+/* cleanliness pass v4 — stable text flow, consistent cards, less visual noise */
+:where(h1,h2,h3,p,.label,.copy,.world-copy,.universe-card-copy,.visual-break-copy){overflow-wrap:anywhere}
+:where(h1,h2,.section-head h2,.universe-copy h2,.cta-banner h2){text-wrap:balance}
+.hero-grid,.section-head,.feed-row,.brand-hero,.product-stage,.choice-grid,.feature-grid,.world-grid,.universe-grid{min-width:0}
+.hero-grid>*,.section-head>*,.feed-row>*,.brand-hero>*,.product-stage>*,.choice-grid>*,.feature-grid>*{min-width:0}
+.float-card .label b,.float-card .label span{display:block;max-width:100%}
+.float-card .label b{line-height:1.08}.float-card .label span{line-height:1.35}
+.card-body,.feed-copy,.brand-hero-copy,.feature,.choice{min-width:0}
+.card p,.feature p,.choice p,.section-head p{hyphens:auto}
+.universe-card,.world,.emotion-card,.card,.partner-card,.stage-card{isolation:isolate}
+.universe-card img,.world img,.emotion-card img,.card-media img,.partner-card img,.stage-img img{backface-visibility:hidden}
+.rail{overscroll-behavior-inline:contain}
+.searchbox{min-height:64px}
+.searchbox input{width:100%}
+@media(min-width:1081px) and (max-width:1240px){
+  .shell{max-width:1120px}
+  .hero-grid{grid-template-columns:1.04fr .96fr;gap:34px}
+  .hero h1{font-size:clamp(58px,6.5vw,78px)}
+  .hero-stack{min-height:480px}
+  .fc1{height:310px}.fc2{height:255px}.fc3{height:190px}
+}
+@media(max-width:900px){
+  .section-head{align-items:flex-start}
+  .brand-proof-inner{overflow:hidden}
+}
+@media(max-width:620px){
+  .searchbox{min-height:58px;padding:7px}
+  .searchbox input{padding:12px 11px}
+  .trustbar{gap:8px}
+  .trustitem{border-radius:14px}
+  .universe-card,.world,.emotion-card,.card,.partner-card,.stage-card{border-radius:20px}
+}
