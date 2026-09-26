@@ -438,3 +438,16 @@ section[id]{scroll-margin-top:86px}
 .video-card.is-playing>img,.video-card.is-playing>.video-shade,.video-card.is-playing>.video-play,.video-card.is-playing>.video-copy{display:none}
 @media(max-width:900px){.motion-grid{grid-template-columns:1fr}.video-card,.video-card-wide{min-height:420px}}
 @media(max-width:620px){.video-card,.video-card-wide{min-height:310px;border-radius:22px}.video-play{width:58px;height:58px;font-size:18px}.video-copy{left:18px;right:18px;bottom:17px}.video-copy b{font-size:24px}}
+
+
+/* discoverability polish v12 — make the expanded comparison rail obvious */
+.rail-toolbar{display:flex;align-items:center;justify-content:space-between;gap:14px;margin:-4px 0 12px;color:#78859a;font-size:11px;font-weight:800;letter-spacing:.04em;text-transform:uppercase}
+.rail-buttons{display:flex;gap:7px}
+.rail-buttons button{width:36px;height:36px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.03);color:#dbe2ec;font-size:17px;cursor:pointer;transition:transform .18s ease,border-color .18s ease,background .18s ease}
+.rail-buttons button:hover{transform:translateY(-1px);border-color:rgba(94,240,178,.28);background:rgba(94,240,178,.06)}
+.rail-buttons button:disabled{opacity:.35;cursor:default;transform:none}
+[data-live-rail]{scroll-behavior:smooth}
+@media(max-width:620px){
+  .rail-toolbar{margin-top:-2px;font-size:9px}
+  .rail-buttons button{width:34px;height:34px;border-radius:11px}
+}
