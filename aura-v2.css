@@ -347,3 +347,12 @@ html,body{max-width:100%;overflow-x:hidden}
   .hero,.topbar{content-visibility:visible}
 }
 img{content-visibility:auto}
+
+
+/* conversion-flow pass v6 — quicker path from hero to real comparisons */
+section[id]{scroll-margin-top:86px}
+.brand-proof-label{color:#aaffd7}
+#discover{padding-top:46px}
+#discover .rail{scroll-padding-inline:2px}
+#discover .card:first-child{border-color:rgba(94,240,178,.18)}
+@media(max-width:620px){#discover{padding-top:34px}.brand-proof-note{color:#7d899c}}
