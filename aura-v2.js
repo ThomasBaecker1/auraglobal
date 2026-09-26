@@ -100,3 +100,30 @@ function initVideos(){
   });
 }
 document.addEventListener('DOMContentLoaded',initVideos);
+
+
+function initRailControls(){
+  const rail=document.querySelector('[data-live-rail]');
+  const prev=document.querySelector('[data-rail-prev]');
+  const next=document.querySelector('[data-rail-next]');
+  if(!rail||!prev||!next) return;
+
+  const step=()=>{
+    const card=rail.querySelector('.card');
+    if(!card) return Math.max(280,rail.clientWidth*.75);
+    return card.getBoundingClientRect().width+16;
+  };
+
+  const sync=()=>{
+    const max=rail.scrollWidth-rail.clientWidth-2;
+    prev.disabled=rail.scrollLeft<=2;
+    next.disabled=rail.scrollLeft>=max;
+  };
+
+  prev.addEventListener('click',()=>rail.scrollBy({left:-step(),behavior:'smooth'}));
+  next.addEventListener('click',()=>rail.scrollBy({left:step(),behavior:'smooth'}));
+  rail.addEventListener('scroll',()=>requestAnimationFrame(sync),{passive:true});
+  window.addEventListener('resize',sync,{passive:true});
+  sync();
+}
+document.addEventListener('DOMContentLoaded',initRailControls);
