@@ -451,3 +451,18 @@ section[id]{scroll-margin-top:86px}
   .rail-toolbar{margin-top:-2px;font-size:9px}
   .rail-buttons button{width:34px;height:34px;border-radius:11px}
 }
+
+
+/* intent-first polish v13 */
+.quick{align-items:center}
+.quick-label{color:#66758a;font-size:10px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;margin-right:2px}
+.chip{cursor:pointer;transition:color .18s ease,border-color .18s ease,background .18s ease,transform .18s ease}
+.chip:hover{transform:translateY(-1px);background:rgba(255,255,255,.045)}
+.chip-all{color:#aaffd7;border-color:rgba(94,240,178,.16);background:rgba(94,240,178,.045)}
+.rail{scroll-snap-type:x proximity;overscroll-behavior-inline:contain;scrollbar-width:none}
+.rail::-webkit-scrollbar{display:none}
+.rail>.card{scroll-snap-align:start;scroll-snap-stop:normal}
+@media(max-width:620px){
+  .quick{gap:7px}
+  .quick-label{width:100%;margin:2px 0 0}
+}
