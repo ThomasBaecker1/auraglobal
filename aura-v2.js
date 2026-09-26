@@ -67,3 +67,16 @@ function initSearch(){
 }
 
 document.addEventListener('DOMContentLoaded',()=>{initSearch();});
+
+function initMobileCompareBar(){
+  const bar=document.querySelector('.mobile-compare-bar');
+  const target=document.querySelector('#discover');
+  if(!bar||!target||!('IntersectionObserver' in window)) return;
+  const observer=new IntersectionObserver(entries=>{
+    const entry=entries[0];
+    bar.classList.toggle('is-hidden',entry.isIntersecting);
+  },{threshold:.12});
+  observer.observe(target);
+}
+
+document.addEventListener('DOMContentLoaded',()=>{initMobileCompareBar();});
