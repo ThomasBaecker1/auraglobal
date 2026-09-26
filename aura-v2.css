@@ -380,3 +380,17 @@ section[id]{scroll-margin-top:86px}
   .search-helper{font-size:10px;margin-top:7px}
   .card-cta{font-size:11px}
 }
+
+
+/* premium interaction polish v9 */
+.mobile-compare-bar{transition:opacity .22s ease,transform .22s ease}
+.mobile-compare-bar.is-hidden{opacity:0;transform:translateY(18px);pointer-events:none}
+:where(a,button,input):focus-visible{outline:2px solid rgba(124,255,196,.8);outline-offset:3px}
+.card,.world,.emotion-card,.universe-card,.partner-card,.float-card{transition:border-color .18s ease,box-shadow .18s ease,transform .18s ease}
+.card:hover,.world:hover,.emotion-card:hover,.universe-card:hover,.partner-card:hover{
+  border-color:rgba(255,255,255,.14);
+  box-shadow:0 18px 50px rgba(0,0,0,.22)
+}
+@media(prefers-reduced-motion:reduce){
+  *,*:before,*:after{scroll-behavior:auto!important;transition:none!important;animation:none!important}
+}
