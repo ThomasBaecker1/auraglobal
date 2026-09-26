@@ -80,3 +80,23 @@ function initMobileCompareBar(){
 }
 
 document.addEventListener('DOMContentLoaded',()=>{initMobileCompareBar();});
+
+
+function initVideos(){
+  document.querySelectorAll('[data-youtube]').forEach(card=>{
+    card.addEventListener('click',()=>{
+      if(card.classList.contains('is-playing')) return;
+      const id=card.dataset.youtube;
+      if(!id) return;
+      const iframe=document.createElement('iframe');
+      iframe.src='https://www.youtube-nocookie.com/embed/'+encodeURIComponent(id)+'?autoplay=1&rel=0';
+      iframe.title=card.getAttribute('aria-label')||'Produktvideo';
+      iframe.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+      iframe.allowFullscreen=true;
+      iframe.loading='lazy';
+      card.classList.add('is-playing');
+      card.appendChild(iframe);
+    },{once:true});
+  });
+}
+document.addEventListener('DOMContentLoaded',initVideos);
