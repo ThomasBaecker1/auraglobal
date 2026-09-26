@@ -40,14 +40,19 @@ function initSearch(){
     if(!q.trim()){out.style.display='none';return hits;}
     out.innerHTML=hits.length
       ?hits.map(x=>`<a class="result" href="${x.href}"><b>${x.title}</b><small>${x.type}</small></a>`).join('')
-      :'<div class="result"><b>Noch nicht im Katalog</b><small>Weitere Kategorien folgen laufend.</small></div>';
+      :'<a class="result" href="#discover"><b>Noch nicht im Katalog</b><small>Alle live Vergleiche ansehen →</small></a>';
     out.style.display='block';
     return hits;
   }
 
   function go(){
-    const hits=render(input.value);
-    if(hits.length===1) window.location.href=hits[0].href;
+    const query=input.value.trim();
+    if(!query){
+      document.getElementById('discover')?.scrollIntoView({behavior:'smooth',block:'start'});
+      return;
+    }
+    const hits=render(query);
+    if(hits.length) window.location.href=hits[0].href;
   }
 
   input.addEventListener('input',e=>render(e.target.value));
