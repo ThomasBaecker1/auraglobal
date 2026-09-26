@@ -473,3 +473,8 @@ section[id]{scroll-margin-top:86px}
 .trustitem{background:linear-gradient(180deg,rgba(255,255,255,.028),rgba(255,255,255,.012));border:1px solid rgba(255,255,255,.055)}
 .trustitem b{letter-spacing:-.01em}
 .trustitem span{line-height:1.45}
+
+
+/* category-breadth polish v15 */
+#worlds .world-copy small{text-transform:uppercase;letter-spacing:.08em;font-size:10px}
+#worlds .world-copy h3{max-width:14ch}
