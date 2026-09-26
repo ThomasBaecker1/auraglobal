@@ -394,3 +394,26 @@ section[id]{scroll-margin-top:86px}
 @media(prefers-reduced-motion:reduce){
   *,*:before,*:after{scroll-behavior:auto!important;transition:none!important;animation:none!important}
 }
+
+
+/* conversion polish v10 — clearer product decisions + stronger merchant handoff */
+.stage-card{display:flex;flex-direction:column;min-height:100%}
+.stage-card .stage-img{margin:8px 0 2px}
+.stage-card .price{font-variant-numeric:tabular-nums;letter-spacing:-.025em}
+.stage-card .cta-row{margin-top:auto;padding-top:18px}
+.stage-card .cta-row .btn.main{width:100%;min-height:48px;border-radius:15px;background:linear-gradient(135deg,#ffffff,#dfffee);box-shadow:0 12px 34px rgba(94,240,178,.10);font-size:13px}
+.stage-card .cta-row .btn.main:hover{box-shadow:0 16px 40px rgba(94,240,178,.16);transform:translateY(-2px)}
+.stage-card .adnote{margin-top:10px;color:#8794a8;background:rgba(255,255,255,.018)}
+.stage-card .adnote:after{content:" · keine Mehrkosten";text-transform:none;letter-spacing:0;font-weight:650}
+.table-wrap{position:relative;box-shadow:inset -18px 0 28px -28px rgba(255,255,255,.22)}
+.table-wrap th{position:sticky;top:0;z-index:3;background:#101723}
+.table-wrap th:first-child,.table-wrap td:first-child{position:sticky;left:0;z-index:2;background:#0c121d;box-shadow:10px 0 18px -18px rgba(255,255,255,.28)}
+.table-wrap th:first-child{z-index:4;background:#111925}
+.compare-title p{max-width:760px}
+.compare-title:after{content:"Kostenlos vergleichen · Anbieterpreise können sich ändern · Affiliate-Links ohne Mehrkosten";display:block;margin-top:14px;color:#758297;font-size:10px;line-height:1.5;letter-spacing:.02em}
+@media(max-width:620px){
+  .stage-card .cta-row .btn.main{min-height:46px;font-size:12px}
+  .compare-title:after{font-size:9px;margin-top:11px}
+  .table-wrap{border-radius:20px}
+  .table-wrap th,.table-wrap td{padding:15px 14px}
+}
