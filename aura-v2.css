@@ -339,3 +339,11 @@ html,body{max-width:100%;overflow-x:hidden}
   .trustitem{border-radius:14px}
   .universe-card,.world,.emotion-card,.card,.partner-card,.stage-card{border-radius:20px}
 }
+
+
+/* render-performance pass v5 — faster first paint without changing layout */
+@supports(content-visibility:auto){
+  .brand-proof,.universe-section,.section,.footer{content-visibility:auto;contain-intrinsic-size:1px 700px}
+  .hero,.topbar{content-visibility:visible}
+}
+img{content-visibility:auto}
