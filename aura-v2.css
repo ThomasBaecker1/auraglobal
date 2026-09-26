@@ -417,3 +417,24 @@ section[id]{scroll-margin-top:86px}
   .table-wrap{border-radius:20px}
   .table-wrap th,.table-wrap td{padding:15px 14px}
 }
+
+
+/* motion commerce v11 — lightweight click-to-play video */
+.motion-section{overflow:hidden}
+.motion-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:16px}
+.video-card{position:relative;display:block;width:100%;min-height:390px;padding:0;border:1px solid var(--line);border-radius:30px;overflow:hidden;background:#080d15;color:#fff;text-align:left;cursor:pointer;box-shadow:0 22px 68px rgba(0,0,0,.22);isolation:isolate}
+.video-card-wide{min-height:520px}
+.video-card>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .55s ease,filter .35s ease}
+.video-card:hover>img{transform:scale(1.025);filter:saturate(1.06)}
+.video-shade{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(2,5,10,.05) 24%,rgba(2,5,10,.30) 52%,rgba(2,5,10,.94) 100%)}
+.video-play{position:absolute;z-index:3;left:50%;top:46%;transform:translate(-50%,-50%);width:68px;height:68px;border-radius:999px;display:grid;place-items:center;padding-left:4px;background:rgba(255,255,255,.92);color:#07100d;font-size:22px;box-shadow:0 12px 44px rgba(0,0,0,.32),0 0 0 9px rgba(255,255,255,.08);transition:transform .2s ease,box-shadow .2s ease}
+.video-card:hover .video-play{transform:translate(-50%,-50%) scale(1.06);box-shadow:0 16px 48px rgba(0,0,0,.38),0 0 0 11px rgba(94,240,178,.10)}
+.video-copy{position:absolute;z-index:3;left:24px;right:24px;bottom:22px;display:flex;flex-direction:column;align-items:flex-start}
+.video-copy small{color:#aaffd7;text-transform:uppercase;font-size:9px;font-weight:900;letter-spacing:.14em}
+.video-copy b{font-size:clamp(22px,3vw,34px);line-height:1.02;letter-spacing:-.04em;margin-top:7px;max-width:620px}
+.video-copy em{font-style:normal;color:#c6cfda;font-size:11px;margin-top:8px}
+.video-card.is-playing{background:#000}
+.video-card.is-playing iframe{position:absolute;inset:0;width:100%;height:100%;border:0;z-index:5}
+.video-card.is-playing>img,.video-card.is-playing>.video-shade,.video-card.is-playing>.video-play,.video-card.is-playing>.video-copy{display:none}
+@media(max-width:900px){.motion-grid{grid-template-columns:1fr}.video-card,.video-card-wide{min-height:420px}}
+@media(max-width:620px){.video-card,.video-card-wide{min-height:310px;border-radius:22px}.video-play{width:58px;height:58px;font-size:18px}.video-copy{left:18px;right:18px;bottom:17px}.video-copy b{font-size:24px}}
