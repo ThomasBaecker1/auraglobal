@@ -131,3 +131,18 @@ rgba(255,255,255,.025)}
 .info-strip b{display:block;font-size:13px}.info-strip span{display:block;color:var(--muted);font-size:11px;margin-top:4px}
 @media(max-width:900px){.partner-grid{grid-template-columns:1fr 1fr}.brand-hero{grid-template-columns:1fr}.info-strip{grid-template-columns:1fr 1fr}}
 @media(max-width:620px){.partner-grid{grid-template-columns:1fr}.partner-card{min-height:250px}.info-strip{grid-template-columns:1fr}.brand-hero-copy{padding:24px}.brand-hero-media{min-height:280px}}
+
+
+/* emotional commerce imagery v2 */
+.visual-break{position:relative;min-height:460px;border:1px solid var(--line);border-radius:30px;overflow:hidden;background:#0b111b;margin-top:26px;box-shadow:0 24px 70px rgba(0,0,0,.24)}
+.visual-break img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .7s ease}
+.visual-break:hover img{transform:scale(1.025)}
+.visual-break:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(3,6,11,.88),rgba(3,6,11,.42) 52%,rgba(3,6,11,.08))}
+.visual-break-copy{position:absolute;z-index:2;left:32px;bottom:30px;max-width:520px}
+.visual-break-copy small{color:var(--accent);text-transform:uppercase;letter-spacing:.14em;font-weight:850;font-size:10px}
+.visual-break-copy h2{font-size:clamp(32px,5vw,56px);line-height:1;letter-spacing:-.05em;margin:7px 0 10px}
+.visual-break-copy p{margin:0;color:#d1d8e3;line-height:1.55}
+.product-shot-photo{width:100%;height:100%;object-fit:cover!important;border-radius:18px}
+.brand-hero-media.screenshot img{object-fit:cover;padding:0}
+.partner-card.has-image img.screenshot{object-position:top center}
+@media(max-width:620px){.visual-break{min-height:340px}.visual-break-copy{left:20px;right:20px;bottom:20px}.visual-break:after{background:linear-gradient(180deg,rgba(3,6,11,.10),rgba(3,6,11,.90))}}
