@@ -478,3 +478,12 @@ section[id]{scroll-margin-top:86px}
 /* category-breadth polish v15 */
 #worlds .world-copy small{text-transform:uppercase;letter-spacing:.08em;font-size:10px}
 #worlds .world-copy h3{max-width:14ch}
+
+
+/* trust + accessibility polish v16 */
+.notice strong{color:#dce7f3;font-weight:900}
+.searchbox input::placeholder{color:#738095;opacity:1}
+.search-results:empty{display:none!important}
+.card-media img,.universe-card img,.float-card img{transition:transform .45s ease,filter .3s ease}
+@media(hover:hover){.card:hover .card-media img,.universe-card:hover img,.float-card:hover img{transform:scale(1.018)}}
+@media(max-width:620px){.notice{font-size:10px;line-height:1.6}.searchbox button{min-height:44px}}
