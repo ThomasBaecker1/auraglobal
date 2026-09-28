@@ -404,7 +404,7 @@ section[id]{scroll-margin-top:86px}
 .stage-card .cta-row .btn.main{width:100%;min-height:48px;border-radius:15px;background:linear-gradient(135deg,#ffffff,#dfffee);box-shadow:0 12px 34px rgba(94,240,178,.10);font-size:13px}
 .stage-card .cta-row .btn.main:hover{box-shadow:0 16px 40px rgba(94,240,178,.16);transform:translateY(-2px)}
 .stage-card .adnote{margin-top:10px;color:#8794a8;background:rgba(255,255,255,.018)}
-.stage-card .adnote:after{content:" · keine Mehrkosten";text-transform:none;letter-spacing:0;font-weight:650}
+.stage-card .adnote:after{content:"";}
 .table-wrap{position:relative;box-shadow:inset -18px 0 28px -28px rgba(255,255,255,.22)}
 .table-wrap th{position:sticky;top:0;z-index:3;background:#101723}
 .table-wrap th:first-child,.table-wrap td:first-child{position:sticky;left:0;z-index:2;background:#0c121d;box-shadow:10px 0 18px -18px rgba(255,255,255,.28)}
