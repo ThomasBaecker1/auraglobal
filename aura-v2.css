@@ -502,3 +502,25 @@ body{background:#f4f4f2;color:#101010}.shell{max-width:1460px}.mock-nav{position
 .mock-spotlights{background:#fff;padding:10px 0 14px}.mock-spotlights .spotlight-grid{gap:14px}.mock-spotlights .spotlight{min-height:300px;border-radius:8px;box-shadow:none}.mock-spotlights .spotlight-copy{left:28px;bottom:24px}.mock-spotlights .spotlight-copy h2{font-size:44px}.mock-spotlights .spotlight-mini{width:105px}.mock-spotlights .spotlight-mini img{width:105px;height:92px;border-radius:8px}.mock-popular{background:#fff;color:#111;padding:8px 0 30px}.mock-section-title{display:flex;justify-content:space-between;align-items:center;margin:10px 4px 12px}.mock-section-title h2{font-size:22px;margin:0}.mock-section-title a{font-size:11px;color:#333;text-decoration:none}.popular-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}.popular-grid a{position:relative;height:160px;border-radius:9px;overflow:hidden;color:#fff;text-decoration:none}.popular-grid img{width:100%;height:100%;object-fit:cover}.popular-grid a:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.68),transparent 60%)}.popular-grid div{position:absolute;z-index:2;left:14px;bottom:12px}.popular-grid b,.popular-grid span{display:block}.popular-grid b{font-size:18px}.popular-grid span{font-size:10px;margin-top:3px}
 .brand-proof,#discover,.motion-section,.universe-section,#worlds,#how,main>.section{background:#080d15;color:#fff}.brand-proof{margin-top:0}
 @media(max-width:900px){.mock-nav .navlinks{display:none}.mock-hero{height:570px}.mock-hero-inner{padding-top:100px}.mock-search-wrap{left:20px;right:20px;bottom:26px}.hero-feature{right:20px;top:250px;width:310px}.mock-benefits{gap:12px;flex-wrap:wrap}.mock-categories .category-scroll{grid-template-columns:repeat(9,125px)}.popular-grid{grid-template-columns:repeat(3,1fr)}}@media(max-width:620px){.mock-hero-copy h1{font-size:44px}.hero-feature{left:20px;right:20px;width:auto}.mock-search{min-height:54px}.mock-search button{min-height:40px}.mock-benefits{font-size:9px}.mock-spotlights .spotlight{min-height:330px}.popular-grid{grid-template-columns:repeat(2,1fr)}.popular-grid a{height:150px}.nav-icons>a:not(.nav-cta){display:none}.mock-nav .nav-cta{padding:10px 12px;font-size:10px}}
+
+
+/* homepage finesse v19 — cleaner mockup hierarchy */
+.mock-hero-copy{max-width:620px}
+.mock-hero-copy p{max-width:520px;color:rgba(255,255,255,.88)}
+.mock-search{border-radius:999px;padding:7px 8px 7px 14px}
+.mock-search input{font-weight:600}
+.mock-categories .category-scroll a,.popular-grid a,.mock-spotlights .spotlight{transition:transform .22s ease,box-shadow .22s ease}
+.mock-categories .category-scroll a:hover{box-shadow:0 10px 28px rgba(0,0,0,.08)}
+.mock-spotlights .spotlight:hover{transform:translateY(-2px);box-shadow:0 18px 42px rgba(0,0,0,.12)}
+.popular-grid a:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(0,0,0,.16)}
+.mock-section-title h2{letter-spacing:-.035em}
+@media(max-width:620px){
+ .mock-nav .brand{font-size:19px;letter-spacing:.18em}
+ .mock-hero{height:590px}
+ .mock-hero-copy{padding-right:8px}
+ .mock-hero-copy h1{font-size:42px}
+ .hero-feature{top:248px;height:190px}
+ .mock-search-wrap{bottom:18px}
+ .mock-categories .category-scroll{scroll-snap-type:x proximity}
+ .mock-categories .category-scroll a{scroll-snap-align:start}
+}
