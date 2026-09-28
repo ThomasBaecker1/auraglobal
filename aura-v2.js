@@ -12,7 +12,9 @@ const catalog=[
   {title:'Pizza Party Öfen',type:'Kaufberatung',href:'/pizza-party.html',tags:'pizza party pizzaofen ardore emozione ispirazione outdoor'},
   {title:'Ophelia Eternity Schmuck',type:'Kaufberatung',href:'/ophelia.html',tags:'ophelia eternity schmuck ring diamanten lab grown jewelry'},
   {title:'WAU Beauty Tech',type:'Kaufberatung',href:'/wau.html',tags:'wau beauty tech led maske mira gesichtspflege'},
-  {title:'The Vintage Realm Möbel',type:'Kaufberatung',href:'/vintage-realm.html',tags:'vintage realm möbel reclaimed wood stuhl tisch furniture'}
+  {title:'The Vintage Realm Möbel',type:'Kaufberatung',href:'/vintage-realm.html',tags:'vintage realm möbel reclaimed wood stuhl tisch furniture'},
+  {title:'momox fashion',type:'Partner',href:'/momox-fashion.html',tags:'momox fashion mode secondhand kleidung schuhe accessoires nachhaltig'},
+  {title:'NORMA24',type:'Partner',href:'/norma24.html',tags:'norma24 haus garten freizeit diy werkzeug wohnen'}
 ];
 
 function getHits(query){
