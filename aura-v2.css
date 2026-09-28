@@ -638,3 +638,9 @@ body{background:var(--ag-bg)}
  .portal-heading h2{font-size:18px}.portal-brands .shell{padding-top:13px;padding-bottom:13px}.portal-popular .popular-grid a{height:158px}
 }
 @media(min-width:621px){.ag-brand strong{font-size:24px}.ag-brand small{font-size:9px}}
+
+
+/* logo fidelity v25 — match approved mockup */
+.ag-brand{gap:10px!important}.ag-brand strong,.ag-brand small{color:#f7fbfa!important;text-shadow:none}.ag-brand strong{font-weight:800!important;letter-spacing:.19em!important}.ag-brand small{font-weight:700!important;letter-spacing:.43em!important}
+.ag-logo:before,.ag-logo:after,.ag-logo i:first-child{background:#61f3c1!important;box-shadow:none!important}
+@media(max-width:620px){.ag-brand{gap:8px!important}.ag-brand strong{font-size:18px!important}.ag-brand small{font-size:7px!important}.ag-logo{filter:none!important}}
