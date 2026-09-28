@@ -644,3 +644,12 @@ body{background:var(--ag-bg)}
 .ag-brand{gap:10px!important}.ag-brand strong,.ag-brand small{color:#f7fbfa!important;text-shadow:none}.ag-brand strong{font-weight:800!important;letter-spacing:.19em!important}.ag-brand small{font-weight:700!important;letter-spacing:.43em!important}
 .ag-logo:before,.ag-logo:after,.ag-logo i:first-child{background:#61f3c1!important;box-shadow:none!important}
 @media(max-width:620px){.ag-brand{gap:8px!important}.ag-brand strong{font-size:18px!important}.ag-brand small{font-size:7px!important}.ag-logo{filter:none!important}}
+
+
+/* logo mark fidelity v26 — reference geometry */
+.ag-logo{width:34px;height:30px;flex-basis:34px}
+.ag-logo:before{width:10px!important;height:29px!important;left:6px!important;top:1px!important;transform:skew(-29deg)!important;background:linear-gradient(180deg,#72f6cf,#51e9bd)!important;border-radius:4px!important}
+.ag-logo:after{width:10px!important;height:26px!important;right:6px!important;top:4px!important;transform:skew(29deg)!important;background:#39edae!important;border-radius:4px!important}
+.ag-logo i:first-child{width:18px!important;height:8px!important;left:8px!important;top:18px!important;background:#39edae!important;border-radius:2px!important}
+.ag-logo i:last-child{width:8px!important;height:8px!important;left:13px!important;top:14px!important;background:#071217!important;transform:rotate(45deg)!important}
+@media(max-width:620px){.ag-logo{width:31px;height:29px;flex-basis:31px;transform:none;margin-right:1px}.ag-brand strong{font-size:20px!important;letter-spacing:.2em!important}.ag-brand small{font-size:7px!important;letter-spacing:.42em!important}}
