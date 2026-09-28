@@ -623,3 +623,18 @@ body{background:var(--ag-bg)}
  .portal-popular{padding:6px 0 24px}.portal-popular .shell{padding:0 12px}.portal-popular .popular-grid{gap:8px}.portal-popular .popular-grid a{flex-basis:34%;height:175px;border-radius:13px}.popular-grid div{left:10px;bottom:9px}.popular-grid b{font-size:14px}.popular-grid span{font-size:8px}
  .brand-proof{padding-top:18px}
 }
+
+
+/* exact phone composition v24 */
+.ag-brand{display:flex!important;align-items:center;gap:8px!important;text-decoration:none}.ag-brand:before{display:none!important}.ag-brand strong{font-size:22px;letter-spacing:.18em;color:#fff}.ag-brand small{font-size:9px;letter-spacing:.38em;color:#fff;margin-left:-3px}.ag-logo{position:relative;width:30px;height:29px;display:inline-block;flex:0 0 30px}.ag-logo:before,.ag-logo:after,.ag-logo i:first-child{content:"";position:absolute;background:linear-gradient(135deg,#7affd3,#24dfa0);border-radius:3px;transform:skew(-28deg)}.ag-logo:before{width:9px;height:27px;left:5px;top:1px}.ag-logo:after{width:9px;height:23px;right:5px;top:5px;transform:skew(28deg)}.ag-logo i:first-child{width:17px;height:7px;left:7px;top:16px;transform:none}.ag-logo i:last-child{position:absolute;width:7px;height:7px;background:#071217;left:12px;top:13px;transform:rotate(45deg);z-index:2}
+@media(max-width:620px){
+ .mock-nav{position:absolute}.mock-nav .nav{height:52px;padding:0 18px}.ag-brand strong{font-size:18px}.ag-brand small{font-size:7px}.ag-logo{width:25px;height:24px;transform:scale(.84);transform-origin:left center;margin-right:-3px}
+ .mock-hero{padding-bottom:10px}.mock-hero-bg{height:430px}.mock-hero-overlay{height:450px}.mock-hero-inner{padding:67px 18px 0}
+ .hero-kicker{font-size:7px;padding:5px 9px;margin-bottom:9px}
+ .mock-hero-copy h1{font-size:35px;line-height:.93;max-width:9.8ch}.mock-hero-copy p{font-size:10.5px;line-height:1.38;margin-top:10px;max-width:32ch}
+ .mock-search-wrap{margin-top:19px}.mock-search{min-height:47px}.mock-search input{font-size:10.5px}.mock-search button{width:38px;min-width:38px;height:38px;min-height:38px}
+ .hero-chips{margin-top:8px}.hero-chips a{font-size:8px;padding:7px 9px}.mock-benefits{margin-top:12px}.mock-benefits span{font-size:6.7px}
+ .portal-cards{padding-top:4px}.portal-grid>a{flex-basis:42%;min-height:188px}.portal-grid b{font-size:15px}.portal-grid span{font-size:7.5px}.portal-grid i{width:27px;height:27px}
+ .portal-heading h2{font-size:18px}.portal-brands .shell{padding-top:13px;padding-bottom:13px}.portal-popular .popular-grid a{height:158px}
+}
+@media(min-width:621px){.ag-brand strong{font-size:24px}.ag-brand small{font-size:9px}}
