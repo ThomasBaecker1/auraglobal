@@ -702,3 +702,18 @@ body{background:var(--ag-bg)}
 .approved-logo .ag-wordmark .aura{color:#a9ebca!important}
 .approved-logo .ag-wordmark .global{color:#f1f5f3!important;margin-left:.42em!important}
 @media(max-width:620px){.approved-logo{gap:9px!important}.approved-logo .ag-symbol{width:29px!important;height:27px!important}.approved-logo .ag-wordmark{font-size:12px!important;letter-spacing:.38em!important}.approved-logo .ag-wordmark .global{margin-left:.38em!important}}
+
+
+/* Homepage clarity polish v32 */
+@media(max-width:620px){
+  .approved-home .shell{padding-left:18px!important;padding-right:18px!important}
+  .brand-proof{display:none!important}
+  .portal-heading{align-items:flex-end!important;margin-bottom:12px!important}
+  .portal-heading h2{font-size:21px!important;letter-spacing:-.025em!important}
+  .portal-heading a{font-size:11px!important;opacity:.72!important}
+  .portal-cards,.popular-grid{scroll-snap-type:x proximity!important;scrollbar-width:none!important}
+  .portal-cards::-webkit-scrollbar,.popular-grid::-webkit-scrollbar{display:none!important}
+  .portal-cards>a,.popular-grid>a{scroll-snap-align:start!important}
+  .brand-wordmarks{gap:9px!important}
+  .brand-wordmarks span{font-size:10px!important;letter-spacing:.04em!important}
+}
