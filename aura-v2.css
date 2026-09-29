@@ -653,3 +653,13 @@ body{background:var(--ag-bg)}
 .ag-logo i:first-child{width:18px!important;height:8px!important;left:8px!important;top:18px!important;background:#39edae!important;border-radius:2px!important}
 .ag-logo i:last-child{width:8px!important;height:8px!important;left:13px!important;top:14px!important;background:#071217!important;transform:rotate(45deg)!important}
 @media(max-width:620px){.ag-logo{width:31px;height:29px;flex-basis:31px;transform:none;margin-right:1px}.ag-brand strong{font-size:20px!important;letter-spacing:.2em!important}.ag-brand small{font-size:7px!important;letter-spacing:.42em!important}}
+
+
+/* Matrix A v27 — sharper cyber / neon identity */
+.ag-logo{position:relative!important;width:34px!important;height:32px!important;flex:0 0 34px!important;filter:drop-shadow(0 0 5px rgba(45,255,174,.42))!important}
+.ag-logo:before,.ag-logo:after{content:""!important;position:absolute!important;top:1px!important;width:8px!important;height:31px!important;border-radius:1px!important;background:linear-gradient(180deg,#b5ffe4 0%,#43ffb1 35%,#00d981 100%)!important;box-shadow:0 0 7px rgba(54,255,174,.52),inset 0 0 2px rgba(255,255,255,.65)!important}
+.ag-logo:before{left:7px!important;transform:skew(-27deg)!important;clip-path:polygon(35% 0,100% 0,100% 100%,0 100%,0 24%)!important}
+.ag-logo:after{right:7px!important;transform:skew(27deg)!important;clip-path:polygon(0 0,65% 0,100% 24%,100% 100%,0 100%)!important}
+.ag-logo i:first-child{position:absolute!important;z-index:2!important;left:9px!important;top:20px!important;width:16px!important;height:6px!important;border-radius:0!important;background:#22f5a1!important;box-shadow:0 0 6px rgba(34,245,161,.65)!important;clip-path:polygon(12% 0,88% 0,100% 100%,0 100%)!important}
+.ag-logo i:last-child{position:absolute!important;z-index:3!important;left:13px!important;top:13px!important;width:8px!important;height:8px!important;background:#02090a!important;border:1px solid rgba(91,255,191,.75)!important;transform:rotate(45deg)!important;box-shadow:0 0 5px rgba(48,255,174,.38)!important}
+.ag-brand:hover .ag-logo{filter:drop-shadow(0 0 8px rgba(45,255,174,.7))!important}
