@@ -663,3 +663,13 @@ body{background:var(--ag-bg)}
 .ag-logo i:first-child{position:absolute!important;z-index:2!important;left:9px!important;top:20px!important;width:16px!important;height:6px!important;border-radius:0!important;background:#22f5a1!important;box-shadow:0 0 6px rgba(34,245,161,.65)!important;clip-path:polygon(12% 0,88% 0,100% 100%,0 100%)!important}
 .ag-logo i:last-child{position:absolute!important;z-index:3!important;left:13px!important;top:13px!important;width:8px!important;height:8px!important;background:#02090a!important;border:1px solid rgba(91,255,191,.75)!important;transform:rotate(45deg)!important;box-shadow:0 0 5px rgba(48,255,174,.38)!important}
 .ag-brand:hover .ag-logo{filter:drop-shadow(0 0 8px rgba(45,255,174,.7))!important}
+
+
+/* Minimal Aura A v28 — approved clean direction */
+.ag-logo{position:relative!important;width:34px!important;height:31px!important;flex:0 0 34px!important;filter:none!important}
+.ag-logo:before,.ag-logo:after{content:""!important;position:absolute!important;top:1px!important;width:7px!important;height:30px!important;border-radius:1px!important;box-shadow:none!important;background:linear-gradient(180deg,#d9ffed 0%,#72eab3 55%,#55d89d 100%)!important}
+.ag-logo:before{left:8px!important;transform:skew(-29deg)!important;clip-path:none!important}
+.ag-logo:after{right:8px!important;transform:skew(29deg)!important;clip-path:none!important}
+.ag-logo i:first-child{position:absolute!important;z-index:2!important;left:9px!important;top:19px!important;width:17px!important;height:4px!important;border-radius:50% 50% 0 0!important;background:#baf7d8!important;box-shadow:none!important;transform:rotate(-4deg)!important;clip-path:none!important}
+.ag-logo i:last-child{display:none!important}
+.ag-brand:hover .ag-logo{filter:none!important}
