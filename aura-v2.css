@@ -782,3 +782,21 @@ body{background:var(--ag-bg)}
  .adnote{font-size:9px!important;margin-top:12px!important}
  .footer,.footer-inner,footer{font-size:10px!important}
 }
+
+/* Lunzo visual storefront v35 */
+.lunzo-catgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.lunzo-catgrid>a{position:relative;min-height:220px;border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,.08);background:#10151b;color:#fff}
+.lunzo-catgrid img{width:100%;height:100%;position:absolute;inset:0;object-fit:cover;transition:transform .35s ease}
+.lunzo-catgrid>a:after{content:"";position:absolute;inset:35% 0 0;background:linear-gradient(transparent,rgba(3,7,10,.94))}
+.lunzo-catgrid span{position:absolute;z-index:2;left:15px;right:15px;bottom:14px;display:flex;flex-direction:column}
+.lunzo-catgrid b{font-size:18px}.lunzo-catgrid small{font-size:11px;opacity:.76;margin-top:3px}
+.lunzo-catgrid>a:hover img{transform:scale(1.035)}
+.lunzo-more{margin-top:12px;padding:12px 15px;border:1px solid rgba(255,255,255,.07);border-radius:13px;font-size:12px;color:#aeb9b4;background:rgba(255,255,255,.025)}
+@media(max-width:620px){
+ .lunzo-overview{padding-top:22px!important}
+ .lunzo-catgrid{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+ .lunzo-catgrid>a{min-height:132px;border-radius:12px}
+ .lunzo-catgrid span{left:8px;right:6px;bottom:8px}
+ .lunzo-catgrid b{font-size:11px;line-height:1.1}.lunzo-catgrid small{font-size:7px;line-height:1.2}
+ .lunzo-more{font-size:9px;line-height:1.4;padding:9px 10px;margin-top:7px}
+}
