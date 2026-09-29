@@ -717,3 +717,20 @@ body{background:var(--ag-bg)}
   .brand-wordmarks{gap:9px!important}
   .brand-wordmarks span{font-size:10px!important;letter-spacing:.04em!important}
 }
+
+
+/* Clean system polish v33 */
+.section{scroll-margin-top:72px}
+.choice,.feature,.emotion-card,.cta-banner{border-color:rgba(255,255,255,.075)!important}
+.choice,.feature{box-shadow:none!important}
+.choice p,.feature p,.section-head p{line-height:1.62!important}
+.btn.main{box-shadow:none!important}
+.btn.main:hover{transform:translateY(-1px)!important}
+@media(max-width:620px){
+ .section{padding-top:42px!important;padding-bottom:42px!important}
+ .section-head{margin-bottom:20px!important}
+ .section-head h2{font-size:25px!important;line-height:1.08!important}
+ .choice-grid,.feature-grid{gap:10px!important}
+ .choice,.feature{padding:17px!important;border-radius:16px!important}
+ .footer-inner{gap:18px!important}
+}
