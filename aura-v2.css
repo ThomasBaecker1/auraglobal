@@ -800,3 +800,61 @@ body{background:var(--ag-bg)}
  .lunzo-catgrid b{font-size:11px;line-height:1.1}.lunzo-catgrid small{font-size:7px;line-height:1.2}
  .lunzo-more{font-size:9px;line-height:1.4;padding:9px 10px;margin-top:7px}
 }
+
+
+/* Mobile app-density system v36 — consistent viewport rhythm */
+@media(max-width:620px){
+ :root{--m-gap:7px;--m-radius:13px;--m-media:138px}
+ body{padding-bottom:0!important}
+ .shell{margin-left:12px!important;margin-right:12px!important}
+ main img{max-width:100%}
+ /* No single visual block should swallow the phone */
+ .card,.world,.world.big,.universe-card,.universe-card.pet,.universe-card.beauty,.universe-card.food,.universe-card.jewelry,.universe-card.home,.spotlight,.video-card,.emotion-card{min-height:0!important;height:154px!important;border-radius:var(--m-radius)!important}
+ .card-media,.card-media.product,.world>img,.universe-card>img,.spotlight>img,.video-card>img,.emotion-card>img{height:100%!important;min-height:0!important;max-height:154px!important;object-fit:cover!important}
+ /* Dense horizontal product rail: see 2+ cards at once */
+ .rail{display:grid!important;grid-auto-flow:column!important;grid-auto-columns:46vw!important;grid-template-columns:none!important;gap:var(--m-gap)!important;overflow-x:auto!important;scroll-snap-type:x proximity!important;padding-bottom:3px!important;scrollbar-width:none!important}
+ .rail::-webkit-scrollbar{display:none!important}
+ .rail .card{width:auto!important;display:block!important;overflow:hidden!important;scroll-snap-align:start!important}
+ .rail .card-media{height:86px!important;max-height:86px!important}
+ .rail .card-body{padding:8px!important}
+ .rail .card-body h3{font-size:11px!important;line-height:1.1!important;margin:0 0 4px!important}
+ .rail .card-body p,.rail .meta{display:none!important}
+ .rail .card-cta{font-size:8px!important}
+ .rail-toolbar{margin-bottom:9px!important;font-size:9px!important}
+ .rail-buttons{display:none!important}
+ /* Image universes: compact app-like tiles */
+ .universe-section{padding:28px 0!important}
+ .universe-hero{min-height:0!important;height:190px!important;border-radius:15px!important}
+ .universe-hero>img{height:190px!important;object-fit:cover!important}
+ .universe-copy{padding:14px!important}
+ .universe-copy h2{font-size:21px!important;line-height:1!important;max-width:12ch!important}
+ .universe-copy p{font-size:9px!important;line-height:1.35!important;max-width:30em!important}
+ .universe-pills{gap:4px!important}.universe-pills span{font-size:7px!important;padding:5px 7px!important}
+ .universe-grid{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:var(--m-gap)!important;margin-top:var(--m-gap)!important}
+ .universe-card{height:126px!important}
+ .universe-card-copy{padding:8px!important}
+ .universe-card-copy small{font-size:7px!important}.universe-card-copy h3{font-size:10px!important;line-height:1.08!important}
+ /* Worlds: 3-column tiles, never a full-screen bike */
+ .world-grid{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:var(--m-gap)!important}
+ .world,.world.big{grid-column:auto!important;grid-row:auto!important;height:132px!important}
+ .world>img,.world.big>img{height:132px!important;max-height:132px!important}
+ .world-copy{padding:8px!important}.world-copy small{font-size:7px!important}.world-copy h3{font-size:10px!important;line-height:1.1!important}
+ /* Video & spotlight blocks: two-up, not giant */
+ .motion-grid,.spotlight-grid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:var(--m-gap)!important}
+ .video-card,.spotlight{height:148px!important}
+ .video-copy,.spotlight-copy{padding:9px!important}
+ .video-copy small,.spotlight-copy small{font-size:7px!important}.video-copy b,.spotlight-copy h2{font-size:11px!important;line-height:1.1!important}.video-copy em,.spotlight-copy p{display:none!important}
+ .spotlight-mini{display:none!important}
+ /* Editorial feed stays compact */
+ .feed{gap:8px!important}.feed-row{display:grid!important;grid-template-columns:38% 1fr!important;gap:10px!important;align-items:center!important;padding:9px!important}
+ .feed-media,.feed-media.product{height:102px!important;min-height:0!important}
+ .feed-media img{height:102px!important;object-fit:cover!important}
+ .feed-copy h3{font-size:13px!important;line-height:1.12!important;margin:4px 0!important}.feed-copy p{font-size:9px!important;line-height:1.35!important;margin:0 0 5px!important}.inline-link{font-size:8px!important}
+ /* Home category rows should also feel like an app */
+ .portal-grid,.popular-grid{display:grid!important;grid-auto-flow:column!important;grid-auto-columns:39vw!important;grid-template-columns:none!important;gap:var(--m-gap)!important;overflow-x:auto!important;scrollbar-width:none!important}
+ .portal-grid::-webkit-scrollbar,.popular-grid::-webkit-scrollbar{display:none!important}
+ .portal-grid>a,.popular-grid>a{height:132px!important;min-height:0!important;border-radius:var(--m-radius)!important}
+ .portal-grid>a>img,.popular-grid>a>img{height:100%!important;object-fit:cover!important}
+ /* Kill sticky bottom obstruction: content first */
+ .mobile-compare-bar{display:none!important}
+}
