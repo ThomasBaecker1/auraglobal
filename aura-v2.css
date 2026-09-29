@@ -858,3 +858,30 @@ body{background:var(--ag-bg)}
  /* Kill sticky bottom obstruction: content first */
  .mobile-compare-bar{display:none!important}
 }
+
+
+/* Universal mobile density v37 — every comparison/category page */
+@media(max-width:620px){
+ /* legacy/product comparison media */
+ .compare-grid,.product-grid,.model-grid,.products,.cards,.grid,.gallery-grid,.use-grid,.benefit-grid{gap:7px!important}
+ .compare-grid,.product-grid,.model-grid,.products,.cards{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .product-card,.model-card,.compare-card,.product-tile,.use-card,.gallery-card{min-height:0!important;border-radius:13px!important;overflow:hidden!important}
+ .product-card img,.model-card img,.compare-card img,.product-tile img,.use-card img,.gallery-card img{width:100%!important;height:118px!important;max-height:118px!important;object-fit:cover!important}
+ .product-card h2,.product-card h3,.model-card h2,.model-card h3,.compare-card h3,.product-tile h3{font-size:12px!important;line-height:1.1!important}
+ .product-card p,.model-card p,.compare-card p,.product-tile p{font-size:9px!important;line-height:1.35!important}
+ /* generic hero imagery on all detail pages */
+ .hero-media,.hero-image,.product-hero,.visual,.media-panel,.image-panel{min-height:0!important;height:180px!important;max-height:180px!important;overflow:hidden!important;border-radius:15px!important}
+ .hero-media img,.hero-image img,.product-hero img,.visual img,.media-panel img,.image-panel img{width:100%!important;height:180px!important;max-height:180px!important;object-fit:cover!important}
+ /* comparison tables should not force huge page width */
+ .table-wrap,.comparison-table-wrap{overflow-x:auto!important;-webkit-overflow-scrolling:touch!important}
+ table{font-size:9px!important}
+ th,td{padding:7px!important}
+ /* any two-column desktop content becomes dense, not giant stacked panels */
+ .split,.two-col,.content-grid,.detail-grid{gap:10px!important}
+ .split img,.two-col img,.content-grid img,.detail-grid img{max-height:180px!important;object-fit:cover!important}
+ /* repeated text rhythm */
+ main h1{font-size:34px!important;line-height:.98!important}
+ main h2{font-size:22px!important;line-height:1.04!important}
+ main h3{line-height:1.12!important}
+ main p{max-width:100%}
+}
