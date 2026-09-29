@@ -681,3 +681,15 @@ body{background:var(--ag-bg)}
 .ag-brand strong{font-size:18px!important;letter-spacing:.34em!important;color:#dfffee!important}
 .ag-brand small{font-size:18px!important;letter-spacing:.30em!important;color:#f4f8f6!important;margin-left:-.16em!important}
 @media(max-width:620px){.ag-brand strong,.ag-brand small{font-size:15px!important;font-weight:300!important}.ag-brand strong{letter-spacing:.31em!important}.ag-brand small{letter-spacing:.27em!important}}
+
+
+/* Exact approved AuraGlobal lockup v30 */
+.ag-logo{width:36px!important;height:34px!important;flex:0 0 36px!important}
+.ag-logo:before{left:8px!important;top:1px!important;width:8px!important;height:32px!important;transform:skew(-29deg)!important;background:linear-gradient(180deg,#effff7 0%,#a7f4ce 42%,#65dfa8 100%)!important}
+.ag-logo:after{right:8px!important;top:1px!important;width:9px!important;height:32px!important;transform:skew(29deg)!important;background:linear-gradient(180deg,#d7ffea 0%,#7be7b4 48%,#54d49a 100%)!important}
+.ag-logo i:first-child{left:9px!important;top:20px!important;width:18px!important;height:4px!important;background:#d5fae8!important;border-radius:70% 70% 0 0!important;transform:rotate(-5deg)!important}
+.ag-brand{gap:12px!important}
+.ag-brand strong,.ag-brand small{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif!important;font-size:16px!important;font-weight:300!important;line-height:1!important;text-transform:uppercase!important}
+.ag-brand strong{color:#b8f2d5!important;letter-spacing:.39em!important}
+.ag-brand small{color:#f3f7f5!important;letter-spacing:.36em!important;margin-left:-.18em!important}
+@media(max-width:620px){.ag-logo{width:34px!important;height:32px!important;flex-basis:34px!important}.ag-brand{gap:10px!important}.ag-brand strong,.ag-brand small{font-size:13px!important;font-weight:300!important}.ag-brand strong{letter-spacing:.37em!important}.ag-brand small{letter-spacing:.33em!important}}
