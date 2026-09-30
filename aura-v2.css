@@ -985,3 +985,39 @@ body[class*="brand-"] .chip:hover{border-color:var(--brand)!important}
  .visual-commerce>a{border-radius:12px}.visual-commerce>a:first-child{grid-row:1/3}
  .visual-commerce span{left:8px;right:6px;bottom:8px}.visual-commerce small{font-size:6px}.visual-commerce b{font-size:11px}
 }
+
+
+/* === AuraGlobal visual-commerce rebuild v41 === */
+.vc-page{background:#f7f7f5!important;color:#111!important}
+.vc-page .topbar{background:rgba(18,18,18,.94)!important;border-color:rgba(255,255,255,.12)!important}
+.vc-page .navlinks a{color:#eee!important}.vc-page .approved-logo .ag-wordmark .global{color:#fff!important}
+.vc-wrap{width:min(1440px,calc(100% - 28px));margin:auto}
+.vc-hero{position:relative;height:min(600px,64vw);min-height:460px;overflow:hidden;background:#151515}
+.vc-hero>img{width:100%;height:100%;object-fit:cover;filter:saturate(1.13) contrast(1.04)}
+.vc-hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.78) 0%,rgba(0,0,0,.42) 40%,rgba(0,0,0,.08) 76%),linear-gradient(0deg,rgba(0,0,0,.32),transparent 55%)}
+.vc-copy{position:absolute;z-index:2;left:max(28px,calc((100vw - 1370px)/2));top:50%;transform:translateY(-50%);width:min(600px,48vw);color:#fff}
+.vc-copy small{font-size:12px;letter-spacing:.18em;font-weight:900}.vc-copy h1{font-size:clamp(54px,7vw,102px)!important;line-height:.86!important;letter-spacing:-.065em;margin:13px 0 18px;max-width:9ch!important}
+.vc-copy p{font-size:17px;line-height:1.45;max-width:38em;color:#fff}.vc-copy .btn{margin-top:20px;background:var(--brand,#fff)!important;color:#fff!important;border:0!important}
+.vc-page.brand-vorteil{--brand:#ff242d}.vc-page.brand-momox{--brand:#db3d78}.vc-page.brand-lunzo{--brand:#5c5cff}.vc-page.brand-rasen{--brand:#2fa74f}.vc-page.brand-outin{--brand:#f0832f}.vc-page.brand-pet{--brand:#4679ff}.vc-page.brand-pizza{--brand:#d83b2f}.vc-page.brand-ophelia{--brand:#bd9658}.vc-page.brand-bike{--brand:#387cda}.vc-page.brand-urwahn{--brand:#c35b39}.vc-page.brand-paper{--brand:#a36c3d}.vc-page.brand-wau{--brand:#a75ae8}.vc-page.brand-vintage{--brand:#9a6b45}.vc-page.brand-norma{--brand:#df2028}.vc-page.brand-dekvio{--brand:#cf6a42}.vc-page.brand-home{--brand:#42bd82}
+.vc-page .kicker{color:var(--brand)!important}
+.vc-catbar{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;padding:14px 0}
+.vc-cat{height:170px;position:relative;overflow:hidden;border-radius:14px;background:#ddd;color:#fff}
+.vc-cat img{width:100%;height:100%;object-fit:cover}.vc-cat:after{content:"";position:absolute;inset:35% 0 0;background:linear-gradient(transparent,rgba(0,0,0,.78))}
+.vc-cat b{position:absolute;z-index:2;left:12px;bottom:12px;font-size:15px;line-height:1.05}
+.vc-offer{display:grid;grid-template-columns:.85fr 1.15fr;min-height:330px;background:#fff;border-radius:20px;overflow:hidden;margin:8px 0 28px;box-shadow:0 8px 35px rgba(0,0,0,.06)}
+.vc-offer-copy{padding:42px;display:flex;flex-direction:column;justify-content:center}.vc-offer-copy h2{font-size:clamp(34px,4vw,58px)!important;line-height:.92!important;color:#111;margin:8px 0 15px}.vc-offer-copy h2 em{font-style:normal;color:var(--brand)}
+.vc-offer-copy p{color:#555!important}.vc-offer-media{display:grid;grid-template-columns:1.2fr .8fr}.vc-offer-media img{width:100%;height:100%;object-fit:cover;min-height:330px}
+.vc-products{padding:22px 0}.vc-products h2{color:#111;font-size:32px!important;margin-bottom:14px}
+.vc-product-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}.vc-product{background:#fff;border:1px solid #e8e8e8;border-radius:14px;overflow:hidden;box-shadow:0 5px 20px rgba(0,0,0,.04)}
+.vc-product img{width:100%;height:190px;object-fit:cover}.vc-product div{padding:13px}.vc-product small{color:var(--brand);font-weight:800}.vc-product b{display:block;color:#111;font-size:15px;margin-top:4px}
+.vc-editorial{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:30px 0}.vc-editorial>a{position:relative;height:360px;overflow:hidden;border-radius:18px;color:#fff}.vc-editorial img{width:100%;height:100%;object-fit:cover}.vc-editorial>a:after{content:"";position:absolute;inset:25% 0 0;background:linear-gradient(transparent,rgba(0,0,0,.78))}
+.vc-editorial span{position:absolute;z-index:2;left:24px;bottom:22px}.vc-editorial small{font-size:10px;letter-spacing:.14em}.vc-editorial b{display:block;font-size:30px;line-height:.95;max-width:13ch;margin-top:6px}
+.vc-trust{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;padding:26px 0 38px}.vc-trust div{background:#fff;border-radius:14px;padding:18px;color:#111;border:1px solid #e9e9e9}.vc-trust b{display:block;font-size:14px}.vc-trust span{font-size:11px;color:#666}
+@media(max-width:620px){
+ .vc-wrap{width:calc(100% - 16px)}.vc-hero{height:410px;min-height:0;border-radius:0}.vc-copy{left:16px;right:16px;width:auto;top:auto;bottom:24px;transform:none}.vc-copy small{font-size:8px}.vc-copy h1{font-size:47px!important;margin:8px 0 10px}.vc-copy p{font-size:11px;max-width:31em}.vc-copy .btn{margin-top:12px}
+ .vc-catbar{grid-template-columns:repeat(6,34vw);overflow-x:auto;scrollbar-width:none;gap:6px;padding:8px 0}.vc-catbar::-webkit-scrollbar{display:none}.vc-cat{height:112px;border-radius:10px}.vc-cat b{font-size:10px;left:8px;bottom:8px}
+ .vc-offer{grid-template-columns:1fr 1.2fr;min-height:180px;border-radius:12px;margin-bottom:12px}.vc-offer-copy{padding:14px}.vc-offer-copy h2{font-size:23px!important;margin:4px 0 6px}.vc-offer-copy p{font-size:8px!important;line-height:1.3}.vc-offer-media{grid-template-columns:1fr}.vc-offer-media img{min-height:180px}.vc-offer-media img+img{display:none}
+ .vc-products{padding:10px 0}.vc-products h2{font-size:20px!important}.vc-product-grid{grid-template-columns:repeat(5,42vw);overflow-x:auto;scrollbar-width:none;gap:7px}.vc-product-grid::-webkit-scrollbar{display:none}.vc-product img{height:115px!important}.vc-product div{padding:8px}.vc-product b{font-size:10px}.vc-product small{font-size:7px}
+ .vc-editorial{grid-template-columns:1.15fr .85fr;gap:6px;margin:14px 0}.vc-editorial>a{height:190px;border-radius:11px}.vc-editorial span{left:10px;bottom:10px}.vc-editorial b{font-size:16px}.vc-editorial small{font-size:7px}
+ .vc-trust{grid-template-columns:repeat(4,1fr);gap:5px;padding:10px 0 18px}.vc-trust div{padding:8px;border-radius:9px}.vc-trust b{font-size:8px}.vc-trust span{font-size:6px}
+}
