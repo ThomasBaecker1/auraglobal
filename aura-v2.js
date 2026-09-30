@@ -137,3 +137,34 @@ function initRailControls(){
   sync();
 }
 document.addEventListener('DOMContentLoaded',initRailControls);
+
+
+function initAffiliateClickTracking(){
+  document.addEventListener('click',event=>{
+    const link=event.target.closest('a[rel~="sponsored"]');
+    if(!link) return;
+    let destination='';
+    try{
+      const url=new URL(link.href,window.location.href);
+      destination=url.hostname;
+    }catch{}
+    const payload={
+      event:'affiliate_click',
+      affiliate_destination:destination,
+      affiliate_url:link.href,
+      affiliate_text:(link.textContent||'').trim().slice(0,120),
+      page_path:window.location.pathname
+    };
+    window.dataLayer=window.dataLayer||[];
+    window.dataLayer.push(payload);
+    if(typeof window.gtag==='function'){
+      window.gtag('event','affiliate_click',{
+        event_category:'affiliate',
+        event_label:destination,
+        link_url:link.href,
+        link_text:payload.affiliate_text
+      });
+    }
+  },{capture:true});
+}
+document.addEventListener('DOMContentLoaded',initAffiliateClickTracking);
