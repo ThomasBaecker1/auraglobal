@@ -885,3 +885,48 @@ body{background:var(--ag-bg)}
  main h3{line-height:1.12!important}
  main p{max-width:100%}
 }
+
+
+/* Brand immersion v38 — cinematic first impression on every partner world */
+body:not(.home){background:
+ radial-gradient(circle at 78% 4%,rgba(87,224,164,.10),transparent 28rem),
+ radial-gradient(circle at 12% 24%,rgba(91,125,255,.07),transparent 30rem),
+ #05070c}
+.hero{position:relative;isolation:isolate;overflow:hidden}
+.hero:before{content:"";position:absolute;inset:-20%;z-index:-2;background:
+ radial-gradient(circle at 74% 34%,rgba(93,231,170,.14),transparent 25%),
+ radial-gradient(circle at 88% 65%,rgba(100,125,255,.10),transparent 24%);filter:blur(12px)}
+.hero-grid{position:relative}
+.hero h1{max-width:12ch;text-wrap:balance}
+.hero h1 span{background:linear-gradient(100deg,#f7fffb 0%,#9cebc5 48%,#8fa2bb 100%);-webkit-background-clip:text;background-clip:text;color:transparent!important}
+.hero-stack{perspective:1200px}
+.hero-stack .float-card{box-shadow:0 30px 80px rgba(0,0,0,.42),0 0 0 1px rgba(255,255,255,.07);background:#0b1015}
+.hero-stack .float-card:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(130deg,rgba(255,255,255,.10),transparent 28%,transparent 68%,rgba(93,231,170,.08))}
+.hero-stack .float-card img{filter:saturate(1.08) contrast(1.04)}
+.hero-stack .float-card .label{backdrop-filter:blur(16px);background:linear-gradient(180deg,transparent,rgba(3,7,10,.90))}
+.hero .eyebrow{box-shadow:0 0 0 1px rgba(111,235,178,.08),0 10px 30px rgba(0,0,0,.18)}
+.hero .chip{background:rgba(255,255,255,.045);border-color:rgba(255,255,255,.10)}
+.hero .chip:hover{background:rgba(111,235,178,.10);border-color:rgba(111,235,178,.28)}
+.trustbar{position:relative}
+.trustitem{background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.018));box-shadow:inset 0 1px rgba(255,255,255,.04)}
+.emotion-card{box-shadow:0 18px 45px rgba(0,0,0,.22)}
+.emotion-card:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,transparent 38%,rgba(2,5,8,.68))}
+.emotion-card .copy{z-index:2}
+@media(min-width:621px){
+ .hero{padding-top:72px!important;padding-bottom:72px!important}
+ .hero-grid{align-items:center!important;gap:52px!important}
+ .hero h1{font-size:clamp(52px,6vw,88px)!important;line-height:.92!important;letter-spacing:-.055em!important}
+ .hero> .shell .hero-stack{min-height:560px}
+ .hero-stack .fc1{transform:rotate(1.5deg)}
+ .hero-stack .fc2{transform:rotate(-3deg)}
+ .hero-stack .fc3{transform:rotate(3deg)}
+}
+@media(max-width:620px){
+ .hero{padding-top:18px!important;background:linear-gradient(180deg,rgba(111,235,178,.035),transparent 80%)}
+ .hero h1{font-size:38px!important;line-height:.93!important;max-width:10ch!important}
+ .hero-grid{gap:12px!important}
+ .hero-stack .float-card{height:204px!important}
+ .hero-stack .float-card img{height:204px!important}
+ .trustbar{margin-top:11px!important}
+ .emotion-card{box-shadow:none}
+}
