@@ -14,7 +14,10 @@ const catalog=[
   {title:'WAU Beauty Tech',type:'Kaufberatung',href:'/wau.html',tags:'wau beauty tech led maske mira gesichtspflege'},
   {title:'The Vintage Realm Möbel',type:'Kaufberatung',href:'/vintage-realm.html',tags:'vintage realm möbel reclaimed wood stuhl tisch furniture'},
   {title:'momox fashion',type:'Partner',href:'/momox-fashion.html',tags:'momox fashion mode secondhand kleidung schuhe accessoires nachhaltig'},
-  {title:'NORMA24',type:'Partner',href:'/norma24.html',tags:'norma24 haus garten freizeit diy werkzeug wohnen'}
+  {title:'NORMA24',type:'Partner',href:'/norma24.html',tags:'norma24 haus garten freizeit diy werkzeug wohnen'},
+  {title:'Rasendoktor',type:'Kaufberatung',href:'/rasendoktor.html',tags:'rasendoktor rasen garten dünger rasenpflege saat'},
+  {title:'LUNZO',type:'Partner',href:'/lunzo.html',tags:'lunzo shopping wohnen haushalt lifestyle angebote'},
+  {title:'Vorteilshop',type:'Partner',href:'/vorteilshop.html',tags:'vorteilshop wohnen haushalt freizeit alltag angebote'}
 ];
 
 function getHits(query){
