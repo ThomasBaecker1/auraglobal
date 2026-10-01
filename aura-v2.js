@@ -154,12 +154,16 @@ function initAffiliateClickTracking(){
       const url=new URL(link.href,window.location.href);
       destination=url.hostname;
     }catch{}
+    const params=new URLSearchParams(window.location.search);
     const payload={
       event:'affiliate_click',
       affiliate_destination:destination,
       affiliate_url:link.href,
       affiliate_text:(link.textContent||'').trim().slice(0,120),
-      page_path:window.location.pathname
+      page_path:window.location.pathname,
+      traffic_source:params.get('utm_source')||'',
+      traffic_medium:params.get('utm_medium')||'',
+      traffic_campaign:params.get('utm_campaign')||''
     };
     window.dataLayer=window.dataLayer||[];
     window.dataLayer.push(payload);
