@@ -17,7 +17,8 @@ const catalog=[
   {title:'NORMA24',type:'Partner',href:'/norma24.html',tags:'norma24 haus garten freizeit diy werkzeug wohnen'},
   {title:'Rasendoktor',type:'Kaufberatung',href:'/rasendoktor.html',tags:'rasendoktor rasen garten dünger rasenpflege saat'},
   {title:'LUNZO',type:'Partner',href:'/lunzo.html',tags:'lunzo shopping wohnen haushalt lifestyle angebote'},
-  {title:'Vorteilshop',type:'Partner',href:'/vorteilshop.html',tags:'vorteilshop wohnen haushalt freizeit alltag angebote'}
+  {title:'Vorteilshop',type:'Partner',href:'/vorteilshop.html',tags:'vorteilshop wohnen haushalt freizeit alltag angebote'},
+  {title:'Nespresso ORIGINAL',type:'Vergleich',href:'/nespresso.html',tags:'nespresso kaffee kapselmaschine kaffeemaschine espresso essenza mini citiz pixie creatista original'}
 ];
 
 function getHits(query){
