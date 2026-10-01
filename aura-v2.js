@@ -19,8 +19,9 @@ const catalog=[
   {title:'Rasendoktor',type:'Kaufberatung',href:'/rasendoktor.html',tags:'rasendoktor rasen garten dünger rasenpflege saat'},
   {title:'LUNZO',type:'Partner',href:'/lunzo.html',tags:'lunzo shopping wohnen haushalt lifestyle angebote'},
   {title:'Vorteilshop',type:'Partner',href:'/vorteilshop.html',tags:'vorteilshop wohnen haushalt freizeit alltag angebote'},
-  {title:'Kaffee & Espresso',type:'Kategorie',href:'/nespresso.html',tags:'kaffee espresso kaffeemaschine kapselmaschine kapsel kaffee zuhause'},
+  {title:'Kaffee & Espresso',type:'Kategorie',href:'/kaffee.html',tags:'kaffee espresso kaffeemaschine kapselmaschine kapsel zuhause unterwegs to go outdoor camping'},
   {title:'Nespresso ORIGINAL',type:'Vergleich',href:'/nespresso.html',tags:'nespresso kaffee kapselmaschine kaffeemaschine espresso essenza mini citiz pixie creatista original'},
+  {title:'Kaffee zuhause oder unterwegs?',type:'Guide',href:'/kaffee.html',tags:'kaffee zuhause unterwegs nespresso outin nano mino espresso home to go reise camping'},
   {title:'Wohlbefinden & Nahrungsergänzung',type:'Kategorie',href:'/braingood.html',tags:'wohlbefinden wellness nahrungsergänzung supplement supplemente darm gehirn fokus energie'},
   {title:'braingood BioMe+ & BOOST+',type:'Vergleich',href:'/braingood.html',tags:'braingood biome biome+ boost boost+ darm gehirn fokus energie supplement nahrungsergänzung'}
 ];
