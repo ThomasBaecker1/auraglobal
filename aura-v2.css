@@ -1351,3 +1351,32 @@ button,a{-webkit-tap-highlight-color:transparent}
   .ag-why{padding:46px 0!important}
   .partner-spotlights,#discover,#motion,#how{padding-top:52px!important}
 }
+
+
+/* emotional coffee journey v21 */
+.coffee-experience{padding:20px 0 76px;position:relative;z-index:1}
+.coffee-experience-hero{position:relative;display:block;min-height:560px;border-radius:30px;overflow:hidden;border:1px solid rgba(255,255,255,.1);box-shadow:0 28px 80px rgba(0,0,0,.26)}
+.coffee-experience-hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.coffee-experience-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,5,4,.88),rgba(5,5,4,.24) 60%,rgba(5,5,4,.56)),linear-gradient(0deg,rgba(5,5,4,.75),transparent 46%)}
+.coffee-experience-copy{position:absolute;z-index:2;left:40px;top:50%;transform:translateY(-50%);max-width:670px}
+.coffee-experience-copy small{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#e9d7c1;font-weight:900}
+.coffee-experience-copy h2{font-size:clamp(42px,5vw,68px);line-height:.95;letter-spacing:-.055em;margin:12px 0 16px;max-width:11ch}
+.coffee-experience-copy p{font-size:16px;line-height:1.55;color:#d7d0c8;max-width:600px}
+.coffee-experience-copy .btn{margin-top:18px}
+.coffee-experience-mini{position:absolute;z-index:2;right:28px;bottom:26px;display:grid;gap:8px;width:min(330px,34%)}
+.coffee-experience-mini div{padding:12px 14px;border-radius:14px;border:1px solid rgba(255,255,255,.13);background:rgba(10,9,7,.58);backdrop-filter:blur(12px)}
+.coffee-experience-mini b{display:block;font-size:13px;color:#fff}
+.coffee-experience-mini span{display:block;font-size:10px;color:#c9c1b7;margin-top:2px}
+@media(max-width:900px){
+  .coffee-experience-hero{min-height:620px}
+  .coffee-experience-copy{left:24px;right:24px;top:38%;transform:none}
+  .coffee-experience-mini{left:24px;right:24px;bottom:22px;width:auto;grid-template-columns:1fr 1fr 1fr}
+}
+@media(max-width:600px){
+  .coffee-experience{padding:10px 0 52px}
+  .coffee-experience-hero{min-height:670px;border-radius:22px}
+  .coffee-experience-copy{left:18px;right:18px;top:28px;transform:none}
+  .coffee-experience-copy h2{font-size:42px;max-width:10ch}
+  .coffee-experience-copy p{font-size:14px}
+  .coffee-experience-mini{left:18px;right:18px;bottom:18px;grid-template-columns:1fr}
+}
