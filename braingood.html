@@ -3,127 +3,177 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="braingood BioMe+ und BOOST+ auf AuraGlobal einordnen: Nahrungsergänzung nach Produktfokus, Alltag und Kombination übersichtlich vergleichen.">
+  <meta name="description" content="braingood BioMe+ vs BOOST+: Preis pro Portion, Packungsgröße, Format, Koffein und Inhaltsstoffe kompakt vergleichen.">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="braingood: BioMe+ & BOOST+ einordnen | AuraGlobal">
-  <meta property="og:description" content="braingood BioMe+ und BOOST+ nach Produktfokus, Alltag und Kombination übersichtlich einordnen.">
+  <meta property="og:title" content="braingood BioMe+ vs BOOST+ | AuraGlobal">
+  <meta property="og:description" content="BioMe+ und BOOST+ in 30 Sekunden einordnen: Preis, Portionen, Koffein, Format und Inhaltsstoffe.">
   <meta property="og:url" content="https://auraglobal.vercel.app/braingood.html">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&amp;fit=crop&amp;w=2200&amp;q=90">
   <meta name="twitter:card" content="summary_large_image">
-  <title>braingood: BioMe+ & BOOST+ einordnen | AuraGlobal</title>
+  <title>braingood BioMe+ vs BOOST+ | AuraGlobal</title>
   <link rel="canonical" href="https://auraglobal.vercel.app/braingood.html">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
-  <link rel="preconnect" href="https://braingood.com" crossorigin>
   <link rel="stylesheet" href="/aura-v2.css">
   <style>
-    body.brand-braingood{--brand:#b8d48a;--brand2:#6f8f47}
-    .supp-note{margin-top:14px;color:var(--muted);font-size:12px;line-height:1.55}
+    body.bg-page{--bg-green:#bada9d;--bg-lime:#e5f6b8;--bg-purple:#9d91ff;--bg-ink:#080b0a;background:#070909}
+    .bg-hero{position:relative;overflow:hidden;padding:86px 0 64px;background:
+      radial-gradient(circle at 86% 12%,rgba(157,145,255,.34),transparent 32%),
+      radial-gradient(circle at 12% 80%,rgba(186,218,157,.22),transparent 30%),
+      linear-gradient(135deg,#070909,#111613 58%,#0a0c0b)}
+    .bg-hero:before{content:"";position:absolute;width:420px;height:420px;border-radius:50%;right:-180px;bottom:-220px;background:rgba(229,246,184,.08);filter:blur(2px)}
+    .bg-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:46px;align-items:center;position:relative;z-index:2}
+    .bg-kicker{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#b9c3bd;font-weight:800}
+    .bg-hero h1{font-size:clamp(44px,7vw,86px);line-height:.94;letter-spacing:-.055em;margin:14px 0 20px;max-width:11ch}
+    .bg-hero h1 em{font-style:normal;color:var(--bg-lime)}
+    .bg-hero p{font-size:19px;line-height:1.6;color:#cbd2ce;max-width:660px}
+    .bg-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+    .bg-proof{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+    .bg-proof span{padding:8px 11px;border-radius:999px;border:1px solid rgba(255,255,255,.1);font-size:12px;color:#bac4be;background:rgba(255,255,255,.035)}
+    .bg-showcase{display:grid;grid-template-columns:1fr 1fr;gap:16px;transform:rotate(-1deg)}
+    .bg-pack{min-height:410px;border-radius:30px;padding:26px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 30px 80px rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.12)}
+    .bg-pack.biome{background:linear-gradient(160deg,#dff0c8,#a6c788);color:#112014}
+    .bg-pack.boost{background:linear-gradient(160deg,#b2a9ff,#6957df);color:white;margin-top:42px}
+    .bg-pack small{font-weight:900;letter-spacing:.14em;text-transform:uppercase}
+    .bg-pack strong{display:block;font-size:44px;letter-spacing:-.06em;margin-top:8px}
+    .bg-pack .bigmark{font-size:92px;line-height:.9;font-weight:900;letter-spacing:-.08em;opacity:.18}
+    .bg-pack dl{display:grid;gap:8px;margin:0}
+    .bg-pack dl div{display:flex;justify-content:space-between;gap:12px;border-top:1px solid currentColor;padding-top:8px;opacity:.9}
+    .bg-pack dt,.bg-pack dd{margin:0;font-size:12px}
+    .bg-section{padding:76px 0}
+    .bg-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:28px}
+    .bg-head h2{font-size:clamp(34px,4.8vw,60px);letter-spacing:-.05em;margin:6px 0 0;max-width:13ch}
+    .bg-head p{max-width:600px;color:var(--muted);line-height:1.6}
+    .bg-value-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .bg-value-card{border:1px solid var(--line);border-radius:24px;padding:26px;background:rgba(255,255,255,.025)}
+    .bg-value-card b{display:block;font-size:30px;letter-spacing:-.04em;margin-bottom:8px}
+    .bg-value-card span{color:var(--muted);line-height:1.55}
+    .bg-compare{overflow:auto;border:1px solid var(--line);border-radius:26px;background:#0b0e0d}
+    .bg-table{width:100%;border-collapse:collapse;min-width:780px}
+    .bg-table th,.bg-table td{padding:18px 20px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+    .bg-table th{font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:#97a29b;background:#0f1311}
+    .bg-table th:nth-child(2){background:rgba(186,218,157,.08)}
+    .bg-table th:nth-child(3){background:rgba(157,145,255,.09)}
+    .bg-table td:first-child{color:#89948d;font-weight:700;width:23%}
+    .bg-table td strong{font-size:18px}
+    .bg-table tr:last-child td{border-bottom:0}
+    .bg-decision{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .bg-choice{border-radius:26px;padding:28px;border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,.015))}
+    .bg-choice .num{font-size:12px;color:#96a19a;font-weight:900;letter-spacing:.12em}
+    .bg-choice h3{font-size:28px;letter-spacing:-.04em;margin:10px 0}
+    .bg-choice p{color:var(--muted);line-height:1.6}
+    .bg-choice a{display:inline-flex;margin-top:12px;font-weight:800}
+    .bg-notice{margin-top:20px;padding:18px 20px;border:1px solid var(--line);border-radius:18px;color:#9aa49e;font-size:12px;line-height:1.6}
+    @media(max-width:900px){.bg-grid,.bg-value-grid,.bg-decision{grid-template-columns:1fr}.bg-showcase{max-width:620px;margin:auto}.bg-head{display:block}.bg-head p{margin-top:14px}}
+    @media(max-width:560px){.bg-showcase{grid-template-columns:1fr}.bg-pack{min-height:330px}.bg-pack.boost{margin-top:0}.bg-hero{padding-top:46px}}
   </style>
 </head>
-<body class="vc-page brand-braingood">
+<body class="bg-page">
 <header class="topbar">
   <div class="shell nav">
     <a class="brand ag-brand approved-logo" href="/" aria-label="AuraGlobal">
       <svg class="ag-symbol" viewBox="0 0 100 92" aria-hidden="true"><defs><linearGradient id="auraA" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#eafff5"/><stop offset=".48" stop-color="#8ce8b9"/><stop offset="1" stop-color="#45c98e"/></linearGradient></defs><path fill="url(#auraA)" d="M8 88 48 4 92 88H75L48 31 24 81Z"/><path fill="url(#auraA)" d="M17 78C34 59 53 53 77 66L72 74C52 63 36 66 17 78Z"/></svg>
       <span class="ag-wordmark"><span class="aura">AURA</span><span class="global">GLOBAL</span></span>
     </a>
-    <nav class="navlinks"><a href="#vergleich">Produkte</a><a href="#entscheidung">Auswahlhilfe</a><a href="/">Alle Vergleiche</a></nav>
-    <a class="nav-cta" href="/">AuraGlobal</a>
+    <nav class="navlinks"><a href="#vergleich">Vergleich</a><a href="#entscheidung">Welche passt?</a><a href="/">Alle Welten</a></nav>
+    <a class="nav-cta" href="#vergleich">Jetzt vergleichen</a>
   </div>
 </header>
 
 <main>
-<section class="vc-hero">
-  <img fetchpriority="high" decoding="async" src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&w=2200&q=90" alt="Wellness und Nahrungsergänzung im Alltag">
-  <div class="vc-copy">
-    <small>BRAINGOOD · AURAGLOBAL</small>
-    <h1>BioMe+, BOOST+ oder Bundle?</h1>
-    <p>braingood-Produkte nach Produktfokus und Alltag einordnen – klar, kompakt und ohne dich durch den ganzen Shop klicken zu lassen.</p>
-    <a class="btn main" href="https://www.awin1.com/cread.php?awinmid=127589&awinaffid=3076553&ued=https%3A%2F%2Fbraingood.com%2Fpages%2Fshop-page" target="_blank" rel="sponsored noopener">braingood Shop ansehen →</a>
+<section class="bg-hero">
+  <div class="shell bg-grid">
+    <div>
+      <div class="bg-kicker">braingood · Kaufentscheidung statt Shop-Suche</div>
+      <h1>BioMe+ oder <em>BOOST+?</em></h1>
+      <p>Der Shop zeigt dir beide Produkte. AuraGlobal zeigt dir in 30 Sekunden den Unterschied: Preis pro Portion, Packungsgröße, Einnahmeformat, Koffein und die wichtigsten Inhaltsstoffgruppen.</p>
+      <div class="bg-actions">
+        <a class="btn main" href="#vergleich">Direkt vergleichen ↓</a>
+        <a class="btn secondary" href="https://www.awin1.com/cread.php?awinmid=127589&awinaffid=3076553&ued=https%3A%2F%2Fbraingood.com%2Fpages%2Fshop-page" target="_blank" rel="sponsored noopener">Zum braingood Shop ↗</a>
+      </div>
+      <div class="adnote">Anzeige</div>
+      <div class="bg-proof"><span>Preis pro Portion</span><span>Format</span><span>Koffein</span><span>Inhaltsstoffe</span><span>Packungsgröße</span></div>
+    </div>
+    <div class="bg-showcase" aria-label="BioMe+ und BOOST+ Schnellvergleich">
+      <div class="bg-pack biome">
+        <div><small>Darm & Gehirn · laut Hersteller</small><strong>BioMe+</strong></div>
+        <div class="bigmark">30</div>
+        <dl>
+          <div><dt>Preis</dt><dd>69,99 €</dd></div>
+          <div><dt>Packung</dt><dd>30 Sachets</dd></div>
+          <div><dt>pro Portion</dt><dd>2,33 €</dd></div>
+          <div><dt>Format</dt><dd>Pulver + Wasser</dd></div>
+        </dl>
+      </div>
+      <div class="bg-pack boost">
+        <div><small>Energie & Fokus · laut Hersteller</small><strong>BOOST+</strong></div>
+        <div class="bigmark">80</div>
+        <dl>
+          <div><dt>Preis</dt><dd>54,99 €</dd></div>
+          <div><dt>Packung</dt><dd>15 × 25 ml</dd></div>
+          <div><dt>pro Shot</dt><dd>3,67 €</dd></div>
+          <div><dt>Koffein</dt><dd>80 mg</dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-section">
+  <div class="shell">
+    <div class="bg-head"><div><div class="kicker">Warum AuraGlobal?</div><h2>Der Mehrwert ist die Entscheidung.</h2></div><p>Wir wiederholen nicht einfach den Shop. Wir reduzieren die Auswahl auf die Unterschiede, die vor dem Kauf tatsächlich relevant sind.</p></div>
+    <div class="bg-value-grid">
+      <div class="bg-value-card"><b>2,33 € vs. 3,67 €</b><span>BioMe+ kostet aktuell 2,33 € pro Sachet, BOOST+ 3,67 € pro Shot. So siehst du die laufenden Kosten sofort.</span></div>
+      <div class="bg-value-card"><b>30 vs. 15</b><span>BioMe+ enthält 30 Sachets. BOOST+ enthält 15 fertige 25-ml-Shots. Unterschiedliche Nutzung, unterschiedliche Packungslogik.</span></div>
+      <div class="bg-value-card"><b>0 vs. 80 mg</b><span>BioMe+ listet kein Koffein. BOOST+ enthält laut Hersteller 80 mg natürliches Koffein pro Shot.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-section" id="vergleich">
+  <div class="shell">
+    <div class="bg-head"><div><div class="kicker">Direktvergleich</div><h2>Alles Relevante auf einen Blick.</h2></div><p>Preise und Produktangaben: Stand 1. Oktober 2026. Maßgeblich sind immer die aktuellen Angaben von braingood.</p></div>
+    <div class="bg-compare">
+      <table class="bg-table">
+        <thead><tr><th>Kriterium</th><th>BioMe+</th><th>BOOST+</th><th>Bundle</th></tr></thead>
+        <tbody>
+          <tr><td>Aktueller Preis</td><td><strong>69,99 €</strong></td><td><strong>54,99 €</strong></td><td><strong>112,50 €</strong></td></tr>
+          <tr><td>Packungsgröße</td><td>30 Sachets à 4 g</td><td>15 Shots à 25 ml</td><td>BioMe+ + BOOST+</td></tr>
+          <tr><td>Preis pro Einzelportion</td><td>2,33 €</td><td>3,67 €</td><td>10 % günstiger als Einzelkauf laut Hersteller</td></tr>
+          <tr><td>Format</td><td>Pulver mit 50–100 ml Wasser mischen</td><td>Trinkfertiger Shot</td><td>Beide Formate</td></tr>
+          <tr><td>Koffein</td><td>Kein Koffein in der Zutatenliste</td><td>80 mg pro Shot</td><td>BOOST+ enthält 80 mg pro Shot</td></tr>
+          <tr><td>Zentrale Bestandteile</td><td>5 Bakterienstämme, Inulin, FOS, Magnesium</td><td>Guarana, Holunderbeere, gekeimter Buchweizen, Glukose</td><td>Beide Produktlinien</td></tr>
+          <tr><td>Hersteller-Schwerpunkt</td><td>Darm & Gehirn</td><td>Energie & Fokus</td><td>Kombination</td></tr>
+          <tr><td>Alltag</td><td>Tägliche Routine laut Hersteller</td><td>Situativer Shot laut Hersteller</td><td>Zwei getrennte Routinen</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="bg-actions" style="margin-top:24px"><a class="btn main" href="https://www.awin1.com/cread.php?awinmid=127589&awinaffid=3076553&ued=https%3A%2F%2Fbraingood.com%2Fpages%2Fshop-page" target="_blank" rel="sponsored noopener">Aktuelle Produkte & Preise prüfen ↗</a></div>
     <div class="adnote">Anzeige</div>
   </div>
 </section>
 
-<div class="vc-wrap">
-  <section class="vc-catbar">
-    <a class="vc-cat" href="#vergleich"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=900&q=88" alt="Alltag und Wohlbefinden"><b>BioMe+</b></a>
-    <a class="vc-cat" href="#vergleich"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1526401485004-2fda9f6b12c4?auto=format&fit=crop&w=900&q=88" alt="Fokus im Alltag"><b>BOOST+</b></a>
-    <a class="vc-cat" href="#vergleich"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1512438248247-f0f2a5a8b7f0?auto=format&fit=crop&w=900&q=88" alt="Wellness Routine"><b>Bundles</b></a>
-  </section>
-</div>
-
-<section class="compare-hero">
+<section class="bg-section" id="entscheidung">
   <div class="shell">
-    <div class="compare-title">
-      <span class="eyebrow"><i></i> BRAINGOOD · NAHRUNGSERGÄNZUNG</span>
-      <h2>Drei Wege statt Produktchaos.</h2>
-      <p style="color:var(--muted);font-size:18px;line-height:1.6;max-width:780px">braingood ordnet BioMe+ dem Bereich Darm & Gehirn und BOOST+ dem Bereich Energie & Fokus zu. Zusätzlich gibt es Kombinationen und Mehrmonats-Sets. AuraGlobal hilft dir dabei, die Produktlogik schneller zu verstehen.</p>
+    <div class="bg-head"><div><div class="kicker">Schnell entscheiden</div><h2>Welches Format passt eher zu dir?</h2></div><p>Keine medizinische Empfehlung – nur eine praktische Einordnung anhand von Produktformat und Herstellerangaben.</p></div>
+    <div class="bg-decision">
+      <div class="bg-choice"><div class="num">01 · TÄGLICHE ROUTINE</div><h3>BioMe+</h3><p>Interessant, wenn du ein koffeinfreies Pulver mit Probiotika, Präbiotika und Magnesium suchst und eine tägliche Sachet-Routine okay findest.</p><a href="https://www.awin1.com/cread.php?awinmid=127589&awinaffid=3076553&ued=https%3A%2F%2Fbraingood.com%2Fpages%2Fshop-page" target="_blank" rel="sponsored noopener">BioMe+ im Shop ansehen →</a></div>
+      <div class="bg-choice"><div class="num">02 · SHOT-FORMAT</div><h3>BOOST+</h3><p>Interessant, wenn du ein fertiges Shot-Format bevorzugst und bewusst ein koffeinhaltiges Produkt mit 80 mg Koffein pro Portion suchst.</p><a href="https://www.awin1.com/cread.php?awinmid=127589&awinaffid=3076553&ued=https%3A%2F%2Fbraingood.com%2Fpages%2Fshop-page" target="_blank" rel="sponsored noopener">BOOST+ im Shop ansehen →</a></div>
+      <div class="bg-choice"><div class="num">03 · BEIDE FORMATE</div><h3>Bundle</h3><p>Interessant, wenn du beide Produktlinien ohnehin kaufen möchtest. Der aktuelle Bundlepreis liegt laut Hersteller 10 % unter dem Einzelkauf.</p><a href="https://www.awin1.com/cread.php?awinmid=127589&awinaffid=3076553&ued=https%3A%2F%2Fbraingood.com%2Fpages%2Fshop-page" target="_blank" rel="sponsored noopener">Bundle prüfen →</a></div>
     </div>
-
-    <div class="brand-hero">
-      <div class="brand-hero-media editorial"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&w=1600&q=90" alt="Gesunde Alltagsroutine"></div>
-      <div class="brand-hero-copy">
-        <div class="kicker">Schneller zur passenden Routine</div>
-        <h2>Nach Produktfokus statt nach Werbeversprechen auswählen.</h2>
-        <p>BioMe+ und BOOST+ verfolgen unterschiedliche Produktkonzepte. Wer beides kombinieren möchte, kann direkt zu einem Bundle greifen.</p>
-        <div class="info-strip">
-          <div><b>BioMe+</b><span>Darm & Gehirn</span></div>
-          <div><b>BOOST+</b><span>Energie & Fokus</span></div>
-          <div><b>Bundle</b><span>Kombination</span></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="product-stage" id="vergleich">
-      <article class="stage-card featured">
-        <div class="stage-top"><div><span class="pill green" style="position:static;display:inline-block">Darm & Gehirn</span><h3>BioMe+</h3><div class="sub">braingoods Produktlinie rund um die Darm-Hirn-Achse.</div></div></div>
-        <div class="stage-img"><img class="product-shot-photo" loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1556229010-6c3f2c9ca5f8?auto=format&fit=crop&w=1200&q=88" alt="Nahrungsergänzung und Wellness"></div>
-        <div class="meta"><span>Probiotika</span><span>Präbiotika</span><span>Magnesium</span></div>
-        <div class="cta-row"><a class="btn main" href="https://www.awin1.com/cread.php?awinmid=127589&awinaffid=3076553&ued=https%3A%2F%2Fbraingood.com%2Fpages%2Fshop-page" target="_blank" rel="sponsored noopener">BioMe+ ansehen ↗</a></div>
-        <div class="adnote">Anzeige</div>
-      </article>
-
-      <article class="stage-card">
-        <div class="stage-top"><div><span class="pill" style="position:static;display:inline-block">Energie & Fokus</span><h3>BOOST+</h3><div class="sub">braingoods zweite Kernlinie für den Bereich Energie und Fokus.</div></div></div>
-        <div class="stage-img"><img class="product-shot-photo" loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&w=1200&q=88" alt="Fokus und Alltag"></div>
-        <div class="meta"><span>Alltag</span><span>Fokus</span><span>Routine</span></div>
-        <div class="cta-row"><a class="btn main" href="https://www.awin1.com/cread.php?awinmid=127589&awinaffid=3076553&ued=https%3A%2F%2Fbraingood.com%2Fpages%2Fshop-page" target="_blank" rel="sponsored noopener">BOOST+ ansehen ↗</a></div>
-        <div class="adnote">Anzeige</div>
-      </article>
-
-      <article class="stage-card">
-        <div class="stage-top"><div><span class="pill" style="position:static;display:inline-block">Kombination</span><h3>BioMe+ & BOOST+</h3><div class="sub">Für Nutzer, die beide Produktlinien in einer Routine kombinieren möchten.</div></div></div>
-        <div class="stage-img"><img class="product-shot-photo" loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=1200&q=88" alt="Wellness Routine zuhause"></div>
-        <div class="meta"><span>Bundle</span><span>Routine</span><span>Kombination</span></div>
-        <div class="cta-row"><a class="btn main" href="https://www.awin1.com/cread.php?awinmid=127589&awinaffid=3076553&ued=https%3A%2F%2Fbraingood.com%2Fpages%2Fshop-page" target="_blank" rel="sponsored noopener">Bundles ansehen ↗</a></div>
-        <div class="adnote">Anzeige</div>
-      </article>
-    </div>
-
-    <p class="supp-note">Nahrungsergänzungsmittel sind kein Ersatz für eine abwechslungsreiche Ernährung. Eine ausgewogene Ernährung und ein gesunder Lebensstil sind wichtig. Produktangaben und empfohlene Tagesdosis bitte direkt beim Anbieter prüfen.</p>
-
-    <div class="visual-break">
-      <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1800&q=90" alt="Wellness und Routine">
-      <div class="visual-break-copy"><small>Im echten Alltag</small><h2>Die einfachere Entscheidung beginnt mit einem klaren Ziel.</h2><p>Einzelprodukt oder Kombination: Erst festlegen, welche Produktlinie du suchst – dann Details und Zutaten beim Anbieter prüfen.</p></div>
-    </div>
+    <div class="bg-notice">Nahrungsergänzungsmittel sind kein Ersatz für eine abwechslungsreiche Ernährung. Eine ausgewogene Ernährung und ein gesunder Lebensstil sind wichtig. BOOST+ enthält 80 mg Koffein pro Shot und ist laut Hersteller für Erwachsene vorgesehen. Bei Schwangerschaft, Stillzeit, Medikamenteneinnahme oder gesundheitlichen Fragen die Herstellerhinweise beachten und gegebenenfalls medizinischen Rat einholen.</div>
   </div>
 </section>
 
-<section class="section" id="entscheidung">
+<section class="bg-section">
   <div class="shell">
-    <div class="section-head"><div><div class="kicker">Kurzentscheidung</div><h2>Welche Linie passt zu deiner Suche?</h2></div><p>Wir ordnen die Produkte nach dem vom Hersteller angegebenen Schwerpunkt ein, nicht nach individuellen Gesundheitsversprechen.</p></div>
-    <div class="choice-grid">
-      <div class="choice"><b>BioMe+</b><p>Wenn du gezielt die Produktlinie rund um Darm & Gehirn suchst.</p></div>
-      <div class="choice"><b>BOOST+</b><p>Wenn dich vor allem die braingood-Linie rund um Energie & Fokus interessiert.</p></div>
-      <div class="choice"><b>Bundle</b><p>Wenn du beide Linien zusammen kaufen möchtest, ohne Produkte einzeln zusammenzustellen.</p></div>
+    <div class="cta-banner">
+      <div class="kicker">Noch unsicher?</div>
+      <h2>Erst vergleichen. Dann zum Anbieter.</h2>
+      <p>Genau dafür ist AuraGlobal da: Unterschiede vorher verstehen, aktuelle Verfügbarkeit und Kauf anschließend direkt beim Partner prüfen.</p>
+      <div class="cta-actions"><a class="btn main" href="#vergleich">Vergleich nochmal ansehen</a><a class="btn secondary" href="https://www.awin1.com/cread.php?awinmid=127589&awinaffid=3076553&ued=https%3A%2F%2Fbraingood.com%2Fpages%2Fshop-page" target="_blank" rel="sponsored noopener">braingood öffnen ↗</a></div>
+      <div class="adnote">Anzeige</div>
     </div>
   </div>
 </section>
-
-<section class="section" id="faq"><div class="shell"><div class="section-head"><div><div class="kicker">Kurz erklärt</div><h2>Häufige Fragen zu braingood.</h2></div><p>Vor dem Kauf schnell einordnen.</p></div><div class="choice-grid"><div class="choice"><b>Was ist BioMe+?</b><p>braingood ordnet BioMe+ dem Schwerpunkt Darm & Gehirn zu. Laut Hersteller enthält die Formulierung unter anderem Probiotika, Präbiotika und Magnesium.</p></div><div class="choice"><b>Was ist BOOST+?</b><p>BOOST+ ist bei braingood dem Schwerpunkt Energie & Fokus zugeordnet.</p></div><div class="choice"><b>Kann ich beide Produkte kombinieren?</b><p>braingood bietet dafür gemeinsame Bundles an. Hinweise zu Einnahme, Zutaten und Tagesdosis solltest du direkt auf der jeweiligen Produktseite prüfen.</p></div></div></div></section>
-
-<section class="section"><div class="shell"><a class="clean-universe-link" href="/#universe"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=2200&q=90" alt="AuraGlobal Produktwelten"><div class="copy"><small>Weiter entdecken</small><h3>Noch mehr Produktwelten.</h3><p>Von Smart Pet bis E-Bikes – zurück ins AuraGlobal Universum.</p></div></a></div></section>
 </main>
 
 <footer class="footer"><div class="shell"><div>© 2026 AuraGlobal · Unabhängige Vergleichsplattform.</div><div class="footer-links"><a href="/methodik.html">So vergleichen wir</a><a href="/impressum.html">Impressum</a><a href="/datenschutz.html">Datenschutz</a><a href="/affiliate-disclosure.html">Affiliate-Hinweis</a></div></div></footer>
