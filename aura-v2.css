@@ -1505,3 +1505,93 @@ button,a{-webkit-tap-highlight-color:transparent}
   .motion-section .video-card{height:240px!important;min-height:240px!important}
   .motion-section .video-card>img{height:240px!important;min-height:240px!important}
 }
+
+
+/* Mobile readability safety v40 — data must never be clipped */
+@media(max-width:620px){
+  /* Comparisons and decision cards get full readable width */
+  .compare-grid,
+  .product-grid,
+  .model-grid,
+  .products,
+  .cards,
+  .product-stage,
+  .product-stage.two,
+  .choice-grid,
+  .feature-grid{
+    grid-template-columns:minmax(0,1fr)!important;
+    width:100%!important;
+    min-width:0!important;
+    max-width:100%!important;
+  }
+
+  .choice,.feature,.stage-card,.product-card,.model-card,.compare-card,.product-tile{
+    width:100%!important;
+    min-width:0!important;
+    max-width:100%!important;
+    box-sizing:border-box!important;
+  }
+
+  /* Never hide comparison metadata on phones */
+  main .meta{display:flex!important;flex-wrap:wrap!important}
+  .rail .card-body p{display:block!important}
+  .rail .meta{display:flex!important}
+  .rail .card-cta{font-size:11px!important}
+
+  /* Product rails: one readable card instead of two clipped mini-cards */
+  .rail{
+    grid-auto-columns:minmax(0,86vw)!important;
+    gap:10px!important;
+    overflow-x:auto!important;
+    scroll-snap-type:x mandatory!important;
+    padding-bottom:10px!important;
+  }
+  .rail .card{
+    height:auto!important;
+    min-height:320px!important;
+    width:auto!important;
+    min-width:0!important;
+    overflow:hidden!important;
+  }
+  .rail .card-media,
+  .rail .card-media.product{
+    height:160px!important;
+    max-height:160px!important;
+  }
+  .rail .card-body{padding:14px!important}
+  .rail .card-body h3{font-size:18px!important;line-height:1.08!important;margin:0 0 7px!important}
+  .rail .card-body p{font-size:12px!important;line-height:1.45!important}
+  .rail .meta{gap:5px!important;margin-top:10px!important}
+  .rail .meta span{font-size:9px!important;padding:6px 7px!important}
+
+  /* Technical information must stay legible */
+  table{font-size:12px!important}
+  th,td{padding:10px!important;line-height:1.35!important}
+  .info-strip{grid-template-columns:minmax(0,1fr)!important}
+  .trustbar{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .trustitem b{font-size:11px!important}
+  .trustitem span{font-size:9px!important}
+
+  /* Visual tiles can stay compact, but text cannot be crushed into 3 columns */
+  .emotion-strip,
+  .world-grid,
+  .universe-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  }
+  .motion-grid,.spotlight-grid{grid-template-columns:minmax(0,1fr)!important}
+  .video-card,.spotlight{height:230px!important;min-height:230px!important}
+  .video-card>img,.spotlight>img{height:230px!important;max-height:230px!important}
+  .video-copy small,.spotlight-copy small{font-size:8px!important}
+  .video-copy b,.spotlight-copy h2{font-size:18px!important;line-height:1.08!important}
+  .video-copy em{display:block!important;font-size:9px!important}
+
+  /* General overflow guard */
+  main section, main .shell, main article, main div{min-width:0}
+  main h1,main h2,main h3,main p,main b,main span{overflow-wrap:anywhere}
+}
+
+@media(max-width:390px){
+  .emotion-strip,.world-grid,.universe-grid{grid-template-columns:minmax(0,1fr)!important}
+  .trustbar{grid-template-columns:minmax(0,1fr)!important}
+  .rail{grid-auto-columns:minmax(0,92vw)!important}
+}
