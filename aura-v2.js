@@ -181,7 +181,7 @@ document.addEventListener('DOMContentLoaded',initAffiliateClickTracking);
 
 
 function initAffiliateFooterNote(){
-  const footer=document.querySelector('.footer');
+  const footer=document.querySelector('.footer, footer');
   if(!footer||footer.querySelector('.affiliate-footer-note')) return;
   const note=document.createElement('div');
   note.className='affiliate-footer-note';
