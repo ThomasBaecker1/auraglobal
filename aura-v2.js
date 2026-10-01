@@ -7,7 +7,8 @@ const catalog=[
   {title:'URWAHN',type:'Vergleich',href:'/urwahn.html',tags:'urwahn stadtfuchs waldwiesel urban gravel ebike'},
   {title:'OutIn Nano vs Mino',type:'Vergleich',href:'/outin.html',tags:'outin nano mino espresso kaffee portable reise camping'},
   {title:'DEKVIO Leder & Reise',type:'Partner',href:'/dekvio.html',tags:'dekvio leder tasche rucksack reise laptop work travel'},
-  {title:'PETLIBRO Smart Pet',type:'Vergleich',href:'/petlibro.html',tags:'petlibro futterautomat katze feeder smart pet granary'},
+  {title:'Haustiere & Smart Pet',type:'Kategorie',href:'/petlibro.html',tags:'haustier haustiere katze katzen tier futterautomat smart pet feeder'},
+  {title:'PETLIBRO Smart Pet',type:'Vergleich',href:'/petlibro.html',tags:'petlibro futterautomat katze katzen haustier haustiere feeder smart pet granary'},
   {title:'Paper & Sons Rucksäcke',type:'Vergleich',href:'/paper-sons.html',tags:'paper sons rucksack laptop kraftpapier vegan nachhaltig'},
   {title:'Pizza Party Öfen',type:'Kaufberatung',href:'/pizza-party.html',tags:'pizza party pizzaofen ardore emozione ispirazione outdoor'},
   {title:'Ophelia Eternity Schmuck',type:'Kaufberatung',href:'/ophelia.html',tags:'ophelia eternity schmuck ring diamanten lab grown jewelry'},
@@ -18,6 +19,7 @@ const catalog=[
   {title:'Rasendoktor',type:'Kaufberatung',href:'/rasendoktor.html',tags:'rasendoktor rasen garten dünger rasenpflege saat'},
   {title:'LUNZO',type:'Partner',href:'/lunzo.html',tags:'lunzo shopping wohnen haushalt lifestyle angebote'},
   {title:'Vorteilshop',type:'Partner',href:'/vorteilshop.html',tags:'vorteilshop wohnen haushalt freizeit alltag angebote'},
+  {title:'Kaffee & Espresso',type:'Kategorie',href:'/nespresso.html',tags:'kaffee espresso kaffeemaschine kapselmaschine kapsel kaffee zuhause'},
   {title:'Nespresso ORIGINAL',type:'Vergleich',href:'/nespresso.html',tags:'nespresso kaffee kapselmaschine kaffeemaschine espresso essenza mini citiz pixie creatista original'}
 ];
 
