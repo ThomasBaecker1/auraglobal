@@ -169,3 +169,14 @@ function initAffiliateClickTracking(){
   },{capture:true});
 }
 document.addEventListener('DOMContentLoaded',initAffiliateClickTracking);
+
+
+function initAffiliateFooterNote(){
+  const footer=document.querySelector('.footer');
+  if(!footer||footer.querySelector('.affiliate-footer-note')) return;
+  const note=document.createElement('div');
+  note.className='affiliate-footer-note';
+  note.textContent='Hinweis: Einige Links sind Affiliate-Links. Bei einem Kauf können wir eine Provision erhalten. Für dich entstehen keine Mehrkosten.';
+  footer.appendChild(note);
+}
+document.addEventListener('DOMContentLoaded',initAffiliateFooterNote);
