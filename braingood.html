@@ -24,24 +24,17 @@ linear-gradient(125deg,#07100d 0%,#0d1911 42%,#17102c 100%)}
 .hero-copy{position:relative;z-index:3;padding:28px 0}
 .decision-hero h1{font-size:clamp(48px,6.4vw,88px);line-height:.91;letter-spacing:-.065em;margin:14px 0 22px;max-width:9ch}
 .decision-hero p{font-size:18px;line-height:1.6;color:#d8e3dc;max-width:620px}
-.hero-visual{position:relative;height:610px;min-width:0}
-.hero-main-photo{position:absolute;inset:0 18% 0 0;border-radius:34px;overflow:hidden;box-shadow:0 36px 110px rgba(0,0,0,.42);border:1px solid rgba(255,255,255,.18)}
-.hero-main-photo img{width:100%;height:100%;object-fit:cover}
-.hero-main-photo:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 36%,rgba(4,7,6,.74) 100%)}
-.hero-main-caption{position:absolute;left:24px;bottom:22px;z-index:2}
-.hero-main-caption small{display:block;color:#d8ffb9;font-size:10px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
-.hero-main-caption b{display:block;font-size:28px;line-height:1.02;max-width:12ch;margin-top:7px}
-.hero-float{position:absolute;z-index:4;border-radius:24px;overflow:hidden;border:1px solid rgba(255,255,255,.2);box-shadow:0 28px 70px rgba(0,0,0,.38);background:#101414}
-.hero-float img{width:100%;height:100%;object-fit:cover}
-.hero-float.one{width:42%;height:220px;right:0;top:28px}
-.hero-float.two{width:46%;height:230px;right:0;bottom:30px}
-.hero-float:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(7,7,12,.88))}
-.float-copy{position:absolute;z-index:2;left:16px;right:16px;bottom:14px}
-.float-copy small{display:block;font-size:9px;text-transform:uppercase;letter-spacing:.12em;color:#e8e3ff;font-weight:900}
-.float-copy b{display:block;margin-top:5px;font-size:18px;line-height:1.05}
-.hero-badge{position:absolute;z-index:5;left:-22px;top:58px;padding:14px 16px;border-radius:18px;background:#c2ff76;color:#0a130d;box-shadow:0 20px 45px rgba(0,0,0,.24);transform:rotate(-4deg)}
-.hero-badge b{display:block;font-size:24px;line-height:1}.hero-badge span{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.08em}
-.hero-badge.purple{left:auto;right:8px;top:auto;bottom:7px;background:#8f5cff;color:white;transform:rotate(3deg)}
+.hero-visual{display:grid;grid-template-columns:1.22fr .78fr;grid-template-rows:1fr 1fr;gap:14px;height:610px;min-width:0}
+.hero-main-photo,.hero-float{position:relative;overflow:hidden;border-radius:28px;border:1px solid rgba(255,255,255,.18);box-shadow:0 28px 80px rgba(0,0,0,.34);min-width:0}
+.hero-main-photo{grid-row:1 / span 2}
+.hero-main-photo img,.hero-float img{width:100%;height:100%;object-fit:cover}
+.hero-main-photo:after,.hero-float:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 36%,rgba(4,7,6,.82) 100%)}
+.hero-main-caption,.float-copy{position:absolute;z-index:2;left:18px;right:18px;bottom:16px}
+.hero-main-caption small,.float-copy small{display:block;color:#e3ffd0;font-size:9px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
+.hero-main-caption b{display:block;font-size:28px;line-height:1.03;max-width:12ch;margin-top:7px}
+.float-copy b{display:block;margin-top:5px;font-size:18px;line-height:1.08}
+.hero-product-label{display:inline-flex;align-items:center;gap:7px;margin-top:10px;padding:8px 10px;border-radius:999px;font-size:11px;font-weight:900;background:#c2ff76;color:#0a130d}
+.hero-product-label.purple{background:#9a67ff;color:#fff}
 .hero-proof{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:20px;max-width:520px}
 .proof{padding:14px 16px;border:1px solid rgba(255,255,255,.13);background:rgba(5,10,8,.46);backdrop-filter:blur(10px);border-radius:16px}
 .proof b{display:block;font-size:21px;letter-spacing:-.03em}.proof span{display:block;color:#b7c6bd;font-size:11px;margin-top:3px}
@@ -70,8 +63,27 @@ linear-gradient(125deg,#07100d 0%,#0d1911 42%,#17102c 100%)}
 .value-card{padding:22px;border:1px solid var(--line);border-radius:20px;background:#0a100e}.value-card b{display:block;font-size:18px;margin-bottom:8px}.value-card p{color:#9cab9f;line-height:1.55;margin:0}
 .source-note{margin-top:18px;font-size:12px;color:#7f9086;line-height:1.55}
 .med-note{margin-top:28px;padding:18px 20px;border:1px solid rgba(255,255,255,.1);border-radius:16px;color:#a8b6ad;font-size:12px;line-height:1.6}
-@media(max-width:900px){.decision-hero,.product-choice,.saving{grid-template-columns:1fr}.decision-hero{min-height:0}.hero-copy{padding-top:18px}.hero-visual{height:520px}.hero-main-photo{inset:0 16% 0 0}.hero-proof{grid-template-columns:1fr 1fr}.value-head{display:block}.value-head p{margin-top:12px}.value-grid{grid-template-columns:1fr}.bg-hero{padding-top:24px}}
-@media(max-width:620px){.decision-hero h1{font-size:50px}.hero-visual{height:460px}.hero-main-photo{inset:0 9% 0 0}.hero-float.one{width:44%;height:150px}.hero-float.two{width:47%;height:160px}.hero-badge{left:5px;top:40px}.hero-badge.purple{right:3px;bottom:6px}.hero-main-caption b{font-size:23px}.hero-proof{grid-template-columns:1fr 1fr}}
+@media(max-width:900px){.decision-hero,.product-choice,.saving{grid-template-columns:1fr}.decision-hero{min-height:0}.hero-copy{padding-top:18px}.hero-visual{height:560px;grid-template-columns:1.15fr .85fr;grid-template-rows:1fr 1fr}.hero-proof{grid-template-columns:1fr 1fr}.value-head{display:block}.value-head p{margin-top:12px}.value-grid{grid-template-columns:1fr}.bg-hero{padding-top:24px}}
+@media(max-width:620px){.decision-hero h1{font-size:50px}.hero-visual{height:auto;grid-template-columns:1fr;grid-template-rows:340px 220px 220px}.hero-main-photo{grid-row:auto}.hero-main-caption b{font-size:23px}.hero-proof{grid-template-columns:1fr 1fr}}.hero-visual{height:460px}.hero-main-photo{inset:0 9% 0 0}.hero-float.one{width:44%;height:150px}.hero-float.two{width:47%;height:160px}.hero-badge{left:5px;top:40px}.hero-badge.purple{right:3px;bottom:6px}.hero-main-caption b{font-size:23px}.hero-proof{grid-template-columns:1fr 1fr}}
+
+.quick-shop{display:grid;grid-template-columns:1fr 1fr .82fr;gap:12px;margin:18px auto 0}
+.quick-shop a{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:18px 20px;border-radius:18px;text-decoration:none;font-weight:900;border:1px solid rgba(255,255,255,.14);transition:transform .18s ease,box-shadow .18s ease}
+.quick-shop a:hover{transform:translateY(-2px);box-shadow:0 18px 40px rgba(0,0,0,.24)}
+.quick-shop .biome-link{background:linear-gradient(135deg,#c8ff87,#8fe35d);color:#0b160d}
+.quick-shop .boost-link{background:linear-gradient(135deg,#a875ff,#7749d6);color:#fff}
+.quick-shop .shop-link{background:#121a16;color:#fff}
+.quick-shop small{display:block;font-size:9px;text-transform:uppercase;letter-spacing:.1em;opacity:.72}.quick-shop b{display:block;font-size:18px;margin-top:3px}
+.compare-table th:nth-child(2),.compare-table td:nth-child(2){background:rgba(185,255,117,.08)}
+.compare-table th:nth-child(3),.compare-table td:nth-child(3){background:rgba(154,103,255,.10)}
+.compare-table th:nth-child(2){color:#c7ff91}.compare-table th:nth-child(3){color:#c4a6ff}
+.choice-pro.biome-card{border-color:rgba(185,255,117,.32);background:linear-gradient(145deg,rgba(185,255,117,.12),#09100d 55%)}
+.choice-pro.boost-card{border-color:rgba(154,103,255,.38);background:linear-gradient(145deg,rgba(154,103,255,.16),#0b0d12 55%)}
+.choice-pro.biome-card .btn{background:#b9ff75;color:#07100d}.choice-pro.boost-card .btn{background:#9362ef;color:#fff}
+.compare-cta-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+.compare-cta-row a{padding:16px 18px;border-radius:16px;text-align:center;text-decoration:none;font-weight:900}
+.compare-cta-row .bio{background:#b9ff75;color:#07100d}.compare-cta-row .boo{background:#9362ef;color:#fff}
+.gallery-shop-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+@media(max-width:760px){.quick-shop{grid-template-columns:1fr}.compare-cta-row{grid-template-columns:1fr}}
 </style>
 </head>
 <body class="vc-page brand-braingood">
@@ -98,21 +110,23 @@ linear-gradient(125deg,#07100d 0%,#0d1911 42%,#17102c 100%)}
 <div class="hero-visual" aria-label="Braingood visuell erleben">
   <div class="hero-main-photo">
     <img fetchpriority="high" decoding="async" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=1500&q=92" alt="Frau mit natürlicher positiver Ausstrahlung">
-    <div class="hero-main-caption"><small>WOHLBEFINDEN · ALLTAG</small><b>Wie soll sich dein Tag anfühlen?</b></div>
+    <div class="hero-main-caption"><small>WOHLBEFINDEN · ALLTAG</small><b>Wie soll sich dein Tag anfühlen?</b><span class="hero-product-label">BioMe+ · 30 Sachets</span></div>
   </div>
-  <div class="hero-float one">
-    <img decoding="async" src="https://images.unsplash.com/photo-1505252585461-04db1eb84625?auto=format&fit=crop&w=900&q=92" alt="Getränk in einer gesunden Morgenroutine">
-    <div class="float-copy"><small>BIOME+ · ROUTINE</small><b>Sachet + Wasser.</b></div>
+  <div class="hero-float">
+    <img decoding="async" src="https://images.unsplash.com/photo-1505252585461-04db1eb84625?auto=format&fit=crop&w=900&q=92" alt="Getränk in einer Morgenroutine">
+    <div class="float-copy"><small>BIOME+ · ROUTINE</small><b>Sachet + Wasser.</b><span class="hero-product-label">2,33 €/Portion*</span></div>
   </div>
-  <div class="hero-float two">
+  <div class="hero-float">
     <img decoding="async" src="https://images.unsplash.com/photo-1490474418585-ba9bad8fd0ea?auto=format&fit=crop&w=900&q=92" alt="Dunkle Beeren als Zutat-Kontext">
-    <div class="float-copy"><small>BOOST+ · BERRY ENERGY</small><b>Shot + Guarana + Holunder.</b></div>
+    <div class="float-copy"><small>BOOST+ · SHOT</small><b>Guarana + Holunder.</b><span class="hero-product-label purple">80 mg Koffein*</span></div>
   </div>
-  <div class="hero-badge"><b>BioMe+</b><span>30 Sachets · 2,33 €/Portion*</span></div>
-  <div class="hero-badge purple"><b>BOOST+</b><span>80 mg Koffein · 3,67 €/Shot*</span></div>
 </div>
 </div></section>
-
+<div class="shell"><div class="quick-shop" aria-label="Direkt zu braingood">
+<a class="biome-link" href="https://www.awin1.com/cread.php?awinmid=127589&awinaffid=3076553&ued=https%3A%2F%2Fbraingood.com%2Fproducts%2Fbiome" target="_blank" rel="sponsored noopener"><span><small>Direkt zum Produkt</small><b>BioMe+ ansehen</b></span><strong>↗</strong></a>
+<a class="boost-link" href="https://www.awin1.com/cread.php?awinmid=127589&awinaffid=3076553&ued=https%3A%2F%2Fbraingood.com%2Fproducts%2Fboost" target="_blank" rel="sponsored noopener"><span><small>Direkt zum Produkt</small><b>BOOST+ ansehen</b></span><strong>↗</strong></a>
+<a class="shop-link" href="https://www.awin1.com/cread.php?awinmid=127589&awinaffid=3076553&ued=https%3A%2F%2Fbraingood.com%2Fpages%2Fshop-page" target="_blank" rel="sponsored noopener"><span><small>Alle Produkte</small><b>Shop öffnen</b></span><strong>↗</strong></a>
+</div><div class="adnote">Anzeige</div></div>
 
 <section class="section" id="bilder">
   <div class="shell">
@@ -138,6 +152,7 @@ linear-gradient(125deg,#07100d 0%,#0d1911 42%,#17102c 100%)}
         <div class="gallery-copy"><b>Routine statt Hype</b><span>Passung zum Alltag ist wichtiger als Marketingversprechen.</span></div>
       </div>
     </div>
+    <div class="gallery-shop-row"><a class="btn main" href="https://www.awin1.com/cread.php?awinmid=127589&awinaffid=3076553&ued=https%3A%2F%2Fbraingood.com%2Fproducts%2Fbiome" target="_blank" rel="sponsored noopener">BioMe+ Details beim Anbieter ↗</a><a class="btn secondary" href="https://www.awin1.com/cread.php?awinmid=127589&awinaffid=3076553&ued=https%3A%2F%2Fbraingood.com%2Fproducts%2Fboost" target="_blank" rel="sponsored noopener">BOOST+ Details beim Anbieter ↗</a></div><div class="adnote">Anzeige</div>
   </div>
 </section>
 
@@ -177,15 +192,16 @@ linear-gradient(125deg,#07100d 0%,#0d1911 42%,#17102c 100%)}
 <tr><td>Koffein</td><td>nicht als Kernbestandteil ausgewiesen</td><td><strong>80 mg pro Shot*</strong></td></tr>
 <tr><td>Formfaktor</td><td>tägliche Sachet-Routine laut Hersteller</td><td>portabler Einzelshot</td></tr>
 </tbody></table></div>
+<div class="compare-cta-row"><a class="bio" href="https://www.awin1.com/cread.php?awinmid=127589&awinaffid=3076553&ued=https%3A%2F%2Fbraingood.com%2Fproducts%2Fbiome" target="_blank" rel="sponsored noopener">BioMe+ prüfen →</a><a class="boo" href="https://www.awin1.com/cread.php?awinmid=127589&awinaffid=3076553&ued=https%3A%2F%2Fbraingood.com%2Fproducts%2Fboost" target="_blank" rel="sponsored noopener">BOOST+ prüfen →</a></div><div class="adnote">Anzeige</div>
 
 <div class="product-choice">
-<article class="choice-pro"><span class="tag">Synbiotische Formulierung</span><h3>BioMe+</h3><span class="price">69,99 €</span><span class="unit">30 Portionen*</span>
+<article class="choice-pro biome-card"><span class="tag">Synbiotische Formulierung</span><h3>BioMe+</h3><span class="price">69,99 €</span><span class="unit">30 Portionen*</span>
 <div class="fact-row"><span>5 Bakterienstämme</span><span>Inulin + FOS</span><span>60 mg Magnesium*</span></div>
 <ul><li>30 Sachets à 4 g</li><li>&gt;30 Milliarden KBE pro Sachet laut Hersteller</li><li>2,5 g Ballaststoffe/Präbiotika pro Sachet laut Nährwertangabe</li><li>neutraler Geschmack laut Hersteller</li></ul>
 <a class="btn main" href="https://www.awin1.com/cread.php?awinmid=127589&awinaffid=3076553&ued=https%3A%2F%2Fbraingood.com%2Fproducts%2Fbiome" target="_blank" rel="sponsored noopener">BioMe+ beim Anbieter ansehen ↗</a><div class="adnote">Anzeige</div>
 </article>
 
-<article class="choice-pro"><span class="tag">Koffeinhaltiger Shot</span><h3>BOOST+</h3><span class="price">54,99 €</span><span class="unit">15 Shots*</span>
+<article class="choice-pro boost-card"><span class="tag">Koffeinhaltiger Shot</span><h3>BOOST+</h3><span class="price">54,99 €</span><span class="unit">15 Shots*</span>
 <div class="fact-row"><span>80 mg Koffein</span><span>Guarana</span><span>Holunder</span></div>
 <ul><li>15 Shots à 25 ml</li><li>3,67 € pro Shot laut aktuellem Shoppreis</li><li>Guaranaextrakt, Holunderbeerextrakt, B-Vitamine und Glukose</li><li>48,69 kcal und 3,5 g Kohlenhydrate pro Shot laut Hersteller</li></ul>
 <a class="btn main" href="https://www.awin1.com/cread.php?awinmid=127589&awinaffid=3076553&ued=https%3A%2F%2Fbraingood.com%2Fproducts%2Fboost" target="_blank" rel="sponsored noopener">BOOST+ beim Anbieter ansehen ↗</a><div class="adnote">Anzeige</div>
