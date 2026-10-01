@@ -148,6 +148,58 @@ body.coffee-page .coffee-video .video-play{background:#fff!important;color:#1710
   body.coffee-page .video-card.coffee-video{height:260px!important;min-height:260px!important;border-radius:20px!important}
   body.coffee-page .video-card.coffee-video>img{height:260px!important;min-height:260px!important}
 }
+
+/* mobile hardening: never clip comparison data */
+@media(max-width:900px){
+  body.coffee-page .shell{max-width:100%!important;min-width:0!important}
+  body.coffee-page .compare-grid,
+  body.coffee-page .moments-grid,
+  body.coffee-page .choice-row,
+  body.coffee-page .story-grid,
+  body.coffee-page .video-grid{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr)!important;
+    width:100%!important;
+    min-width:0!important;
+    max-width:100%!important;
+    overflow:visible!important;
+  }
+  body.coffee-page .coffee-card,
+  body.coffee-page .coffee-card-body,
+  body.coffee-page .moment,
+  body.coffee-page .story,
+  body.coffee-page .choice-box{
+    width:100%!important;
+    min-width:0!important;
+    max-width:100%!important;
+    box-sizing:border-box!important;
+  }
+  body.coffee-page .coffee-card-body h3,
+  body.coffee-page .coffee-card-body p,
+  body.coffee-page .specs span,
+  body.coffee-page .specs b{
+    overflow-wrap:anywhere!important;
+    word-break:normal!important;
+  }
+}
+@media(max-width:600px){
+  body.coffee-page .coffee-compare{padding:54px 0!important}
+  body.coffee-page .coffee-card-body{padding:20px!important}
+  body.coffee-page .coffee-card-body h3{font-size:28px!important;line-height:1.04!important}
+  body.coffee-page .specs{
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;
+    gap:8px!important;
+    width:100%!important;
+    min-width:0!important;
+  }
+  body.coffee-page .specs span{padding:11px 10px!important;font-size:11px!important}
+  body.coffee-page .specs b{font-size:15px!important}
+  body.coffee-page .coffee-card .btn{width:100%!important;justify-content:center!important;text-align:center!important;white-space:normal!important}
+}
+@media(max-width:390px){
+  body.coffee-page .specs{grid-template-columns:minmax(0,1fr)!important}
+}
+
 </style>
 </head>
 <body class="coffee-page">
