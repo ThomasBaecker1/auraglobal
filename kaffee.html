@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Kaffee zuhause oder unterwegs? Nespresso Essenza Mini, OutIn Nano und OutIn Mino nach Alltag, Mobilität und Kaffee-Moment vergleichen.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Kaffee zuhause oder unterwegs? | AuraGlobal">
+<meta property="og:description" content="Drei Kaffee-Momente, drei passende Wege: kompakt zuhause, mobil im Alltag oder robust für Outdoor.">
+<meta property="og:url" content="https://auraglobal.vercel.app/kaffee.html">
+<meta property="og:image" content="https://i.ytimg.com/vi/jaFhbAHhvOE/maxresdefault.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<title>Kaffee zuhause oder unterwegs? | AuraGlobal</title>
+<link rel="canonical" href="https://auraglobal.vercel.app/kaffee.html">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/aura-v2.css">
+<style>
+body.coffee-page{--coffee:#e8c899;--coffee-dark:#5b3822;background:#070706}
+.coffee-hero{position:relative;min-height:82vh;display:flex;align-items:end;overflow:hidden}
+.coffee-hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.54) saturate(.92)}
+.coffee-hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,4,3,.9),rgba(5,4,3,.25) 62%,rgba(5,4,3,.58)),linear-gradient(0deg,#070706,transparent 45%)}
+.coffee-copy{position:relative;z-index:2;padding:120px 0 70px;max-width:880px}
+.coffee-copy small{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#e7d8c4;font-weight:900}
+.coffee-copy h1{font-size:clamp(54px,8vw,104px);line-height:.9;letter-spacing:-.065em;margin:14px 0 20px;max-width:10ch}
+.coffee-copy h1 em{font-style:normal;color:#f0c98f}
+.coffee-copy p{font-size:20px;line-height:1.55;color:#ddd4ca;max-width:650px}
+.coffee-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.moments{padding:76px 0}
+.moments-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.moment{position:relative;min-height:460px;border-radius:28px;overflow:hidden;border:1px solid rgba(255,255,255,.1)}
+.moment img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.moment:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(5,5,4,.92),rgba(5,5,4,.05) 60%)}
+.moment-copy{position:absolute;z-index:2;left:24px;right:24px;bottom:24px}
+.moment-copy small{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#d9cbb9}
+.moment-copy h2{font-size:32px;letter-spacing:-.045em;margin:7px 0 8px}
+.moment-copy p{font-size:14px;line-height:1.5;color:#c8c1b9}
+.moment-copy a{display:inline-flex;margin-top:8px;font-weight:800}
+.coffee-compare{padding:76px 0;background:linear-gradient(180deg,#0b0907,#070706)}
+.compare-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.coffee-card{border:1px solid rgba(255,255,255,.1);border-radius:26px;overflow:hidden;background:#0f0d0b}
+.coffee-card-media{height:280px;position:relative;background:#14110e}
+.coffee-card-media img{width:100%;height:100%;object-fit:cover}
+.coffee-card-body{padding:24px}
+.coffee-card-body small{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#a99d90}
+.coffee-card-body h3{font-size:30px;letter-spacing:-.045em;margin:8px 0}
+.specs{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:18px 0}
+.specs span{padding:10px;border:1px solid rgba(255,255,255,.08);border-radius:13px;font-size:11px;color:#aaa098}
+.specs b{display:block;color:#f4eee7;font-size:13px;margin-bottom:2px}
+.story-split{padding:76px 0}
+.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.story{position:relative;min-height:520px;border-radius:28px;overflow:hidden;border:1px solid rgba(255,255,255,.1);background:#0d0b09}
+.story img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.story:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(4,4,3,.9),rgba(4,4,3,.1) 64%)}
+.story-copy{position:absolute;z-index:2;left:28px;right:28px;bottom:28px}
+.story-copy h2{font-size:40px;letter-spacing:-.05em;margin:7px 0}
+.story-copy p{max-width:520px;color:#cec6bd;line-height:1.55}
+.video-zone{padding:76px 0;background:#0b0a09}
+.video-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.video-card.coffee-video{min-height:360px;border-radius:26px}
+.coffee-choice{padding:76px 0}
+.choice-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.choice-box{padding:26px;border:1px solid rgba(255,255,255,.1);border-radius:24px;background:rgba(255,255,255,.025)}
+.choice-box h3{font-size:28px;letter-spacing:-.04em;margin:8px 0}
+.choice-box p{color:#a79f96;line-height:1.55}
+@media(max-width:900px){.moments-grid,.compare-grid,.choice-row{grid-template-columns:1fr}.story-grid,.video-grid{grid-template-columns:1fr}.coffee-hero{min-height:720px}}
+@media(max-width:600px){.coffee-copy{padding:100px 0 44px}.coffee-copy h1{font-size:52px}.coffee-copy p{font-size:16px}.moment{min-height:390px}.story{min-height:420px}}
+</style>
+</head>
+<body class="coffee-page">
+<header class="topbar"><div class="shell nav"><a class="brand ag-brand approved-logo" href="/" aria-label="AuraGlobal"><svg class="ag-symbol" viewBox="0 0 100 92" aria-hidden="true"><defs><linearGradient id="auraA" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#eafff5"/><stop offset=".48" stop-color="#8ce8b9"/><stop offset="1" stop-color="#45c98e"/></linearGradient></defs><path fill="url(#auraA)" d="M8 88 48 4 92 88H75L48 31 24 81Z"/><path fill="url(#auraA)" d="M17 78C34 59 53 53 77 66L72 74C52 63 36 66 17 78Z"/></svg><span class="ag-wordmark"><span class="aura">AURA</span><span class="global">GLOBAL</span></span></a><nav class="navlinks"><a href="#momente">Momente</a><a href="#vergleich">Vergleich</a><a href="#video">Videos</a><a href="/">Alle Welten</a></nav><a class="nav-cta" href="#vergleich">Kaffee finden</a></div></header>
+
+<main>
+<section class="coffee-hero">
+  <img fetchpriority="high" decoding="async" src="https://images.unsplash.com/photo-1498804103079-a6351b050096?auto=format&fit=crop&w=2400&q=92" alt="Espresso am Morgen">
+  <div class="shell" style="width:100%"><div class="coffee-copy"><small>AURAGLOBAL · KAFFEE-MOMENTE</small><h1>Wo trinkst du deinen <em>besten Kaffee?</em></h1><p>Kleine Küche, Büro, Auto, Camping oder Aussichtspunkt: Statt nur Maschinen zu vergleichen, ordnen wir sie nach dem Moment ein, in dem du sie wirklich benutzen wirst.</p><div class="coffee-actions"><a class="btn main" href="#momente">Meinen Moment finden ↓</a><a class="btn secondary" href="#vergleich">Direkt vergleichen</a></div></div></div>
+</section>
+
+<section class="moments" id="momente"><div class="shell"><div class="section-head"><div><div class="kicker">Welcher Moment bist du?</div><h2>Erst das Leben. Dann die Maschine.</h2></div><p>Der eigentliche Unterschied ist nicht nur Bar-Druck oder Tankgröße. Entscheidend ist, wo und wie du Kaffee trinkst.</p></div><div class="moments-grid">
+  <a class="moment" href="/nespresso.html"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1511081692775-05d0f180a065?auto=format&fit=crop&w=1200&q=90" alt="Ruhiger Kaffee zuhause"><div class="moment-copy"><small>Zuhause · schnell · kompakt</small><h2>Der Morgen in deiner Küche.</h2><p>Espresso oder Lungo auf Knopfdruck, wenig Platz, feste Routine.</p><span>Nespresso zuhause ansehen →</span></div></a>
+  <a class="moment" href="/outin.html"><img loading="lazy" decoding="async" src="https://de.outin.com/cdn/shop/files/7E94C31A-7B53-4C88-B9B5-C0CA8FDD3D77_13d72bde-f3e5-42bb-b715-e6720fa2dda8.jpg?v=1756794363&width=1600" alt="OutIn Espresso unterwegs"><div class="moment-copy"><small>Auto · Büro · Reise</small><h2>Dein Espresso kommt mit.</h2><p>Selbsterhitzend, mobil und auch mit Nespresso-Original-kompatiblen Kapseln nutzbar.</p><span>OutIn für unterwegs →</span></div></a>
+  <a class="moment" href="https://www.awin1.com/cread.php?awinmid=127821&awinaffid=3076553&ued=https%3A%2F%2Fde.outin.com%2Fproducts%2Fmino-portable-electric-espresso-machine" target="_blank" rel="sponsored noopener"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=90" alt="Kaffee in den Bergen"><div class="moment-copy"><small>Outdoor · Camping · Adventure</small><h2>Kaffee, wo keine Steckdose ist.</h2><p>Robusteres Setup, schnelleres Aufheizen und mehr Fokus auf Outdoor-Einsatz.</p><span>Mino beim Anbieter ansehen →</span></div></a>
+</div></div></section>
+
+<section class="coffee-compare" id="vergleich"><div class="shell"><div class="section-head"><div><div class="kicker">Direktvergleich</div><h2>Drei Wege zum Espresso.</h2></div><p>Stand 1. Oktober 2026. Preise und Verfügbarkeit beim Anbieter prüfen.</p></div><div class="compare-grid">
+  <article class="coffee-card"><div class="coffee-card-media"><img loading="lazy" decoding="async" src="https://i.ytimg.com/vi/jaFhbAHhvOE/maxresdefault.jpg" alt="Nespresso Essenza Mini"></div><div class="coffee-card-body"><small>Zuhause</small><h3>Nespresso Essenza Mini</h3><p>Für kleine Küchen und eine feste Home-Routine.</p><div class="specs"><span><b>109 €</b>aktueller Preis</span><span><b>25–30 Sek.</b>Aufheizzeit</span><span><b>2,31 kg</b>Gewicht</span><span><b>0,6 l</b>Wassertank</span></div><a class="btn main" href="https://www.awin1.com/cread.php?awinmid=13633&awinaffid=3076553&ued=https%3A%2F%2Fwww.nespresso.com%2Fde%2Fde%2Forder%2Fmachines%2Foriginal" target="_blank" rel="sponsored noopener">Nespresso Maschinen ansehen ↗</a><div class="adnote">Anzeige</div></div></article>
+  <article class="coffee-card"><div class="coffee-card-media"><img loading="lazy" decoding="async" src="https://de.outin.com/cdn/shop/files/nano-listing-grey-view_01bfe22a-eec7-44d4-9967-454fb7871b7e.jpg?v=1756794363&width=1100" alt="OutIn Nano"></div><div class="coffee-card-body"><small>Unterwegs</small><h3>OutIn Nano</h3><p>Für Büro, Auto, Reise und spontane Espresso-Momente.</p><div class="specs"><span><b>670 g</b>Gewicht</span><span><b>200 Sek.</b>Heizen & Extrahieren</span><span><b>bis 20 Bar</b>Pumpendruck</span><span><b>bis 5 Tassen*</b>mit kaltem Wasser</span></div><a class="btn main" href="https://www.awin1.com/cread.php?awinmid=127821&awinaffid=3076553&ued=https%3A%2F%2Fde.outin.com%2Fproducts%2Fnano-portable-espresso-machine-space-grey" target="_blank" rel="sponsored noopener">OutIn Nano ansehen ↗</a><div class="adnote">Anzeige</div></div></article>
+  <article class="coffee-card"><div class="coffee-card-media"><img loading="lazy" decoding="async" src="https://de.outin.com/cdn/shop/files/mino-listing-black-view.jpg?width=1100" alt="OutIn Mino" onerror="this.src='https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=88'"></div><div class="coffee-card-body"><small>Outdoor</small><h3>OutIn Mino</h3><p>Für Outdoor, Camping und Nutzer, die schneller aufheizen möchten.</p><div class="specs"><span><b>149 Sek.</b>Aufheizzeit*</span><span><b>bis 22 Bar</b>Pumpendruck*</span><span><b>bis 6 Tassen*</b>pro Ladung*</span><span><b>IPX7</b>Wasserbeständigkeit*</span></div><a class="btn main" href="https://www.awin1.com/cread.php?awinmid=127821&awinaffid=3076553&ued=https%3A%2F%2Fde.outin.com%2Fproducts%2Fmino-portable-electric-espresso-machine" target="_blank" rel="sponsored noopener">OutIn Mino ansehen ↗</a><div class="adnote">Anzeige</div></div></article>
+</div><div class="notice">* Herstellerangaben unter definierten Testbedingungen. Tatsächliche Leistung kann je nach Wasser-, Temperatur- und Nutzungsbedingungen abweichen.</div></div></section>
+
+<section class="story-split"><div class="shell"><div class="section-head"><div><div class="kicker">Nicht nur Technik</div><h2>Welche Szene fühlt sich nach dir an?</h2></div><p>Produkte werden leichter kaufbar, wenn du sie in deinem echten Alltag siehst.</p></div><div class="story-grid">
+  <div class="story"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1500&q=90" alt="Kaffee zuhause"><div class="story-copy"><small>ZUHAUSE</small><h2>Ein Knopf. Eine ruhige Minute.</h2><p>Wenn Kaffee Teil deiner festen Morgenroutine ist, spricht viel für eine stationäre Maschine: schneller, sofort griffbereit, kein Akku-Management.</p><a class="btn main" href="/nespresso.html">Home-Setup vergleichen →</a></div></div>
+  <div class="story"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1500&q=90" alt="Roadtrip und Kaffee unterwegs"><div class="story-copy"><small>UNTERWEGS</small><h2>Pause machen, wo du willst.</h2><p>Wenn dein Kaffee im Auto, auf Reisen oder draußen stattfinden soll, wird Mobilität wichtiger als ein großer Wassertank.</p><a class="btn main" href="/outin.html">Mobile Espresso-Welt →</a></div></div>
+</div></div></section>
+
+<section class="video-zone" id="video"><div class="shell"><div class="section-head"><div><div class="kicker">In Bewegung</div><h2>Sieh die Produkte, bevor du dich entscheidest.</h2></div><p>Offizielle Hersteller-Videos zeigen Größe, Handling und Nutzung schneller als zehn Absätze Text.</p></div><div class="video-grid">
+  <button class="video-card coffee-video" type="button" data-youtube="jaFhbAHhvOE" aria-label="Offizielles Nespresso Essenza Mini Video abspielen"><img loading="lazy" decoding="async" src="https://i.ytimg.com/vi/jaFhbAHhvOE/maxresdefault.jpg" alt="Nespresso Essenza Mini im offiziellen Video"><span class="video-shade"></span><span class="video-play">▶</span><span class="video-copy"><small>Nespresso · offizielles Video</small><b>Essenza Mini: klein im Raum, groß im Moment.</b><em>Video abspielen</em></span></button>
+  <button class="video-card coffee-video" type="button" data-youtube="CoDyTsGY_bQ" aria-label="Offizielles OutIn Nano Video abspielen"><img loading="lazy" decoding="async" src="https://i.ytimg.com/vi/CoDyTsGY_bQ/maxresdefault.jpg" alt="OutIn Nano im offiziellen Video"><span class="video-shade"></span><span class="video-play">▶</span><span class="video-copy"><small>OutIn · offizielles Video</small><b>Espresso dort, wo dein Tag gerade ist.</b><em>Video abspielen</em></span></button>
+</div></div></section>
+
+<section class="coffee-choice"><div class="shell"><div class="section-head"><div><div class="kicker">In 10 Sekunden entscheiden</div><h2>Was passt eher zu deinem Leben?</h2></div><p>Keine künstliche Siegerwahl – nur eine klare Zuordnung nach Nutzung.</p></div><div class="choice-row">
+  <div class="choice-box"><small>ICH TRINKE FAST IMMER ZUHAUSE</small><h3>Nespresso</h3><p>Feste Maschine, 25–30 Sekunden Aufheizzeit bei der Essenza Mini, kompakt und sofort Teil der Küchenroutine.</p><a href="/nespresso.html">Nespresso vergleichen →</a></div>
+  <div class="choice-box"><small>ICH WILL FLEXIBEL BLEIBEN</small><h3>OutIn Nano</h3><p>Leicht, mobil und kompatibel mit Nespresso-Original-Kapseln oder gemahlenem Kaffee.</p><a href="/outin.html">Nano vs. Mino →</a></div>
+  <div class="choice-box"><small>ICH BIN OFT DRAUSSEN</small><h3>OutIn Mino</h3><p>Mehr Outdoor-Fokus, laut Hersteller schnelleres Aufheizen, mehr Pumpendruck und höhere Wasserbeständigkeit.</p><a href="https://www.awin1.com/cread.php?awinmid=127821&awinaffid=3076553&ued=https%3A%2F%2Fde.outin.com%2Fproducts%2Fmino-portable-electric-espresso-machine" target="_blank" rel="sponsored noopener">Mino prüfen →</a><div class="adnote">Anzeige</div></div>
+</div></div></section>
+</main>
+<footer class="footer"><div class="shell"><div>© 2026 AuraGlobal · Unabhängige Vergleichsplattform.</div><div class="footer-links"><a href="/methodik.html">So vergleichen wir</a><a href="/impressum.html">Impressum</a><a href="/datenschutz.html">Datenschutz</a><a href="/affiliate-disclosure.html">Affiliate-Hinweis</a></div></div></footer>
+<script src="/aura-v2.js"></script>
+</body>
+</html>
