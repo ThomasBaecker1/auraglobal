@@ -1595,3 +1595,130 @@ button,a{-webkit-tap-highlight-color:transparent}
   .trustbar{grid-template-columns:minmax(0,1fr)!important}
   .rail{grid-auto-columns:minmax(0,92vw)!important}
 }
+
+
+/* Homepage discover rail isolation v41 — never collapse into strips */
+@media(max-width:620px){
+  #discover{
+    content-visibility:visible!important;
+    contain:none!important;
+    padding-top:34px!important;
+    overflow:hidden!important;
+  }
+  #discover .shell{
+    width:auto!important;
+    margin-left:12px!important;
+    margin-right:12px!important;
+    overflow:visible!important;
+  }
+  #discover .rail-toolbar{
+    display:flex!important;
+    align-items:center!important;
+    justify-content:space-between!important;
+    width:100%!important;
+    margin:0 0 12px!important;
+    min-width:0!important;
+  }
+  #discover .rail{
+    display:flex!important;
+    flex-wrap:nowrap!important;
+    align-items:stretch!important;
+    gap:12px!important;
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+    height:auto!important;
+    grid-template-columns:none!important;
+    grid-auto-columns:auto!important;
+    grid-auto-flow:row!important;
+    overflow-x:auto!important;
+    overflow-y:hidden!important;
+    scroll-snap-type:x mandatory!important;
+    scroll-padding-left:0!important;
+    padding:0 0 12px!important;
+    scrollbar-width:none!important;
+    -webkit-overflow-scrolling:touch!important;
+  }
+  #discover .rail::-webkit-scrollbar{display:none!important}
+  #discover .rail>.card{
+    flex:0 0 min(84vw,340px)!important;
+    width:min(84vw,340px)!important;
+    min-width:min(84vw,340px)!important;
+    max-width:min(84vw,340px)!important;
+    height:390px!important;
+    min-height:390px!important;
+    max-height:390px!important;
+    display:flex!important;
+    flex-direction:column!important;
+    overflow:hidden!important;
+    scroll-snap-align:start!important;
+    box-sizing:border-box!important;
+    border-radius:20px!important;
+  }
+  #discover .rail>.card .card-media,
+  #discover .rail>.card .card-media.product{
+    flex:0 0 170px!important;
+    width:100%!important;
+    height:170px!important;
+    min-height:170px!important;
+    max-height:170px!important;
+    overflow:hidden!important;
+  }
+  #discover .rail>.card .card-media img,
+  #discover .rail>.card .card-media.product img{
+    width:100%!important;
+    height:100%!important;
+    min-height:0!important;
+    max-height:none!important;
+    object-fit:cover!important;
+    padding:0!important;
+  }
+  #discover .rail>.card .card-body{
+    flex:1 1 auto!important;
+    height:auto!important;
+    min-height:0!important;
+    padding:16px!important;
+    display:flex!important;
+    flex-direction:column!important;
+    overflow:hidden!important;
+  }
+  #discover .rail>.card .card-body h3{
+    font-size:19px!important;
+    line-height:1.08!important;
+    margin:0 0 7px!important;
+  }
+  #discover .rail>.card .card-body p{
+    display:block!important;
+    font-size:12px!important;
+    line-height:1.42!important;
+    margin:0!important;
+    overflow:visible!important;
+  }
+  #discover .rail>.card .meta{
+    display:flex!important;
+    flex-wrap:wrap!important;
+    gap:5px!important;
+    margin:10px 0!important;
+  }
+  #discover .rail>.card .meta span{
+    font-size:9px!important;
+    padding:5px 7px!important;
+  }
+  #discover .rail>.card .card-cta{
+    margin-top:auto!important;
+    font-size:11px!important;
+  }
+  #discover .notice{
+    margin-top:14px!important;
+    font-size:10px!important;
+    line-height:1.5!important;
+  }
+}
+@media(max-width:390px){
+  #discover .rail>.card{
+    flex-basis:calc(100vw - 48px)!important;
+    width:calc(100vw - 48px)!important;
+    min-width:calc(100vw - 48px)!important;
+    max-width:calc(100vw - 48px)!important;
+  }
+}
