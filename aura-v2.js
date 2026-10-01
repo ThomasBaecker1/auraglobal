@@ -45,19 +45,30 @@ function initSearch(){
   if(!input||!out) return;
   const button=input.closest('.searchbox')?.querySelector('button');
 
+  const closeResults=()=>{
+    out.style.display='none';
+    input.setAttribute('aria-expanded','false');
+  };
+
   function render(q){
     const hits=getHits(q);
-    if(!q.trim()){out.style.display='none';return hits;}
+    if(!q.trim()){
+      out.innerHTML='';
+      closeResults();
+      return hits;
+    }
     out.innerHTML=hits.length
-      ?hits.map(x=>`<a class="result" href="${x.href}"><b>${x.title}</b><small>${x.type}</small></a>`).join('')
-      :'<a class="result" href="#discover"><b>Noch nicht im Katalog</b><small>Alle live Vergleiche ansehen →</small></a>';
+      ?hits.map(x=>`<a class="result" href="${x.href}"><span><b>${x.title}</b><small>${x.type}</small></span><i aria-hidden="true">→</i></a>`).join('')
+      :'<a class="result" href="#discover"><span><b>Noch nicht im Katalog</b><small>Alle live Vergleiche ansehen</small></span><i aria-hidden="true">→</i></a>';
     out.style.display='block';
+    input.setAttribute('aria-expanded','true');
     return hits;
   }
 
   function go(){
     const query=input.value.trim();
     if(!query){
+      closeResults();
       document.getElementById('discover')?.scrollIntoView({behavior:'smooth',block:'start'});
       return;
     }
@@ -69,11 +80,22 @@ function initSearch(){
   }
 
   input.addEventListener('input',e=>render(e.target.value));
-  input.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();go()}});
+  input.addEventListener('focus',()=>{if(input.value.trim()) render(input.value)});
+  input.addEventListener('keydown',e=>{
+    if(e.key==='Enter'){e.preventDefault();go()}
+    if(e.key==='Escape'){e.preventDefault();closeResults();input.blur()}
+    if(e.key==='ArrowDown'){
+      const first=out.querySelector('.result');
+      if(first&&out.style.display!=='none'){e.preventDefault();first.focus()}
+    }
+  });
+  out.addEventListener('keydown',e=>{
+    if(e.key==='Escape'){e.preventDefault();closeResults();input.focus()}
+  });
   button?.addEventListener('click',go);
 
   document.addEventListener('click',e=>{
-    if(!out.contains(e.target)&&e.target!==input&&e.target!==button) out.style.display='none';
+    if(!out.contains(e.target)&&e.target!==input&&e.target!==button) closeResults();
   });
 
   document.querySelectorAll('[data-query]').forEach(el=>el.addEventListener('click',()=>{
