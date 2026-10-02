@@ -2103,3 +2103,93 @@ body:not(.home) :where(.section-head p,.card p,.choice p,.feature p,.feed-copy p
 /* No invisible/ultra-low contrast interactive text */
 a,button{ text-underline-offset:2px }
 :where(a,button):focus-visible{outline:3px solid #9dffd4!important;outline-offset:3px!important}
+
+
+/* Deal actions v45 */
+.deal-actions{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:auto}
+.deal-actions .deal-cta{margin-top:0}
+.deal-link{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-height:42px;padding:11px 13px;border-radius:13px;
+  border:1px solid rgba(255,255,255,.15);
+  color:#eef6f1;font-size:12px;font-weight:900;text-decoration:none;
+  background:rgba(255,255,255,.035)
+}
+.deal-link:hover{border-color:rgba(143,241,200,.38);background:rgba(143,241,200,.07)}
+
+/* Readability contract v45 — readability beats density */
+@media(max-width:620px){
+  main p,
+  main li,
+  main td,
+  main th{
+    font-size:14px!important;
+    line-height:1.5!important;
+  }
+
+  main small,
+  main .kicker,
+  main .pill,
+  main .meta span,
+  main .adnote,
+  main .source-note,
+  main .deal-note,
+  main .world-copy small,
+  main .universe-card-copy small,
+  main .video-copy small,
+  main .spotlight-copy small,
+  main .brand-mood-copy small,
+  main .portal-grid span,
+  main .ag-metrics span{
+    font-size:11px!important;
+    line-height:1.4!important;
+    opacity:1!important;
+  }
+
+  main .btn,
+  main .card-cta,
+  main .inline-link,
+  main .deal-cta,
+  main .deal-link,
+  main a strong{
+    font-size:13px!important;
+    line-height:1.3!important;
+  }
+
+  main .world-copy h3,
+  main .universe-card-copy h3,
+  main .video-copy b,
+  main .spotlight-copy h2,
+  main .portal-grid b{
+    font-size:16px!important;
+    line-height:1.15!important;
+  }
+
+  .deal-actions{display:grid;grid-template-columns:1fr;gap:8px}
+  .deal-actions .deal-cta,.deal-actions .deal-link{width:100%;text-align:center}
+
+  /* photo copy must stay high contrast */
+  .decision-tile span,
+  .moment-copy,
+  .story-copy,
+  .video-copy,
+  .spotlight-copy,
+  .world-copy,
+  .universe-card-copy,
+  .brand-mood-copy{
+    text-shadow:0 2px 14px rgba(0,0,0,.72);
+  }
+
+  /* no comparison information may be visually crushed */
+  .specs,
+  .info-strip,
+  .ag-metrics{
+    min-width:0!important;
+  }
+  .specs span,
+  .info-strip div,
+  .ag-metrics span{
+    min-width:0!important;
+    overflow-wrap:anywhere!important;
+  }
+}
