@@ -2726,3 +2726,494 @@ body.brand-home .live-deal-coffee .live-deal-badge{
     max-width:34ch;
   }
 }
+
+
+/* Emotional retail rebuild v51 — color, human energy, hard readability */
+body.brand-home{
+  --ag-pink:#ff3d8d;
+  --ag-yellow:#ffd84d;
+  --ag-orange:#ff8d3b;
+  --ag-lime:#c7ff73;
+  --ag-aqua:#74efd0;
+  --ag-purple:#8f6cff;
+  --ag-ink:#11110f;
+  --ag-cream:#fff8f1;
+}
+
+/* Never allow low-contrast text on homepage */
+body.brand-home main p,
+body.brand-home main span,
+body.brand-home main small,
+body.brand-home main b,
+body.brand-home main h1,
+body.brand-home main h2,
+body.brand-home main h3,
+body.brand-home main a{
+  opacity:1!important;
+}
+body.brand-home .mock-hero-copy,
+body.brand-home .mock-hero-copy *{
+  text-shadow:0 3px 22px rgba(0,0,0,.52);
+}
+
+/* Hero = campaign, not dashboard */
+body.brand-home .hero-featured-sale{
+  border-bottom:8px solid var(--ag-pink);
+}
+body.brand-home .hero-featured-sale .mock-hero-overlay{
+  background:
+    radial-gradient(circle at 78% 24%,rgba(255,216,77,.18),transparent 23rem),
+    radial-gradient(circle at 66% 62%,rgba(255,61,141,.22),transparent 28rem),
+    linear-gradient(90deg,rgba(10,5,11,.96) 0%,rgba(10,5,11,.74) 46%,rgba(10,5,11,.12) 76%,rgba(10,5,11,.20) 100%)!important;
+}
+body.brand-home .hero-sale-badge{
+  background:var(--ag-yellow)!important;
+  color:var(--ag-ink)!important;
+  border:4px solid #fff;
+  box-shadow:0 18px 52px rgba(255,216,77,.33)!important;
+}
+body.brand-home .hero-sale-badge strong{
+  color:var(--ag-ink)!important;
+  text-shadow:none!important;
+}
+body.brand-home .hero-deal-cta{
+  background:var(--ag-pink)!important;
+  color:#fff!important;
+  border:2px solid #fff!important;
+  box-shadow:0 14px 36px rgba(255,61,141,.34)!important;
+}
+body.brand-home .hero-deal-cta:hover{transform:translateY(-2px)}
+body.brand-home .hero-sale-note{
+  color:#fff!important;
+  font-size:11px!important;
+  font-weight:700;
+}
+
+/* Emotional purchase states */
+body.brand-home .emotion-stage{
+  padding:62px 0 70px;
+  background:
+    radial-gradient(circle at 10% 0,rgba(255,61,141,.14),transparent 26rem),
+    radial-gradient(circle at 93% 15%,rgba(116,239,208,.16),transparent 26rem),
+    var(--ag-cream);
+  color:var(--ag-ink);
+}
+body.brand-home .emotion-stage-head{
+  display:grid;
+  grid-template-columns:1.1fr 1.4fr;
+  gap:12px 40px;
+  align-items:end;
+  margin-bottom:24px;
+}
+body.brand-home .emotion-stage-head>span{
+  grid-column:1/-1;
+  color:#a4285f!important;
+  font-size:12px!important;
+  font-weight:950;
+  letter-spacing:.13em;
+}
+body.brand-home .emotion-stage-head h2{
+  margin:0;
+  color:var(--ag-ink)!important;
+  font-size:clamp(38px,5vw,66px);
+  line-height:.94;
+  letter-spacing:-.055em;
+  max-width:10ch;
+}
+body.brand-home .emotion-stage-head p{
+  margin:0 0 4px;
+  color:#34332f!important;
+  font-size:16px!important;
+  line-height:1.55!important;
+  max-width:640px;
+  font-weight:650;
+}
+body.brand-home .emotion-grid{
+  display:grid;
+  grid-template-columns:1.15fr .92fr .92fr;
+  gap:14px;
+}
+body.brand-home .emotion-hit{
+  position:relative;
+  min-height:430px;
+  border-radius:26px;
+  overflow:hidden;
+  color:#fff!important;
+  text-decoration:none;
+  box-shadow:0 18px 60px rgba(46,32,35,.14);
+  isolation:isolate;
+}
+body.brand-home .emotion-hit img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transform:scale(1.01);
+  transition:transform .25s ease;
+}
+body.brand-home .emotion-hit:hover img{transform:scale(1.045)}
+body.brand-home .emotion-shade{
+  position:absolute;
+  inset:0;
+  z-index:1;
+  background:linear-gradient(0deg,rgba(11,8,9,.92) 0%,rgba(11,8,9,.08) 70%);
+}
+body.brand-home .emotion-hit:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:1;
+  mix-blend-mode:screen;
+  opacity:.28;
+  pointer-events:none;
+}
+body.brand-home .emotion-hit-joy:after{background:linear-gradient(135deg,var(--ag-pink),var(--ag-yellow))}
+body.brand-home .emotion-hit-relief:after{background:linear-gradient(135deg,var(--ag-aqua),#5e7dff)}
+body.brand-home .emotion-hit-curiosity:after{background:linear-gradient(135deg,var(--ag-orange),var(--ag-purple))}
+body.brand-home .emotion-copy{
+  position:absolute;
+  z-index:2;
+  left:22px;
+  right:22px;
+  bottom:20px;
+  text-shadow:0 3px 20px rgba(0,0,0,.72);
+}
+body.brand-home .emotion-copy small{
+  display:block;
+  color:#fff!important;
+  font-size:10px!important;
+  letter-spacing:.12em;
+  font-weight:950;
+}
+body.brand-home .emotion-copy b{
+  display:block;
+  margin-top:7px;
+  color:#fff!important;
+  font-size:clamp(24px,2.7vw,38px)!important;
+  line-height:1.02!important;
+  letter-spacing:-.04em;
+}
+body.brand-home .emotion-copy span{
+  display:inline-flex;
+  margin-top:12px;
+  padding:9px 11px;
+  border-radius:999px;
+  background:#fff;
+  color:var(--ag-ink)!important;
+  text-shadow:none;
+  font-size:12px!important;
+  font-weight:950;
+}
+
+/* Categories: brighter retail zone */
+body.brand-home .portal-cards{
+  background:#ffd84d!important;
+  color:var(--ag-ink)!important;
+  padding:48px 0 56px!important;
+}
+body.brand-home .portal-heading-emotional{align-items:end!important}
+body.brand-home .portal-heading-emotional .portal-eyebrow{
+  display:block;
+  margin-bottom:8px;
+  color:#5f4600!important;
+  font-size:10px!important;
+  font-weight:950;
+  letter-spacing:.13em;
+}
+body.brand-home .portal-heading-emotional h2{
+  color:var(--ag-ink)!important;
+  font-size:clamp(34px,4vw,52px)!important;
+  line-height:.97!important;
+  max-width:14ch;
+}
+body.brand-home .portal-heading-emotional>a{
+  color:var(--ag-ink)!important;
+  background:#fff;
+  padding:10px 12px;
+  border-radius:999px;
+  font-weight:950;
+}
+body.brand-home .portal-grid>a{
+  border:3px solid #fff!important;
+  box-shadow:0 15px 34px rgba(67,49,0,.15);
+}
+body.brand-home .portal-grid>a:nth-child(1){transform:rotate(-.55deg)}
+body.brand-home .portal-grid>a:nth-child(2){transform:rotate(.5deg)}
+body.brand-home .portal-grid>a:nth-child(3){transform:rotate(-.35deg)}
+body.brand-home .portal-grid>a:nth-child(4){transform:rotate(.4deg)}
+
+/* Deal radar should feel like a sale floor */
+body.brand-home .deal-radar{
+  background:
+    radial-gradient(circle at 4% 8%,rgba(255,61,141,.14),transparent 25rem),
+    radial-gradient(circle at 95% 18%,rgba(143,108,255,.13),transparent 24rem),
+    #fff4ea!important;
+  color:var(--ag-ink)!important;
+  padding:62px 0!important;
+}
+body.brand-home .deal-head h2,
+body.brand-home .deal-head p,
+body.brand-home .deal-head .kicker{
+  color:var(--ag-ink)!important;
+}
+body.brand-home .deal-head p{
+  font-weight:650;
+}
+body.brand-home .deal-card{
+  border:0!important;
+  box-shadow:0 18px 48px rgba(66,42,28,.14)!important;
+}
+body.brand-home .deal-card:nth-child(1){box-shadow:0 18px 48px rgba(255,61,141,.18)!important}
+body.brand-home .deal-card:nth-child(2){box-shadow:0 18px 48px rgba(255,141,59,.18)!important}
+body.brand-home .deal-note{
+  color:#463f39!important;
+  font-weight:650;
+}
+
+/* Benefit section = three different emotions instead of three identical dark boxes */
+body.brand-home .ag-proof{
+  background:#11110f!important;
+  padding:70px 0!important;
+}
+body.brand-home .ag-proof .section-head h2{color:#fff!important}
+body.brand-home .ag-proof .section-head p{color:#f4f4ef!important}
+body.brand-home .ag-proof .feature-grid{gap:14px!important}
+body.brand-home .ag-proof .feature{
+  min-height:250px!important;
+  border:0!important;
+  box-shadow:none!important;
+  padding:26px!important;
+}
+body.brand-home .ag-proof .feature-save{background:var(--ag-yellow)!important}
+body.brand-home .ag-proof .feature-fit{background:var(--ag-pink)!important}
+body.brand-home .ag-proof .feature-calm{background:var(--ag-aqua)!important}
+body.brand-home .ag-proof .feature h3,
+body.brand-home .ag-proof .feature p,
+body.brand-home .ag-proof .feature .num{
+  color:var(--ag-ink)!important;
+  text-shadow:none!important;
+}
+body.brand-home .ag-proof .feature h3{
+  font-size:28px!important;
+  line-height:1.03!important;
+}
+body.brand-home .ag-proof .feature p{
+  font-size:15px!important;
+  line-height:1.5!important;
+  font-weight:650;
+}
+body.brand-home .ag-proof .feature .num{
+  background:#fff!important;
+  border-color:rgba(17,17,15,.18)!important;
+  font-weight:950;
+}
+body.brand-home .directory-cta{
+  background:#fff!important;
+  color:var(--ag-ink)!important;
+  border:0!important;
+  box-shadow:0 14px 44px rgba(0,0,0,.18);
+}
+body.brand-home .directory-cta small,
+body.brand-home .directory-cta b{color:var(--ag-ink)!important}
+
+/* Final CTA: zero ambiguity, maximum contrast */
+body.brand-home .ag-how-pop{
+  background:#8f6cff!important;
+  padding:52px 0 110px!important;
+}
+body.brand-home .cta-banner-pop{
+  display:grid!important;
+  grid-template-columns:1.1fr .9fr;
+  padding:0!important;
+  overflow:hidden;
+  border:4px solid #11110f!important;
+  border-radius:30px!important;
+  background:#ffd84d!important;
+  box-shadow:12px 12px 0 #11110f!important;
+}
+body.brand-home .cta-pop-copy{
+  padding:42px!important;
+  align-self:center;
+}
+body.brand-home .cta-pop-copy .kicker{
+  color:#6c5100!important;
+  font-size:11px!important;
+  font-weight:950;
+}
+body.brand-home .cta-pop-copy h2{
+  margin:9px 0 14px!important;
+  color:var(--ag-ink)!important;
+  font-size:clamp(42px,5.2vw,70px)!important;
+  line-height:.93!important;
+  letter-spacing:-.055em;
+  max-width:11ch;
+  text-shadow:none!important;
+}
+body.brand-home .cta-pop-copy h2 em{
+  color:#b11659!important;
+  font-style:normal;
+}
+body.brand-home .cta-pop-copy p{
+  color:#2c2a25!important;
+  font-size:16px!important;
+  line-height:1.5!important;
+  font-weight:700;
+  max-width:620px;
+}
+body.brand-home .cta-pop-copy .btn.main{
+  background:#11110f!important;
+  color:#fff!important;
+  border-color:#11110f!important;
+}
+body.brand-home .cta-pop-copy .btn.secondary{
+  background:#fff!important;
+  color:#11110f!important;
+  border:2px solid #11110f!important;
+}
+body.brand-home .cta-pop-face{
+  position:relative;
+  min-height:460px;
+  overflow:hidden;
+}
+body.brand-home .cta-pop-face img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+body.brand-home .cta-pop-face:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(0deg,rgba(17,17,15,.72),transparent 60%);
+}
+body.brand-home .cta-pop-face span{
+  position:absolute;
+  z-index:2;
+  left:22px;
+  bottom:20px;
+  color:#fff!important;
+  font-size:14px!important;
+  line-height:1.05!important;
+  font-weight:950;
+  letter-spacing:.06em;
+  text-shadow:0 3px 20px rgba(0,0,0,.6);
+}
+body.brand-home .cta-pop-face span strong{
+  color:#fff!important;
+  font-size:36px!important;
+}
+
+/* Mobile: compact but NEVER unreadable */
+@media(max-width:760px){
+  body.brand-home .emotion-stage{padding:38px 0 44px!important}
+  body.brand-home .emotion-stage-head{
+    grid-template-columns:1fr!important;
+    gap:8px!important;
+    margin-bottom:16px!important;
+  }
+  body.brand-home .emotion-stage-head>span{font-size:10px!important}
+  body.brand-home .emotion-stage-head h2{
+    font-size:36px!important;
+    line-height:.96!important;
+    max-width:11ch!important;
+  }
+  body.brand-home .emotion-stage-head p{
+    font-size:14px!important;
+    line-height:1.5!important;
+  }
+  body.brand-home .emotion-grid{
+    display:flex!important;
+    overflow-x:auto;
+    gap:10px!important;
+    padding-bottom:4px;
+    scroll-snap-type:x mandatory;
+    scrollbar-width:none;
+  }
+  body.brand-home .emotion-grid::-webkit-scrollbar{display:none}
+  body.brand-home .emotion-hit{
+    flex:0 0 82%;
+    min-height:355px!important;
+    border-radius:20px!important;
+    scroll-snap-align:start;
+  }
+  body.brand-home .emotion-copy{left:16px!important;right:16px!important;bottom:15px!important}
+  body.brand-home .emotion-copy small{font-size:10px!important}
+  body.brand-home .emotion-copy b{font-size:26px!important;line-height:1.04!important}
+  body.brand-home .emotion-copy span{font-size:12px!important}
+
+  body.brand-home .portal-cards{padding:34px 0 40px!important}
+  body.brand-home .portal-heading-emotional{
+    display:block!important;
+    margin-bottom:14px!important;
+  }
+  body.brand-home .portal-heading-emotional h2{
+    font-size:34px!important;
+    line-height:.98!important;
+    max-width:12ch!important;
+  }
+  body.brand-home .portal-heading-emotional>a{
+    display:inline-flex;
+    margin-top:10px;
+    font-size:12px!important;
+  }
+  body.brand-home .portal-grid>a{
+    min-height:220px!important;
+    border-width:2px!important;
+  }
+  body.brand-home .portal-grid b{font-size:18px!important}
+  body.brand-home .portal-grid span{font-size:12px!important;line-height:1.35!important}
+
+  body.brand-home .deal-radar{padding:40px 0!important}
+  body.brand-home .deal-head h2{font-size:34px!important}
+  body.brand-home .deal-head p{font-size:14px!important;line-height:1.5!important}
+  body.brand-home .deal-copy h3{font-size:22px!important}
+  body.brand-home .deal-copy p{font-size:14px!important;line-height:1.5!important}
+  body.brand-home .deal-copy small{font-size:10px!important}
+  body.brand-home .deal-cta,
+  body.brand-home .deal-link{font-size:13px!important;min-height:44px!important}
+
+  body.brand-home .ag-proof{padding:44px 0!important}
+  body.brand-home .ag-proof .section-head h2{font-size:36px!important;line-height:.98!important}
+  body.brand-home .ag-proof .section-head p{font-size:14px!important;line-height:1.5!important}
+  body.brand-home .ag-proof .feature{padding:20px!important;min-height:0!important}
+  body.brand-home .ag-proof .feature h3{font-size:22px!important}
+  body.brand-home .ag-proof .feature p{font-size:14px!important}
+  body.brand-home .directory-cta small{font-size:11px!important}
+  body.brand-home .directory-cta b{font-size:17px!important}
+
+  body.brand-home .ag-how-pop{padding:34px 0 92px!important}
+  body.brand-home .cta-banner-pop{
+    grid-template-columns:1fr!important;
+    border-width:3px!important;
+    border-radius:22px!important;
+    box-shadow:7px 7px 0 #11110f!important;
+  }
+  body.brand-home .cta-pop-copy{padding:24px 18px!important}
+  body.brand-home .cta-pop-copy .kicker{font-size:10px!important}
+  body.brand-home .cta-pop-copy h2{
+    font-size:38px!important;
+    line-height:.95!important;
+    max-width:10.5ch!important;
+  }
+  body.brand-home .cta-pop-copy p{
+    font-size:14px!important;
+    line-height:1.5!important;
+    color:#2c2a25!important;
+  }
+  body.brand-home .cta-pop-copy .btn{
+    min-height:46px!important;
+    font-size:13px!important;
+  }
+  body.brand-home .cta-pop-face{min-height:270px!important}
+  body.brand-home .cta-pop-face span{font-size:12px!important}
+  body.brand-home .cta-pop-face span strong{font-size:30px!important}
+
+  /* hard floor against previous cascade accidentally shrinking text */
+  body.brand-home main p{font-size:max(14px,1em)!important}
+  body.brand-home main .deal-note,
+  body.brand-home main .hero-sale-note{font-size:10px!important}
+  body.brand-home .mobile-compare-bar b{font-size:12px!important}
+  body.brand-home .mobile-compare-bar small{font-size:10px!important;color:#e0e6e2!important}
+  body.brand-home .mobile-compare-bar strong{font-size:11px!important}
+}
