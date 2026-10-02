@@ -1745,20 +1745,24 @@ button,a{-webkit-tap-highlight-color:transparent}
   background-position:center;
   opacity:0;
   transform:scale(1.04);
-  animation:agMotionCrossfade 15s infinite;
+  animation:agMotionCrossfade 20s infinite;
   will-change:opacity,transform;
 }
 .ag-motion-bike{
-  background-image:url("https://www.tenways.com/cdn/shop/files/willow_mist-1_1500x.webp?v=1775096126");
+  background-image:url("https://images.unsplash.com/photo-1571333250630-f0230c320b6d?auto=format&fit=crop&w=1800&q=90");
   animation-delay:0s;
 }
 .ag-motion-coffee{
-  background-image:url("https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1800&q=90");
+  background-image:url("https://images.unsplash.com/photo-1498804103079-a6351b050096?auto=format&fit=crop&w=1800&q=90");
   animation-delay:5s;
 }
 .ag-motion-pet{
-  background-image:url("https://de.petlibro.com/cdn/shop/files/preview_images/8c5bd0c66441434eab65f47f077cee95.thumbnail.0000000000_2400x.jpg?v=1726048145");
+  background-image:url("https://images.unsplash.com/photo-1518791841217-8f162f1e1131?auto=format&fit=crop&w=1800&q=90");
   animation-delay:10s;
+}
+.ag-motion-home{
+  background-image:url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1800&q=90");
+  animation-delay:15s;
 }
 .ag-motion-shade{
   position:absolute;
