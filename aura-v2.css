@@ -4026,3 +4026,71 @@ body.vc-page:not(.brand-home) .footer a{
     line-height:.94!important;
   }
 }
+
+
+/* comparison-page readability v59 */
+body.comparison-page{
+  background:#071018!important;
+  color:#fff!important;
+}
+body.comparison-page :where(h1,h2,h3,h4,h5,h6),
+body.comparison-page :where(h1,h2,h3,h4,h5,h6) :where(span,em,strong){
+  opacity:1!important;
+  -webkit-text-fill-color:currentColor!important;
+}
+body.comparison-page .hero :where(h1,h2,h3){
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+  text-shadow:0 3px 22px rgba(0,0,0,.48)!important;
+}
+body.comparison-page .hero p{
+  color:#e3ebf3!important;
+  -webkit-text-fill-color:#e3ebf3!important;
+  opacity:1!important;
+}
+body.comparison-page .hero .eyebrow{
+  color:#a9f7d5!important;
+  -webkit-text-fill-color:#a9f7d5!important;
+}
+body.comparison-page .section-head h2{
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+  opacity:1!important;
+}
+body.comparison-page .section-head p{
+  color:#cbd6e2!important;
+  -webkit-text-fill-color:#cbd6e2!important;
+  opacity:1!important;
+}
+body.comparison-page .section-head .kicker{
+  color:#9cf0cc!important;
+  -webkit-text-fill-color:#9cf0cc!important;
+}
+body.comparison-page :where(.choice,.feature,.notice,.cta-banner,.card){
+  color:#fff!important;
+}
+body.comparison-page :where(.choice,.feature,.notice,.cta-banner,.card) :where(h2,h3,h4,b,strong){
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+  opacity:1!important;
+}
+body.comparison-page :where(.choice,.feature,.notice,.cta-banner,.card) :where(p,span,small){
+  color:#d5dfe9!important;
+  -webkit-text-fill-color:#d5dfe9!important;
+  opacity:1!important;
+}
+body.comparison-page .btn.secondary{
+  background:#111923!important;
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+  border-color:#2d3c4d!important;
+}
+body.comparison-page .footer{
+  background:#070b11!important;
+  color:#cbd5df!important;
+}
+body.comparison-page .footer a{
+  color:#e7edf3!important;
+  -webkit-text-fill-color:#e7edf3!important;
+  opacity:1!important;
+}
