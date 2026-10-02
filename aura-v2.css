@@ -1832,7 +1832,7 @@ button,a{-webkit-tap-highlight-color:transparent}
 }
 @media(prefers-reduced-motion:reduce){
   .ag-motion-frame{animation:none!important;opacity:0;transform:none}
-  .ag-motion-bike{opacity:1}
+  .ag-motion-stage .ag-motion-frame:first-child{opacity:1}
 }
 
 
