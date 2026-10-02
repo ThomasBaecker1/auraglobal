@@ -2045,3 +2045,61 @@ body:not(.coffee-page) .pill.green{color:#c9ffe5!important}
     line-height:1.3!important;
   }
 }
+
+
+/* AuraGlobal hard UX guardrails v42 — readability beats decoration */
+:root{
+  --ag-text-strong:#f7fbf8;
+  --ag-text-body:#d5ded8;
+  --ag-text-muted:#aebbb3;
+}
+
+/* Text over imagery must always have a dark readability layer */
+:where(.moment,.story,.decision-tile,.portal-grid>a,.video-card,.spotlight,.emotion-card,.brand-mood,.vf-banner,.vf-tile,.vf-life){
+  isolation:isolate;
+}
+:where(.moment,.story,.decision-tile,.portal-grid>a,.video-card,.spotlight,.emotion-card,.brand-mood,.vf-banner,.vf-tile,.vf-life)::after{
+  pointer-events:none;
+}
+
+/* Never allow supporting copy to fade into the background */
+:where(.section-head p,.card p,.choice p,.feature p,.feed-copy p,.notice,.deal-copy p,.decision-tile em){
+  opacity:1!important;
+}
+body:not(.home) :where(.section-head p,.card p,.choice p,.feature p,.feed-copy p,.notice){
+  color:var(--ag-text-body)!important;
+}
+
+/* Deal radar: all critical information stays high contrast */
+.deal-radar{background:linear-gradient(180deg,#0a0d0b,#080a09)!important}
+.deal-radar .deal-head h2,.deal-radar .deal-head p,.deal-radar .deal-copy h3{color:#fff!important}
+.deal-radar .deal-head p,.deal-radar .deal-copy p{color:#d7dfda!important}
+.deal-radar .deal-copy small{color:#a6f0cc!important}
+.deal-radar .deal-cta{color:#d8ffe9!important;font-weight:900!important}
+.deal-radar .deal-note{color:#aeb9b2!important}
+
+/* Decision tiles need readable copy regardless of the photo */
+.decision-tile{position:relative!important;overflow:hidden!important}
+.decision-tile:after{
+  content:"";position:absolute;inset:0;z-index:1;
+  background:linear-gradient(0deg,rgba(3,6,5,.96) 0%,rgba(3,6,5,.64) 38%,rgba(3,6,5,.12) 76%)!important
+}
+.decision-tile>span{position:absolute!important;z-index:2!important;left:18px!important;right:18px!important;bottom:18px!important}
+.decision-tile small{color:#aaffd2!important}
+.decision-tile b{color:#fff!important;text-shadow:0 2px 16px rgba(0,0,0,.55)}
+.decision-tile em{color:#e9f2ed!important}
+
+/* Minimum practical type sizes on phones */
+@media(max-width:620px){
+  .section-head p,.deal-copy p,.choice p,.feature p,.feed-copy p,.notice,.card p{font-size:12px!important;line-height:1.5!important}
+  .decision-tile b{font-size:17px!important;line-height:1.08!important}
+  .decision-tile em{font-size:10px!important;line-height:1.35!important}
+  .decision-tile small{font-size:8px!important}
+  .deal-copy h3{font-size:20px!important;line-height:1.08!important}
+  .deal-copy p{font-size:12px!important}
+  .deal-cta{font-size:11px!important}
+}
+
+/* No invisible/ultra-low contrast interactive text */
+a,button{ text-underline-offset:2px }
+:where(a,button):focus-visible{outline:3px solid #9dffd4!important;outline-offset:3px!important}
