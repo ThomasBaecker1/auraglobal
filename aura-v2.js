@@ -1,4 +1,5 @@
 const catalog=[
+  {title:'Alle Marken & Vergleiche',type:'Übersicht',href:'/marken.html',tags:'alle marken partner vergleiche übersicht katalog kategorien'},
   {title:'E-Bikes',type:'Kategorie',href:'/e-bikes.html',tags:'ebike e-bike fahrrad bike city mobilität'},
   {title:'TENWAYS Vergleich',type:'Vergleich',href:'/tenways.html',tags:'tenways cgo600 cgo600 pro cgo800s city pendeln komfort'},
   {title:'TENWAYS CGO600',type:'Produkt',href:'/tenways.html#cgo600',tags:'tenways leicht city ebike'},
@@ -336,3 +337,20 @@ function initRelatedComparisons(){
   footer.parentNode.insertBefore(section,footer);
 }
 document.addEventListener('DOMContentLoaded',initRelatedComparisons);
+
+
+function initDealExpiry(){
+  const cards=[...document.querySelectorAll('[data-deal-end]')];
+  if(!cards.length) return;
+  const now=new Date();
+  cards.forEach(card=>{
+    const end=card.getAttribute('data-deal-end');
+    if(!end) return;
+    const deadline=new Date(end+'T23:59:59');
+    if(Number.isFinite(deadline.getTime()) && now>deadline) card.remove();
+  });
+  document.querySelectorAll('[data-deal-grid]').forEach(grid=>{
+    if(!grid.children.length) grid.closest('section')?.remove();
+  });
+}
+document.addEventListener('DOMContentLoaded',initDealExpiry);
