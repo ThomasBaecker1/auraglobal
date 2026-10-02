@@ -2009,3 +2009,39 @@ body:not(.coffee-page) .pill.green{color:#c9ffe5!important}
   .directory-cta{display:block;padding:18px}
   .directory-cta .btn{width:100%;justify-content:center;text-align:center;margin-top:14px}
 }
+
+
+/* Mobile type floor v44 — no microscopic copy */
+@media(max-width:620px){
+  main small,
+  main .pill,
+  main .kicker,
+  main .meta span,
+  main .adnote,
+  main .source-note,
+  main .deal-note,
+  main .world-copy small,
+  main .universe-card-copy small,
+  main .video-copy small,
+  main .spotlight-copy small,
+  main .brand-mood-copy small,
+  main .portal-grid span{
+    font-size:10px!important;
+    line-height:1.35!important;
+    opacity:1!important;
+  }
+  main .world-copy h3,
+  main .universe-card-copy h3,
+  main .video-copy b,
+  main .spotlight-copy h2,
+  main .portal-grid b{
+    font-size:13px!important;
+    line-height:1.15!important;
+  }
+  main .card-cta,
+  main .inline-link,
+  main .deal-cta{
+    font-size:11px!important;
+    line-height:1.3!important;
+  }
+}
