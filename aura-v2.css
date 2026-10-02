@@ -3217,3 +3217,44 @@ body.brand-home .cta-pop-face span strong{
   body.brand-home .mobile-compare-bar small{font-size:10px!important;color:#e0e6e2!important}
   body.brand-home .mobile-compare-bar strong{font-size:11px!important}
 }
+
+
+/* Top deal cards get distinct emotional color identities v52 */
+body.brand-home .home-live-deal{
+  background:#11110f!important;
+  padding:18px 0!important;
+}
+body.brand-home .home-live-deal .live-deal-coffee{
+  background:linear-gradient(135deg,#ff9b45 0%,#ff6e59 100%)!important;
+  border:0!important;
+  box-shadow:0 18px 46px rgba(255,110,89,.22);
+}
+body.brand-home .home-live-deal .live-deal:not(.live-deal-coffee){
+  background:linear-gradient(135deg,#54e2b1 0%,#6fd7ff 100%)!important;
+  border:0!important;
+  box-shadow:0 18px 46px rgba(84,226,177,.20);
+}
+body.brand-home .home-live-deal .live-deal-copy small,
+body.brand-home .home-live-deal .live-deal-copy b,
+body.brand-home .home-live-deal .live-deal-copy span{
+  color:#11110f!important;
+  text-shadow:none!important;
+}
+body.brand-home .home-live-deal .live-deal-copy small{
+  font-weight:950;
+}
+body.brand-home .home-live-deal .live-deal-copy strong{
+  background:#11110f!important;
+  color:#fff!important;
+  border:2px solid #fff!important;
+}
+body.brand-home .home-live-deal .live-deal-badge{
+  background:#ffd84d!important;
+  color:#11110f!important;
+  border:3px solid #fff;
+}
+@media(max-width:760px){
+  body.brand-home .home-live-deal{padding:12px 0!important}
+  body.brand-home .home-live-deal .live-deal-copy b{font-size:18px!important}
+  body.brand-home .home-live-deal .live-deal-copy span{font-size:13px!important}
+}
