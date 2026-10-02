@@ -2551,3 +2551,178 @@ body.brand-home .deal-media-emotion .deal-badge{
     height:40%!important;
   }
 }
+
+
+/* Brand-wide deal winner hero v50 */
+body.brand-home .hero-featured-sale{
+  min-height:560px!important;
+  height:560px!important;
+}
+body.brand-home .hero-featured-sale .mock-hero-bg{
+  object-position:center 42%!important;
+  filter:saturate(1.08) contrast(1.02);
+}
+body.brand-home .hero-featured-sale .mock-hero-overlay{
+  background:
+    radial-gradient(circle at 74% 35%,rgba(255,62,142,.22),transparent 30rem),
+    linear-gradient(90deg,rgba(8,5,9,.94) 0%,rgba(8,5,9,.78) 42%,rgba(8,5,9,.18) 72%,rgba(8,5,9,.28) 100%)!important;
+}
+body.brand-home .hero-featured-sale .mock-hero-inner{
+  padding-top:110px!important;
+}
+body.brand-home .hero-featured-sale .mock-hero-copy{
+  position:relative;
+  max-width:720px;
+}
+body.brand-home .hero-featured-sale .hero-kicker{
+  color:#ffd3e6!important;
+  background:rgba(255,255,255,.10);
+  border:1px solid rgba(255,255,255,.18);
+  padding:7px 10px;
+  border-radius:999px;
+  font-size:11px!important;
+  font-weight:950;
+  letter-spacing:.11em;
+}
+body.brand-home .hero-featured-sale .hero-sale-badge{
+  position:absolute;
+  left:520px;
+  top:12px;
+  display:grid;
+  place-items:center;
+  width:112px;
+  height:112px;
+  border-radius:50%;
+  background:#ff2f86;
+  color:#fff;
+  text-align:center;
+  font-size:16px;
+  font-weight:900;
+  line-height:1;
+  box-shadow:0 18px 50px rgba(255,47,134,.30);
+  transform:rotate(5deg);
+}
+body.brand-home .hero-featured-sale .hero-sale-badge strong{
+  display:block;
+  font-size:34px;
+  letter-spacing:-.05em;
+}
+body.brand-home .hero-featured-sale h1{
+  max-width:8.8ch!important;
+  margin-top:20px!important;
+  font-size:clamp(52px,6.2vw,82px)!important;
+  line-height:.91!important;
+  text-shadow:0 4px 30px rgba(0,0,0,.38);
+}
+body.brand-home .hero-featured-sale h1 em{
+  color:#ff9fc8!important;
+  font-style:normal;
+}
+body.brand-home .hero-featured-sale .mock-hero-copy p{
+  max-width:610px!important;
+  font-size:17px!important;
+  line-height:1.5!important;
+  color:#fff!important;
+}
+body.brand-home .hero-featured-sale .mock-hero-copy p strong{
+  color:#fff;
+  font-weight:950;
+}
+body.brand-home .hero-deal-cta{
+  display:inline-flex;
+  align-items:center;
+  min-height:48px;
+  margin-top:4px;
+  padding:13px 16px;
+  border-radius:13px;
+  background:#ff2f86;
+  color:#fff!important;
+  font-size:14px;
+  font-weight:950;
+  box-shadow:0 14px 34px rgba(255,47,134,.24);
+}
+body.brand-home .hero-sale-note{
+  display:block;
+  max-width:520px;
+  margin-top:9px;
+  color:#d8dce2!important;
+  font-size:10px!important;
+  line-height:1.35!important;
+}
+body.brand-home .deal-pink{
+  border-color:rgba(255,74,151,.30)!important;
+}
+body.brand-home .deal-pink .deal-badge{
+  background:#ff4a97!important;
+  color:#fff!important;
+}
+body.brand-home .deal-pink .deal-copy small{
+  color:#ffb8d6!important;
+}
+body.brand-home .live-deal-coffee .live-deal-badge{
+  background:#ffb25f!important;
+  color:#111!important;
+}
+
+@media(max-width:900px){
+  body.brand-home .hero-featured-sale .hero-sale-badge{
+    left:auto;
+    right:0;
+  }
+}
+@media(max-width:620px){
+  body.brand-home .hero-featured-sale{
+    min-height:650px!important;
+    height:650px!important;
+  }
+  body.brand-home .hero-featured-sale .mock-hero-bg{
+    object-position:62% center!important;
+  }
+  body.brand-home .hero-featured-sale .mock-hero-overlay{
+    background:
+      linear-gradient(0deg,rgba(6,4,7,.97) 0%,rgba(6,4,7,.82) 46%,rgba(6,4,7,.22) 78%),
+      linear-gradient(90deg,rgba(6,4,7,.72),rgba(6,4,7,.10))!important;
+  }
+  body.brand-home .hero-featured-sale .mock-hero-inner{
+    min-height:650px!important;
+    padding:78px 14px 16px!important;
+  }
+  body.brand-home .hero-featured-sale .mock-hero-copy{
+    margin-top:auto;
+    padding-bottom:188px;
+  }
+  body.brand-home .hero-featured-sale .hero-kicker{
+    font-size:9px!important;
+    padding:6px 8px!important;
+  }
+  body.brand-home .hero-featured-sale .hero-sale-badge{
+    width:84px;
+    height:84px;
+    right:0;
+    top:-8px;
+    font-size:12px;
+  }
+  body.brand-home .hero-featured-sale .hero-sale-badge strong{
+    font-size:26px;
+  }
+  body.brand-home .hero-featured-sale h1{
+    font-size:clamp(40px,11.5vw,49px)!important;
+    max-width:8ch!important;
+    margin-top:15px!important;
+  }
+  body.brand-home .hero-featured-sale .mock-hero-copy p{
+    font-size:13px!important;
+    line-height:1.45!important;
+    max-width:31ch!important;
+    margin-top:10px!important;
+  }
+  body.brand-home .hero-deal-cta{
+    min-height:42px!important;
+    padding:10px 12px!important;
+    font-size:12px!important;
+  }
+  body.brand-home .hero-sale-note{
+    font-size:9px!important;
+    max-width:34ch;
+  }
+}
