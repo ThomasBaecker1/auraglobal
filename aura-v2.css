@@ -3704,3 +3704,109 @@ body.brand-home .cta-pop-face img{
     height:210px!important;
   }
 }
+
+
+/* UX cleanup v57 — navigation never covers content + hard contrast contract */
+body.vc-page .mock-nav{
+  position:sticky!important;
+  top:0!important;
+  left:auto!important;
+  right:auto!important;
+  z-index:120!important;
+  background:rgba(7,9,14,.96)!important;
+  border-bottom:1px solid rgba(255,255,255,.10)!important;
+  backdrop-filter:blur(20px)!important;
+  -webkit-backdrop-filter:blur(20px)!important;
+}
+body.vc-page .mock-nav .nav{min-height:68px!important}
+body.vc-page main{position:relative;z-index:1}
+
+/* text over imagery: always readable, never white-on-white */
+body.vc-page :where(
+  .brand-hero-copy,.visual-break-copy,.world-copy,.universe-card-copy,.video-copy,
+  .spotlight-copy,.moment-copy,.story-copy,.brand-mood-copy,.vf-banner-copy,
+  .decision-tile span,.deal-media-copy,.equal-copy
+){
+  color:#fff!important;
+  text-shadow:0 2px 16px rgba(0,0,0,.92)!important;
+}
+body.vc-page :where(
+  .brand-hero-copy,.visual-break-copy,.world-copy,.universe-card-copy,.video-copy,
+  .spotlight-copy,.moment-copy,.story-copy,.brand-mood-copy,.vf-banner-copy,
+  .decision-tile span,.deal-media-copy,.equal-copy
+) :where(h1,h2,h3,h4,b,strong,small,span,p,em){
+  color:#fff!important;
+  opacity:1!important;
+}
+body.vc-page :where(.stage-card,.card,.choice,.feature,.deal-card,.ag-related-card,.table-wrap,.notice,.cta-banner){
+  color:#f6f9fc;
+}
+body.vc-page :where(.stage-card,.card,.choice,.feature,.deal-card,.ag-related-card,.notice) :where(p,small,.sub,.source-note){
+  color:#d7e0eb!important;
+  opacity:1!important;
+}
+body.vc-page :where(.stage-card,.card,.choice,.feature,.deal-card,.ag-related-card) :where(h2,h3,h4,b,strong){
+  color:#fff!important;
+  opacity:1!important;
+}
+
+/* buttons deliberately invert so their labels cannot disappear */
+body.vc-page .btn.main,
+body.vc-page .primary,
+body.vc-page .deal-cta,
+body.vc-page .card-cta{
+  background:#fff!important;
+  color:#0b1017!important;
+  border-color:#fff!important;
+  text-shadow:none!important;
+}
+body.vc-page .btn.main *,
+body.vc-page .primary *,
+body.vc-page .deal-cta *,
+body.vc-page .card-cta *{color:#0b1017!important;text-shadow:none!important}
+
+/* sponsored disclosure in the interface is simply "Anzeige" */
+body.vc-page .adnote{
+  display:inline-flex!important;
+  align-items:center!important;
+  width:max-content!important;
+  max-width:100%!important;
+  padding:5px 8px!important;
+  border-radius:999px!important;
+  border:1px solid rgba(255,255,255,.18)!important;
+  background:rgba(6,10,16,.72)!important;
+  color:#eef4fb!important;
+  font-size:10px!important;
+  line-height:1!important;
+  font-weight:900!important;
+  letter-spacing:.08em!important;
+  text-transform:uppercase!important;
+  opacity:1!important;
+}
+
+/* compact shopping-intent controls */
+.shop-intent{
+  display:flex;align-items:center;gap:8px;overflow-x:auto;scrollbar-width:none;
+  padding:0 0 9px;margin:0 0 1px;white-space:nowrap
+}
+.shop-intent::-webkit-scrollbar{display:none}
+.shop-intent-label{flex:none;color:#f7fbff;font-size:11px;font-weight:950;margin-right:2px}
+.shop-chip{
+  flex:none;border:1px solid rgba(255,255,255,.13);background:rgba(255,255,255,.055);
+  color:#d8e2ee;padding:8px 10px;border-radius:999px;font-size:10px;font-weight:850;cursor:pointer
+}
+.shop-chip:hover,.shop-chip.is-active{
+  background:#fff;color:#0a0e14;border-color:#fff
+}
+.shop-compare-link{
+  margin-left:auto;flex:none;padding:8px 11px;border-radius:999px;background:#baffdb;
+  color:#07110c!important;font-size:10px;font-weight:950;text-decoration:none
+}
+.equal-card[hidden]{display:none!important}
+
+@media(max-width:760px){
+  body.vc-page .mock-nav .nav{min-height:58px!important;height:58px!important}
+  .shop-intent{padding-bottom:8px}
+  .shop-intent-label{font-size:10px}
+  .shop-chip,.shop-compare-link{font-size:9px;padding:7px 9px}
+}
