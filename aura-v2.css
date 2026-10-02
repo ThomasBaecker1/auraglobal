@@ -3810,3 +3810,20 @@ body.vc-page .adnote{
   .shop-intent-label{font-size:10px}
   .shop-chip,.shop-compare-link{font-size:9px;padding:7px 9px}
 }
+
+
+/* exact product/category links inside comparison tables */
+body.vc-page .table-product-link{
+  color:#baffdc!important;
+  font-weight:900!important;
+  text-decoration:underline!important;
+  text-decoration-thickness:1px!important;
+  text-underline-offset:3px!important;
+}
+body.vc-page .table-product-link:hover{color:#fff!important}
+body.vc-page :where(.sf-card,.need,.path-card,.rm-card,.pt-card,.dl-card,.ab-card,.ap-card) .cta-row{
+  margin-top:14px!important;
+}
+body.vc-page :where(.sf-card,.need,.path-card,.rm-card,.pt-card,.dl-card,.ab-card,.ap-card) .adnote{
+  margin-top:7px!important;
+}
