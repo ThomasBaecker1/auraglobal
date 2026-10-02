@@ -3827,3 +3827,202 @@ body.vc-page :where(.sf-card,.need,.path-card,.rm-card,.pt-card,.dl-card,.ab-car
 body.vc-page :where(.sf-card,.need,.path-card,.rm-card,.pt-card,.dl-card,.ab-card,.ap-card) .adnote{
   margin-top:7px!important;
 }
+
+
+/* partner readability contract v58 — no invisible typography anywhere */
+body.vc-page:not(.brand-home){
+  --read-dark:#0d121a;
+  --read-body:#3f4a58;
+  --read-soft:#d7e1eb;
+  --read-white:#ffffff;
+}
+
+/* Never allow old gradient-text rules to make partner headings transparent. */
+body.vc-page:not(.brand-home) :where(h1,h2,h3,h4,h5,h6),
+body.vc-page:not(.brand-home) :where(h1,h2,h3,h4,h5,h6) :where(span,em,strong){
+  -webkit-text-fill-color:currentColor!important;
+  background-clip:border-box!important;
+  -webkit-background-clip:border-box!important;
+  opacity:1!important;
+}
+
+/* Every partner hero is a dark/image surface: hero typography is always bright. */
+body.vc-page:not(.brand-home) main>section:first-child{
+  color:#fff!important;
+}
+body.vc-page:not(.brand-home) main>section:first-child :where(h1,h2,h3,h4){
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+  opacity:1!important;
+  text-shadow:0 3px 24px rgba(0,0,0,.48)!important;
+}
+body.vc-page:not(.brand-home) main>section:first-child :where(p,strong,b){
+  color:#f2f6fa!important;
+  -webkit-text-fill-color:#f2f6fa!important;
+  opacity:1!important;
+}
+body.vc-page:not(.brand-home) main>section:first-child .eyebrow,
+body.vc-page:not(.brand-home) main>section:first-child .kicker{
+  color:#a9f7d5!important;
+  -webkit-text-fill-color:#a9f7d5!important;
+  opacity:1!important;
+}
+
+/* SHIFTER concrete regression guard. */
+body.brand-shifter .sf-hero h1{
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+  text-shadow:0 4px 28px rgba(0,0,0,.52)!important;
+}
+body.brand-shifter .sf-hero p,
+body.brand-shifter .sf-hero strong{
+  color:#e8eef5!important;
+  -webkit-text-fill-color:#e8eef5!important;
+}
+body.brand-shifter .sf-copy :where(b,small){
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+  text-shadow:0 2px 14px rgba(0,0,0,.82)!important;
+}
+
+/* Normal content lives on the light VC canvas: use real dark copy, not inherited white. */
+body.vc-page:not(.brand-home) .section-head h2,
+body.vc-page:not(.brand-home) .compare-title :where(h1,h2),
+body.vc-page:not(.brand-home) main>.section> .shell>h2{
+  color:var(--read-dark)!important;
+  -webkit-text-fill-color:var(--read-dark)!important;
+  opacity:1!important;
+  text-shadow:none!important;
+}
+body.vc-page:not(.brand-home) .section-head p,
+body.vc-page:not(.brand-home) .compare-title p{
+  color:var(--read-body)!important;
+  -webkit-text-fill-color:var(--read-body)!important;
+  opacity:1!important;
+}
+body.vc-page:not(.brand-home) .section-head .kicker{
+  color:#087452!important;
+  -webkit-text-fill-color:#087452!important;
+  opacity:1!important;
+}
+
+/* Generic decision surfaces are made dark so their white copy can never become white-on-white. */
+body.vc-page:not(.brand-home) :where(.choice,.feature,.notice,.cta-banner){
+  background:linear-gradient(145deg,#121a25,#0a1018)!important;
+  border-color:rgba(255,255,255,.12)!important;
+  color:#fff!important;
+}
+body.vc-page:not(.brand-home) :where(.choice,.feature,.notice,.cta-banner) :where(h2,h3,h4,b,strong){
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+  opacity:1!important;
+}
+body.vc-page:not(.brand-home) :where(.choice,.feature,.notice,.cta-banner) :where(p,span,small){
+  color:#d8e2ec!important;
+  -webkit-text-fill-color:#d8e2ec!important;
+  opacity:1!important;
+}
+
+/* Known partner cards are dark surfaces. Enforce readable copy regardless of page-specific CSS. */
+body.vc-page:not(.brand-home) :where(
+  .sf-card,.ab-card,.ap-card,.need,.path-card,.rm-card,.pt-card,.dl-card,
+  .stage-card,.card,.deal-card,.ag-related-card
+){
+  color:#fff!important;
+}
+body.vc-page:not(.brand-home) :where(
+  .sf-card,.ab-card,.ap-card,.need,.path-card,.rm-card,.pt-card,.dl-card,
+  .stage-card,.card,.deal-card,.ag-related-card
+) :where(h2,h3,h4,b,strong){
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+  opacity:1!important;
+}
+body.vc-page:not(.brand-home) :where(
+  .sf-card,.ab-card,.ap-card,.need,.path-card,.rm-card,.pt-card,.dl-card,
+  .stage-card,.card,.deal-card,.ag-related-card
+) :where(p,.sub,small){
+  color:#d3dde8!important;
+  -webkit-text-fill-color:#d3dde8!important;
+  opacity:1!important;
+}
+
+/* All image overlays get a readable white foreground. */
+body.vc-page:not(.brand-home) :where(
+  .vc-copy,.sf-copy,.ab-copy,.ap-copy,.mk-copy,.rv-copy,
+  .visual-break-copy,.brand-hero-copy,.emotion-card .copy,
+  .vf-banner div,.vf-life div,.vc-editorial span,.float-card .label
+) :where(h1,h2,h3,h4,p,b,strong,small,span){
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+  opacity:1!important;
+  text-shadow:0 2px 16px rgba(0,0,0,.88)!important;
+}
+
+/* Tables are explicitly dark; no grey-on-grey / white-on-white states. */
+body.vc-page:not(.brand-home) :where(
+  .table-wrap,.sf-table,.ab-table,.ap-table,.mk-table,.raibu-table,.rm-table,.pt-table,.dl-table
+){
+  background:#0c131c!important;
+  border-color:rgba(255,255,255,.12)!important;
+  color:#fff!important;
+}
+body.vc-page:not(.brand-home) :where(
+  .table-wrap,.sf-table,.ab-table,.ap-table,.mk-table,.raibu-table,.rm-table,.pt-table,.dl-table
+) th{
+  background:#121c28!important;
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+  opacity:1!important;
+}
+body.vc-page:not(.brand-home) :where(
+  .table-wrap,.sf-table,.ab-table,.ap-table,.mk-table,.raibu-table,.rm-table,.pt-table,.dl-table
+) td{
+  color:#dce5ee!important;
+  -webkit-text-fill-color:#dce5ee!important;
+  opacity:1!important;
+}
+
+/* Secondary CTAs must also be visible on the light page canvas. */
+body.vc-page:not(.brand-home) .btn.secondary{
+  background:#111923!important;
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+  border-color:#263445!important;
+  text-shadow:none!important;
+}
+body.vc-page:not(.brand-home) .btn.secondary *{
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+  text-shadow:none!important;
+}
+
+/* Small explanatory / source text: never fade below a readable floor. */
+body.vc-page:not(.brand-home) :where(
+  .sf-note,.ab-note,.ap-note,.mk-warning,.raibu-note,.rm-note,.pt-note,.dl-note,
+  .micro,.source-note,.directory-count
+){
+  color:#536171!important;
+  -webkit-text-fill-color:#536171!important;
+  opacity:1!important;
+}
+
+/* Footer and navigation stay explicit too. */
+body.vc-page:not(.brand-home) .topbar :where(a,span,b){
+  opacity:1!important;
+}
+body.vc-page:not(.brand-home) .footer{
+  background:#090e15!important;
+  color:#cbd5df!important;
+}
+body.vc-page:not(.brand-home) .footer a{
+  color:#e7edf3!important;
+  -webkit-text-fill-color:#e7edf3!important;
+  opacity:1!important;
+}
+
+@media(max-width:760px){
+  body.vc-page:not(.brand-home) main>section:first-child h1{
+    line-height:.94!important;
+  }
+}
