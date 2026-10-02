@@ -211,7 +211,7 @@ function initAffiliateFooterNote(){
   if(!footer||footer.querySelector('.affiliate-footer-note')) return;
   const note=document.createElement('div');
   note.className='affiliate-footer-note';
-  note.textContent='Hinweis: Einige Links sind Affiliate-Links. Bei einem Kauf können wir eine Provision erhalten. Für dich entstehen keine Mehrkosten.';
+  note.textContent='Anzeige: Bei einem Kauf über gekennzeichnete Links können wir eine Provision erhalten. Für dich entstehen keine Mehrkosten.';
   footer.appendChild(note);
 }
 document.addEventListener('DOMContentLoaded',initAffiliateFooterNote);
@@ -362,3 +362,80 @@ function initDealExpiry(){
   });
 }
 document.addEventListener('DOMContentLoaded',initDealExpiry);
+
+
+/* Sponsored UI cleanup + shopping-intent foundation */
+function normalizeSponsoredLabels(){
+  document.querySelectorAll('.adnote').forEach(el=>{ el.textContent='Anzeige'; });
+  document.querySelectorAll('a').forEach(a=>{
+    if((a.textContent||'').trim()==='Affiliate-Hinweis') a.textContent='Werbehinweis';
+  });
+  document.querySelectorAll('a[rel~="sponsored"]').forEach(link=>{
+    const scope=link.closest('.stage-card,.card,.deal-card,.choice,.feature,.cta-banner,.brand-hero,.brand-hero-copy,article,section');
+    if(!scope) return;
+    if(!scope.querySelector('.adnote')){
+      const n=document.createElement('div');
+      n.className='adnote';
+      n.textContent='Anzeige';
+      const host=link.closest('.cta-row,.cta-actions')||link.parentElement;
+      if(host?.parentElement) host.parentElement.insertBefore(n,host.nextSibling);
+    }
+  });
+}
+document.addEventListener('DOMContentLoaded',normalizeSponsoredLabels);
+
+function initShoppingIntent(){
+  const bar=document.querySelector('[data-shop-intent]');
+  const grid=document.querySelector('.equal-grid');
+  if(!bar||!grid) return;
+  const cards=[...grid.querySelectorAll('.equal-card')];
+
+  const tagMap={
+    all:()=>true,
+    deals:c=>c.dataset.deal==='1',
+    tech:c=>(c.dataset.tags||'').includes('tech'),
+    mobility:c=>(c.dataset.tags||'').includes('mobility'),
+    home:c=>(c.dataset.tags||'').includes('home'),
+    beauty:c=>(c.dataset.tags||'').includes('beauty'),
+    food:c=>(c.dataset.tags||'').includes('food'),
+    pet:c=>(c.dataset.tags||'').includes('pet'),
+    career:c=>(c.dataset.tags||'').includes('career')
+  };
+
+  const apply=key=>{
+    const test=tagMap[key]||tagMap.all;
+    cards.forEach(card=>{ card.hidden=!test(card); });
+    bar.querySelectorAll('[data-filter]').forEach(btn=>btn.classList.toggle('is-active',btn.dataset.filter===key));
+  };
+
+  bar.addEventListener('click',e=>{
+    const btn=e.target.closest('[data-filter]');
+    if(btn) apply(btn.dataset.filter);
+  });
+
+  cards.forEach(card=>{
+    card.addEventListener('click',()=>{
+      const tags=(card.dataset.tags||'').split(' ').filter(Boolean);
+      if(!tags.length) return;
+      try{
+        const scores=JSON.parse(localStorage.getItem('ag_interest_scores')||'{}');
+        tags.forEach(t=>scores[t]=(scores[t]||0)+1);
+        localStorage.setItem('ag_interest_scores',JSON.stringify(scores));
+      }catch{}
+    });
+  });
+
+  const forYou=bar.querySelector('[data-for-you]');
+  if(forYou){
+    forYou.addEventListener('click',()=>{
+      let scores={};
+      try{scores=JSON.parse(localStorage.getItem('ag_interest_scores')||'{}')}catch{}
+      const score=card=>(card.dataset.tags||'').split(' ').reduce((sum,t)=>sum+(scores[t]||0),0);
+      cards.sort((a,b)=>score(b)-score(a)).forEach(card=>grid.appendChild(card));
+      cards.forEach(card=>card.hidden=false);
+      bar.querySelectorAll('[data-filter]').forEach(btn=>btn.classList.remove('is-active'));
+      forYou.classList.add('is-active');
+    });
+  }
+}
+document.addEventListener('DOMContentLoaded',initShoppingIntent);
