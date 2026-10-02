@@ -32,7 +32,7 @@
 .directory-card strong{margin-top:auto;padding-top:18px;color:#c5ffe2;font-size:12px}
 .directory-empty{display:none;padding:28px;border:1px dashed rgba(255,255,255,.14);border-radius:18px;color:#c9d2dc}
 @media(max-width:850px){.directory-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:620px){.directory-hero{padding:58px 0 24px}.directory-hero h1{font-size:44px!important}.directory-hero p{font-size:14px!important}.directory-grid{grid-template-columns:1fr}.directory-card{min-height:0;padding:18px}.directory-card p{font-size:12px!important}.directory-search input{font-size:14px}}
+@media(max-width:620px){.directory-hero{padding:58px 0 24px}.directory-hero h1{font-size:44px!important}.directory-hero p{font-size:14px!important}.directory-grid{grid-template-columns:1fr}.directory-card{min-height:0;padding:18px}.directory-card small{font-size:11px!important}.directory-card h3{font-size:22px!important}.directory-card p{font-size:14px!important}.directory-card strong{font-size:13px!important}.directory-search input{font-size:15px}.directory-count{font-size:12px}}
 </style>
 </head>
 <body>
@@ -42,7 +42,7 @@
 <a class="nav-cta" href="/">Zur Suche →</a>
 </div></header>
 <main>
-<section class="directory-hero"><div class="shell"><div class="kicker">Alle Vergleiche</div><h1>Die richtige Welt. Nicht die längste Liste.</h1><p>Suche nach Marke, Kategorie oder Einsatz. Die Startseite bleibt auf aktuelle Kaufchancen fokussiert – hier findest du die vollständige AuraGlobal-Auswahl.</p><div class="directory-search"><input id="brand-filter" type="search" placeholder="z. B. Kaffee, E-Bike, Haustiere, Fashion …" aria-label="Marken und Vergleiche filtern"></div><div class="directory-count"><span id="brand-count">17</span> Markenwelten aktuell live</div></div></section>
+<section class="directory-hero"><div class="shell"><div class="kicker">Alle Vergleiche</div><h1>Die richtige Welt. Nicht die längste Liste.</h1><p>Suche nach Marke, Kategorie oder Einsatz. Die Startseite bleibt auf aktuelle Kaufchancen fokussiert – hier findest du die vollständige AuraGlobal-Auswahl.</p><div class="directory-search"><input id="brand-filter" type="search" placeholder="z. B. Kaffee, E-Bike, Haustiere, Fashion …" aria-label="Marken und Vergleiche filtern"></div><div class="directory-count"><span id="brand-count">–</span> Markenwelten aktuell live</div></div></section>
 <section class="directory"><div class="shell" id="directory-root">
 <div class="directory-section" data-group><h2>Mobilität</h2><div class="directory-grid">
 <a class="directory-card" data-search="tenways e-bike ebike fahrrad city pendeln mobilität" href="/tenways.html"><small>E-Bikes</small><h3>TENWAYS</h3><p>CGO600, CGO600 Pro und CGO800S nach Gewicht, Reichweite und Komfort vergleichen.</p><strong>Vergleich öffnen →</strong></a>
@@ -86,7 +86,7 @@
 </main>
 <footer class="footer"><div class="shell"><div>© 2026 AuraGlobal · Unabhängige Vergleichsplattform.</div><div class="footer-links"><a href="/methodik.html">So vergleichen wir</a><a href="/impressum.html">Impressum</a><a href="/datenschutz.html">Datenschutz</a><a href="/affiliate-disclosure.html">Affiliate-Hinweis</a></div></div></footer>
 <script>
-(()=>{const input=document.getElementById('brand-filter');const cards=[...document.querySelectorAll('.directory-card')];const groups=[...document.querySelectorAll('[data-group]')];const count=document.getElementById('brand-count');const empty=document.getElementById('directory-empty');if(!input)return;const apply=()=>{const q=input.value.trim().toLowerCase();let visible=0;cards.forEach(card=>{const hay=(card.dataset.search+' '+card.textContent).toLowerCase();const show=!q||hay.includes(q);card.style.display=show?'flex':'none';if(show)visible++});groups.forEach(group=>{group.style.display=[...group.querySelectorAll('.directory-card')].some(c=>c.style.display!=='none')?'block':'none'});count.textContent=visible;empty.style.display=visible?'none':'block'};input.addEventListener('input',apply);})();
+(()=>{const input=document.getElementById('brand-filter');const cards=[...document.querySelectorAll('.directory-card')];const groups=[...document.querySelectorAll('[data-group]')];const count=document.getElementById('brand-count');const empty=document.getElementById('directory-empty');if(!input)return;const apply=()=>{const q=input.value.trim().toLowerCase();let visible=0;cards.forEach(card=>{const hay=(card.dataset.search+' '+card.textContent).toLowerCase();const show=!q||hay.includes(q);card.style.display=show?'flex':'none';if(show)visible++});groups.forEach(group=>{group.style.display=[...group.querySelectorAll('.directory-card')].some(c=>c.style.display!=='none')?'block':'none'});count.textContent=visible;empty.style.display=visible?'none':'block'};input.addEventListener('input',apply);apply();})();
 </script>
 <script src="/aura-v2.js"></script>
 </body></html>
