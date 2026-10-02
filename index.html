@@ -195,17 +195,205 @@ body.brand-home .visual-search{margin-top:0!important}
  .hmw-v3 .hmw-logo{max-width:65%}
 }
 </style>
+
+<style>
+/* cinematic commerce v4 — video + brand energy above the partner wall */
+.cinema-commerce{
+  padding:12px 0 10px;
+  background:
+    radial-gradient(circle at 15% 10%,rgba(255,148,40,.18),transparent 26rem),
+    radial-gradient(circle at 82% 12%,rgba(78,105,255,.18),transparent 28rem),
+    #07090e;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.cinema-shell{padding-left:18px!important;padding-right:18px!important}
+.cinema-grid{
+  display:grid;
+  grid-template-columns:1.25fr .95fr;
+  grid-template-rows:340px 162px;
+  gap:10px;
+}
+.cinema-panel,.cinema-mini{
+  position:relative;overflow:hidden;text-decoration:none;color:#fff!important;
+  border-radius:22px;border:1px solid rgba(255,255,255,.15);
+  background:#11151d;isolation:isolate;box-shadow:0 16px 45px rgba(0,0,0,.24)
+}
+.cinema-panel{grid-row:1}
+.cinema-nespresso{grid-column:1}
+.cinema-shifter{grid-column:2}
+.cinema-video-wrap,.cinema-fallback,.cinema-photo{position:absolute;inset:0;width:100%;height:100%}
+.cinema-fallback{z-index:0}.cinema-fallback img,.cinema-photo{width:100%;height:100%;object-fit:cover}
+.cinema-video-wrap{z-index:1;overflow:hidden;pointer-events:none;background:#15100c}
+.cinema-video-wrap iframe{
+  position:absolute;left:50%;top:50%;width:178vh;min-width:100%;height:56.25vw;min-height:100%;
+  transform:translate(-50%,-50%) scale(1.04);border:0;pointer-events:none
+}
+.cinema-shade{position:absolute;z-index:2;inset:0;background:linear-gradient(180deg,rgba(3,5,8,.10) 0%,rgba(3,5,8,.22) 36%,rgba(3,5,8,.94) 100%)}
+.cinema-nespresso .cinema-shade{background:
+  linear-gradient(180deg,rgba(24,10,3,.05),rgba(24,10,3,.16) 34%,rgba(18,8,2,.94) 100%),
+  linear-gradient(90deg,rgba(174,88,21,.18),transparent 60%)}
+.cinema-shifter .cinema-shade{background:
+  linear-gradient(180deg,rgba(3,8,18,.05),rgba(3,8,18,.16) 34%,rgba(3,8,18,.96) 100%),
+  linear-gradient(135deg,rgba(70,115,255,.28),transparent 62%)}
+.cinema-brand{
+  position:absolute;z-index:5;top:13px;left:13px;display:flex;align-items:center;gap:8px;
+  padding:8px 10px;border-radius:11px;background:rgba(255,255,255,.95);box-shadow:0 8px 24px rgba(0,0,0,.22)
+}
+.cinema-brand-light{background:rgba(255,255,255,.96)}
+.cinema-wordmark{font-size:12px;font-weight:950;letter-spacing:.06em;color:#111!important}
+.nespresso-wordmark{font-family:Georgia,serif;letter-spacing:.12em}
+.shifter-wordmark{letter-spacing:.13em}
+.cinema-partner-tag{font-size:7px;color:#4f5864;font-weight:900;letter-spacing:.08em}
+.cinema-deal-badge{
+  position:absolute;z-index:5;top:13px;right:13px;display:flex;align-items:center;gap:6px;
+  padding:8px 10px;border-radius:12px;background:#ffe359;color:#151007;border:2px solid rgba(255,255,255,.95);
+  box-shadow:0 8px 24px rgba(0,0,0,.22)
+}
+.cinema-deal-badge strong{font-size:24px;line-height:.9}.cinema-deal-badge span{font-size:8px;line-height:1.05;font-weight:950}
+.cinema-copy{position:absolute;z-index:5;left:17px;right:17px;bottom:16px;text-shadow:0 4px 22px rgba(0,0,0,.78)}
+.cinema-copy small{display:block;font-size:9px;letter-spacing:.12em;font-weight:950;color:#f0f5fb!important}
+.cinema-copy h2{margin:5px 0 5px;font-size:clamp(25px,2.5vw,40px);line-height:.96;letter-spacing:-.045em;max-width:13ch;color:#fff!important}
+.cinema-shifter .cinema-copy h2{font-size:clamp(23px,2.1vw,34px);max-width:15ch}
+.cinema-copy p{margin:0;max-width:650px;font-size:10px;line-height:1.4;color:#dce4ed!important}
+.cinema-cta{display:inline-flex;margin-top:8px;padding:7px 9px;border-radius:9px;background:#fff;color:#111!important;text-shadow:none;font-size:9px;font-weight:950}
+.cinema-apple-card{
+  position:absolute;z-index:5;right:13px;top:54px;width:138px;padding:11px;border-radius:14px;
+  background:rgba(6,9,15,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,.16);box-shadow:0 12px 30px rgba(0,0,0,.25)
+}
+.cinema-apple-card small{display:block;font-size:7px;letter-spacing:.08em;color:#dce5f0;font-weight:950}
+.cinema-apple-card strong{display:inline-block;margin-top:5px;font-size:25px;letter-spacing:-.05em;color:#fff}
+.cinema-apple-card del{display:block;margin-top:1px;font-size:10px;color:#97a2b1}
+.cinema-apple-card span{display:block;margin-top:4px;font-size:8px;color:#baffdc;font-weight:900}
+.cinema-mini{grid-row:2;height:162px}
+.cinema-mini:nth-of-type(3){grid-column:1}
+.cinema-mini:nth-of-type(4){grid-column:2}
+.cinema-mini:nth-of-type(5){display:none}
+.cinema-mini img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(1.17)}
+.cinema-mini-shade{position:absolute;z-index:1;inset:0;background:linear-gradient(180deg,rgba(3,5,8,.04),rgba(3,5,8,.88))}
+.cinema-mini>div:last-child{position:absolute;z-index:3;left:11px;right:11px;bottom:9px}
+.cinema-mini small{display:block;font-size:7px;letter-spacing:.1em;font-weight:950;color:#e7eef7}
+.cinema-mini b{display:block;margin-top:2px;font-size:16px;line-height:1.04;color:#fff}
+.cinema-mini em{display:block;margin-top:4px;font-size:9px;font-style:normal;color:#d7e0e9}
+.cinema-mini-logo{position:absolute;z-index:4;top:8px;left:8px;padding:6px 8px;border-radius:8px;background:rgba(255,255,255,.94);color:#111!important;font-size:9px;font-weight:950}
+.cinema-mini-badge{position:absolute;z-index:4;top:8px;right:8px;padding:6px 8px;border-radius:8px;background:#eaff99;color:#111!important;font-size:8px;font-weight:950}
+.mini-outin{box-shadow:inset 0 0 0 2px rgba(255,151,64,.10),0 16px 45px rgba(0,0,0,.22)}
+.mini-pet{box-shadow:inset 0 0 0 2px rgba(80,232,175,.10),0 16px 45px rgba(0,0,0,.22)}
+.mini-bike{box-shadow:inset 0 0 0 2px rgba(90,125,255,.10),0 16px 45px rgba(0,0,0,.22)}
+/* the dense wall starts immediately after the hero mosaic; no giant dead zones */
+.hmw-v3{padding-top:12px!important}
+.hmw-v3 .hmw-head h1{font-size:clamp(28px,2.8vw,42px)!important}
+@media(min-width:1050px){
+  .cinema-grid{grid-template-columns:1.18fr .82fr .82fr;grid-template-rows:340px 160px}
+  .cinema-nespresso{grid-column:1/3}
+  .cinema-shifter{grid-column:3}
+  .cinema-mini:nth-of-type(3){grid-column:1}
+  .cinema-mini:nth-of-type(4){grid-column:2}
+  .cinema-mini:nth-of-type(5){display:block;grid-column:3}
+}
+@media(max-width:760px){
+  .cinema-commerce{padding:8px 0}
+  .cinema-shell{padding-left:10px!important;padding-right:10px!important}
+  .cinema-grid{grid-template-columns:1fr 1fr;grid-template-rows:250px 220px 135px;gap:7px}
+  .cinema-nespresso{grid-column:1/3;grid-row:1}
+  .cinema-shifter{grid-column:1/3;grid-row:2}
+  .cinema-mini{height:135px!important;grid-row:3!important}
+  .cinema-mini:nth-of-type(3){grid-column:1}.cinema-mini:nth-of-type(4){grid-column:2}.cinema-mini:nth-of-type(5){display:none}
+  .cinema-panel,.cinema-mini{border-radius:16px}
+  .cinema-copy{left:12px;right:12px;bottom:11px}
+  .cinema-copy h2,.cinema-shifter .cinema-copy h2{font-size:27px;max-width:15ch}
+  .cinema-copy p{font-size:9px;max-width:90%}
+  .cinema-apple-card{top:48px;right:10px;width:125px}
+  .cinema-video-wrap iframe{width:190vh}
+}
+@media(prefers-reduced-motion:reduce){
+  .cinema-video-wrap{display:none}
+}
+</style>
 </head>
 <body class="vc-page brand-home">
 <header class="topbar mock-nav"><div class="shell nav"><a class="brand ag-brand approved-logo" href="/" aria-label="AuraGlobal"><svg class="ag-symbol" viewBox="0 0 100 92" aria-hidden="true"><defs><linearGradient id="auraA" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#eafff5"/><stop offset=".48" stop-color="#8ce8b9"/><stop offset="1" stop-color="#45c98e"/></linearGradient></defs><path fill="url(#auraA)" d="M8 88 48 4 92 88H75L48 31 24 81Z"/><path fill="url(#auraA)" d="M17 78C34 59 53 53 77 66L72 74C52 63 36 66 17 78Z"/></svg><span class="ag-wordmark"><span class="aura">AURA</span><span class="global">GLOBAL</span></span></a><nav class="navlinks"><a href="#shopcats">Kategorien</a><a href="#deals">Deals</a><a href="#why">Warum AuraGlobal?</a><a href="/marken.html">Alle Vergleiche</a></nav><div class="nav-icons"><a href="#search" aria-label="Suchen">⌕</a><a href="#deals" aria-label="Aktuelle Deals">％</a><a class="nav-cta" href="/marken.html">Alle Vergleiche →</a></div></div></header>
 <main>
+<section class="cinema-commerce" aria-label="Aktuelle Highlights und Markenwelten">
+  <div class="shell cinema-shell">
+    <div class="cinema-grid">
+
+      <a class="cinema-panel cinema-nespresso" href="/nespresso.html" aria-label="Nespresso Coffee Day Angebot entdecken">
+        <div class="cinema-video-wrap" aria-hidden="true">
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/PTtOzTCr7AU?autoplay=1&mute=1&controls=0&loop=1&playlist=PTtOzTCr7AU&modestbranding=1&playsinline=1&rel=0"
+            title="Nespresso Kampagnenvideo"
+            loading="eager"
+            allow="autoplay; encrypted-media; picture-in-picture"
+            referrerpolicy="strict-origin-when-cross-origin"
+            tabindex="-1"></iframe>
+        </div>
+        <div class="cinema-fallback" aria-hidden="true">
+          <img src="https://images.pexels.com/photos/12903246/pexels-photo-12903246.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="">
+        </div>
+        <div class="cinema-shade"></div>
+        <div class="cinema-brand cinema-brand-light"><span class="cinema-wordmark nespresso-wordmark">NESPRESSO</span></div>
+        <div class="cinema-deal-badge"><strong>4</strong><span>STANGEN<br>GESCHENKT*</span></div>
+        <div class="cinema-copy">
+          <small>COFFEE DAY · NUR NOCH HEUTE</small>
+          <h2>Kaffee, Marke, Ritual. Direkt drin.</h2>
+          <p>Ab 15 Stangen gibt es 3 gratis, ab 20 Stangen 4 gratis. Neukunden erhalten zusätzlich 20 % auf die erste Kaffeebestellung.</p>
+          <span class="cinema-cta">Nespresso entdecken →</span>
+        </div>
+      </a>
+
+      <a class="cinema-panel cinema-shifter" href="/shifter.html" aria-label="SHIFTER Apple Watch und Tech Deals entdecken">
+        <img class="cinema-photo" src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1500&q=90" alt="Moderne Premium-Technik im Alltag">
+        <div class="cinema-shade"></div>
+        <div class="cinema-brand"><span class="cinema-wordmark shifter-wordmark">SHIFTER</span><span class="cinema-partner-tag">TECH · OUTLET</span></div>
+        <div class="cinema-apple-card">
+          <small>APPLE WATCH ULTRA 2</small>
+          <strong>589 €</strong>
+          <del>899 €</del>
+          <span>−34,48 % · aktuell gelistet*</span>
+        </div>
+        <div class="cinema-copy">
+          <small>APPLE · IPHONE · WATCH · ZUBEHÖR</small>
+          <h2>Tech-Deals, bei denen man zweimal hinschaut.</h2>
+          <p>Auch iPhone-17-Zubehör und Outlet-Artikel sind aktuell deutlich reduziert.</p>
+          <span class="cinema-cta">SHIFTER Deals öffnen →</span>
+        </div>
+      </a>
+
+      <a class="cinema-mini mini-outin" href="/outin.html">
+        <img src="https://images.pexels.com/photos/1549181/pexels-photo-1549181.jpeg?auto=compress&cs=tinysrgb&w=1100" alt="Kaffee unterwegs">
+        <div class="cinema-mini-shade"></div>
+        <span class="cinema-mini-logo">OutIn</span>
+        <span class="cinema-mini-badge">20 %</span>
+        <div><small>MINO · NANO · SETS</small><b>Espresso. Überall.</b><em>Mino 151,99 € statt 189,99 €</em></div>
+      </a>
+
+      <a class="cinema-mini mini-pet" href="/petlibro.html">
+        <img src="https://images.pexels.com/photos/6001460/pexels-photo-6001460.jpeg?auto=compress&cs=tinysrgb&w=1100" alt="Mensch mit Katze zuhause">
+        <div class="cinema-mini-shade"></div>
+        <span class="cinema-mini-logo">PETLIBRO</span>
+        <span class="cinema-mini-badge">BIS 30 %</span>
+        <div><small>SMART PET</small><b>Mehr Nähe. Weniger Stress.</b><em>Prime Deals bis 05.10.</em></div>
+      </a>
+
+      <a class="cinema-mini mini-bike" href="/tenways.html">
+        <img src="https://images.pexels.com/photos/7242978/pexels-photo-7242978.jpeg?auto=compress&cs=tinysrgb&w=1100" alt="Lachende Radfahrerin in der Stadt">
+        <div class="cinema-mini-shade"></div>
+        <span class="cinema-mini-logo">TENWAYS</span>
+        <span class="cinema-mini-badge">100 € + EXTRA</span>
+        <div><small>CGO600</small><b>Mehr Freiheit im Alltag.</b><em>1.199 € statt 1.299 € + Carrier</em></div>
+      </a>
+
+    </div>
+  </div>
+</section>
 <section class="home-market-wall hmw-v3" aria-label="Aktuelle Marken und Deals">
 <div class="shell">
   <div class="hmw-head">
     <div class="hmw-head-left">
       <span class="hmw-kicker">27 PARTNERWELTEN · AKTUELLE DEALS · DIREKT VERGLEICHEN</span>
-      <h1>Aufmachen. Sehen. Sofort Bock bekommen.</h1>
-      <p>Große Marken, echte Nutzungsmomente und konkrete Preisvorteile direkt auf der Startseite. Keine erfundenen Rabatte.</p>
+      <h1>Danach: 27 Welten ohne Sucherei.</h1>
+      <p>Alle Partner kompakt darunter – mit klarer Kategorie und nur verifizierten Deal-Hinweisen.</p>
     </div>
     <a class="hmw-all" href="/marken.html"><b>27</b><span>Welten<br>live →</span></a>
   </div>
