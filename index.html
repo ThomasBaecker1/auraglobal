@@ -64,160 +64,252 @@
     .hmw-card{height:105px}.hmw-card-copy b{font-size:13px}.hmw-card-copy small{font-size:8px}.hmw-badge{font-size:8px}
   }
   </style>
-  <script type="application/ld+json">
+  <style>
+/* brand mosaic v2 — logos, larger emotional cards, still dense */
+.hmw-v2{padding:18px 0 22px;background:
+radial-gradient(circle at 9% 4%,rgba(255,80,150,.12),transparent 25rem),
+radial-gradient(circle at 46% 0%,rgba(255,170,70,.11),transparent 27rem),
+radial-gradient(circle at 88% 5%,rgba(70,135,255,.14),transparent 28rem),
+#060910}
+.hmw-v2 .hmw-head{margin-bottom:12px}
+.hmw-v2 .hmw-head h1{font-size:clamp(31px,3.25vw,50px);max-width:780px}
+.hmw-v2 .hmw-head p{font-size:12px;max-width:760px;color:#b5c0cf}
+.hmw-all{display:flex;align-items:center;gap:9px;flex:none;padding:9px 12px;border-radius:14px;border:1px solid rgba(255,255,255,.13);background:rgba(255,255,255,.045);text-decoration:none;color:#d8e2ee}
+.hmw-all b{font-size:23px;color:#bcffdd}.hmw-all span{font-size:10px;line-height:1.2}
+.hmw-feature-grid{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:8px}
+.hmw-feature-grid .hmw-card{height:184px}
+.hmw-feature-grid .hmw-wide{grid-column:span 2}
+.hmw-rest-head{display:flex;justify-content:space-between;align-items:center;margin:15px 1px 7px;color:#d5deea}
+.hmw-rest-head span{font-size:11px;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
+.hmw-rest-head a{font-size:10px;color:#aaffd5;text-decoration:none}
+.hmw-rest-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:7px}
+.hmw-rest-grid .hmw-card{height:122px}
+.hmw-v2 .hmw-card{border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.18)}
+.hmw-v2 .hmw-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.01);filter:saturate(1.12) contrast(1.02)}
+.hmw-v2 .hmw-card:after{background:linear-gradient(180deg,rgba(2,5,9,.05),rgba(2,5,9,.08) 30%,rgba(2,5,9,.92) 100%)}
+.hmw-v2 .hmw-glow{position:absolute;z-index:1;inset:0;opacity:.30;mix-blend-mode:screen;pointer-events:none}
+.hmw-v2 .c-pink .hmw-glow{background:linear-gradient(135deg,#ff2f91,transparent 60%)}
+.hmw-v2 .c-orange .hmw-glow{background:linear-gradient(135deg,#ff8c2f,transparent 60%)}
+.hmw-v2 .c-green .hmw-glow{background:linear-gradient(135deg,#21e59d,transparent 60%)}
+.hmw-v2 .c-blue .hmw-glow{background:linear-gradient(135deg,#347dff,transparent 60%)}
+.hmw-v2 .c-purple .hmw-glow{background:linear-gradient(135deg,#9b55ff,transparent 60%)}
+.hmw-logo{position:absolute;z-index:4;top:9px;left:9px;display:flex;align-items:center;gap:6px;max-width:62%;height:28px;padding:4px 7px;border-radius:9px;background:rgba(255,255,255,.93);box-shadow:0 5px 16px rgba(0,0,0,.22);overflow:hidden}
+.hmw-logo img{position:static!important;width:auto!important;height:18px!important;max-width:64px!important;object-fit:contain!important;transform:none!important;filter:none!important}
+.hmw-logo span{font-size:8px;line-height:1;color:#111820;font-weight:950;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hmw-v2 .hmw-badge{top:9px;right:9px;font-size:8px;padding:6px 7px;border-radius:9px}
+.hmw-v2 .hmw-badge.deal{background:#eafff3;color:#07110c}
+.hmw-v2 .hmw-card-copy{left:11px;right:11px;bottom:10px}
+.hmw-feature-grid .hmw-card-copy small{font-size:8px}.hmw-feature-grid .hmw-card-copy b{font-size:17px;white-space:normal;line-height:1.04}
+.hmw-feature-grid .hmw-card-copy em{display:block;margin-top:5px;color:#d9e4ef;font-size:9px;font-style:normal;font-weight:800}
+.hmw-rest-grid .hmw-card-copy b{font-size:13px}.hmw-rest-grid .hmw-card-copy small{font-size:7px}
+@media(max-width:1200px){
+  .hmw-feature-grid{grid-template-columns:repeat(6,minmax(0,1fr))}
+  .hmw-feature-grid .hmw-wide{grid-column:span 2}
+  .hmw-rest-grid{grid-template-columns:repeat(6,minmax(0,1fr))}
+}
+@media(max-width:900px){
+  .hmw-feature-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .hmw-feature-grid .hmw-wide{grid-column:span 1}
+  .hmw-feature-grid .hmw-card{height:175px}
+  .hmw-rest-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .hmw-rest-grid .hmw-card{height:120px}
+}
+@media(max-width:620px){
+  .hmw-v2{padding-top:12px}
+  .hmw-v2 .hmw-head h1{font-size:31px}
+  .hmw-v2 .hmw-head p{font-size:11px}
+  .hmw-all{display:none}
+  .hmw-feature-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+  .hmw-feature-grid .hmw-card{height:150px}
+  .hmw-rest-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+  .hmw-rest-grid .hmw-card{height:108px}
+  .hmw-logo{height:25px;max-width:64%;padding:3px 6px}.hmw-logo img{height:16px!important;max-width:53px!important}.hmw-logo span{font-size:7px}
+  .hmw-feature-grid .hmw-card-copy b{font-size:15px}
+}
+</style>
+<script type="application/ld+json">
   {"@context":"https://schema.org","@type":"WebSite","name":"AuraGlobal","url":"https://auraglobal.vercel.app/","description":"Visuelle Produktvergleichs- und Affiliate-Plattform für klarere Kaufentscheidungen."}
   </script>
 </head>
 <body class="vc-page brand-home">
 <header class="topbar mock-nav"><div class="shell nav"><a class="brand ag-brand approved-logo" href="/" aria-label="AuraGlobal"><svg class="ag-symbol" viewBox="0 0 100 92" aria-hidden="true"><defs><linearGradient id="auraA" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#eafff5"/><stop offset=".48" stop-color="#8ce8b9"/><stop offset="1" stop-color="#45c98e"/></linearGradient></defs><path fill="url(#auraA)" d="M8 88 48 4 92 88H75L48 31 24 81Z"/><path fill="url(#auraA)" d="M17 78C34 59 53 53 77 66L72 74C52 63 36 66 17 78Z"/></svg><span class="ag-wordmark"><span class="aura">AURA</span><span class="global">GLOBAL</span></span></a><nav class="navlinks"><a href="#shopcats">Kategorien</a><a href="#deals">Deals</a><a href="#why">Warum AuraGlobal?</a><a href="/marken.html">Alle Vergleiche</a></nav><div class="nav-icons"><a href="#search" aria-label="Suchen">⌕</a><a href="#deals" aria-label="Aktuelle Deals">％</a><a class="nav-cta" href="/marken.html">Alle Vergleiche →</a></div></div></header>
 <main>
-<section class="home-market-wall" aria-label="Alle AuraGlobal Partnerwelten">
-  <div class="shell">
-    <div class="hmw-head">
-      <div class="hmw-head-left">
-        <span class="hmw-kicker">27 PARTNERWELTEN · DIREKT ENTDECKEN</span>
-        <h1>Mehr Auswahl. Weniger Scrollen.</h1>
-        <p>Deals, Produkte und Vergleiche kompakt auf einen Blick. Prozent-Badges zeigen nur aktuell verifizierte Aktionen.</p>
-      </div>
-      <div class="hmw-count"><b>27</b><span>Welten<br>live</span></div>
+<section class="home-market-wall hmw-v2" aria-label="AuraGlobal Marken und Deals">
+<div class="shell">
+  <div class="hmw-head">
+    <div class="hmw-head-left">
+      <span class="hmw-kicker">27 PARTNERWELTEN · LOGOS · DEALS · EMOTIONEN</span>
+      <h1>Deine Marken. Deine Deals. Direkt drin.</h1>
+      <p>Bekannte Marken zuerst, echte Nutzungsmomente dahinter – und nur verifizierte Rabatte als Prozent- oder Preis-Badge.</p>
     </div>
-    <div class="hmw-grid">
-<a class="hmw-card c-pink" href="/momox-fashion.html" aria-label="momox fashion entdecken">
-  <img src="https://images.pexels.com/photos/36730381/pexels-photo-36730381.jpeg?auto=compress&cs=tinysrgb&w=700" alt="momox fashion – Secondhand Fashion" loading="eager" decoding="async">
-  <span class="hmw-badge deal">BIS 72%*</span>
-  <span class="hmw-card-copy"><small>Secondhand Fashion</small><b>momox fashion</b></span>
-</a>
-<a class="hmw-card c-orange" href="/outin.html" aria-label="OutIn entdecken">
-  <img src="https://images.pexels.com/photos/1549181/pexels-photo-1549181.jpeg?auto=compress&cs=tinysrgb&w=700" alt="OutIn – Portable Espresso" loading="eager" decoding="async">
-  <span class="hmw-badge deal">20%*</span>
-  <span class="hmw-card-copy"><small>Portable Espresso</small><b>OutIn</b></span>
-</a>
-<a class="hmw-card c-green" href="/petlibro.html" aria-label="PETLIBRO entdecken">
-  <img src="https://images.pexels.com/photos/6001460/pexels-photo-6001460.jpeg?auto=compress&cs=tinysrgb&w=700" alt="PETLIBRO – Smart Pet" loading="eager" decoding="async">
-  <span class="hmw-badge deal">BIS 30%*</span>
-  <span class="hmw-card-copy"><small>Smart Pet</small><b>PETLIBRO</b></span>
-</a>
-<a class="hmw-card c-blue" href="/tenways.html" aria-label="TENWAYS entdecken">
-  <img src="https://images.pexels.com/photos/7242978/pexels-photo-7242978.jpeg?auto=compress&cs=tinysrgb&w=700" alt="TENWAYS – City & Pendeln" loading="eager" decoding="async">
-  <span class="hmw-badge deal">100 €*</span>
-  <span class="hmw-card-copy"><small>City & Pendeln</small><b>TENWAYS</b></span>
-</a>
-<a class="hmw-card c-purple" href="/urwahn.html" aria-label="URWAHN entdecken">
-  <img src="https://images.pexels.com/photos/7242978/pexels-photo-7242978.jpeg?auto=compress&cs=tinysrgb&w=700" alt="URWAHN – Premium Urban" loading="eager" decoding="async">
-  <span class="hmw-badge ">VERGLEICH</span>
-  <span class="hmw-card-copy"><small>Premium Urban</small><b>URWAHN</b></span>
-</a>
-<a class="hmw-card c-green" href="/dotblue.html" aria-label="DOTBLUE entdecken">
-  <img src="https://images.pexels.com/photos/7242978/pexels-photo-7242978.jpeg?auto=compress&cs=tinysrgb&w=700" alt="DOTBLUE – Falt-E-Bikes" loading="eager" decoding="async">
-  <span class="hmw-badge ">NEU</span>
-  <span class="hmw-card-copy"><small>Falt-E-Bikes</small><b>DOTBLUE</b></span>
-</a>
-<a class="hmw-card c-orange" href="/nespresso.html" aria-label="Nespresso entdecken">
-  <img src="https://images.pexels.com/photos/1549181/pexels-photo-1549181.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Nespresso – Kaffee zuhause" loading="eager" decoding="async">
-  <span class="hmw-badge ">MASCHINEN</span>
-  <span class="hmw-card-copy"><small>Kaffee zuhause</small><b>Nespresso</b></span>
-</a>
-<a class="hmw-card c-green" href="/anthbot.html" aria-label="ANTHBOT entdecken">
-  <img src="https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&w=700&q=82" alt="ANTHBOT – Mähroboter" loading="eager" decoding="async">
-  <span class="hmw-badge ">GARTEN</span>
-  <span class="hmw-card-copy"><small>Mähroboter</small><b>ANTHBOT</b></span>
-</a>
-<a class="hmw-card c-blue" href="/allpowers.html" aria-label="ALLPOWERS entdecken">
-  <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=700&q=82" alt="ALLPOWERS – Powerstations" loading="eager" decoding="async">
-  <span class="hmw-badge ">ENERGIE</span>
-  <span class="hmw-card-copy"><small>Powerstations</small><b>ALLPOWERS</b></span>
-</a>
-<a class="hmw-card c-orange" href="/rameder.html" aria-label="Rameder entdecken">
-  <img src="https://images.unsplash.com/photo-1486911278844-a81c5267e227?auto=format&fit=crop&w=700&q=82" alt="Rameder – Auto & Transport" loading="eager" decoding="async">
-  <span class="hmw-badge ">REISE</span>
-  <span class="hmw-card-copy"><small>Auto & Transport</small><b>Rameder</b></span>
-</a>
-<a class="hmw-card c-blue" href="/shifter.html" aria-label="SHIFTER entdecken">
-  <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=700&q=82" alt="SHIFTER – Technik & Deals" loading="eager" decoding="async">
-  <span class="hmw-badge ">OUTLET</span>
-  <span class="hmw-card-copy"><small>Technik & Deals</small><b>SHIFTER</b></span>
-</a>
-<a class="hmw-card c-green" href="/desktronic.html" aria-label="Desktronic entdecken">
-  <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=700&q=82" alt="Desktronic – Homeoffice" loading="eager" decoding="async">
-  <span class="hmw-badge ">ERGONOMIE</span>
-  <span class="hmw-card-copy"><small>Homeoffice</small><b>Desktronic</b></span>
-</a>
-<a class="hmw-card c-blue" href="/delst.html" aria-label="DeLSt entdecken">
-  <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=700&q=82" alt="DeLSt – Weiterbildung" loading="eager" decoding="async">
-  <span class="hmw-badge ">KARRIERE</span>
-  <span class="hmw-card-copy"><small>Weiterbildung</small><b>DeLSt</b></span>
-</a>
-<a class="hmw-card c-purple" href="/braingood.html" aria-label="braingood entdecken">
-  <img src="https://images.pexels.com/photos/9004785/pexels-photo-9004785.jpeg?auto=compress&cs=tinysrgb&w=700" alt="braingood – Wohlbefinden" loading="eager" decoding="async">
-  <span class="hmw-badge ">ROUTINE</span>
-  <span class="hmw-card-copy"><small>Wohlbefinden</small><b>braingood</b></span>
-</a>
-<a class="hmw-card c-green" href="/raibu.html" aria-label="RAIBU entdecken">
-  <img src="https://images.pexels.com/photos/9004785/pexels-photo-9004785.jpeg?auto=compress&cs=tinysrgb&w=700" alt="RAIBU – Supplements" loading="eager" decoding="async">
-  <span class="hmw-badge ">FOKUS</span>
-  <span class="hmw-card-copy"><small>Supplements</small><b>RAIBU</b></span>
-</a>
-<a class="hmw-card c-pink" href="/mediakos.html" aria-label="Mediakos entdecken">
-  <img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&w=700&q=82" alt="Mediakos – Vitamine & Beauty" loading="eager" decoding="async">
-  <span class="hmw-badge ">BEAUTY</span>
-  <span class="hmw-card-copy"><small>Vitamine & Beauty</small><b>Mediakos</b></span>
-</a>
-<a class="hmw-card c-purple" href="/wau.html" aria-label="WAU entdecken">
-  <img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&w=700&q=82" alt="WAU – Beauty Tech" loading="eager" decoding="async">
-  <span class="hmw-badge ">SELF CARE</span>
-  <span class="hmw-card-copy"><small>Beauty Tech</small><b>WAU</b></span>
-</a>
-<a class="hmw-card c-pink" href="/ophelia.html" aria-label="Ophelia entdecken">
-  <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=700&q=82" alt="Ophelia – Fine Jewelry" loading="eager" decoding="async">
-  <span class="hmw-badge ">SCHMUCK</span>
-  <span class="hmw-card-copy"><small>Fine Jewelry</small><b>Ophelia</b></span>
-</a>
-<a class="hmw-card c-blue" href="/paper-sons.html" aria-label="Paper & Sons entdecken">
-  <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=700&q=82" alt="Paper & Sons – City & Work" loading="eager" decoding="async">
-  <span class="hmw-badge ">WORK</span>
-  <span class="hmw-card-copy"><small>City & Work</small><b>Paper & Sons</b></span>
-</a>
-<a class="hmw-card c-orange" href="/dekvio.html" aria-label="DEKVIO entdecken">
-  <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=700&q=82" alt="DEKVIO – Leder & Reise" loading="eager" decoding="async">
-  <span class="hmw-badge ">TRAVEL</span>
-  <span class="hmw-card-copy"><small>Leder & Reise</small><b>DEKVIO</b></span>
-</a>
-<a class="hmw-card c-purple" href="/vintage-realm.html" aria-label="Vintage Realm entdecken">
-  <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=700&q=82" alt="Vintage Realm – Interior" loading="eager" decoding="async">
-  <span class="hmw-badge ">INTERIOR</span>
-  <span class="hmw-card-copy"><small>Interior</small><b>Vintage Realm</b></span>
-</a>
-<a class="hmw-card c-green" href="/norma24.html" aria-label="NORMA24 entdecken">
-  <img src="https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=700&q=82" alt="NORMA24 – Haus & Garten" loading="eager" decoding="async">
-  <span class="hmw-badge ">ALLTAG</span>
-  <span class="hmw-card-copy"><small>Haus & Garten</small><b>NORMA24</b></span>
-</a>
-<a class="hmw-card c-green" href="/rasendoktor.html" aria-label="Rasendoktor entdecken">
-  <img src="https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&w=700&q=82" alt="Rasendoktor – Rasenpflege" loading="eager" decoding="async">
-  <span class="hmw-badge ">GARTEN</span>
-  <span class="hmw-card-copy"><small>Rasenpflege</small><b>Rasendoktor</b></span>
-</a>
-<a class="hmw-card c-orange" href="/vorteilshop.html" aria-label="Vorteilshop entdecken">
-  <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=700&q=82" alt="Vorteilshop – Alltag & Freizeit" loading="eager" decoding="async">
-  <span class="hmw-badge ">ENTDECKEN</span>
-  <span class="hmw-card-copy"><small>Alltag & Freizeit</small><b>Vorteilshop</b></span>
-</a>
-<a class="hmw-card c-blue" href="/lunzo.html" aria-label="LUNZO entdecken">
-  <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=700&q=82" alt="LUNZO – Shopping" loading="eager" decoding="async">
-  <span class="hmw-badge ">SHOP</span>
-  <span class="hmw-card-copy"><small>Shopping</small><b>LUNZO</b></span>
-</a>
-<a class="hmw-card c-orange" href="/pizza-party.html" aria-label="Pizza Party entdecken">
-  <img src="https://images.unsplash.com/photo-1579751626657-72bc17010498?auto=format&fit=crop&w=700&q=82" alt="Pizza Party – Outdoor Cooking" loading="eager" decoding="async">
-  <span class="hmw-badge ">GENUSS</span>
-  <span class="hmw-card-copy"><small>Outdoor Cooking</small><b>Pizza Party</b></span>
-</a>
-<a class="hmw-card c-purple" href="/porzellantreff.html" aria-label="Porzellantreff entdecken">
-  <img src="https://images.unsplash.com/photo-1603199506016-b9a594b593c0?auto=format&fit=crop&w=700&q=82" alt="Porzellantreff – Tischkultur" loading="eager" decoding="async">
-  <span class="hmw-badge ">KÜCHE</span>
-  <span class="hmw-card-copy"><small>Tischkultur</small><b>Porzellantreff</b></span>
-</a></div>
+    <a class="hmw-all" href="/marken.html"><b>27</b><span>Welten<br>ansehen →</span></a>
   </div>
+  <div class="hmw-feature-grid"><a class="hmw-card c-pink hmw-wide" href="/momox-fashion.html" aria-label="momox fashion entdecken">
+<img class="hmw-photo" src="https://images.pexels.com/photos/36730381/pexels-photo-36730381.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Lachende Frau beim Shopping" loading="eager" decoding="async">
+<div class="hmw-glow"></div>
+<span class="hmw-logo"><img src="https://logo.clearbit.com/momoxfashion.com" alt="momox fashion Logo" loading="eager" decoding="async"><span>momox fashion</span></span>
+<span class="hmw-badge deal">BIS 72%*</span>
+<span class="hmw-card-copy"><small>SECONDHAND FASHION</small><b>Styles, die direkt Spaß machen.</b><em>Sale entdecken →</em></span>
+</a><a class="hmw-card c-orange hmw-wide" href="/nespresso.html" aria-label="Nespresso entdecken">
+<img class="hmw-photo" src="https://images.pexels.com/photos/12903246/pexels-photo-12903246.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="Mensch genießt Kaffee" loading="eager" decoding="async">
+<div class="hmw-glow"></div>
+<span class="hmw-logo"><img src="https://logo.clearbit.com/nespresso.com" alt="Nespresso Logo" loading="eager" decoding="async"><span>Nespresso</span></span>
+<span class="hmw-badge ">KAFFEE</span>
+<span class="hmw-card-copy"><small>KAFFEE ZUHAUSE</small><b>Der bekannte Kaffee-Moment.</b><em>Maschinen vergleichen →</em></span>
+</a><a class="hmw-card c-orange " href="/outin.html" aria-label="OutIn entdecken">
+<img class="hmw-photo" src="https://images.pexels.com/photos/1549181/pexels-photo-1549181.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="Kaffee unterwegs" loading="eager" decoding="async">
+<div class="hmw-glow"></div>
+<span class="hmw-logo"><img src="https://logo.clearbit.com/outin.com" alt="OutIn Logo" loading="eager" decoding="async"><span>OutIn</span></span>
+<span class="hmw-badge deal">20%*</span>
+<span class="hmw-card-copy"><small>ESPRESSO TO-GO</small><b>Espresso. Überall.</b><em>20 % Aktion prüfen →</em></span>
+</a><a class="hmw-card c-green " href="/petlibro.html" aria-label="PETLIBRO entdecken">
+<img class="hmw-photo" src="https://images.pexels.com/photos/6001460/pexels-photo-6001460.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="Mensch mit Katze zuhause" loading="eager" decoding="async">
+<div class="hmw-glow"></div>
+<span class="hmw-logo"><img src="https://logo.clearbit.com/petlibro.com" alt="PETLIBRO Logo" loading="eager" decoding="async"><span>PETLIBRO</span></span>
+<span class="hmw-badge deal">BIS 30%*</span>
+<span class="hmw-card-copy"><small>SMART PET</small><b>Mehr Nähe. Weniger Stress.</b><em>Smart Pet entdecken →</em></span>
+</a><a class="hmw-card c-blue " href="/tenways.html" aria-label="TENWAYS entdecken">
+<img class="hmw-photo" src="https://images.pexels.com/photos/7242978/pexels-photo-7242978.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="Lachende Radfahrerin in der Stadt" loading="eager" decoding="async">
+<div class="hmw-glow"></div>
+<span class="hmw-logo"><img src="https://logo.clearbit.com/tenways.com" alt="TENWAYS Logo" loading="eager" decoding="async"><span>TENWAYS</span></span>
+<span class="hmw-badge deal">100 €*</span>
+<span class="hmw-card-copy"><small>E-BIKES</small><b>Mehr Freiheit im Alltag.</b><em>E-Bikes vergleichen →</em></span>
+</a><a class="hmw-card c-blue " href="/shifter.html" aria-label="SHIFTER entdecken">
+<img class="hmw-photo" src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1000&q=86" alt="Menschen mit Technik im Arbeitsalltag" loading="eager" decoding="async">
+<div class="hmw-glow"></div>
+<span class="hmw-logo"><img src="https://logo.clearbit.com/shifter.shop" alt="SHIFTER Logo" loading="eager" decoding="async"><span>SHIFTER</span></span>
+<span class="hmw-badge ">OUTLET</span>
+<span class="hmw-card-copy"><small>TECH & OUTLET</small><b>Tech, Deals, neue Ideen.</b><em>Technik entdecken →</em></span>
+</a></div>
+  <div class="hmw-rest-head"><span>Noch mehr entdecken</span><a href="/marken.html">Alle Vergleiche →</a></div>
+  <div class="hmw-rest-grid"><a class="hmw-card c-blue " href="/allpowers.html" aria-label="ALLPOWERS entdecken">
+<img class="hmw-photo" src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1000&q=86" alt="ALLPOWERS" loading="eager" decoding="async">
+<div class="hmw-glow"></div>
+<span class="hmw-logo"><img src="https://logo.clearbit.com/iallpowers.de" alt="ALLPOWERS Logo" loading="eager" decoding="async"><span>ALLPOWERS</span></span>
+<span class="hmw-badge ">ENERGIE</span>
+<span class="hmw-card-copy"><small>POWERSTATIONS</small><b>ALLPOWERS</b></span>
+</a><a class="hmw-card c-orange " href="/rameder.html" aria-label="Rameder entdecken">
+<img class="hmw-photo" src="https://images.unsplash.com/photo-1486911278844-a81c5267e227?auto=format&fit=crop&w=1000&q=86" alt="Rameder" loading="eager" decoding="async">
+<div class="hmw-glow"></div>
+<span class="hmw-logo"><img src="https://logo.clearbit.com/rameder.de" alt="Rameder Logo" loading="eager" decoding="async"><span>Rameder</span></span>
+<span class="hmw-badge ">REISE</span>
+<span class="hmw-card-copy"><small>AUTO & TRANSPORT</small><b>Rameder</b></span>
+</a><a class="hmw-card c-green " href="/anthbot.html" aria-label="ANTHBOT entdecken">
+<img class="hmw-photo" src="https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&w=1000&q=86" alt="ANTHBOT" loading="eager" decoding="async">
+<div class="hmw-glow"></div>
+<span class="hmw-logo"><img src="https://logo.clearbit.com/anthbot.com" alt="ANTHBOT Logo" loading="eager" decoding="async"><span>ANTHBOT</span></span>
+<span class="hmw-badge ">GARTEN</span>
+<span class="hmw-card-copy"><small>MÄHROBOTER</small><b>ANTHBOT</b></span>
+</a><a class="hmw-card c-green " href="/desktronic.html" aria-label="Desktronic entdecken">
+<img class="hmw-photo" src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1000&q=86" alt="Desktronic" loading="eager" decoding="async">
+<div class="hmw-glow"></div>
+<span class="hmw-logo"><img src="https://logo.clearbit.com/desktronic.de" alt="Desktronic Logo" loading="eager" decoding="async"><span>Desktronic</span></span>
+<span class="hmw-badge ">ERGONOMIE</span>
+<span class="hmw-card-copy"><small>HOME OFFICE</small><b>Desktronic</b></span>
+</a><a class="hmw-card c-purple " href="/braingood.html" aria-label="braingood entdecken">
+<img class="hmw-photo" src="https://images.pexels.com/photos/9004785/pexels-photo-9004785.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="braingood" loading="eager" decoding="async">
+<div class="hmw-glow"></div>
+<span class="hmw-logo"><img src="https://logo.clearbit.com/braingood.de" alt="braingood Logo" loading="eager" decoding="async"><span>braingood</span></span>
+<span class="hmw-badge ">ROUTINE</span>
+<span class="hmw-card-copy"><small>WOHLBEFINDEN</small><b>braingood</b></span>
+</a><a class="hmw-card c-purple " href="/porzellantreff.html" aria-label="Porzellantreff entdecken">
+<img class="hmw-photo" src="https://images.unsplash.com/photo-1603199506016-b9a594b593c0?auto=format&fit=crop&w=1000&q=86" alt="Porzellantreff" loading="eager" decoding="async">
+<div class="hmw-glow"></div>
+<span class="hmw-logo"><img src="https://logo.clearbit.com/porzellantreff.de" alt="Porzellantreff Logo" loading="eager" decoding="async"><span>Porzellantreff</span></span>
+<span class="hmw-badge ">KÜCHE</span>
+<span class="hmw-card-copy"><small>TISCHKULTUR</small><b>Porzellantreff</b></span>
+</a><a class="hmw-card c-purple " href="/urwahn.html" aria-label="URWAHN entdecken">
+<img class="hmw-photo" src="https://images.pexels.com/photos/7242978/pexels-photo-7242978.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="URWAHN" loading="eager" decoding="async">
+<div class="hmw-glow"></div>
+<span class="hmw-logo"><img src="https://logo.clearbit.com/urwahn.com" alt="URWAHN Logo" loading="eager" decoding="async"><span>URWAHN</span></span>
+<span class="hmw-badge ">URBAN</span>
+<span class="hmw-card-copy"><small>PREMIUM E-BIKE</small><b>URWAHN</b></span>
+</a><a class="hmw-card c-green " href="/dotblue.html" aria-label="DOTBLUE entdecken">
+<img class="hmw-photo" src="https://images.pexels.com/photos/7242978/pexels-photo-7242978.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="DOTBLUE" loading="eager" decoding="async">
+<div class="hmw-glow"></div>
+<span class="hmw-logo"><img src="https://logo.clearbit.com/dotblue-ebike.de" alt="DOTBLUE Logo" loading="eager" decoding="async"><span>DOTBLUE</span></span>
+<span class="hmw-badge ">MOBIL</span>
+<span class="hmw-card-copy"><small>FALT-E-BIKES</small><b>DOTBLUE</b></span>
+</a><a class="hmw-card c-blue " href="/delst.html" aria-label="DeLSt entdecken">
+<img class="hmw-photo" src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=84" alt="DeLSt" loading="eager" decoding="async">
+<div class="hmw-glow"></div>
+<span class="hmw-logo"><img src="https://logo.clearbit.com/delst.de" alt="DeLSt Logo" loading="eager" decoding="async"><span>DeLSt</span></span>
+<span class="hmw-badge ">KARRIERE</span>
+<span class="hmw-card-copy"><small>WEITERBILDUNG</small><b>DeLSt</b></span>
+</a><a class="hmw-card c-green " href="/raibu.html" aria-label="RAIBU entdecken">
+<img class="hmw-photo" src="https://images.pexels.com/photos/9004785/pexels-photo-9004785.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="RAIBU" loading="eager" decoding="async">
+<div class="hmw-glow"></div>
+<span class="hmw-logo"><img src="https://logo.clearbit.com/raibu.de" alt="RAIBU Logo" loading="eager" decoding="async"><span>RAIBU</span></span>
+<span class="hmw-badge ">FOKUS</span>
+<span class="hmw-card-copy"><small>SUPPLEMENTS</small><b>RAIBU</b></span>
+</a><a class="hmw-card c-pink " href="/mediakos.html" aria-label="Mediakos entdecken">
+<img class="hmw-photo" src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&w=900&q=84" alt="Mediakos" loading="eager" decoding="async">
+<div class="hmw-glow"></div>
+<span class="hmw-logo"><img src="https://logo.clearbit.com/mediakos.de" alt="Mediakos Logo" loading="eager" decoding="async"><span>Mediakos</span></span>
+<span class="hmw-badge ">BEAUTY</span>
+<span class="hmw-card-copy"><small>VITAMINE & BEAUTY</small><b>Mediakos</b></span>
+</a><a class="hmw-card c-purple " href="/wau.html" aria-label="WAU entdecken">
+<img class="hmw-photo" src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&w=900&q=84" alt="WAU" loading="eager" decoding="async">
+<div class="hmw-glow"></div>
+<span class="hmw-logo"><img src="https://logo.clearbit.com/wau.com" alt="WAU Logo" loading="eager" decoding="async"><span>WAU</span></span>
+<span class="hmw-badge ">SELF CARE</span>
+<span class="hmw-card-copy"><small>BEAUTY TECH</small><b>WAU</b></span>
+</a><a class="hmw-card c-pink " href="/ophelia.html" aria-label="Ophelia Eternity entdecken">
+<img class="hmw-photo" src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=900&q=84" alt="Ophelia Eternity" loading="eager" decoding="async">
+<div class="hmw-glow"></div>
+<span class="hmw-logo"><img src="https://logo.clearbit.com/opheliaeternity.com" alt="Ophelia Eternity Logo" loading="eager" decoding="async"><span>Ophelia Eternity</span></span>
+<span class="hmw-badge ">SCHMUCK</span>
+<span class="hmw-card-copy"><small>FINE JEWELRY</small><b>Ophelia Eternity</b></span>
+</a><a class="hmw-card c-blue " href="/paper-sons.html" aria-label="Paper & Sons entdecken">
+<img class="hmw-photo" src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=900&q=84" alt="Paper & Sons" loading="eager" decoding="async">
+<div class="hmw-glow"></div>
+<span class="hmw-logo"><img src="https://logo.clearbit.com/paperandsons.com" alt="Paper & Sons Logo" loading="eager" decoding="async"><span>Paper & Sons</span></span>
+<span class="hmw-badge ">WORK</span>
+<span class="hmw-card-copy"><small>CITY & WORK</small><b>Paper & Sons</b></span>
+</a><a class="hmw-card c-orange " href="/dekvio.html" aria-label="DEKVIO entdecken">
+<img class="hmw-photo" src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=900&q=84" alt="DEKVIO" loading="eager" decoding="async">
+<div class="hmw-glow"></div>
+<span class="hmw-logo"><img src="https://logo.clearbit.com/dekvio.com" alt="DEKVIO Logo" loading="eager" decoding="async"><span>DEKVIO</span></span>
+<span class="hmw-badge ">TRAVEL</span>
+<span class="hmw-card-copy"><small>LEDER & REISE</small><b>DEKVIO</b></span>
+</a><a class="hmw-card c-purple " href="/vintage-realm.html" aria-label="Vintage Realm entdecken">
+<img class="hmw-photo" src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=900&q=84" alt="Vintage Realm" loading="eager" decoding="async">
+<div class="hmw-glow"></div>
+<span class="hmw-logo"><img src="https://logo.clearbit.com/thevintagerealm.com" alt="Vintage Realm Logo" loading="eager" decoding="async"><span>Vintage Realm</span></span>
+<span class="hmw-badge ">WOHNEN</span>
+<span class="hmw-card-copy"><small>INTERIOR</small><b>Vintage Realm</b></span>
+</a><a class="hmw-card c-green " href="/norma24.html" aria-label="NORMA24 entdecken">
+<img class="hmw-photo" src="https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=900&q=84" alt="NORMA24" loading="eager" decoding="async">
+<div class="hmw-glow"></div>
+<span class="hmw-logo"><img src="https://logo.clearbit.com/norma24.de" alt="NORMA24 Logo" loading="eager" decoding="async"><span>NORMA24</span></span>
+<span class="hmw-badge ">ALLTAG</span>
+<span class="hmw-card-copy"><small>HAUS & GARTEN</small><b>NORMA24</b></span>
+</a><a class="hmw-card c-green " href="/rasendoktor.html" aria-label="Rasendoktor entdecken">
+<img class="hmw-photo" src="https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&w=1000&q=86" alt="Rasendoktor" loading="eager" decoding="async">
+<div class="hmw-glow"></div>
+<span class="hmw-logo"><img src="https://logo.clearbit.com/rasendoktor.de" alt="Rasendoktor Logo" loading="eager" decoding="async"><span>Rasendoktor</span></span>
+<span class="hmw-badge ">GARTEN</span>
+<span class="hmw-card-copy"><small>RASENPFLEGE</small><b>Rasendoktor</b></span>
+</a><a class="hmw-card c-orange " href="/vorteilshop.html" aria-label="Vorteilshop entdecken">
+<img class="hmw-photo" src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=900&q=84" alt="Vorteilshop" loading="eager" decoding="async">
+<div class="hmw-glow"></div>
+<span class="hmw-logo"><img src="https://logo.clearbit.com/vorteilshop.com" alt="Vorteilshop Logo" loading="eager" decoding="async"><span>Vorteilshop</span></span>
+<span class="hmw-badge ">ENTDECKEN</span>
+<span class="hmw-card-copy"><small>ALLTAG & FREIZEIT</small><b>Vorteilshop</b></span>
+</a><a class="hmw-card c-blue " href="/lunzo.html" aria-label="LUNZO entdecken">
+<img class="hmw-photo" src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=900&q=84" alt="LUNZO" loading="eager" decoding="async">
+<div class="hmw-glow"></div>
+<span class="hmw-logo"><img src="https://logo.clearbit.com/lunzo.de" alt="LUNZO Logo" loading="eager" decoding="async"><span>LUNZO</span></span>
+<span class="hmw-badge ">SHOP</span>
+<span class="hmw-card-copy"><small>SHOPPING</small><b>LUNZO</b></span>
+</a><a class="hmw-card c-orange " href="/pizza-party.html" aria-label="Pizza Party entdecken">
+<img class="hmw-photo" src="https://images.unsplash.com/photo-1579751626657-72bc17010498?auto=format&fit=crop&w=900&q=84" alt="Pizza Party" loading="eager" decoding="async">
+<div class="hmw-glow"></div>
+<span class="hmw-logo"><img src="https://logo.clearbit.com/pizza-party.de" alt="Pizza Party Logo" loading="eager" decoding="async"><span>Pizza Party</span></span>
+<span class="hmw-badge ">GENUSS</span>
+<span class="hmw-card-copy"><small>OUTDOOR COOKING</small><b>Pizza Party</b></span>
+</a></div>
+</div>
 </section>
 <section class="visual-first" aria-label="Aktuelle Highlights">
   <div class="shell visual-first-shell">
