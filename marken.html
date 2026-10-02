@@ -34,8 +34,139 @@
 @media(max-width:850px){.directory-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:620px){.directory-hero{padding:58px 0 24px}.directory-hero h1{font-size:44px!important}.directory-hero p{font-size:14px!important}.directory-grid{grid-template-columns:1fr}.directory-card{min-height:0;padding:18px}.directory-card small{font-size:11px!important}.directory-card h3{font-size:22px!important}.directory-card p{font-size:14px!important}.directory-card strong{font-size:13px!important}.directory-search input{font-size:15px}.directory-count{font-size:12px}}
 </style>
+
+<style>
+/* Directory readability fix v1 — all comparisons must be unmistakably readable */
+body.directory-page{
+  background:#070a10!important;
+  color:#f7f9fc!important;
+}
+body.directory-page .topbar{
+  position:sticky!important;
+  top:0!important;
+  z-index:120!important;
+  background:rgba(7,10,16,.97)!important;
+  border-bottom:1px solid rgba(255,255,255,.10)!important;
+  backdrop-filter:blur(18px)!important;
+  -webkit-backdrop-filter:blur(18px)!important;
+}
+body.directory-page .topbar .brand,
+body.directory-page .topbar .navlinks a{
+  color:#fff!important;
+  opacity:1!important;
+}
+body.directory-page .directory-hero{
+  position:relative!important;
+  padding:56px 0 34px!important;
+  background:
+    radial-gradient(circle at 12% 5%,rgba(92,240,179,.18),transparent 25rem),
+    radial-gradient(circle at 88% 12%,rgba(96,133,255,.18),transparent 28rem),
+    linear-gradient(180deg,#0b111b,#070a10)!important;
+  color:#fff!important;
+  border-bottom:1px solid rgba(255,255,255,.08)!important;
+}
+body.directory-page .directory-hero .kicker{
+  color:#9effd2!important;
+  opacity:1!important;
+  font-size:12px!important;
+  font-weight:950!important;
+  letter-spacing:.16em!important;
+}
+body.directory-page .directory-hero h1{
+  color:#fff!important;
+  opacity:1!important;
+  text-shadow:0 3px 24px rgba(0,0,0,.38)!important;
+  font-weight:950!important;
+  line-height:.96!important;
+  max-width:12ch!important;
+}
+body.directory-page .directory-hero p{
+  color:#e0e7ef!important;
+  opacity:1!important;
+  font-size:18px!important;
+  line-height:1.58!important;
+  max-width:780px!important;
+}
+body.directory-page .directory-search{
+  background:#111925!important;
+  border:1px solid rgba(255,255,255,.18)!important;
+  box-shadow:0 12px 34px rgba(0,0,0,.22)!important;
+}
+body.directory-page .directory-search input{
+  color:#fff!important;
+  caret-color:#fff!important;
+  opacity:1!important;
+}
+body.directory-page .directory-search input::placeholder{
+  color:#aeb9c9!important;
+  opacity:1!important;
+}
+body.directory-page .directory-count{
+  color:#c5cfdb!important;
+  opacity:1!important;
+}
+body.directory-page .directory{
+  background:#070a10!important;
+  color:#fff!important;
+}
+body.directory-page .directory-section h2{
+  color:#fff!important;
+  opacity:1!important;
+}
+body.directory-page .directory-card{
+  background:linear-gradient(145deg,#121a26,#0a0f17)!important;
+  border-color:rgba(255,255,255,.12)!important;
+  color:#fff!important;
+  box-shadow:0 12px 32px rgba(0,0,0,.12)!important;
+}
+body.directory-page .directory-card:hover{
+  border-color:rgba(126,255,202,.42)!important;
+  box-shadow:0 16px 38px rgba(0,0,0,.24)!important;
+}
+body.directory-page .directory-card small{
+  color:#9ff7ce!important;
+  opacity:1!important;
+}
+body.directory-page .directory-card h3{
+  color:#fff!important;
+  opacity:1!important;
+}
+body.directory-page .directory-card p{
+  color:#d7e0ea!important;
+  opacity:1!important;
+}
+body.directory-page .directory-card strong{
+  color:#baffdc!important;
+  opacity:1!important;
+}
+body.directory-page .directory-empty{
+  color:#e4ebf3!important;
+  background:#0f1620!important;
+}
+body.directory-page .footer{
+  background:#070a10!important;
+  color:#b7c1cf!important;
+  border-top:1px solid rgba(255,255,255,.09)!important;
+}
+body.directory-page .footer a{
+  color:#dce4ee!important;
+  opacity:1!important;
+}
+@media(max-width:620px){
+  body.directory-page .directory-hero{
+    padding:34px 0 24px!important;
+  }
+  body.directory-page .directory-hero h1{
+    font-size:42px!important;
+    max-width:11ch!important;
+  }
+  body.directory-page .directory-hero p{
+    font-size:15px!important;
+  }
+}
+</style>
 </head>
-<body>
+<body class="vc-page directory-page">
 <header class="topbar"><div class="shell nav">
 <a class="brand ag-brand approved-logo" href="/" aria-label="AuraGlobal"><svg class="ag-symbol" viewBox="0 0 100 92" aria-hidden="true"><defs><linearGradient id="auraA" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#eafff5"/><stop offset=".48" stop-color="#8ce8b9"/><stop offset="1" stop-color="#45c98e"/></linearGradient></defs><path fill="url(#auraA)" d="M8 88 48 4 92 88H75L48 31 24 81Z"/><path fill="url(#auraA)" d="M17 78C34 59 53 53 77 66L72 74C52 63 36 66 17 78Z"/></svg><span class="ag-wordmark"><span class="aura">AURA</span><span class="global">GLOBAL</span></span></a>
 <nav class="navlinks"><a href="/#deals">Aktuelle Deals</a><a href="/#shopcats">Kategorien</a><a href="/#why">Warum AuraGlobal?</a><a href="/">Startseite</a></nav>
@@ -109,7 +240,7 @@
 <div class="directory-empty" id="directory-empty">Dazu ist aktuell noch keine passende AuraGlobal-Welt live. Nutze die Suche auf der Startseite oder schau später nochmal vorbei.</div>
 </div></section>
 </main>
-<footer class="footer"><div class="shell"><div>© 2026 AuraGlobal · Unabhängige Vergleichsplattform.</div><div class="footer-links"><a href="/methodik.html">So vergleichen wir</a><a href="/impressum.html">Impressum</a><a href="/datenschutz.html">Datenschutz</a><a href="/affiliate-disclosure.html">Affiliate-Hinweis</a></div></div></footer>
+<footer class="footer"><div class="shell"><div>© 2026 AuraGlobal · Unabhängige Vergleichsplattform.</div><div class="footer-links"><a href="/methodik.html">So vergleichen wir</a><a href="/impressum.html">Impressum</a><a href="/datenschutz.html">Datenschutz</a><a href="/affiliate-disclosure.html">Werbehinweis</a></div></div></footer>
 <script>
 (()=>{const input=document.getElementById('brand-filter');const cards=[...document.querySelectorAll('.directory-card')];const groups=[...document.querySelectorAll('[data-group]')];const count=document.getElementById('brand-count');const empty=document.getElementById('directory-empty');if(!input)return;const apply=()=>{const q=input.value.trim().toLowerCase();let visible=0;cards.forEach(card=>{const hay=(card.dataset.search+' '+card.textContent).toLowerCase();const show=!q||hay.includes(q);card.style.display=show?'flex':'none';if(show)visible++});groups.forEach(group=>{group.style.display=[...group.querySelectorAll('.directory-card')].some(c=>c.style.display!=='none')?'block':'none'});count.textContent=visible;empty.style.display=visible?'none':'block'};input.addEventListener('input',apply);apply();})();
 </script>
