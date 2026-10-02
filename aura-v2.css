@@ -3590,3 +3590,117 @@ body.brand-home .visual-search-chips a{
     padding:7px 9px!important;
   }
 }
+
+
+/* Screenshot hotfix v54 — loaded photos first, no black holes, no green alt/copy */
+body.brand-home .visual-first{
+  background:#0d0d0c!important;
+}
+body.brand-home .visual-tile{
+  background:linear-gradient(135deg,#ff7fae,#ffb04d)!important;
+}
+body.brand-home .visual-tile-coffee{
+  background:linear-gradient(135deg,#ff9b45,#8b421e)!important;
+}
+body.brand-home .visual-tile-pet{
+  background:linear-gradient(135deg,#72e7c5,#3f79b8)!important;
+}
+body.brand-home .visual-tile-bike{
+  background:linear-gradient(135deg,#8fa4ff,#4b5cc8)!important;
+}
+body.brand-home .visual-tile>img:not(.visual-product){
+  z-index:0!important;
+  display:block!important;
+  color:transparent!important;
+  font-size:0!important;
+}
+body.brand-home .visual-tile .visual-copy,
+body.brand-home .visual-tile .visual-copy *,
+body.brand-home .visual-tile-main .visual-copy b,
+body.brand-home .visual-tile-coffee .visual-copy b,
+body.brand-home .visual-tile-pet .visual-copy b,
+body.brand-home .visual-tile-bike .visual-copy b{
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+}
+body.brand-home .visual-tile .visual-copy span{
+  color:#11110f!important;
+  -webkit-text-fill-color:#11110f!important;
+  background:#fff!important;
+  text-shadow:none!important;
+}
+body.brand-home .visual-badge,
+body.brand-home .visual-badge *{
+  color:#11110f!important;
+  -webkit-text-fill-color:#11110f!important;
+  text-shadow:none!important;
+}
+body.brand-home .visual-product,
+body.brand-home .live-deal-product,
+body.brand-home .deal-product-overlay{
+  display:none!important;
+}
+
+/* live cards must look complete even before image decode */
+body.brand-home .live-deal-visual{
+  background:linear-gradient(135deg,#ff9b45,#ff665c)!important;
+}
+body.brand-home .live-deal:not(.live-deal-coffee) .live-deal-visual{
+  background:linear-gradient(135deg,#74efd0,#5f8fff)!important;
+}
+body.brand-home .live-deal-life,
+body.brand-home .deal-life{
+  display:block!important;
+  color:transparent!important;
+  font-size:0!important;
+  object-fit:cover!important;
+}
+body.brand-home .home-live-deal .live-deal-copy b{
+  color:#11110f!important;
+  -webkit-text-fill-color:#11110f!important;
+}
+body.brand-home .home-live-deal .live-deal-copy span,
+body.brand-home .home-live-deal .live-deal-copy small{
+  color:#1d1c18!important;
+  -webkit-text-fill-color:#1d1c18!important;
+}
+body.brand-home .home-live-deal .live-deal-copy strong{
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+}
+
+/* no visible broken-image alt text on branded visual surfaces */
+body.brand-home .emotion-hit img,
+body.brand-home .portal-grid img,
+body.brand-home .cta-pop-face img{
+  color:transparent!important;
+  font-size:0!important;
+  display:block!important;
+}
+
+@media(max-width:620px){
+  body.brand-home .visual-first-grid{
+    grid-template-rows:315px 170px!important;
+  }
+  body.brand-home .visual-tile-main .visual-copy b{
+    font-size:34px!important;
+    line-height:.98!important;
+  }
+  body.brand-home .visual-tile-main .visual-copy{
+    bottom:14px!important;
+  }
+  body.brand-home .visual-tile-coffee .visual-copy b,
+  body.brand-home .visual-tile-pet .visual-copy b{
+    font-size:17px!important;
+    line-height:1.02!important;
+  }
+  body.brand-home .visual-tile-coffee .visual-copy span,
+  body.brand-home .visual-tile-pet .visual-copy span{
+    font-size:9px!important;
+    padding:6px 7px!important;
+  }
+  body.brand-home .live-deal-visual{
+    min-height:210px!important;
+    height:210px!important;
+  }
+}
