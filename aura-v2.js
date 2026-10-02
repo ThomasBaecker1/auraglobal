@@ -214,3 +214,125 @@ function initAffiliateFooterNote(){
   footer.appendChild(note);
 }
 document.addEventListener('DOMContentLoaded',initAffiliateFooterNote);
+
+
+function initRelatedComparisons(){
+  const path=window.location.pathname.replace(/\/$/,'')||'/';
+  if(path==='/'||path==='/index.html'||document.querySelector('.ag-related')) return;
+
+  const maps={
+    '/tenways.html':[
+      ['E-Bike Guide','/e-bikes.html','Reichweite, Komfort und Einsatz zuerst einordnen.','E-BIKES'],
+      ['URWAHN','/urwahn.html','Urban Design und Gravel als Alternative ansehen.','MOBILITÄT'],
+      ['Kaffee unterwegs','/kaffee.html','Mobile Produkte für Pendeln und Reise entdecken.','UNTERWEGS']
+    ],
+    '/urwahn.html':[
+      ['E-Bike Guide','/e-bikes.html','City, Pendeln und Gravel direkt einordnen.','E-BIKES'],
+      ['TENWAYS','/tenways.html','Drei City-E-Bikes nach Alltag vergleichen.','MOBILITÄT'],
+      ['DEKVIO','/dekvio.html','Leder und Reise für urbanen Alltag entdecken.','STYLE']
+    ],
+    '/e-bikes.html':[
+      ['TENWAYS','/tenways.html','CGO600, Pro und 800S direkt vergleichen.','CITY'],
+      ['URWAHN','/urwahn.html','STADTFUCHS und WALDWIESEL einordnen.','URBAN'],
+      ['Kaffee unterwegs','/kaffee.html','Für Pendeln, Reise und Outdoor weiterdenken.','LIFESTYLE']
+    ],
+    '/kaffee.html':[
+      ['Nespresso ORIGINAL','/nespresso.html','Vier Maschinen für Zuhause einordnen.','ZUHAUSE'],
+      ['OutIn Nano vs Mino','/outin.html','Portablen Espresso direkt vergleichen.','UNTERWEGS'],
+      ['Outdoor Cooking','/pizza-party.html','Mehr Genuss für draußen entdecken.','GENUSS']
+    ],
+    '/nespresso.html':[
+      ['Kaffee Guide','/kaffee.html','Zuhause vs. unterwegs in einem Blick.','KAFFEE'],
+      ['OutIn','/outin.html','Portable Espresso-Alternativen vergleichen.','MOBIL'],
+      ['Pizza Party','/pizza-party.html','Genuss-Setup für Outdoor-Abende.','GENUSS']
+    ],
+    '/outin.html':[
+      ['Kaffee Guide','/kaffee.html','Stationär oder mobil zuerst einordnen.','KAFFEE'],
+      ['Nespresso','/nespresso.html','Kompakte Maschinen für Zuhause ansehen.','ZUHAUSE'],
+      ['E-Bike Guide','/e-bikes.html','Mobilität für Alltag und Ausflug vergleichen.','MOBILITÄT']
+    ],
+    '/petlibro.html':[
+      ['NORMA24','/norma24.html','Praktische Produkte für Zuhause entdecken.','ZUHAUSE'],
+      ['Vorteilshop','/vorteilshop.html','Alltagshelfer und Wohnideen ansehen.','ALLTAG'],
+      ['braingood','/braingood.html','Wohlbefinden als nächste Produktwelt.','WELLNESS']
+    ],
+    '/braingood.html':[
+      ['WAU Beauty Tech','/wau.html','Self-Care und Beauty-Tech einordnen.','SELF-CARE'],
+      ['Vorteilshop','/vorteilshop.html','Wohlbefinden und Alltag weiter entdecken.','ALLTAG'],
+      ['Ophelia','/ophelia.html','Schmuck und persönliche Geschenke entdecken.','STYLE']
+    ],
+    '/wau.html':[
+      ['braingood','/braingood.html','Wellness-Produkte nach Alltag vergleichen.','WELLNESS'],
+      ['Ophelia','/ophelia.html','Fine Jewelry und Geschenkideen.','STYLE'],
+      ['momox fashion','/momox-fashion.html','Secondhand Mode weiter entdecken.','FASHION']
+    ],
+    '/momox-fashion.html':[
+      ['Ophelia','/ophelia.html','Schmuck als Ergänzung zu deinem Look.','STYLE'],
+      ['Paper & Sons','/paper-sons.html','Rucksäcke für Arbeit und Alltag.','ACCESSOIRES'],
+      ['DEKVIO','/dekvio.html','Leder, Work und Reise entdecken.','TRAVEL']
+    ],
+    '/ophelia.html':[
+      ['momox fashion','/momox-fashion.html','Secondhand Looks weiter entdecken.','FASHION'],
+      ['WAU Beauty Tech','/wau.html','Beauty-Tech für Self-Care ansehen.','BEAUTY'],
+      ['Paper & Sons','/paper-sons.html','Alltag und Accessoires weiterdenken.','ACCESSOIRES']
+    ],
+    '/paper-sons.html':[
+      ['DEKVIO','/dekvio.html','Leder und Reise als Alternative.','WORK'],
+      ['momox fashion','/momox-fashion.html','Secondhand Fashion entdecken.','STYLE'],
+      ['LUNZO','/lunzo.html','Weitere Alltagsprodukte durchstöbern.','SHOPPING']
+    ],
+    '/dekvio.html':[
+      ['Paper & Sons','/paper-sons.html','Rucksäcke für Work und Alltag vergleichen.','WORK'],
+      ['momox fashion','/momox-fashion.html','Mode und Accessoires weiter entdecken.','STYLE'],
+      ['OutIn','/outin.html','Für Reise und unterwegs weiterdenken.','TRAVEL']
+    ],
+    '/norma24.html':[
+      ['Rasendoktor','/rasendoktor.html','Rasenpflege gezielter einordnen.','GARTEN'],
+      ['Vorteilshop','/vorteilshop.html','Alltags- und Wohnprodukte entdecken.','ZUHAUSE'],
+      ['Pizza Party','/pizza-party.html','Outdoor Cooking weiter entdecken.','OUTDOOR']
+    ],
+    '/rasendoktor.html':[
+      ['NORMA24','/norma24.html','Haus, Garten und DIY weiter entdecken.','GARTEN'],
+      ['Vorteilshop','/vorteilshop.html','Praktische Helfer für Zuhause.','ALLTAG'],
+      ['Pizza Party','/pizza-party.html','Den Garten zum Genuss-Ort machen.','OUTDOOR']
+    ],
+    '/pizza-party.html':[
+      ['NORMA24','/norma24.html','Outdoor- und Gartenprodukte entdecken.','GARTEN'],
+      ['Kaffee Guide','/kaffee.html','Kaffee zuhause und unterwegs vergleichen.','GENUSS'],
+      ['Vorteilshop','/vorteilshop.html','Mehr Produkte für Alltag und Freizeit.','FREIZEIT']
+    ],
+    '/lunzo.html':[
+      ['Vorteilshop','/vorteilshop.html','Alltag und Wohnen weiter entdecken.','SHOPPING'],
+      ['NORMA24','/norma24.html','Haus, Garten und DIY.','ZUHAUSE'],
+      ['The Vintage Realm','/vintage-realm.html','Interior mit stärkerem Design-Fokus.','INTERIOR']
+    ],
+    '/vorteilshop.html':[
+      ['LUNZO','/lunzo.html','Breites Shopping-Sortiment entdecken.','SHOPPING'],
+      ['NORMA24','/norma24.html','Haus, Garten und Freizeit.','ZUHAUSE'],
+      ['braingood','/braingood.html','Wohlbefinden gezielter vergleichen.','WELLNESS']
+    ],
+    '/vintage-realm.html':[
+      ['Fine Interior Guide','/lunzo.html','Weitere Wohn- und Alltagswelten.','INTERIOR'],
+      ['NORMA24','/norma24.html','Haus und Garten breiter entdecken.','ZUHAUSE'],
+      ['Paper & Sons','/paper-sons.html','Design für Arbeit und Alltag.','DESIGN']
+    ]
+  };
+
+  const items=maps[path];
+  if(!items?.length) return;
+  const footer=document.querySelector('.footer, footer');
+  if(!footer) return;
+
+  const section=document.createElement('section');
+  section.className='section ag-related';
+  section.innerHTML=`<div class="shell">
+    <div class="section-head"><div><div class="kicker">Weiter entdecken</div><h2>Das könnte auch zu dir passen.</h2></div><p>Keine Sackgasse: spring direkt in die nächste passende Produktwelt.</p></div>
+    <div class="ag-related-grid">${items.map(([title,href,copy,kicker])=>`
+      <a class="ag-related-card" href="${href}">
+        <small>${kicker}</small><b>${title}</b><span>${copy}</span><i>→</i>
+      </a>`).join('')}
+    </div>
+  </div>`;
+  footer.parentNode.insertBefore(section,footer);
+}
+document.addEventListener('DOMContentLoaded',initRelatedComparisons);
