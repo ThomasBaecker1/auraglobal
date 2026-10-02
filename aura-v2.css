@@ -1879,3 +1879,68 @@ button,a{-webkit-tap-highlight-color:transparent}
   .ag-related-card{flex:0 0 78vw;min-height:190px;padding:18px;scroll-snap-align:start}
   .ag-related-card b{font-size:21px}
 }
+
+
+/* Readability guard v42 — hard no-go protection */
+:root{
+  --muted:#aab5c6;
+  --soft:#d4dbe6;
+}
+body:not(.coffee-page) .section-head p,
+body:not(.coffee-page) .card p,
+body:not(.coffee-page) .choice p,
+body:not(.coffee-page) .feature p,
+body:not(.coffee-page) .feed-copy p,
+body:not(.coffee-page) .notice,
+body:not(.coffee-page) .brand-hero-copy p,
+body:not(.coffee-page) .visual-break-copy p{
+  color:#c4ccd8!important;
+}
+body:not(.coffee-page) .meta span,
+body:not(.coffee-page) .info-strip span,
+body:not(.coffee-page) .adnote,
+body:not(.coffee-page) .source-note{
+  color:#aeb9c9!important;
+}
+body:not(.coffee-page) .kicker{color:#8ff1c8!important}
+body:not(.coffee-page) .pill{color:#edf3f8!important}
+body:not(.coffee-page) .pill.green{color:#c9ffe5!important}
+
+@media(max-width:620px){
+  /* No important text may require zooming or squinting */
+  body:not(.coffee-page) .section-head p,
+  body:not(.coffee-page) .card p,
+  body:not(.coffee-page) .choice p,
+  body:not(.coffee-page) .feature p,
+  body:not(.coffee-page) .feed-copy p,
+  body:not(.coffee-page) .brand-hero-copy p,
+  body:not(.coffee-page) .visual-break-copy p{
+    font-size:12px!important;
+    line-height:1.5!important;
+  }
+  body:not(.coffee-page) .notice{
+    font-size:11px!important;
+    line-height:1.5!important;
+  }
+  body:not(.coffee-page) .meta span,
+  body:not(.coffee-page) .info-strip span,
+  body:not(.coffee-page) .adnote,
+  body:not(.coffee-page) .source-note,
+  body:not(.coffee-page) .kicker,
+  body:not(.coffee-page) .pill{
+    font-size:10px!important;
+    line-height:1.35!important;
+  }
+  body:not(.coffee-page) .card h3,
+  body:not(.coffee-page) .choice b,
+  body:not(.coffee-page) .feature h3{
+    color:#fff!important;
+  }
+  /* Never solve density by crushing text */
+  main .choice,
+  main .feature,
+  main .stage-card,
+  main .card-body{
+    overflow:visible;
+  }
+}
