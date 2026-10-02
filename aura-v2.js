@@ -410,12 +410,21 @@ function initShoppingIntent(){
 
   bar.addEventListener('click',e=>{
     const btn=e.target.closest('[data-filter]');
-    if(btn) apply(btn.dataset.filter);
+    if(btn){
+      apply(btn.dataset.filter);
+      const payload={event:'shopping_intent',intent:btn.dataset.filter,page_path:window.location.pathname};
+      window.dataLayer=window.dataLayer||[]; window.dataLayer.push(payload);
+      if(typeof window.gtag==='function') window.gtag('event','shopping_intent',{intent:btn.dataset.filter});
+    }
   });
 
   cards.forEach(card=>{
     card.addEventListener('click',()=>{
       const tags=(card.dataset.tags||'').split(' ').filter(Boolean);
+      const partner=(card.querySelector('.equal-logo b')?.textContent||card.getAttribute('aria-label')||'').trim();
+      window.dataLayer=window.dataLayer||[];
+      window.dataLayer.push({event:'partner_interest',partner,tags:tags.join(','),page_path:window.location.pathname});
+      if(typeof window.gtag==='function') window.gtag('event','partner_interest',{partner,interest_tags:tags.join(',')});
       if(!tags.length) return;
       try{
         const scores=JSON.parse(localStorage.getItem('ag_interest_scores')||'{}');
