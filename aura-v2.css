@@ -2279,3 +2279,7 @@ body.brand-home .mobile-compare-bar strong{font-size:13px!important}
   body.brand-home .deal-link,
   body.brand-home .btn{font-size:14px!important;min-height:48px!important}
 }
+
+
+body.brand-home .deal-radar .deal-cta{background:#c7ff89!important;color:#07100d!important;border-color:#c7ff89!important;text-shadow:none!important}
+body.brand-home .deal-radar .deal-link{color:#fff!important;background:#111814!important;border-color:rgba(255,255,255,.22)!important}
