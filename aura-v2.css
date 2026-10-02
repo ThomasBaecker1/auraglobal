@@ -2197,3 +2197,23 @@ a,button{ text-underline-offset:2px }
     overflow-wrap:anywhere!important;
   }
 }
+
+
+/* Live deal strip v44 — verified current value, never decorative */
+.live-deal-strip{padding:12px 0;background:#080b09}
+.live-deal{
+  display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:16px;
+  padding:16px 18px;border:1px solid rgba(255,255,255,.12);border-radius:18px;
+  background:linear-gradient(135deg,rgba(255,184,92,.09),rgba(94,240,178,.06));
+}
+.live-deal-badge{display:grid;place-items:center;min-width:74px;min-height:54px;padding:8px 10px;border-radius:14px;background:#fff;color:#0a0d0b;font-weight:950;font-size:16px;text-align:center}
+.live-deal-copy small{display:block;color:#9cebc5;font-size:9px;letter-spacing:.12em;text-transform:uppercase;font-weight:900}
+.live-deal-copy b{display:block;color:#fff;font-size:17px;line-height:1.2;margin-top:4px}
+.live-deal-copy span{display:block;color:#cbd5cf;font-size:11px;line-height:1.45;margin-top:3px}
+.live-deal a{display:inline-flex;align-items:center;justify-content:center;padding:12px 14px;border-radius:12px;background:#c7ff89;color:#07100d;text-decoration:none;font-size:11px;font-weight:950;white-space:nowrap}
+@media(max-width:620px){
+ .live-deal{grid-template-columns:auto 1fr;gap:10px;padding:13px}
+ .live-deal-badge{min-width:62px;min-height:48px;font-size:14px}
+ .live-deal-copy b{font-size:14px}.live-deal-copy span{font-size:10px!important}
+ .live-deal a{grid-column:1/-1;width:100%;white-space:normal}
+}
