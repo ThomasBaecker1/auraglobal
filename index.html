@@ -310,394 +310,288 @@ body.brand-home .visual-search{margin-top:0!important}
   .cinema-video-wrap{display:none}
 }
 </style>
+<style>
+/* equal brand wall v5 — every partner gets the same visual weight */
+.equal-wall{padding:12px 0 18px!important;background:
+radial-gradient(circle at 4% 0%,rgba(255,40,139,.16),transparent 24rem),
+radial-gradient(circle at 33% 0%,rgba(255,169,47,.14),transparent 25rem),
+radial-gradient(circle at 66% 0%,rgba(44,126,255,.16),transparent 25rem),
+radial-gradient(circle at 96% 0%,rgba(31,225,151,.13),transparent 25rem),
+#07090f!important}
+.equal-shell{padding-left:14px!important;padding-right:14px!important}
+.equal-head{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;margin-bottom:9px}
+.equal-head>div>span{display:block;font-size:9px;font-weight:950;letter-spacing:.14em;color:#b8c4d3}
+.equal-head h1{margin:3px 0 0!important;font-size:clamp(30px,3.2vw,48px)!important;line-height:.95!important;letter-spacing:-.055em!important;color:#fff!important}
+.equal-head p{margin:5px 0 0!important;font-size:11px!important;line-height:1.35!important;color:#b7c3d1!important;max-width:780px}
+.equal-head>a{flex:none;padding:9px 11px;border-radius:11px;border:1px solid rgba(255,255,255,.13);background:rgba(255,255,255,.05);color:#c6ffe2!important;font-size:10px;font-weight:900;text-decoration:none}
+.equal-grid{display:grid!important;grid-template-columns:repeat(6,minmax(0,1fr))!important;gap:7px!important;margin:0!important}
+.equal-card{position:relative!important;display:block!important;height:220px!important;min-height:220px!important;overflow:hidden!important;border-radius:16px!important;border:1px solid rgba(255,255,255,.14)!important;background:#121722!important;text-decoration:none!important;color:#fff!important;isolation:isolate!important;box-shadow:0 10px 28px rgba(0,0,0,.20)!important;transition:transform .17s ease,border-color .17s ease!important}
+.equal-card:hover{transform:translateY(-2px)!important;border-color:rgba(255,255,255,.34)!important}
+.equal-media{position:absolute;inset:0;z-index:0;background:#151b24;overflow:hidden}
+.equal-photo,.equal-fallback{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;object-fit:cover!important;transform:none!important;filter:saturate(1.17) contrast(1.02)!important}
+.equal-fallback{z-index:0}
+.equal-video{position:absolute;z-index:1;inset:0;overflow:hidden;pointer-events:none;background:#141820}
+.equal-video iframe{position:absolute;left:50%;top:50%;width:178vh;min-width:100%;height:56.25vw;min-height:100%;transform:translate(-50%,-50%) scale(1.08);border:0;pointer-events:none}
+.equal-tint{position:absolute;z-index:2;inset:0;background:linear-gradient(180deg,rgba(3,5,9,.06) 0%,rgba(3,5,9,.10) 30%,rgba(3,5,9,.94) 100%)}
+.equal-card:after{content:"";position:absolute;z-index:1;inset:0;pointer-events:none;opacity:.28;mix-blend-mode:screen}
+.equal-pink:after{background:linear-gradient(135deg,#ff258d,transparent 55%)}
+.equal-gold:after,.equal-orange:after{background:linear-gradient(135deg,#ff9c32,transparent 55%)}
+.equal-green:after{background:linear-gradient(135deg,#1ee6a0,transparent 55%)}
+.equal-blue:after,.equal-cyan:after{background:linear-gradient(135deg,#2d7cff,transparent 55%)}
+.equal-purple:after{background:linear-gradient(135deg,#9c4dff,transparent 55%)}
+.equal-top{position:absolute;z-index:5;left:9px;right:9px;top:9px;display:flex;align-items:center;justify-content:space-between;gap:6px}
+.equal-logo{display:flex;align-items:center;gap:6px;min-width:0;max-width:72%;height:29px;padding:4px 7px;border-radius:9px;background:rgba(255,255,255,.96);box-shadow:0 6px 18px rgba(0,0,0,.22)}
+.equal-logo img{position:static!important;width:19px!important;height:19px!important;object-fit:contain!important;transform:none!important;filter:none!important;flex:none}
+.equal-logo b{font-size:9px!important;line-height:1!important;color:#111722!important;font-weight:950!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.equal-video-chip{padding:6px 7px;border-radius:8px;background:#ff304f;color:#fff;font-size:7px;font-weight:950;letter-spacing:.06em;box-shadow:0 5px 16px rgba(0,0,0,.24)}
+.equal-badge{position:absolute;z-index:5;right:9px;top:45px;max-width:78%;padding:6px 7px;border-radius:8px;background:#efff93;color:#11160d;font-size:8px;font-weight:950;box-shadow:0 5px 16px rgba(0,0,0,.22)}
+.equal-copy{position:absolute;z-index:5;left:10px;right:10px;bottom:10px;text-shadow:0 4px 18px rgba(0,0,0,.72)}
+.equal-copy small{display:block;font-size:7px!important;line-height:1.15!important;letter-spacing:.10em!important;color:#e8eef6!important;font-weight:950!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.equal-copy strong{display:block;margin-top:3px;color:#fff!important;font-size:14px!important;line-height:1.06!important;letter-spacing:-.02em!important;min-height:30px}
+.equal-copy span{display:-webkit-box;margin-top:4px;color:#d9e2eb!important;font-size:9px!important;line-height:1.28!important;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:23px}
+.equal-copy em{display:inline-flex;margin-top:6px;padding:5px 7px;border-radius:7px;background:rgba(255,255,255,.94);color:#111722!important;font-size:8px!important;line-height:1!important;font-style:normal!important;font-weight:950!important;text-shadow:none}
+.equal-note{margin-top:8px;color:#7f8b9a;font-size:8px;line-height:1.35}
+@media(max-width:1250px){.equal-grid{grid-template-columns:repeat(5,minmax(0,1fr))!important}}
+@media(max-width:1020px){.equal-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important}.equal-card{height:215px!important;min-height:215px!important}}
+@media(max-width:760px){
+ .equal-wall{padding-top:9px!important}.equal-shell{padding-left:9px!important;padding-right:9px!important}
+ .equal-head{align-items:flex-start}.equal-head>a{display:none}.equal-head h1{font-size:31px!important}.equal-head p{font-size:10px!important}
+ .equal-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:7px!important}
+ .equal-card{height:205px!important;min-height:205px!important}
+ .equal-copy strong{font-size:13px!important}.equal-copy span{font-size:8px!important}
+}
+@media(max-width:390px){.equal-card{height:198px!important;min-height:198px!important}}
+@media(prefers-reduced-motion:reduce){.equal-video{display:none}}
+</style>
 </head>
 <body class="vc-page brand-home">
 <header class="topbar mock-nav"><div class="shell nav"><a class="brand ag-brand approved-logo" href="/" aria-label="AuraGlobal"><svg class="ag-symbol" viewBox="0 0 100 92" aria-hidden="true"><defs><linearGradient id="auraA" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#eafff5"/><stop offset=".48" stop-color="#8ce8b9"/><stop offset="1" stop-color="#45c98e"/></linearGradient></defs><path fill="url(#auraA)" d="M8 88 48 4 92 88H75L48 31 24 81Z"/><path fill="url(#auraA)" d="M17 78C34 59 53 53 77 66L72 74C52 63 36 66 17 78Z"/></svg><span class="ag-wordmark"><span class="aura">AURA</span><span class="global">GLOBAL</span></span></a><nav class="navlinks"><a href="#shopcats">Kategorien</a><a href="#deals">Deals</a><a href="#why">Warum AuraGlobal?</a><a href="/marken.html">Alle Vergleiche</a></nav><div class="nav-icons"><a href="#search" aria-label="Suchen">⌕</a><a href="#deals" aria-label="Aktuelle Deals">％</a><a class="nav-cta" href="/marken.html">Alle Vergleiche →</a></div></div></header>
 <main>
-<section class="cinema-commerce" aria-label="Aktuelle Highlights und Markenwelten">
-  <div class="shell cinema-shell">
-    <div class="cinema-grid">
 
-      <a class="cinema-panel cinema-nespresso" href="/nespresso.html" aria-label="Nespresso Coffee Day Angebot entdecken">
-        <div class="cinema-video-wrap" aria-hidden="true">
-          <iframe
-            src="https://www.youtube-nocookie.com/embed/PTtOzTCr7AU?autoplay=1&mute=1&controls=0&loop=1&playlist=PTtOzTCr7AU&modestbranding=1&playsinline=1&rel=0"
-            title="Nespresso Kampagnenvideo"
-            loading="eager"
-            allow="autoplay; encrypted-media; picture-in-picture"
-            referrerpolicy="strict-origin-when-cross-origin"
-            tabindex="-1"></iframe>
-        </div>
-        <div class="cinema-fallback" aria-hidden="true">
-          <img src="https://images.pexels.com/photos/12903246/pexels-photo-12903246.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="">
-        </div>
-        <div class="cinema-shade"></div>
-        <div class="cinema-brand cinema-brand-light"><span class="cinema-wordmark nespresso-wordmark">NESPRESSO</span></div>
-        <div class="cinema-deal-badge"><strong>4</strong><span>STANGEN<br>GESCHENKT*</span></div>
-        <div class="cinema-copy">
-          <small>COFFEE DAY · NUR NOCH HEUTE</small>
-          <h2>Kaffee, Marke, Ritual. Direkt drin.</h2>
-          <p>Ab 15 Stangen gibt es 3 gratis, ab 20 Stangen 4 gratis. Neukunden erhalten zusätzlich 20 % auf die erste Kaffeebestellung.</p>
-          <span class="cinema-cta">Nespresso entdecken →</span>
-        </div>
-      </a>
-
-      <a class="cinema-panel cinema-shifter" href="/shifter.html" aria-label="SHIFTER Apple Watch und Tech Deals entdecken">
-        <img class="cinema-photo" src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1500&q=90" alt="Moderne Premium-Technik im Alltag">
-        <div class="cinema-shade"></div>
-        <div class="cinema-brand"><span class="cinema-wordmark shifter-wordmark">SHIFTER</span><span class="cinema-partner-tag">TECH · OUTLET</span></div>
-        <div class="cinema-apple-card">
-          <small>APPLE WATCH ULTRA 2</small>
-          <strong>589 €</strong>
-          <del>899 €</del>
-          <span>−34,48 % · aktuell gelistet*</span>
-        </div>
-        <div class="cinema-copy">
-          <small>APPLE · IPHONE · WATCH · ZUBEHÖR</small>
-          <h2>Tech-Deals, bei denen man zweimal hinschaut.</h2>
-          <p>Auch iPhone-17-Zubehör und Outlet-Artikel sind aktuell deutlich reduziert.</p>
-          <span class="cinema-cta">SHIFTER Deals öffnen →</span>
-        </div>
-      </a>
-
-      <a class="cinema-mini mini-outin" href="/outin.html">
-        <img src="https://images.pexels.com/photos/1549181/pexels-photo-1549181.jpeg?auto=compress&cs=tinysrgb&w=1100" alt="Kaffee unterwegs">
-        <div class="cinema-mini-shade"></div>
-        <span class="cinema-mini-logo">OutIn</span>
-        <span class="cinema-mini-badge">20 %</span>
-        <div><small>MINO · NANO · SETS</small><b>Espresso. Überall.</b><em>Mino 151,99 € statt 189,99 €</em></div>
-      </a>
-
-      <a class="cinema-mini mini-pet" href="/petlibro.html">
-        <img src="https://images.pexels.com/photos/6001460/pexels-photo-6001460.jpeg?auto=compress&cs=tinysrgb&w=1100" alt="Mensch mit Katze zuhause">
-        <div class="cinema-mini-shade"></div>
-        <span class="cinema-mini-logo">PETLIBRO</span>
-        <span class="cinema-mini-badge">BIS 30 %</span>
-        <div><small>SMART PET</small><b>Mehr Nähe. Weniger Stress.</b><em>Prime Deals bis 05.10.</em></div>
-      </a>
-
-      <a class="cinema-mini mini-bike" href="/tenways.html">
-        <img src="https://images.pexels.com/photos/7242978/pexels-photo-7242978.jpeg?auto=compress&cs=tinysrgb&w=1100" alt="Lachende Radfahrerin in der Stadt">
-        <div class="cinema-mini-shade"></div>
-        <span class="cinema-mini-logo">TENWAYS</span>
-        <span class="cinema-mini-badge">100 € + EXTRA</span>
-        <div><small>CGO600</small><b>Mehr Freiheit im Alltag.</b><em>1.199 € statt 1.299 € + Carrier</em></div>
-      </a>
-
-    </div>
+<section class="home-market-wall equal-wall" aria-label="27 AuraGlobal Marken live">
+<div class="shell equal-shell">
+  <div class="equal-head">
+    <div><span>27 MARKEN LIVE · ALLE GLEICHWERTIG</span><h1>Alles direkt vor dir.</h1><p>Jede Marke gleich groß: Logo, Emotion, Produktwelt und – wenn aktuell verifiziert – der konkrete Preisvorteil.</p></div>
+    <a href="/marken.html">Alle Vergleiche →</a>
   </div>
-</section>
-<section class="home-market-wall hmw-v3" aria-label="Aktuelle Marken und Deals">
-<div class="shell">
-  <div class="hmw-head">
-    <div class="hmw-head-left">
-      <span class="hmw-kicker">27 PARTNERWELTEN · AKTUELLE DEALS · DIREKT VERGLEICHEN</span>
-      <h1>Danach: 27 Welten ohne Sucherei.</h1>
-      <p>Alle Partner kompakt darunter – mit klarer Kategorie und nur verifizierten Deal-Hinweisen.</p>
-    </div>
-    <a class="hmw-all" href="/marken.html"><b>27</b><span>Welten<br>live →</span></a>
-  </div>
-  <div class="hmw-top-grid"><a class="hmw-card c-pink hmw-hero" href="/momox-fashion.html" aria-label="momox fashion entdecken">
-  <img class="hmw-photo" src="https://images.pexels.com/photos/36730381/pexels-photo-36730381.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Lachende Frau beim Shopping" loading="eager" decoding="async">
-  <div class="hmw-glow"></div>
-  <span class="hmw-logo"><img src="https://www.momoxfashion.com/favicon.ico" alt="" aria-hidden="true" loading="eager" decoding="async" onerror="this.style.display='none'"><span>momox fashion</span></span>
-  <span class="hmw-badge deal">BIS 72 %</span>
-  <span class="hmw-card-copy">
-    <small>SALE · SECONDHAND FASHION</small>
-    <b>Bis 72 % auf ausgewählte Styles</b>
-    <em>Einzelstücke ab 5,99 € · Neukunden 15 % ab 40 €.</em>
-    <strong>Sale ansehen →</strong>
-  </span>
-</a><a class="hmw-card c-gold hmw-hero" href="/nespresso.html" aria-label="NESPRESSO entdecken">
-  <img class="hmw-photo" src="https://images.pexels.com/photos/12903246/pexels-photo-12903246.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Kaffeemoment zuhause" loading="eager" decoding="async">
-  <div class="hmw-glow"></div>
-  <span class="hmw-logo"><img src="https://www.nespresso.com/favicon.ico" alt="" aria-hidden="true" loading="eager" decoding="async" onerror="this.style.display='none'"><span>NESPRESSO</span></span>
-  <span class="hmw-badge deal">4 STANGEN</span>
-  <span class="hmw-card-copy">
-    <small>COFFEE DAY · HEUTE</small>
-    <b>Bis zu 4 Stangen Kaffee geschenkt</b>
-    <em>Ab 15 Stangen: 3 gratis · ab 20: 4 gratis. Neukunden zusätzlich 20 % auf die erste Kaffeebestellung.</em>
-    <strong>Nespresso entdecken →</strong>
-  </span>
-</a><a class="hmw-card c-blue hmw-feature" href="/shifter.html" aria-label="SHIFTER entdecken">
-  <img class="hmw-photo" src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=88" alt="SHIFTER" loading="eager" decoding="async">
-  <div class="hmw-glow"></div>
-  <span class="hmw-logo"><img src="https://www.shifter.shop/favicon.ico" alt="" aria-hidden="true" loading="eager" decoding="async" onerror="this.style.display='none'"><span>SHIFTER</span></span>
-  <span class="hmw-badge deal">BIS 98 %*</span>
-  <span class="hmw-card-copy">
-    <small>TECH · OUTLET</small>
-    <b>Outlet mit bis zu 98 % auf Einzelartikel</b>
-    <em>z. B. Apple Watch Ultra 2 499 € statt 899 € · Belkin USB-C-Kabel 6,70 € statt 19,49 €.</em>
-    <strong>Tech-Deals öffnen →</strong>
-  </span>
-</a><a class="hmw-card c-green hmw-feature" href="/anthbot.html" aria-label="ANTHBOT entdecken">
-  <img class="hmw-photo" src="https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&w=1000&q=86" alt="ANTHBOT" loading="eager" decoding="async">
-  <div class="hmw-glow"></div>
-  <span class="hmw-logo"><img src="https://de.anthbot.com/favicon.ico" alt="" aria-hidden="true" loading="eager" decoding="async" onerror="this.style.display='none'"><span>ANTHBOT</span></span>
-  <span class="hmw-badge deal">BIS 700 €</span>
-  <span class="hmw-card-copy">
-    <small>HERBSTSALE · BIS 07.10.</small>
-    <b>Bis zu 700 € sparen</b>
-    <em>M5 ab 599 € statt 749 € · M9 ab 649 € statt 849 €.</em>
-    <strong>Mähroboter ansehen →</strong>
-  </span>
-</a><a class="hmw-card c-orange hmw-feature" href="/allpowers.html" aria-label="ALLPOWERS entdecken">
-  <img class="hmw-photo" src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1000&q=86" alt="ALLPOWERS" loading="eager" decoding="async">
-  <div class="hmw-glow"></div>
-  <span class="hmw-logo"><img src="https://www.iallpowers.de/favicon.ico" alt="" aria-hidden="true" loading="eager" decoding="async" onerror="this.style.display='none'"><span>ALLPOWERS</span></span>
-  <span class="hmw-badge deal">BIS 57 %</span>
-  <span class="hmw-card-copy">
-    <small>POWER DEAL DAYS · 01.–11.10.</small>
-    <b>Bis zu 57 % Produktrabatt</b>
-    <em>Zusätzlich bis zu 12 % Bestellrabatt – laut ALLPOWERS automatisch im Warenkorb.</em>
-    <strong>Powerstations ansehen →</strong>
-  </span>
-</a><a class="hmw-card c-orange hmw-feature" href="/outin.html" aria-label="OutIn entdecken">
-  <img class="hmw-photo" src="https://images.pexels.com/photos/1549181/pexels-photo-1549181.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="OutIn" loading="eager" decoding="async">
-  <div class="hmw-glow"></div>
-  <span class="hmw-logo"><img src="https://de.outin.com/favicon.ico" alt="" aria-hidden="true" loading="eager" decoding="async" onerror="this.style.display='none'"><span>OutIn</span></span>
-  <span class="hmw-badge deal">20 %</span>
-  <span class="hmw-card-copy">
-    <small>PORTABLE ESPRESSO</small>
-    <b>20 % auf Mino, Nano & Sets</b>
-    <em>Mino 151,99 € statt 189,99 € · Nano 119,99 € statt 149,99 €.</em>
-    <strong>Espresso-Deal →</strong>
-  </span>
-</a><a class="hmw-card c-green hmw-feature" href="/petlibro.html" aria-label="PETLIBRO entdecken">
-  <img class="hmw-photo" src="https://images.pexels.com/photos/6001460/pexels-photo-6001460.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="PETLIBRO" loading="eager" decoding="async">
-  <div class="hmw-glow"></div>
-  <span class="hmw-logo"><img src="https://de.petlibro.com/favicon.ico" alt="" aria-hidden="true" loading="eager" decoding="async" onerror="this.style.display='none'"><span>PETLIBRO</span></span>
-  <span class="hmw-badge deal">BIS 30 %</span>
-  <span class="hmw-card-copy">
-    <small>PRIME DEALS · BIS 05.10.</small>
-    <b>Bis zu 30 % auf Smart-Pet-Produkte</b>
-    <em>Granary 2 aktuell zusätzlich mit 10 % hervorgehoben.</em>
-    <strong>Smart Pet ansehen →</strong>
-  </span>
-</a><a class="hmw-card c-blue hmw-feature" href="/tenways.html" aria-label="TENWAYS entdecken">
-  <img class="hmw-photo" src="https://images.pexels.com/photos/7242978/pexels-photo-7242978.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="TENWAYS" loading="eager" decoding="async">
-  <div class="hmw-glow"></div>
-  <span class="hmw-logo"><img src="https://www.tenways.com/favicon.ico" alt="" aria-hidden="true" loading="eager" decoding="async" onerror="this.style.display='none'"><span>TENWAYS</span></span>
-  <span class="hmw-badge deal">100 € + EXTRA</span>
-  <span class="hmw-card-copy">
-    <small>E-BIKE DEAL · BIS 25.10.</small>
-    <b>CGO600: 100 € günstiger + Carrier</b>
-    <em>1.199 € statt 1.299 € · Rear Carrier im Wert von 59 € inklusive.</em>
-    <strong>CGO600 vergleichen →</strong>
-  </span>
-</a></div>
-  <div class="hmw-rest-head"><span>Alle weiteren Marken</span><a href="/marken.html">Komplette Übersicht →</a></div>
-  <div class="hmw-rest-grid"><a class="hmw-card c-purple " href="/urwahn.html" aria-label="URWAHN entdecken">
-  <img class="hmw-photo" src="https://images.pexels.com/photos/7242978/pexels-photo-7242978.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="URWAHN" loading="lazy" decoding="async">
-  <div class="hmw-glow"></div>
-  <span class="hmw-logo"><img src="https://urwahn.com/favicon.ico" alt="" aria-hidden="true" loading="eager" decoding="async" onerror="this.style.display='none'"><span>URWAHN</span></span>
-  
-  <span class="hmw-card-copy">
-    <small>PREMIUM E-BIKES</small>
-    <b>Urban & Gravel vergleichen</b>
-    
-    
-  </span>
-</a><a class="hmw-card c-green " href="/dotblue.html" aria-label="DOTBLUE entdecken">
-  <img class="hmw-photo" src="https://images.pexels.com/photos/7242978/pexels-photo-7242978.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="DOTBLUE" loading="lazy" decoding="async">
-  <div class="hmw-glow"></div>
-  <span class="hmw-logo"><img src="https://www.dotblue-ebike.de/favicon.ico" alt="" aria-hidden="true" loading="eager" decoding="async" onerror="this.style.display='none'"><span>DOTBLUE</span></span>
-  
-  <span class="hmw-card-copy">
-    <small>FALT-E-BIKES</small>
-    <b>HENRI · EMMI · ENNO · MINNA</b>
-    
-    
-  </span>
-</a><a class="hmw-card c-orange " href="/rameder.html" aria-label="Rameder entdecken">
-  <img class="hmw-photo" src="https://images.unsplash.com/photo-1486911278844-a81c5267e227?auto=format&fit=crop&w=1000&q=86" alt="Rameder" loading="lazy" decoding="async">
-  <div class="hmw-glow"></div>
-  <span class="hmw-logo"><img src="https://www.rameder.de/favicon.ico" alt="" aria-hidden="true" loading="eager" decoding="async" onerror="this.style.display='none'"><span>Rameder</span></span>
-  
-  <span class="hmw-card-copy">
-    <small>AUTO & TRANSPORT</small>
-    <b>Kupplung · Träger · Dachbox</b>
-    
-    
-  </span>
-</a><a class="hmw-card c-green " href="/desktronic.html" aria-label="Desktronic entdecken">
-  <img class="hmw-photo" src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1000&q=86" alt="Desktronic" loading="lazy" decoding="async">
-  <div class="hmw-glow"></div>
-  <span class="hmw-logo"><img src="https://desktronic.de/favicon.ico" alt="" aria-hidden="true" loading="eager" decoding="async" onerror="this.style.display='none'"><span>Desktronic</span></span>
-  
-  <span class="hmw-card-copy">
-    <small>HOMEOFFICE</small>
-    <b>HomeOne vs. HomePro</b>
-    
-    
-  </span>
-</a><a class="hmw-card c-blue " href="/delst.html" aria-label="DeLSt entdecken">
-  <img class="hmw-photo" src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1000&q=86" alt="DeLSt" loading="lazy" decoding="async">
-  <div class="hmw-glow"></div>
-  <span class="hmw-logo"><img src="https://www.delst.de/favicon.ico" alt="" aria-hidden="true" loading="eager" decoding="async" onerror="this.style.display='none'"><span>DeLSt</span></span>
-  
-  <span class="hmw-card-copy">
-    <small>WEITERBILDUNG</small>
-    <b>IHK · KI · Marketing · Karriere</b>
-    
-    
-  </span>
-</a><a class="hmw-card c-purple " href="/braingood.html" aria-label="braingood entdecken">
-  <img class="hmw-photo" src="https://images.pexels.com/photos/9004785/pexels-photo-9004785.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="braingood" loading="lazy" decoding="async">
-  <div class="hmw-glow"></div>
-  <span class="hmw-logo"><img src="https://braingood.de/favicon.ico" alt="" aria-hidden="true" loading="eager" decoding="async" onerror="this.style.display='none'"><span>braingood</span></span>
-  
-  <span class="hmw-card-copy">
-    <small>WOHLBEFINDEN</small>
-    <b>BioMe+ · BOOST+ · Bundles</b>
-    
-    
-  </span>
-</a><a class="hmw-card c-green " href="/raibu.html" aria-label="RAIBU entdecken">
-  <img class="hmw-photo" src="https://images.pexels.com/photos/9004785/pexels-photo-9004785.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="RAIBU" loading="lazy" decoding="async">
-  <div class="hmw-glow"></div>
-  <span class="hmw-logo"><img src="https://www.raibu.de/favicon.ico" alt="" aria-hidden="true" loading="eager" decoding="async" onerror="this.style.display='none'"><span>RAIBU</span></span>
-  
-  <span class="hmw-card-copy">
-    <small>SUPPLEMENTS</small>
-    <b>Routine · Fokus · Performance</b>
-    
-    
-  </span>
-</a><a class="hmw-card c-pink " href="/mediakos.html" aria-label="Mediakos entdecken">
-  <img class="hmw-photo" src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&w=1000&q=86" alt="Mediakos" loading="lazy" decoding="async">
-  <div class="hmw-glow"></div>
-  <span class="hmw-logo"><img src="https://mediakos.de/favicon.ico" alt="" aria-hidden="true" loading="eager" decoding="async" onerror="this.style.display='none'"><span>Mediakos</span></span>
-  
-  <span class="hmw-card-copy">
-    <small>VITAMINE & BEAUTY</small>
-    <b>102 Produkte schneller einordnen</b>
-    
-    
-  </span>
-</a><a class="hmw-card c-purple " href="/wau.html" aria-label="WAU entdecken">
-  <img class="hmw-photo" src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&w=1000&q=86" alt="WAU" loading="lazy" decoding="async">
-  <div class="hmw-glow"></div>
-  <span class="hmw-logo"><img src="https://wau.com/favicon.ico" alt="" aria-hidden="true" loading="eager" decoding="async" onerror="this.style.display='none'"><span>WAU</span></span>
-  
-  <span class="hmw-card-copy">
-    <small>BEAUTY TECH</small>
-    <b>Self-Care & Beauty-Tech</b>
-    
-    
-  </span>
-</a><a class="hmw-card c-pink " href="/ophelia.html" aria-label="Ophelia Eternity entdecken">
-  <img class="hmw-photo" src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=1000&q=86" alt="Ophelia Eternity" loading="lazy" decoding="async">
-  <div class="hmw-glow"></div>
-  <span class="hmw-logo"><img src="https://opheliaeternity.com/favicon.ico" alt="" aria-hidden="true" loading="eager" decoding="async" onerror="this.style.display='none'"><span>Ophelia Eternity</span></span>
-  
-  <span class="hmw-card-copy">
-    <small>FINE JEWELRY</small>
-    <b>Schmuck nach Anlass & Stil</b>
-    
-    
-  </span>
-</a><a class="hmw-card c-blue " href="/paper-sons.html" aria-label="Paper & Sons entdecken">
-  <img class="hmw-photo" src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=1000&q=86" alt="Paper & Sons" loading="lazy" decoding="async">
-  <div class="hmw-glow"></div>
-  <span class="hmw-logo"><img src="https://paperandsons.com/favicon.ico" alt="" aria-hidden="true" loading="eager" decoding="async" onerror="this.style.display='none'"><span>Paper & Sons</span></span>
-  
-  <span class="hmw-card-copy">
-    <small>CITY & WORK</small>
-    <b>Rucksäcke für Alltag & Arbeit</b>
-    
-    
-  </span>
-</a><a class="hmw-card c-orange " href="/dekvio.html" aria-label="DEKVIO entdecken">
-  <img class="hmw-photo" src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=1000&q=86" alt="DEKVIO" loading="lazy" decoding="async">
-  <div class="hmw-glow"></div>
-  <span class="hmw-logo"><img src="https://dekvio.com/favicon.ico" alt="" aria-hidden="true" loading="eager" decoding="async" onerror="this.style.display='none'"><span>DEKVIO</span></span>
-  
-  <span class="hmw-card-copy">
-    <small>LEDER & REISE</small>
-    <b>Taschen für Work & Travel</b>
-    
-    
-  </span>
-</a><a class="hmw-card c-purple " href="/vintage-realm.html" aria-label="Vintage Realm entdecken">
-  <img class="hmw-photo" src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1000&q=86" alt="Vintage Realm" loading="lazy" decoding="async">
-  <div class="hmw-glow"></div>
-  <span class="hmw-logo"><img src="https://thevintagerealm.com/favicon.ico" alt="" aria-hidden="true" loading="eager" decoding="async" onerror="this.style.display='none'"><span>Vintage Realm</span></span>
-  
-  <span class="hmw-card-copy">
-    <small>INTERIOR</small>
-    <b>Möbel & Wohnwelten</b>
-    
-    
-  </span>
-</a><a class="hmw-card c-green " href="/norma24.html" aria-label="NORMA24 entdecken">
-  <img class="hmw-photo" src="https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=1000&q=86" alt="NORMA24" loading="lazy" decoding="async">
-  <div class="hmw-glow"></div>
-  <span class="hmw-logo"><img src="https://www.norma24.de/favicon.ico" alt="" aria-hidden="true" loading="eager" decoding="async" onerror="this.style.display='none'"><span>NORMA24</span></span>
-  
-  <span class="hmw-card-copy">
-    <small>HAUS & GARTEN</small>
-    <b>DIY · Freizeit · Zuhause</b>
-    
-    
-  </span>
-</a><a class="hmw-card c-green " href="/rasendoktor.html" aria-label="Rasendoktor entdecken">
-  <img class="hmw-photo" src="https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&w=1000&q=86" alt="Rasendoktor" loading="lazy" decoding="async">
-  <div class="hmw-glow"></div>
-  <span class="hmw-logo"><img src="https://rasendoktor.de/favicon.ico" alt="" aria-hidden="true" loading="eager" decoding="async" onerror="this.style.display='none'"><span>Rasendoktor</span></span>
-  
-  <span class="hmw-card-copy">
-    <small>RASENPFLEGE</small>
-    <b>Probleme erkennen & lösen</b>
-    
-    
-  </span>
-</a><a class="hmw-card c-orange " href="/vorteilshop.html" aria-label="Vorteilshop entdecken">
-  <img class="hmw-photo" src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1000&q=86" alt="Vorteilshop" loading="lazy" decoding="async">
-  <div class="hmw-glow"></div>
-  <span class="hmw-logo"><img src="https://www.vorteilshop.com/favicon.ico" alt="" aria-hidden="true" loading="eager" decoding="async" onerror="this.style.display='none'"><span>Vorteilshop</span></span>
-  
-  <span class="hmw-card-copy">
-    <small>ALLTAG & FREIZEIT</small>
-    <b>Praktische Produkte entdecken</b>
-    
-    
-  </span>
-</a><a class="hmw-card c-blue " href="/lunzo.html" aria-label="LUNZO entdecken">
-  <img class="hmw-photo" src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1000&q=86" alt="LUNZO" loading="lazy" decoding="async">
-  <div class="hmw-glow"></div>
-  <span class="hmw-logo"><img src="https://www.lunzo.de/favicon.ico" alt="" aria-hidden="true" loading="eager" decoding="async" onerror="this.style.display='none'"><span>LUNZO</span></span>
-  
-  <span class="hmw-card-copy">
-    <small>SHOPPING</small>
-    <b>Breites Sortiment sortiert</b>
-    
-    
-  </span>
-</a><a class="hmw-card c-orange " href="/pizza-party.html" aria-label="Pizza Party entdecken">
-  <img class="hmw-photo" src="https://images.unsplash.com/photo-1579751626657-72bc17010498?auto=format&fit=crop&w=1000&q=86" alt="Pizza Party" loading="lazy" decoding="async">
-  <div class="hmw-glow"></div>
-  <span class="hmw-logo"><img src="https://www.pizza-party.de/favicon.ico" alt="" aria-hidden="true" loading="eager" decoding="async" onerror="this.style.display='none'"><span>Pizza Party</span></span>
-  
-  <span class="hmw-card-copy">
-    <small>OUTDOOR COOKING</small>
-    <b>Pizzaöfen vergleichen</b>
-    
-    
-  </span>
-</a><a class="hmw-card c-purple " href="/porzellantreff.html" aria-label="Porzellantreff entdecken">
-  <img class="hmw-photo" src="https://images.unsplash.com/photo-1603199506016-b9a594b593c0?auto=format&fit=crop&w=1000&q=86" alt="Porzellantreff" loading="lazy" decoding="async">
-  <div class="hmw-glow"></div>
-  <span class="hmw-logo"><img src="https://www.porzellantreff.de/favicon.ico" alt="" aria-hidden="true" loading="eager" decoding="async" onerror="this.style.display='none'"><span>Porzellantreff</span></span>
-  
-  <span class="hmw-card-copy">
-    <small>TISCHKULTUR & KÜCHE</small>
-    <b>Geschirr · Gläser · Besteck</b>
-    
-    
-  </span>
-</a></div>
-  <div class="hmw-footnote">* Rabatte können sich bei einzelnen Artikeln, Varianten oder begrenzten Beständen ändern. Maßgeblich ist der Preis beim Anbieter.</div>
+  <div class="equal-grid"><a class="equal-card equal-pink" href="/momox-fashion.html" aria-label="momox fashion entdecken">
+   <div class="equal-media"><img class="equal-photo" src="https://images.pexels.com/photos/36730381/pexels-photo-36730381.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="momox fashion – SECONDHAND FASHION" loading="lazy" decoding="async"><div class="equal-tint"></div></div>
+   <div class="equal-top">
+     <span class="equal-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain_url=https://momoxfashion.com" alt="" aria-hidden="true" loading="lazy" decoding="async"><b>momox fashion</b></span>
+     
+   </div>
+   <span class="equal-badge">15 % NEUKUNDEN*</span>
+   <div class="equal-copy"><small>SECONDHAND FASHION</small><strong>Second Hand ab 5,99 €</strong><span>Code HEY15 ab 40 € · Styles & Marken entdecken.</span><em>Mehr ansehen →</em></div>
+ </a><a class="equal-card equal-gold" href="/nespresso.html" aria-label="NESPRESSO entdecken">
+   <div class="equal-media"><div class="equal-video" aria-hidden="true"><iframe src="https://www.youtube-nocookie.com/embed/pqFrYeVVQtI?autoplay=1&mute=1&controls=0&loop=1&playlist=pqFrYeVVQtI&modestbranding=1&playsinline=1&rel=0" title="NESPRESSO Video" loading="lazy" allow="autoplay; encrypted-media" tabindex="-1"></iframe></div><img class="equal-fallback" src="https://images.pexels.com/photos/12903246/pexels-photo-12903246.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="NESPRESSO – KAFFEE" loading="lazy" decoding="async"><div class="equal-tint"></div></div>
+   <div class="equal-top">
+     <span class="equal-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain_url=https://nespresso.com" alt="" aria-hidden="true" loading="lazy" decoding="async"><b>NESPRESSO</b></span>
+     <span class="equal-video-chip">▶ VIDEO</span>
+   </div>
+   <span class="equal-badge">4 STANGEN GRATIS*</span>
+   <div class="equal-copy"><small>KAFFEE</small><strong>Coffee Day: bis zu 4 Stangen geschenkt</strong><span>Ab 15 Stangen 3 gratis · ab 20 Stangen 4 gratis.</span><em>Mehr ansehen →</em></div>
+ </a><a class="equal-card equal-orange" href="/outin.html" aria-label="OutIn entdecken">
+   <div class="equal-media"><img class="equal-photo" src="https://images.pexels.com/photos/1549181/pexels-photo-1549181.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="OutIn – ESPRESSO TO-GO" loading="lazy" decoding="async"><div class="equal-tint"></div></div>
+   <div class="equal-top">
+     <span class="equal-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain_url=https://de.outin.com" alt="" aria-hidden="true" loading="lazy" decoding="async"><b>OutIn</b></span>
+     
+   </div>
+   <span class="equal-badge">20 %</span>
+   <div class="equal-copy"><small>ESPRESSO TO-GO</small><strong>Mino 151,99 € statt 189,99 €</strong><span>Nano 119,99 € statt 149,99 € · mehrere Sets -20 %.</span><em>Mehr ansehen →</em></div>
+ </a><a class="equal-card equal-green" href="/petlibro.html" aria-label="PETLIBRO entdecken">
+   <div class="equal-media"><img class="equal-photo" src="https://images.pexels.com/photos/6001460/pexels-photo-6001460.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="PETLIBRO – SMART PET" loading="lazy" decoding="async"><div class="equal-tint"></div></div>
+   <div class="equal-top">
+     <span class="equal-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain_url=https://de.petlibro.com" alt="" aria-hidden="true" loading="lazy" decoding="async"><b>PETLIBRO</b></span>
+     
+   </div>
+   <span class="equal-badge">BIS 30 %*</span>
+   <div class="equal-copy"><small>SMART PET</small><strong>Granary 2: 152,99 € statt 169,99 €</strong><span>Prime-Deals bis -30 % auf smarte Essentials.</span><em>Mehr ansehen →</em></div>
+ </a><a class="equal-card equal-blue" href="/tenways.html" aria-label="TENWAYS entdecken">
+   <div class="equal-media"><div class="equal-video" aria-hidden="true"><iframe src="https://www.youtube-nocookie.com/embed/8u8KQvRRtho?autoplay=1&mute=1&controls=0&loop=1&playlist=8u8KQvRRtho&modestbranding=1&playsinline=1&rel=0" title="TENWAYS Video" loading="lazy" allow="autoplay; encrypted-media" tabindex="-1"></iframe></div><img class="equal-fallback" src="https://images.pexels.com/photos/7242978/pexels-photo-7242978.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="TENWAYS – E-BIKES" loading="lazy" decoding="async"><div class="equal-tint"></div></div>
+   <div class="equal-top">
+     <span class="equal-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain_url=https://tenways.com" alt="" aria-hidden="true" loading="lazy" decoding="async"><b>TENWAYS</b></span>
+     <span class="equal-video-chip">▶ VIDEO</span>
+   </div>
+   <span class="equal-badge">200 €*</span>
+   <div class="equal-copy"><small>E-BIKES</small><strong>CGO600 Classic: 1.099 € statt 1.299 €</strong><span>15 kg · bis 70 km · Carbon-Riemenantrieb.</span><em>Mehr ansehen →</em></div>
+ </a><a class="equal-card equal-purple" href="/urwahn.html" aria-label="URWAHN entdecken">
+   <div class="equal-media"><img class="equal-photo" src="https://images.pexels.com/photos/7242978/pexels-photo-7242978.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="URWAHN – PREMIUM E-BIKES" loading="lazy" decoding="async"><div class="equal-tint"></div></div>
+   <div class="equal-top">
+     <span class="equal-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain_url=https://urwahn.com" alt="" aria-hidden="true" loading="lazy" decoding="async"><b>URWAHN</b></span>
+     
+   </div>
+   <span class="equal-badge">URBAN</span>
+   <div class="equal-copy"><small>PREMIUM E-BIKES</small><strong>Stadtfuchs oder Waldwiesel?</strong><span>Urban Design vs. Gravel-Einsatz klar einordnen.</span><em>Mehr ansehen →</em></div>
+ </a><a class="equal-card equal-cyan" href="/dotblue.html" aria-label="DOTBLUE entdecken">
+   <div class="equal-media"><img class="equal-photo" src="https://images.pexels.com/photos/7242978/pexels-photo-7242978.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="DOTBLUE – FALT-E-BIKES" loading="lazy" decoding="async"><div class="equal-tint"></div></div>
+   <div class="equal-top">
+     <span class="equal-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain_url=https://dotblue-ebike.de" alt="" aria-hidden="true" loading="lazy" decoding="async"><b>DOTBLUE</b></span>
+     
+   </div>
+   <span class="equal-badge">4 MODELLE</span>
+   <div class="equal-copy"><small>FALT-E-BIKES</small><strong>HENRI · EMMI · ENNO · MINNA</strong><span>Pendeln, Komfort, Gelände oder maximale Mobilität.</span><em>Mehr ansehen →</em></div>
+ </a><a class="equal-card equal-green" href="/anthbot.html" aria-label="ANTHBOT entdecken">
+   <div class="equal-media"><img class="equal-photo" src="https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&w=1000&q=86" alt="ANTHBOT – MÄHROBOTER" loading="lazy" decoding="async"><div class="equal-tint"></div></div>
+   <div class="equal-top">
+     <span class="equal-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain_url=https://de.anthbot.com" alt="" aria-hidden="true" loading="lazy" decoding="async"><b>ANTHBOT</b></span>
+     
+   </div>
+   <span class="equal-badge">BIS 700 €*</span>
+   <div class="equal-copy"><small>MÄHROBOTER</small><strong>M5 599 € statt 749 €</strong><span>M9 649 € statt 849 € · Herbstpflege bis 07.10.</span><em>Mehr ansehen →</em></div>
+ </a><a class="equal-card equal-orange" href="/allpowers.html" aria-label="ALLPOWERS entdecken">
+   <div class="equal-media"><img class="equal-photo" src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1000&q=86" alt="ALLPOWERS – POWERSTATIONS" loading="lazy" decoding="async"><div class="equal-tint"></div></div>
+   <div class="equal-top">
+     <span class="equal-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain_url=https://iallpowers.de" alt="" aria-hidden="true" loading="lazy" decoding="async"><b>ALLPOWERS</b></span>
+     
+   </div>
+   <span class="equal-badge">BIS 57 %*</span>
+   <div class="equal-copy"><small>POWERSTATIONS</small><strong>Oktober Power Deals</strong><span>Bis 57 % Produktrabatt + bis 12 % Bestellrabatt laut Aktionsplan.</span><em>Mehr ansehen →</em></div>
+ </a><a class="equal-card equal-blue" href="/shifter.html" aria-label="SHIFTER entdecken">
+   <div class="equal-media"><img class="equal-photo" src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1000&q=86" alt="SHIFTER – APPLE · TECH · OUTLET" loading="lazy" decoding="async"><div class="equal-tint"></div></div>
+   <div class="equal-top">
+     <span class="equal-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain_url=https://shifter.shop" alt="" aria-hidden="true" loading="lazy" decoding="async"><b>SHIFTER</b></span>
+     
+   </div>
+   <span class="equal-badge">44,49 %*</span>
+   <div class="equal-copy"><small>APPLE · TECH · OUTLET</small><strong>Apple Watch Ultra 2: 499 € statt 899 €</strong><span>Dazu iPhone, Zubehör, Notebooks & wechselnde Outlet-Deals.</span><em>Mehr ansehen →</em></div>
+ </a><a class="equal-card equal-orange" href="/rameder.html" aria-label="Rameder entdecken">
+   <div class="equal-media"><img class="equal-photo" src="https://images.unsplash.com/photo-1486911278844-a81c5267e227?auto=format&fit=crop&w=1000&q=86" alt="Rameder – AUTO & TRANSPORT" loading="lazy" decoding="async"><div class="equal-tint"></div></div>
+   <div class="equal-top">
+     <span class="equal-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain_url=https://rameder.de" alt="" aria-hidden="true" loading="lazy" decoding="async"><b>Rameder</b></span>
+     
+   </div>
+   <span class="equal-badge">AUTO</span>
+   <div class="equal-copy"><small>AUTO & TRANSPORT</small><strong>Kupplung, Träger oder Dachbox?</strong><span>Transportlösung nach Fahrzeug und Einsatz auswählen.</span><em>Mehr ansehen →</em></div>
+ </a><a class="equal-card equal-green" href="/desktronic.html" aria-label="Desktronic entdecken">
+   <div class="equal-media"><img class="equal-photo" src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1000&q=86" alt="Desktronic – HOME OFFICE" loading="lazy" decoding="async"><div class="equal-tint"></div></div>
+   <div class="equal-top">
+     <span class="equal-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain_url=https://desktronic.de" alt="" aria-hidden="true" loading="lazy" decoding="async"><b>Desktronic</b></span>
+     
+   </div>
+   <span class="equal-badge">ERGONOMIE</span>
+   <div class="equal-copy"><small>HOME OFFICE</small><strong>HomeOne vs. HomePro</strong><span>Höhe, Tragkraft und Größe direkt vergleichen.</span><em>Mehr ansehen →</em></div>
+ </a><a class="equal-card equal-blue" href="/delst.html" aria-label="DeLSt entdecken">
+   <div class="equal-media"><img class="equal-photo" src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1000&q=86" alt="DeLSt – WEITERBILDUNG" loading="lazy" decoding="async"><div class="equal-tint"></div></div>
+   <div class="equal-top">
+     <span class="equal-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain_url=https://delst.de" alt="" aria-hidden="true" loading="lazy" decoding="async"><b>DeLSt</b></span>
+     
+   </div>
+   <span class="equal-badge">12 THEMEN</span>
+   <div class="equal-copy"><small>WEITERBILDUNG</small><strong>IHK, KI, Marketing & mehr</strong><span>Nach Karriereziel, Abschluss und Förderung einordnen.</span><em>Mehr ansehen →</em></div>
+ </a><a class="equal-card equal-purple" href="/braingood.html" aria-label="braingood entdecken">
+   <div class="equal-media"><img class="equal-photo" src="https://images.pexels.com/photos/9004785/pexels-photo-9004785.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="braingood – WOHLBEFINDEN" loading="lazy" decoding="async"><div class="equal-tint"></div></div>
+   <div class="equal-top">
+     <span class="equal-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain_url=https://braingood.de" alt="" aria-hidden="true" loading="lazy" decoding="async"><b>braingood</b></span>
+     
+   </div>
+   <span class="equal-badge">ROUTINE</span>
+   <div class="equal-copy"><small>WOHLBEFINDEN</small><strong>BioMe+ · BOOST+ · Bundles</strong><span>Formate und Preis pro Portion verständlich vergleichen.</span><em>Mehr ansehen →</em></div>
+ </a><a class="equal-card equal-green" href="/raibu.html" aria-label="RAIBU entdecken">
+   <div class="equal-media"><img class="equal-photo" src="https://images.pexels.com/photos/9004785/pexels-photo-9004785.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="RAIBU – SUPPLEMENTS" loading="lazy" decoding="async"><div class="equal-tint"></div></div>
+   <div class="equal-top">
+     <span class="equal-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain_url=https://raibu.de" alt="" aria-hidden="true" loading="lazy" decoding="async"><b>RAIBU</b></span>
+     
+   </div>
+   <span class="equal-badge">FOKUS</span>
+   <div class="equal-copy"><small>SUPPLEMENTS</small><strong>Energie, Sport & Balance</strong><span>Produkte nach Routine und Bedarf statt Produktchaos.</span><em>Mehr ansehen →</em></div>
+ </a><a class="equal-card equal-pink" href="/mediakos.html" aria-label="Mediakos entdecken">
+   <div class="equal-media"><img class="equal-photo" src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&w=1000&q=86" alt="Mediakos – VITAMINE & BEAUTY" loading="lazy" decoding="async"><div class="equal-tint"></div></div>
+   <div class="equal-top">
+     <span class="equal-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain_url=https://mediakos.de" alt="" aria-hidden="true" loading="lazy" decoding="async"><b>Mediakos</b></span>
+     
+   </div>
+   <span class="equal-badge">102 PRODUKTE</span>
+   <div class="equal-copy"><small>VITAMINE & BEAUTY</small><strong>Vitamine, Kollagen & Pflege</strong><span>Großes Sortiment in klare Kaufwelten sortiert.</span><em>Mehr ansehen →</em></div>
+ </a><a class="equal-card equal-purple" href="/wau.html" aria-label="WAU entdecken">
+   <div class="equal-media"><img class="equal-photo" src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&w=1000&q=86" alt="WAU – BEAUTY TECH" loading="lazy" decoding="async"><div class="equal-tint"></div></div>
+   <div class="equal-top">
+     <span class="equal-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain_url=https://wau.com" alt="" aria-hidden="true" loading="lazy" decoding="async"><b>WAU</b></span>
+     
+   </div>
+   <span class="equal-badge">SELF CARE</span>
+   <div class="equal-copy"><small>BEAUTY TECH</small><strong>Beauty-Tech für deine Routine</strong><span>Anwendung und Nutzen vor dem Kauf einordnen.</span><em>Mehr ansehen →</em></div>
+ </a><a class="equal-card equal-pink" href="/ophelia.html" aria-label="Ophelia Eternity entdecken">
+   <div class="equal-media"><img class="equal-photo" src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=1000&q=86" alt="Ophelia Eternity – FINE JEWELRY" loading="lazy" decoding="async"><div class="equal-tint"></div></div>
+   <div class="equal-top">
+     <span class="equal-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain_url=https://opheliaeternity.com" alt="" aria-hidden="true" loading="lazy" decoding="async"><b>Ophelia Eternity</b></span>
+     
+   </div>
+   <span class="equal-badge">JEWELRY</span>
+   <div class="equal-copy"><small>FINE JEWELRY</small><strong>Schmuck mit Anlass wählen</strong><span>Ring, Farbe, Größe und Stil gezielt einordnen.</span><em>Mehr ansehen →</em></div>
+ </a><a class="equal-card equal-blue" href="/paper-sons.html" aria-label="Paper & Sons entdecken">
+   <div class="equal-media"><img class="equal-photo" src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=1000&q=86" alt="Paper & Sons – CITY & WORK" loading="lazy" decoding="async"><div class="equal-tint"></div></div>
+   <div class="equal-top">
+     <span class="equal-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain_url=https://paperandsons.com" alt="" aria-hidden="true" loading="lazy" decoding="async"><b>Paper & Sons</b></span>
+     
+   </div>
+   <span class="equal-badge">BAGS</span>
+   <div class="equal-copy"><small>CITY & WORK</small><strong>Rucksäcke für Work & Alltag</strong><span>Stauraum, Komfort und Einsatz vergleichen.</span><em>Mehr ansehen →</em></div>
+ </a><a class="equal-card equal-orange" href="/dekvio.html" aria-label="DEKVIO entdecken">
+   <div class="equal-media"><img class="equal-photo" src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=1000&q=86" alt="DEKVIO – LEDER & REISE" loading="lazy" decoding="async"><div class="equal-tint"></div></div>
+   <div class="equal-top">
+     <span class="equal-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain_url=https://dekvio.com" alt="" aria-hidden="true" loading="lazy" decoding="async"><b>DEKVIO</b></span>
+     
+   </div>
+   <span class="equal-badge">TRAVEL</span>
+   <div class="equal-copy"><small>LEDER & REISE</small><strong>Taschen für Arbeit & Reise</strong><span>Lederprodukte nach Alltag und Einsatzzweck.</span><em>Mehr ansehen →</em></div>
+ </a><a class="equal-card equal-purple" href="/vintage-realm.html" aria-label="The Vintage Realm entdecken">
+   <div class="equal-media"><img class="equal-photo" src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1000&q=86" alt="The Vintage Realm – INTERIOR" loading="lazy" decoding="async"><div class="equal-tint"></div></div>
+   <div class="equal-top">
+     <span class="equal-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain_url=https://thevintagerealm.com" alt="" aria-hidden="true" loading="lazy" decoding="async"><b>The Vintage Realm</b></span>
+     
+   </div>
+   <span class="equal-badge">HOME</span>
+   <div class="equal-copy"><small>INTERIOR</small><strong>Interior mit Charakter</strong><span>Möbel nach Raum, Stil und Nutzung entdecken.</span><em>Mehr ansehen →</em></div>
+ </a><a class="equal-card equal-green" href="/norma24.html" aria-label="NORMA24 entdecken">
+   <div class="equal-media"><img class="equal-photo" src="https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=1000&q=86" alt="NORMA24 – HAUS & GARTEN" loading="lazy" decoding="async"><div class="equal-tint"></div></div>
+   <div class="equal-top">
+     <span class="equal-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain_url=https://norma24.de" alt="" aria-hidden="true" loading="lazy" decoding="async"><b>NORMA24</b></span>
+     
+   </div>
+   <span class="equal-badge">DIY</span>
+   <div class="equal-copy"><small>HAUS & GARTEN</small><strong>Haus, Garten, Freizeit & DIY</strong><span>Breites Sortiment nach konkretem Einsatz sortiert.</span><em>Mehr ansehen →</em></div>
+ </a><a class="equal-card equal-green" href="/rasendoktor.html" aria-label="Rasendoktor entdecken">
+   <div class="equal-media"><img class="equal-photo" src="https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&w=1000&q=86" alt="Rasendoktor – RASENPFLEGE" loading="lazy" decoding="async"><div class="equal-tint"></div></div>
+   <div class="equal-top">
+     <span class="equal-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain_url=https://rasendoktor.de" alt="" aria-hidden="true" loading="lazy" decoding="async"><b>Rasendoktor</b></span>
+     
+   </div>
+   <span class="equal-badge">GARTEN</span>
+   <div class="equal-copy"><small>RASENPFLEGE</small><strong>Vom Rasenproblem zur Lösung</strong><span>Pflege, Belüftung und Anwendung verständlich einordnen.</span><em>Mehr ansehen →</em></div>
+ </a><a class="equal-card equal-orange" href="/vorteilshop.html" aria-label="Vorteilshop entdecken">
+   <div class="equal-media"><img class="equal-photo" src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1000&q=86" alt="Vorteilshop – ALLTAG & FREIZEIT" loading="lazy" decoding="async"><div class="equal-tint"></div></div>
+   <div class="equal-top">
+     <span class="equal-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain_url=https://vorteilshop.com" alt="" aria-hidden="true" loading="lazy" decoding="async"><b>Vorteilshop</b></span>
+     
+   </div>
+   <span class="equal-badge">ENTDECKEN</span>
+   <div class="equal-copy"><small>ALLTAG & FREIZEIT</small><strong>Praktische Produkte schneller finden</strong><span>Zuhause, Alltag und Freizeit kompakt entdecken.</span><em>Mehr ansehen →</em></div>
+ </a><a class="equal-card equal-cyan" href="/lunzo.html" aria-label="LUNZO entdecken">
+   <div class="equal-media"><img class="equal-photo" src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1000&q=86" alt="LUNZO – SHOPPING" loading="lazy" decoding="async"><div class="equal-tint"></div></div>
+   <div class="equal-top">
+     <span class="equal-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain_url=https://lunzo.de" alt="" aria-hidden="true" loading="lazy" decoding="async"><b>LUNZO</b></span>
+     
+   </div>
+   <span class="equal-badge">SHOP</span>
+   <div class="equal-copy"><small>SHOPPING</small><strong>Viele Kategorien, schneller sortiert</strong><span>Breites Sortiment über klare Produktwelten entdecken.</span><em>Mehr ansehen →</em></div>
+ </a><a class="equal-card equal-orange" href="/pizza-party.html" aria-label="Pizza Party entdecken">
+   <div class="equal-media"><img class="equal-photo" src="https://images.unsplash.com/photo-1579751626657-72bc17010498?auto=format&fit=crop&w=1000&q=86" alt="Pizza Party – OUTDOOR COOKING" loading="lazy" decoding="async"><div class="equal-tint"></div></div>
+   <div class="equal-top">
+     <span class="equal-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain_url=https://pizza-party.de" alt="" aria-hidden="true" loading="lazy" decoding="async"><b>Pizza Party</b></span>
+     
+   </div>
+   <span class="equal-badge">GENUSS</span>
+   <div class="equal-copy"><small>OUTDOOR COOKING</small><strong>Pizzaofen für deinen Abend</strong><span>Größe und Einsatz für Outdoor-Cooking vergleichen.</span><em>Mehr ansehen →</em></div>
+ </a><a class="equal-card equal-purple" href="/porzellantreff.html" aria-label="Porzellantreff entdecken">
+   <div class="equal-media"><img class="equal-photo" src="https://images.unsplash.com/photo-1603199506016-b9a594b593c0?auto=format&fit=crop&w=1000&q=86" alt="Porzellantreff – TISCHKULTUR & KÜCHE" loading="lazy" decoding="async"><div class="equal-tint"></div></div>
+   <div class="equal-top">
+     <span class="equal-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain_url=https://porzellantreff.de" alt="" aria-hidden="true" loading="lazy" decoding="async"><b>Porzellantreff</b></span>
+     
+   </div>
+   <span class="equal-badge">KÜCHE</span>
+   <div class="equal-copy"><small>TISCHKULTUR & KÜCHE</small><strong>Geschirr, Gläser & Besteck</strong><span>Set-Größe, Material und Ergänzbarkeit einordnen.</span><em>Mehr ansehen →</em></div>
+ </a></div>
+  <div class="equal-note">* Aktionen, Preise und Bestände können sich ändern. Maßgeblich sind die Angaben beim jeweiligen Anbieter. Videos stammen von offiziellen Markenkanälen, sofern verfügbar und verifiziert.</div>
 </div>
 </section>
 
