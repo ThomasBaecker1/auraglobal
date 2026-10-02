@@ -340,17 +340,25 @@ document.addEventListener('DOMContentLoaded',initRelatedComparisons);
 
 
 function initDealExpiry(){
-  const cards=[...document.querySelectorAll('[data-deal-end]')];
+  const cards=[...document.querySelectorAll('[data-deal-start],[data-deal-end]')];
   if(!cards.length) return;
   const now=new Date();
   cards.forEach(card=>{
+    const start=card.getAttribute('data-deal-start');
     const end=card.getAttribute('data-deal-end');
-    if(!end) return;
-    const deadline=new Date(end+'T23:59:59');
-    if(Number.isFinite(deadline.getTime()) && now>deadline) card.remove();
+    if(start){
+      const opens=new Date(start+'T00:00:00');
+      if(Number.isFinite(opens.getTime()) && now<opens){ card.hidden=true; return; }
+    }
+    if(end){
+      const deadline=new Date(end+'T23:59:59');
+      if(Number.isFinite(deadline.getTime()) && now>deadline){ card.remove(); return; }
+    }
+    card.hidden=false;
   });
   document.querySelectorAll('[data-deal-grid]').forEach(grid=>{
-    if(!grid.children.length) grid.closest('section')?.remove();
+    const visible=[...grid.children].some(el=>!el.hidden);
+    if(!visible) grid.closest('section')?.remove();
   });
 }
 document.addEventListener('DOMContentLoaded',initDealExpiry);
