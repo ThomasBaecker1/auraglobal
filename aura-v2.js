@@ -24,7 +24,17 @@ const catalog=[
   {title:'Nespresso ORIGINAL',type:'Vergleich',href:'/nespresso.html',tags:'nespresso kaffee kapselmaschine kaffeemaschine espresso essenza mini citiz pixie creatista original'},
   {title:'Kaffee zuhause oder unterwegs?',type:'Guide',href:'/kaffee.html',tags:'kaffee zuhause unterwegs nespresso outin nano mino espresso home to go reise camping'},
   {title:'Wohlbefinden & Nahrungsergänzung',type:'Kategorie',href:'/braingood.html',tags:'wohlbefinden wellness nahrungsergänzung supplement supplemente darm gehirn fokus energie'},
-  {title:'braingood BioMe+ & BOOST+',type:'Vergleich',href:'/braingood.html',tags:'braingood biome biome+ boost boost+ darm gehirn fokus energie supplement nahrungsergänzung'}
+  {title:'braingood BioMe+ & BOOST+',type:'Vergleich',href:'/braingood.html',tags:'braingood biome biome+ boost boost+ darm gehirn fokus energie supplement nahrungsergänzung'},
+  {"title": "DOTBLUE", "type": "Vergleich", "href": "/dotblue.html", "tags": "dotblue blaupunkt e-bike ebike faltbike klapprad henri emmi enno minna pendeln camping mobilität"},
+  {"title": "ANTHBOT", "type": "Vergleich", "href": "/anthbot.html", "tags": "anthbot mähroboter rasenroboter rtk lidar garten rasen m5 m9 n8 genie pion"},
+  {"title": "Rameder", "type": "Vergleich", "href": "/rameder.html", "tags": "rameder anhängerkupplung fahrradträger dachträger dachbox heckbox auto transport reise e-bike"},
+  {"title": "ALLPOWERS", "type": "Vergleich", "href": "/allpowers.html", "tags": "allpowers powerstation solar generator camping notstrom backup offgrid r600 r1500 s2000 r4000 energie outdoor"},
+  {"title": "SHIFTER", "type": "Vergleich", "href": "/shifter.html", "tags": "shifter smartphone tablet wearable notebook desktop smart home audio e-bike outlet technik elektronik"},
+  {"title": "DeLSt", "type": "Vergleich", "href": "/delst.html", "tags": "delst deutsches elearning studieninstitut fernstudium weiterbildung ihk wirtschaft ki marketing vertrieb coaching management bildungsgutschein karriere"},
+  {"title": "Desktronic", "type": "Vergleich", "href": "/desktronic.html", "tags": "desktronic homeone homepro schreibtisch höhenverstellbar homeoffice ergonomie arbeitsplatz"},
+  {"title": "RAIBU", "type": "Vergleich", "href": "/raibu.html", "tags": "raibu nahrungsergänzung supplement energie fokus sport mentale balance wellness bundle"},
+  {"title": "Mediakos", "type": "Vergleich", "href": "/mediakos.html", "tags": "mediakos vitamine kollagen kosmetik kräuterextrakte supplement beauty pflege bundles"},
+  {"title": "Porzellantreff", "type": "Vergleich", "href": "/porzellantreff.html", "tags": "porzellantreff porzellan geschirr glaeser gläser besteck kochgeschirr tischkultur villeroy boch rosenthal riedel le creuset zwilling"}
 ];
 
 function getHits(query){
@@ -342,17 +352,15 @@ document.addEventListener('DOMContentLoaded',initRelatedComparisons);
 function initDealExpiry(){
   const cards=[...document.querySelectorAll('[data-deal-start],[data-deal-end]')];
   if(!cards.length) return;
-  const now=new Date();
+  const today=new Intl.DateTimeFormat("sv-SE",{timeZone:"Europe/Berlin",year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date());
   cards.forEach(card=>{
     const start=card.getAttribute('data-deal-start');
     const end=card.getAttribute('data-deal-end');
     if(start){
-      const opens=new Date(start+'T00:00:00');
-      if(Number.isFinite(opens.getTime()) && now<opens){ card.hidden=true; return; }
+      if(today<start){ card.hidden=true; return; }
     }
     if(end){
-      const deadline=new Date(end+'T23:59:59');
-      if(Number.isFinite(deadline.getTime()) && now>deadline){ card.remove(); return; }
+      if(today>end){ card.remove(); return; }
     }
     card.hidden=false;
   });

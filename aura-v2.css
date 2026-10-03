@@ -4094,3 +4094,9 @@ body.comparison-page .footer a{
   -webkit-text-fill-color:#e7edf3!important;
   opacity:1!important;
 }
+
+/* Readable purchase conditions and campaign codes. */
+.live-deal-copy span,.deal-copy p{font-size:1rem!important;line-height:1.6!important;overflow-wrap:anywhere}
+.live-deal-copy small,.deal-copy small,.adnote,.deal-note{font-size:.875rem!important;line-height:1.5!important}
+[hidden]{display:none!important}
+.deal-card.deal-text{grid-template-columns:1fr}
