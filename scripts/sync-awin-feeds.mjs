@@ -16,7 +16,7 @@ if (!FEED_LIST_URL && !API_KEY_INPUT) {
   process.exit(1);
 }
 
-const listUrl = FEED_LIST_URL || (/^https?:\/\//i.test(API_KEY_INPUT || '') ? API_KEY_INPUT : `https://productdata.awin.com/datafeed/list/apikey/${encodeURIComponent(API_KEY)}`);
+const listUrl = FEED_LIST_URL || (/^https?:\/\//i.test(API_KEY_INPUT || '') ? API_KEY_INPUT : `https://ui.awin.com/productdata-darwin-download/publisher/${encodeURIComponent(PUBLISHER_ID)}/${encodeURIComponent(API_KEY)}/1/feedList`);
 
 const INTERNAL_GUIDES = {
   '24089':'/paper-sons.html',
