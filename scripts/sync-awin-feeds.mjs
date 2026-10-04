@@ -3,19 +3,20 @@ import path from 'node:path';
 import { gunzipSync } from 'node:zlib';
 
 const FEED_LIST_URL = process.env.AWIN_DATAFEED_LIST_URL;
-const API_KEY = process.env.AWIN_DATAFEED_API_KEY;
+const API_KEY_INPUT = process.env.AWIN_DATAFEED_API_KEY;
+const API_KEY = API_KEY_INPUT && !/^https?:\/\//i.test(API_KEY_INPUT) ? API_KEY_INPUT : '';
 const PUBLISHER_ID = process.env.AWIN_PUBLISHER_ID || '3076553';
 const MAX_PRODUCTS = Number(process.env.AWIN_MAX_PRODUCTS || 50000);
 const MAX_PER_MERCHANT = Number(process.env.AWIN_MAX_PER_MERCHANT || 3000);
 const MAX_FEED_PRODUCTS = Number(process.env.AWIN_MAX_FEED_PRODUCTS || 100000);
 const OUTPUT = path.resolve('data/products.json');
 
-if (!FEED_LIST_URL && !API_KEY) {
+if (!FEED_LIST_URL && !API_KEY_INPUT) {
   console.error('Missing AWIN_DATAFEED_LIST_URL or AWIN_DATAFEED_API_KEY.');
   process.exit(1);
 }
 
-const listUrl = FEED_LIST_URL || `https://productdata.awin.com/datafeed/list/apikey/${encodeURIComponent(API_KEY)}`;
+const listUrl = FEED_LIST_URL || (/^https?:\/\//i.test(API_KEY_INPUT || '') ? API_KEY_INPUT : `https://productdata.awin.com/datafeed/list/apikey/${encodeURIComponent(API_KEY)}`);
 
 const INTERNAL_GUIDES = {
   '24089':'/paper-sons.html',
