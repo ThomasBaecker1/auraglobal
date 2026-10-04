@@ -8,7 +8,8 @@
     merchant: 'all',
     category: 'all',
     sort: 'relevance',
-    visible: 24
+    visible: 24,
+    attribution: {}
   };
 
   const $ = (s) => document.querySelector(s);
@@ -60,6 +61,44 @@
       return u.protocol === 'https:' || u.protocol === 'http:';
     } catch { return false; }
   };
+
+  function slugRef(v,max=28) {
+    return fold(v).replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,max);
+  }
+
+  function captureAttribution() {
+    const params = new URLSearchParams(location.search);
+    const keys = ['utm_source','utm_medium','utm_campaign','utm_term','gclid'];
+    const incoming = {};
+    keys.forEach(k=>{
+      const value = norm(params.get(k));
+      if (value) incoming[k] = value.slice(0,120);
+    });
+
+    try {
+      if (Object.keys(incoming).length) sessionStorage.setItem('ag_attribution',JSON.stringify(incoming));
+      state.attribution = JSON.parse(sessionStorage.getItem('ag_attribution') || '{}') || {};
+    } catch {
+      state.attribution = incoming;
+    }
+  }
+
+  function attributedUrl(raw,p) {
+    if (!urlOk(raw)) return raw;
+    try {
+      const u = new URL(raw,location.origin);
+      if (!/awin1\.com$/i.test(u.hostname) && !/\.awin1\.com$/i.test(u.hostname)) return raw;
+      const source = slugRef(state.attribution.utm_source || (state.attribution.gclid ? 'google' : 'direct'),16);
+      const campaign = slugRef(state.attribution.utm_campaign || 'organic',22);
+      const term = slugRef(state.attribution.utm_term || '',18);
+      const product = slugRef(p?.id || 'product',24);
+      const ref = ['ag',source,campaign,term,product].filter(Boolean).join('_').slice(0,90);
+      u.searchParams.set('clickref',ref);
+      return u.toString();
+    } catch {
+      return raw;
+    }
+  }
 
   function savings(p) {
     const price = Number(p.price);
@@ -122,7 +161,7 @@
     const old = money(p.oldPrice,p.currency);
     const save = savings(p);
     const img = urlOk(p.image) ? p.image : '/favicon.svg';
-    const outbound = urlOk(p.url) ? p.url : '#';
+    const outbound = urlOk(p.url) ? attributedUrl(p.url,p) : '#';
     const internal = norm(p.internalUrl);
     const guideBadge = internal ? '<span class="pf-guide">AuraGlobal Guide</span>' : '';
     const source = internal
@@ -170,7 +209,11 @@
           source: a.dataset.source || 'product_finder',
           product_id: a.dataset.affiliateProduct,
           merchant: a.dataset.affiliateMerchant,
-          query: state.query
+          query: state.query,
+          utm_source: state.attribution.utm_source,
+          utm_campaign: state.attribution.utm_campaign,
+          utm_term: state.attribution.utm_term,
+          gclid: state.attribution.gclid
         });
       });
     });
@@ -488,6 +531,7 @@
 
   async function init() {
     readInitialState();
+    captureAttribution();
     bind();
 
     try {
