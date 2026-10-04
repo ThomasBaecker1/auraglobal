@@ -75,6 +75,44 @@
     .pf-world:nth-child(1){grid-column:span 5;grid-row:span 2}.pf-world:nth-child(2){grid-column:span 3}.pf-world:nth-child(3){grid-column:span 4}
     .pf-world:nth-child(4){grid-column:span 3}.pf-world:nth-child(5){grid-column:span 4}.pf-world:nth-child(6){grid-column:span 7}
     .pf-world:nth-child(2) img,.pf-world:nth-child(5) img{object-fit:contain;background:#edf1f4;padding:8px}
+    .pf-life{padding:28px 0 70px}
+    .pf-life-head{display:grid;grid-template-columns:1.05fr .95fr;gap:24px;align-items:end;margin-bottom:18px}
+    .pf-life-head h2{font-size:clamp(38px,5.3vw,68px);line-height:.94;letter-spacing:-.055em;margin:8px 0 0;max-width:10ch}
+    .pf-life-head p{margin:0;color:#aeb9c7;font-size:15px;line-height:1.62;max-width:610px}
+    .pf-life-grid{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:230px;gap:12px}
+    .pf-life-card{position:relative;overflow:hidden;border-radius:28px;text-decoration:none;border:1px solid rgba(255,255,255,.12);isolation:isolate;box-shadow:0 28px 80px rgba(0,0,0,.22)}
+    .pf-life-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .55s ease,filter .55s ease}
+    .pf-life-card:hover img{transform:scale(1.04);filter:saturate(1.08)}
+    .pf-life-card:before{content:"";position:absolute;z-index:1;inset:0;background:linear-gradient(180deg,rgba(4,6,10,.04) 24%,rgba(4,6,10,.88) 100%)}
+    .pf-life-card:after{content:"";position:absolute;z-index:2;left:18px;top:18px;width:46px;height:4px;border-radius:999px;background:var(--life-accent,#c9ffe4);box-shadow:0 0 30px var(--life-accent,#c9ffe4)}
+    .pf-life-card:nth-child(1){grid-column:span 7;grid-row:span 2;--life-accent:#9effd2}
+    .pf-life-card:nth-child(2){grid-column:span 5;--life-accent:#ff9bb5}
+    .pf-life-card:nth-child(3){grid-column:span 5;--life-accent:#ffd36e}
+    .pf-life-card:nth-child(4){grid-column:span 12;--life-accent:#8da7ff}
+    .pf-life-copy{position:absolute;z-index:3;left:22px;right:22px;bottom:20px}
+    .pf-life-copy small{display:block;color:var(--life-accent,#c9ffe4);font-size:10px;font-weight:950;letter-spacing:.14em;text-transform:uppercase}
+    .pf-life-copy b{display:block;color:#fff;font-size:clamp(23px,2.8vw,38px);line-height:1.02;letter-spacing:-.03em;margin-top:7px;max-width:13ch}
+    .pf-life-copy span{display:block;color:#eef3f8;font-size:12px;line-height:1.45;margin-top:8px;max-width:52ch}
+    .pf-life-card:nth-child(4) .pf-life-copy{max-width:760px}
+    .pf-modes{padding:8px 0 62px}
+    .pf-mode-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .pf-mode{min-height:190px;padding:24px;border-radius:24px;text-decoration:none;display:flex;flex-direction:column;justify-content:space-between;transition:transform .2s ease}
+    .pf-mode:hover{transform:translateY(-3px)}
+    .pf-mode:nth-child(1){background:#c9ffe4;color:#082217}
+    .pf-mode:nth-child(2){background:#ffd1dd;color:#32101a}
+    .pf-mode:nth-child(3){background:#cfd8ff;color:#111a3d}
+    .pf-mode small{font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:950;opacity:.72}
+    .pf-mode b{display:block;font-size:27px;line-height:1.02;letter-spacing:-.035em;margin:12px 0 8px;max-width:10ch}
+    .pf-mode span{font-size:12px;line-height:1.45;max-width:30ch}
+    .pf-mode strong{display:block;margin-top:22px;font-size:12px}
+    .pf-video-duo{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .pf-video-card{display:grid;grid-template-rows:minmax(300px,1fr) auto;border:1px solid rgba(255,255,255,.1);border-radius:28px;overflow:hidden;background:#0b1119}
+    .pf-video-card .pf-video{min-height:340px;border:0;border-radius:0}
+    .pf-video-meta{padding:20px 22px 22px}
+    .pf-video-meta small{color:#9effd2;font-size:9px;letter-spacing:.13em;text-transform:uppercase;font-weight:950}
+    .pf-video-meta b{display:block;font-size:22px;line-height:1.05;margin:7px 0 6px}
+    .pf-video-meta span{display:block;color:#aeb9c7;font-size:12px;line-height:1.5}
+    .pf-video-meta a{display:inline-flex;margin-top:14px;min-height:38px;align-items:center;padding:0 12px;border-radius:10px;background:rgba(255,255,255,.07);text-decoration:none;font-size:11px;font-weight:900}
     .pf-catalog{padding:52px 0 72px}
     .pf-catalog-head{display:flex;justify-content:space-between;align-items:end;gap:18px;margin-bottom:18px}
     .pf-catalog-head h2{font-size:clamp(34px,4vw,52px);line-height:1;letter-spacing:-.045em;margin:7px 0 0}
@@ -109,7 +147,13 @@
     .pf-cinema{padding:20px 0 72px}
     .pf-cinema-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:14px;align-items:stretch}
     .pf-video{position:relative;overflow:hidden;border-radius:28px;border:1px solid rgba(255,255,255,.11);background:#0b1018;min-height:430px}
-    .pf-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}\n    .pf-video-poster{position:absolute;inset:0;width:100%;height:100%;border:0;padding:0;background:#0b1018;color:#fff;cursor:pointer;text-align:left;overflow:hidden}\n    .pf-video-poster img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.9) contrast(1.02)}\n    .pf-video-poster:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(3,6,10,.08),rgba(3,6,10,.82))}\n    .pf-video-play{position:absolute;z-index:2;left:24px;right:24px;bottom:22px;display:flex;align-items:center;gap:13px}\n    .pf-video-play i{display:grid;place-items:center;width:50px;height:50px;border-radius:999px;background:#c9ffe4;color:#062116;font-style:normal;font-size:18px;box-shadow:0 12px 35px rgba(0,0,0,.3)}\n    .pf-video-play b{display:block;font-size:16px}.pf-video-play small{display:block;color:#bac5d2;font-size:10px;margin-top:3px}
+    .pf-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+    .pf-video-poster{position:absolute;inset:0;width:100%;height:100%;border:0;padding:0;background:#0b1018;color:#fff;cursor:pointer;text-align:left;overflow:hidden}
+    .pf-video-poster img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.9) contrast(1.02)}
+    .pf-video-poster:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(3,6,10,.08),rgba(3,6,10,.82))}
+    .pf-video-play{position:absolute;z-index:2;left:24px;right:24px;bottom:22px;display:flex;align-items:center;gap:13px}
+    .pf-video-play i{display:grid;place-items:center;width:50px;height:50px;border-radius:999px;background:#c9ffe4;color:#062116;font-style:normal;font-size:18px;box-shadow:0 12px 35px rgba(0,0,0,.3)}
+    .pf-video-play b{display:block;font-size:16px}.pf-video-play small{display:block;color:#bac5d2;font-size:10px;margin-top:3px}
     .pf-cinema-copy{display:flex;flex-direction:column;justify-content:center;padding:34px;border:1px solid rgba(255,255,255,.10);border-radius:28px;background:
       radial-gradient(circle at 85% 5%,rgba(93,240,180,.13),transparent 18rem),#0b1119}
     .pf-cinema-copy h2{font-size:clamp(34px,4vw,55px);line-height:.96;letter-spacing:-.05em;margin:10px 0 15px}
@@ -130,6 +174,8 @@
       .pf-grid{grid-template-columns:repeat(3,1fr)}.pf-controls{grid-template-columns:1fr 1fr}
       .pf-trust-row{grid-template-columns:1fr 1fr}.pf-world:nth-child(n){grid-column:span 6;grid-row:span 1}.pf-world:first-child{grid-row:span 2}
       .pf-cinema-grid{grid-template-columns:1fr}.pf-video{min-height:520px}
+      .pf-life-head{grid-template-columns:1fr}.pf-life-card:nth-child(n){grid-column:span 6;grid-row:span 1}.pf-life-card:nth-child(1){grid-row:span 2}.pf-life-card:nth-child(4){grid-column:span 12}
+      .pf-video-duo{grid-template-columns:1fr}.pf-mode-grid{grid-template-columns:1fr 1fr 1fr}
     }
     @media(max-width:760px){
       .pf-shell{width:min(100% - 24px,1240px)}.pf-hero{padding:44px 0 24px}.pf-hero h1{font-size:52px}.pf-hero p{font-size:15px}
@@ -139,6 +185,8 @@
       .pf-controls{position:static;grid-template-columns:1fr;padding:9px}.pf-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
       .pf-status{align-items:flex-start;flex-direction:column}.pf-cinema-copy{padding:24px}.pf-video{min-height:390px}.pf-why-grid{grid-template-columns:1fr}
       .pf-bottom-cta{align-items:flex-start;flex-direction:column}
+      .pf-life-grid{grid-auto-rows:210px}.pf-life-card:nth-child(n){grid-column:span 6}.pf-life-card:nth-child(1),.pf-life-card:nth-child(4){grid-column:span 12}.pf-life-card:nth-child(1){grid-row:span 2}
+      .pf-mode-grid{grid-template-columns:1fr}.pf-mode{min-height:160px}
     }
     @media(max-width:520px){
       .pf-hero h1{font-size:46px}.pf-hero-search{grid-template-columns:1fr}.pf-hero-search button{width:100%}
@@ -146,6 +194,7 @@
       .pf-floating{display:none}.pf-trust-row{grid-template-columns:1fr}.pf-worlds{display:grid;grid-template-columns:1fr;grid-auto-rows:210px}.pf-world:nth-child(n){grid-column:auto;grid-row:auto}
       .pf-grid{grid-template-columns:1fr}.pf-card h2{font-size:22px}.pf-card p{font-size:14px;min-height:0}.pf-topline{font-size:10px}
       .pf-buy,.pf-detail{font-size:13px}.pf-note{font-size:10px}.pf-image{aspect-ratio:1.35/1}.pf-video{min-height:230px}
+      .pf-life-grid{display:grid;grid-template-columns:1fr;grid-auto-rows:250px}.pf-life-card:nth-child(n){grid-column:auto;grid-row:auto}.pf-life-head h2{font-size:42px}.pf-life-copy b{font-size:26px}
     }
     @media(prefers-reduced-motion:reduce){.pf-visual img,.pf-world img,.pf-card,.pf-image img,.pf-buy{transition:none!important}}
   </style>
@@ -172,9 +221,9 @@
       <div class="pf-proof"><div><strong>28</strong><span>Partnerwelten live</span></div><div><strong>1 Suche</strong><span>statt Shop-Hopping</span></div><div><strong>Awin</strong><span>Partnerlinks transparent</span></div></div>
     </div>
     <div class="pf-stage" aria-label="AuraGlobal Shoppingwelten">
-      <a class="pf-visual pf-v1" href="/e-bikes.html"><img src="https://www.tenways.com/cdn/shop/files/willow_mist-1_1500x.webp?v=1775096126" alt="TENWAYS City E-Bike" fetchpriority="high"><span class="pf-visual-copy"><small>Mobilität</small><b>Stadt neu fahren.</b></span></a>
-      <a class="pf-visual pf-v2" href="/house-of-sneakers.html"><img src="https://house-of-sneakers.de/cdn/shop/files/1169692_00_png.png?crop=center&amp;height=630&amp;v=1786199883&amp;width=1200" alt="Air Jordan Sneaker"><span class="pf-visual-copy"><small>Style</small><b>Der Look, der sitzt.</b></span></a>
-      <a class="pf-visual pf-v3" href="/kaffee.html"><img src="https://de.outin.com/cdn/shop/files/0901_nano_3__1.webp?v=1756794363&amp;width=1600" alt="OutIn portable Espressomaschine"><span class="pf-visual-copy"><small>Kaffee unterwegs</small><b>Espresso. Überall.</b></span></a>
+      <a class="pf-visual pf-v1" href="/e-bikes.html"><img src="https://images.pexels.com/photos/7242978/pexels-photo-7242978.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1600" alt="Radfahrerin genießt ihre Fahrt durch die Stadt" fetchpriority="high"><span class="pf-visual-copy"><small>Freiheit · Alltag · Bewegung</small><b>Mehr Stadt. Weniger Stress.</b></span></a>
+      <a class="pf-visual pf-v2" href="/momox-fashion.html"><img src="https://images.pexels.com/photos/4005033/pexels-photo-4005033.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1000" alt="Frau freut sich beim Shopping"><span class="pf-visual-copy"><small>Style · Freude</small><b>Dieses „genau mein Ding“.</b></span></a>
+      <a class="pf-visual pf-v3" href="/kaffee.html"><img src="https://images.pexels.com/photos/1549181/pexels-photo-1549181.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1000" alt="Mensch genießt Kaffee unterwegs"><span class="pf-visual-copy"><small>Genuss · Freiheit</small><b>Kaffee, wo dein Tag passiert.</b></span></a>
       <div class="pf-floating"><b>Mehr Kontext. Weniger Scrollen.</b><span>Vergleiche, Kaufkriterien & direkte Angebote</span></div>
     </div>
   </div>
@@ -199,6 +248,24 @@
   </div>
 </div></section>
 
+<section class="pf-life" id="momente"><div class="pf-shell">
+  <div class="pf-life-head"><div><div class="pf-kicker">DER MOMENT DANACH</div><h2>Kauf nicht nur ein Produkt. Kauf, was es verändert.</h2></div><p>Die stärkste Kaufentscheidung beginnt selten bei einer Datenzeile. Sie beginnt bei der Frage: <strong>Wie soll sich mein Alltag danach anfühlen?</strong> Genau deshalb zeigt AuraGlobal nicht nur Produkte, sondern Situationen, Wünsche und den Nutzen dahinter.</p></div>
+  <div class="pf-life-grid">
+    <a class="pf-life-card" href="/e-bikes.html"><img loading="lazy" decoding="async" src="https://images.pexels.com/photos/7242978/pexels-photo-7242978.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1800" alt="Radfahrerin unterwegs in der Stadt"><span class="pf-life-copy"><small>FREIHEIT IM ALLTAG</small><b>Stau aus. Kopf an.</b><span>Wenn der Arbeitsweg plötzlich der Teil des Tages wird, auf den du dich freust. E-Bikes nach Gewicht, Reichweite und Komfort einordnen →</span></span></a>
+    <a class="pf-life-card" href="/momox-fashion.html"><img loading="lazy" decoding="async" src="https://images.pexels.com/photos/4005033/pexels-photo-4005033.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200" alt="Frau freut sich über einen Einkauf"><span class="pf-life-copy"><small>STYLE & BELOHNUNG</small><b>Mehr „das bin ich“.</b><span>Mode entdecken, die nicht nach endlosem Scrollen aussieht →</span></span></a>
+    <a class="pf-life-card" href="/petlibro.html"><img loading="lazy" decoding="async" src="https://images.pexels.com/photos/6001460/pexels-photo-6001460.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200" alt="Mann verbringt Zeit mit seiner Katze"><span class="pf-life-copy"><small>NÄHE & RUHE</small><b>Weniger organisieren. Mehr zusammen sein.</b><span>Smart-Pet-Produkte nach echtem Alltag statt Feature-Liste vergleichen →</span></span></a>
+    <a class="pf-life-card" href="/kaffee.html"><img loading="lazy" decoding="async" src="https://images.pexels.com/photos/1549181/pexels-photo-1549181.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1800" alt="Kaffee-Moment unterwegs"><span class="pf-life-copy"><small>GENUSS OHNE ORT</small><b>Der gute Kaffee soll nicht zuhause bleiben.</b><span>Portable Espresso-Lösungen und Kaffee-Welten für Reisen, Büro, Camping und Alltag entdecken →</span></span></a>
+  </div>
+</div></section>
+
+<section class="pf-modes"><div class="pf-shell">
+  <div class="pf-mode-grid">
+    <a class="pf-mode" href="#katalog"><div><small>ICH WEISS SCHON, WAS ICH WILL</small><b>Schnell zum Produkt.</b><span>Suche, filtern, Modelle finden — ohne Umwege.</span></div><strong>Produktfinder öffnen →</strong></a>
+    <a class="pf-mode" href="#momente"><div><small>ICH WILL MICH INSPIRIEREN LASSEN</small><b>Zeig mir, was zu mir passt.</b><span>Über Alltag, Gefühl und Nutzen in die richtige Produktwelt finden.</span></div><strong>Momente entdecken →</strong></a>
+    <a class="pf-mode" href="/marken.html"><div><small>ICH WILL ES VERSTEHEN</small><b>Erst vergleichen. Dann kaufen.</b><span>Eigene AuraGlobal-Guides helfen bei den Unterschieden, die wirklich zählen.</span></div><strong>Vergleiche öffnen →</strong></a>
+  </div>
+</div></section>
+
 <section class="pf-catalog" id="katalog"><div class="pf-shell">
   <div class="pf-catalog-head"><div><div class="pf-kicker">PRODUKTFINDER</div><h2>Jetzt finden. Dann entscheiden.</h2></div><p>Suche konkret oder stöbere. Mit dem Awin-Feed wächst dieser Bereich später automatisch mit unseren freigeschalteten Partnern und ihren Produkten.</p></div>
 
@@ -220,13 +287,17 @@
   <button class="pf-more" type="button" data-product-more hidden>Mehr Produkte anzeigen</button>
 </div></section>
 
-<section class="pf-cinema"><div class="pf-shell pf-cinema-grid">
-  <div class="pf-video"><button class="pf-video-poster" type="button" data-video-load="3Ye1pCWN3XQ" aria-label="Offiziellen TENWAYS CGO600 Trailer abspielen"><img loading="lazy" src="https://www.tenways.com/cdn/shop/files/Greygreen-1_1500x.webp?v=1758781276" alt="TENWAYS CGO600 City E-Bike"><span class="pf-video-play"><i>▶</i><span><b>Offiziellen Trailer abspielen</b><small>TENWAYS · Video wird erst nach deinem Klick geladen</small></span></span></button></div>
-  <div class="pf-cinema-copy">
-    <div class="pf-kicker">SHOPPING IN BEWEGUNG</div>
-    <h2>Manche Produkte musst du sehen, nicht nur lesen.</h2>
-    <p>Darum soll AuraGlobal nicht bei Tabellen enden. In starken Produktwelten verbinden wir Bilder, Videos, echte Unterschiede und klare Kaufprofile — damit aus „interessant“ schneller „passt zu mir“ oder eben „passt nicht“ wird.</p>
-    <div class="pf-cinema-actions"><a href="/tenways.html">TENWAYS vergleichen →</a><a href="/e-bikes.html">Alle E-Bikes ansehen</a></div>
+<section class="pf-cinema"><div class="pf-shell">
+  <div class="pf-section-head"><div><div class="pf-kicker">SHOPPING IN BEWEGUNG</div><h2>Sehen, wie es sich anfühlt.</h2></div><p>Produkte werden verständlicher, wenn du sie in Aktion siehst. Deshalb integrieren wir echte Marken-Videos dort, wo Bewegung, Anwendung und Gefühl mehr sagen als eine weitere Datenzeile.</p></div>
+  <div class="pf-video-duo">
+    <article class="pf-video-card">
+      <div class="pf-video"><button class="pf-video-poster" type="button" data-video-load="3Ye1pCWN3XQ" aria-label="Offiziellen TENWAYS CGO600 Trailer abspielen"><img loading="lazy" src="https://images.pexels.com/photos/7242978/pexels-photo-7242978.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1400" alt="Radfahrerin unterwegs"><span class="pf-video-play"><i>▶</i><span><b>TENWAYS in Bewegung</b><small>Offizieller CGO600 Trailer · erst nach Klick geladen</small></span></span></button></div>
+      <div class="pf-video-meta"><small>MOBILITÄT · TENWAYS</small><b>Wie fühlt sich leichtes Pendeln an?</b><span>Erst erleben, dann Gewicht, Reichweite und Komfort gegeneinander abwägen.</span><a href="/tenways.html">Modelle vergleichen →</a></div>
+    </article>
+    <article class="pf-video-card">
+      <div class="pf-video"><button class="pf-video-poster" type="button" data-video-load="3MBubfxQH2M" aria-label="Offizielles OutIn Nano Anwendungsvideo abspielen"><img loading="lazy" src="https://images.pexels.com/photos/1549181/pexels-photo-1549181.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1400" alt="Kaffee unterwegs"><span class="pf-video-play"><i>▶</i><span><b>Espresso unterwegs</b><small>OutIn Official · Anwendungsvideo · erst nach Klick geladen</small></span></span></button></div>
+      <div class="pf-video-meta"><small>GENUSS · OUTIN</small><b>Was heißt „portabel“ im echten Alltag?</b><span>Sehen, wie das Gerät benutzt wird — und danach Nano, Mino und Einsatzbereiche einordnen.</span><a href="/outin.html">OutIn vergleichen →</a></div>
+    </article>
   </div>
 </div></section>
 
