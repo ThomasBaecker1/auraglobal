@@ -24,7 +24,12 @@
     meta: $('[data-feed-meta]'),
     empty: $('[data-product-empty]'),
     more: $('[data-product-more]'),
-    catalog: $('#katalog')
+    catalog: $('#katalog'),
+    assistant: $('#frag-auraglobal'),
+    assistantForm: $('[data-assistant-form]'),
+    assistantInput: $('[data-assistant-input]'),
+    assistantOutput: $('[data-assistant-output]'),
+    assistantVoice: $('[data-assistant-voice]')
   };
 
   const norm = (v) => String(v ?? '').trim();
@@ -99,9 +104,11 @@
       rows.sort((a,b) => {
         const aGuide = norm(a.internalUrl) ? 1 : 0;
         const bGuide = norm(b.internalUrl) ? 1 : 0;
+        const aImage = urlOk(a.image) ? 1 : 0;
+        const bImage = urlOk(b.image) ? 1 : 0;
         const aPrice = Number(a.price) > 0 ? 1 : 0;
         const bPrice = Number(b.price) > 0 ? 1 : 0;
-        return bGuide - aGuide || bPrice - aPrice || norm(a.name).localeCompare(norm(b.name),'de');
+        return bGuide - aGuide || bImage - aImage || bPrice - aPrice || norm(a.name).localeCompare(norm(b.name),'de');
       });
     }
 
@@ -149,30 +156,37 @@
     }
     if (els.empty) els.empty.hidden = state.filtered.length !== 0;
     if (els.more) els.more.hidden = state.visible >= state.filtered.length;
+    bindResultTracking();
+  }
 
+  function bindResultTracking() {
     document.querySelectorAll('[data-affiliate-product]').forEach((a) => {
+      if (a.dataset.trackingBound) return;
+      a.dataset.trackingBound = '1';
       a.addEventListener('click', () => {
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({
           event: 'affiliate_click',
-          source: 'product_finder',
+          source: a.dataset.source || 'product_finder',
           product_id: a.dataset.affiliateProduct,
           merchant: a.dataset.affiliateMerchant,
           query: state.query
         });
-      }, {once:true});
+      });
     });
 
     document.querySelectorAll('[data-guide-product]').forEach((a) => {
+      if (a.dataset.trackingBound) return;
+      a.dataset.trackingBound = '1';
       a.addEventListener('click', () => {
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({
           event: 'internal_comparison_click',
-          source: 'product_finder',
+          source: a.dataset.source || 'product_finder',
           product_id: a.dataset.guideProduct,
           query: state.query
         });
-      }, {once:true});
+      });
     });
   }
 
@@ -190,17 +204,235 @@
     if (scroll && els.catalog) els.catalog.scrollIntoView({behavior:'smooth',block:'start'});
   }
 
+  const STOPWORDS = new Set([
+    'ich','will','mochte','möchte','brauche','suche','such','mir','mich','fur','für','ein','eine','einen','einer',
+    'der','die','das','den','dem','des','mit','und','oder','aber','auch','was','welches','welcher','welche','bitte',
+    'gib','zeig','finde','finden','am','im','in','auf','zum','zur','von','bei','es','ist','soll','sollte','sein',
+    'moglichst','möglichst','gutes','gute','guten','produkt','produkte'
+  ]);
+
+  const INTENT_SYNONYMS = [
+    {re:/\b(e[- ]?bike|ebike|fahrrad|rad)\b/i, terms:['e-bike','ebike','bike','fahrrad','tenways','urwahn','dotblue']},
+    {re:/\b(sneaker|schuh|schuhe|jordan|adidas|nike)\b/i, terms:['sneaker','schuh','jordan','adidas','nike','house-of-sneakers']},
+    {re:/\b(kaffee|espresso|kaffeemaschine|coffee)\b/i, terms:['kaffee','espresso','coffee','outin','nespresso']},
+    {re:/\b(powerstation|solar|camping|strom)\b/i, terms:['powerstation','solar','allpowers','camping','energie']},
+    {re:/\b(katze|kater|hund|haustier|futterautomat|trinkbrunnen|pet)\b/i, terms:['pet','katze','hund','petlibro','futter','brunnen']},
+    {re:/\b(schmuck|ring|kette|armband|jewelry)\b/i, terms:['schmuck','ring','kette','armband','jewelry','ophelia']},
+    {re:/\b(schreibtisch|homeoffice|buro|büro|desk)\b/i, terms:['schreibtisch','desk','desktronic','office','buro']},
+    {re:/\b(rasen|garten|gartengerat|gartengerät|maher|mäher)\b/i, terms:['rasen','garten','rasendoktor','maher','mäher']},
+    {re:/\b(porzellan|geschirr|teller|tasse)\b/i, terms:['porzellan','geschirr','teller','tasse','porzellantreff']},
+    {re:/\b(fashion|mode|kleidung|jacke|hose|shirt)\b/i, terms:['fashion','mode','kleidung','momox']}
+  ];
+
+  function parseAmount(raw) {
+    if (!raw) return null;
+    const cleaned = raw.replace(/\s/g,'').replace(/\.(?=\d{3}(?:\D|$))/g,'').replace(',','.');
+    const n = Number(cleaned);
+    return Number.isFinite(n) && n > 0 ? n : null;
+  }
+
+  function parseIntent(query) {
+    const q = fold(query);
+    const upperMatch = q.match(/(?:unter|bis|max(?:imal)?|hochstens|höchstens|nicht mehr als)\s*(\d[\d.\s]*(?:,\d+)?)/i);
+    const lowerMatch = q.match(/(?:ab|mindestens|min\.?)[\s:]*(\d[\d.\s]*(?:,\d+)?)/i);
+    const maxPrice = upperMatch ? parseAmount(upperMatch[1]) : null;
+    const minPrice = lowerMatch ? parseAmount(lowerMatch[1]) : null;
+    const cheap = /\b(gunstig|günstig|billig|preis[- ]?leistung|sparsam|budget)\b/i.test(q);
+    const premium = /\b(premium|luxus|hochwertig|beste|bestes|besten)\b/i.test(q);
+
+    const rawTokens = q.split(/[^a-z0-9äöüß-]+/i)
+      .map(t=>t.trim())
+      .filter(t=>t.length > 1 && !STOPWORDS.has(t) && !/^\d+$/.test(t));
+
+    const terms = new Set(rawTokens);
+    for (const group of INTENT_SYNONYMS) {
+      if (group.re.test(q)) group.terms.forEach(t=>terms.add(fold(t)));
+    }
+
+    return {query:norm(query), q, maxPrice, minPrice, cheap, premium, terms:[...terms]};
+  }
+
+  function productScore(p,intent) {
+    const name = fold(p.name);
+    const brand = fold(p.brand);
+    const merchant = fold(p.merchant);
+    const category = fold(p.category);
+    const desc = fold(p.description);
+    const whole = [name,brand,merchant,category,desc].join(' ');
+    let score = 0;
+    let matched = 0;
+
+    for (const term of intent.terms) {
+      if (!term) continue;
+      let hit = false;
+      if (name.includes(term)) { score += 8; hit = true; }
+      if (category.includes(term)) { score += 6; hit = true; }
+      if (brand.includes(term) || merchant.includes(term)) { score += 5; hit = true; }
+      if (!hit && desc.includes(term)) { score += 2; hit = true; }
+      if (hit) matched++;
+    }
+
+    const price = Number(p.price);
+    const hasPrice = Number.isFinite(price) && price > 0;
+
+    if (intent.maxPrice) {
+      if (hasPrice && price <= intent.maxPrice) score += 8;
+      else if (hasPrice && price > intent.maxPrice) score -= 20;
+      else score -= 2;
+    }
+    if (intent.minPrice) {
+      if (hasPrice && price >= intent.minPrice) score += 3;
+      else if (hasPrice && price < intent.minPrice) score -= 5;
+    }
+    if (intent.cheap && hasPrice) score += Math.max(0, 5 - Math.log10(price + 1));
+    if (intent.premium && norm(p.internalUrl)) score += 2;
+
+    if (urlOk(p.image)) score += 1.5;
+    if (hasPrice) score += 1.5;
+    if (norm(p.internalUrl)) score += 2.5;
+    if (p.inStock === false) score -= 100;
+
+    return {score,matched,whole};
+  }
+
+  function recommendationReason(p,intent,rank) {
+    const reasons = [];
+    const price = Number(p.price);
+    if (intent.maxPrice && Number.isFinite(price) && price > 0 && price <= intent.maxPrice) {
+      reasons.push('liegt innerhalb deines Budgets');
+    }
+    if (intent.cheap && Number.isFinite(price) && price > 0) reasons.push('hat einen konkreten Preis im Feed');
+    if (norm(p.internalUrl)) reasons.push('hat bereits einen AuraGlobal-Vergleich');
+    if (urlOk(p.image)) reasons.push('liefert vollständige Produktdaten');
+    if (!reasons.length) reasons.push('passt sprachlich am stärksten zu deiner Anfrage');
+    const lead = rank === 0 ? 'Stärkster Match' : rank === 1 ? 'Alternative' : 'Weitere passende Option';
+    return lead+': '+reasons.slice(0,2).join(' und ')+'.';
+  }
+
+  function assistantCard(p,intent,index) {
+    const price = money(p.price,p.currency);
+    const img = urlOk(p.image) ? p.image : '/favicon.svg';
+    const outbound = urlOk(p.url) ? p.url : '#';
+    const internal = norm(p.internalUrl);
+    return '<article class="ag-rec">'+
+      '<div class="ag-rec-rank">0'+(index+1)+'</div>'+
+      '<div class="ag-rec-img"><img loading="lazy" decoding="async" src="'+esc(img)+'" alt="'+esc(p.name)+'"></div>'+
+      '<div class="ag-rec-copy"><small>'+esc(p.merchant)+' · '+esc(p.category || 'Produkt')+'</small>'+
+      '<h3>'+esc(p.name)+'</h3>'+
+      '<p>'+esc(recommendationReason(p,intent,index))+'</p>'+
+      '<div class="ag-rec-bottom">'+
+      '<strong>'+(price ? esc(price) : 'Preis beim Anbieter')+'</strong>'+
+      '<div class="ag-rec-actions">'+
+      (internal?'<a href="'+esc(internal)+'" data-guide-product="'+esc(p.id)+'" data-source="ask_auraglobal">Vergleich →</a>':'')+
+      '<a class="ag-rec-buy" href="'+esc(outbound)+'" target="_blank" rel="sponsored noopener" data-affiliate-product="'+esc(p.id)+'" data-affiliate-merchant="'+esc(p.merchant)+'" data-source="ask_auraglobal">Angebot ↗</a>'+
+      '</div></div></div></article>';
+  }
+
+  function askAuraGlobal(query,{scroll=true}={}) {
+    if (!els.assistantOutput) return;
+    const intent = parseIntent(query);
+    if (!intent.query) return;
+
+    if (els.assistantInput) els.assistantInput.value = intent.query;
+    if (els.heroQuery) els.heroQuery.value = intent.query;
+
+    const ranked = state.products
+      .map(p=>({p,...productScore(p,intent)}))
+      .filter(x=>x.score > 3 && x.matched > 0)
+      .sort((a,b)=>b.score-a.score || (Number(a.p.price)||Number.MAX_SAFE_INTEGER)-(Number(b.p.price)||Number.MAX_SAFE_INTEGER))
+      .slice(0,3);
+
+    const budgetText = intent.maxPrice ? ' · Budget bis '+money(intent.maxPrice,'EUR') : '';
+    if (!ranked.length) {
+      els.assistantOutput.innerHTML =
+        '<div class="ag-answer-head"><span>AuraGlobal Beta</span><h3>Dafür habe ich im aktuellen Katalog noch keinen starken Treffer.</h3>'+
+        '<p>Das ist genau die Art Anfrage, die AuraGlobal langfristig lösen soll. Aktuell durchsuchen wir 25 Awin-Partnerwelten; weitere Kategorien kommen schrittweise dazu.</p></div>'+
+        '<button class="ag-show-catalog" type="button" data-assistant-catalog>Gesamten Katalog ansehen →</button>';
+    } else {
+      els.assistantOutput.innerHTML =
+        '<div class="ag-answer-head"><span>AuraGlobal Beta'+esc(budgetText)+'</span>'+
+        '<h3>Das sind aktuell die stärksten Matches zu „'+esc(intent.query)+'“.</h3>'+
+        '<p>Die Beta gewichtet Suchbegriffe, Kategorie, Budget, verfügbare Produktdaten und vorhandene AuraGlobal-Guides. Sie ist noch keine vollständige KI-Beratung.</p></div>'+
+        '<div class="ag-rec-grid">'+ranked.map((x,i)=>assistantCard(x.p,intent,i)).join('')+'</div>'+
+        '<button class="ag-show-catalog" type="button" data-assistant-catalog>Alle passenden Produkte im Katalog →</button>';
+    }
+
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event:'ask_auraglobal',
+      query:intent.query,
+      max_price:intent.maxPrice || undefined,
+      result_count:ranked.length
+    });
+
+    const catalogButton = els.assistantOutput.querySelector('[data-assistant-catalog]');
+    catalogButton?.addEventListener('click',()=>{
+      const compact = intent.terms.find(t=>t.length>2) || intent.query;
+      setQuery(compact,{scroll:true});
+    });
+
+    bindResultTracking();
+    if (scroll && els.assistant) els.assistant.scrollIntoView({behavior:'smooth',block:'start'});
+  }
+
+  function setupVoice() {
+    if (!els.assistantVoice) return;
+    const Recognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (!Recognition) {
+      els.assistantVoice.hidden = true;
+      return;
+    }
+
+    const recognition = new Recognition();
+    recognition.lang = 'de-DE';
+    recognition.interimResults = false;
+    recognition.maxAlternatives = 1;
+
+    els.assistantVoice.addEventListener('click',()=>{
+      els.assistantVoice.classList.add('is-listening');
+      els.assistantVoice.setAttribute('aria-label','Ich höre zu');
+      try { recognition.start(); } catch {}
+    });
+
+    recognition.addEventListener('result',(e)=>{
+      const text = e.results?.[0]?.[0]?.transcript || '';
+      if (els.assistantInput) els.assistantInput.value = text;
+      askAuraGlobal(text);
+    });
+    recognition.addEventListener('end',()=>{
+      els.assistantVoice.classList.remove('is-listening');
+      els.assistantVoice.setAttribute('aria-label','Anfrage sprechen');
+    });
+    recognition.addEventListener('error',()=>{
+      els.assistantVoice.classList.remove('is-listening');
+    });
+  }
+
   function bind() {
     els.query?.addEventListener('input', (e) => {
       state.query = e.target.value;
-      if (els.heroQuery) els.heroQuery.value = state.query;
       state.visible = 24;
       apply();
     });
 
     els.heroForm?.addEventListener('submit', (e) => {
       e.preventDefault();
-      setQuery(els.heroQuery?.value || '',{scroll:true});
+      const value = els.heroQuery?.value || '';
+      if (value.split(/\s+/).filter(Boolean).length >= 3) askAuraGlobal(value);
+      else setQuery(value,{scroll:true});
+    });
+
+    els.assistantForm?.addEventListener('submit',(e)=>{
+      e.preventDefault();
+      askAuraGlobal(els.assistantInput?.value || '');
+    });
+
+    document.querySelectorAll('[data-assistant-example]').forEach((button)=>{
+      button.addEventListener('click',()=>{
+        const value = button.dataset.assistantExample || button.textContent;
+        if (els.assistantInput) els.assistantInput.value = value;
+        askAuraGlobal(value);
+      });
     });
 
     document.querySelectorAll('[data-quick-search]').forEach((button) => {
@@ -242,6 +474,8 @@
       state.visible += 24;
       render();
     });
+
+    setupVoice();
   }
 
   function readInitialState() {
@@ -282,13 +516,20 @@
         const d = payload.updatedAt ? new Date(payload.updatedAt) : null;
         const stamp = d && !Number.isNaN(d.valueOf()) ? d.toLocaleString('de-DE',{dateStyle:'medium',timeStyle:'short'}) : 'wird aufgebaut';
         const sourceLabel = payload.source === 'awin-product-feed' ? 'Awin-Feed' : 'Startkatalog';
-        els.meta.textContent = sourceLabel+' · Datenstand '+stamp+' · '+merchants.length+' Shops im Produktfinder';
+        els.meta.textContent = sourceLabel+' · Datenstand '+stamp+' · '+merchants.length+' Shops · '+state.products.length.toLocaleString('de-DE')+' Produkte';
       }
 
       apply({updateUrl:false});
+
+      if (state.query && state.query.split(/\s+/).filter(Boolean).length >= 3) {
+        askAuraGlobal(state.query,{scroll:false});
+      }
     } catch (err) {
       if (els.meta) els.meta.textContent = 'Produktkatalog wird gerade synchronisiert.';
       if (els.empty) els.empty.hidden = false;
+      if (els.assistantOutput) {
+        els.assistantOutput.innerHTML = '<div class="ag-answer-head"><span>AuraGlobal Beta</span><h3>Der Produktkatalog wird gerade synchronisiert.</h3><p>Versuch es gleich noch einmal.</p></div>';
+      }
     }
   }
 
