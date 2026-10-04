@@ -134,7 +134,7 @@ function joined(feed) {
 }
 
 async function fetchText(url) {
-  const res = await fetch(url, {headers:{'user-agent':'AuraGlobal-Feed-Sync/2.0'}});
+  const res = await fetch(url, {headers:{'user-agent':'AuraGlobal-Feed-Sync/2.1'}});
   if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
   const buf = Buffer.from(await res.arrayBuffer());
   const contentType = res.headers.get('content-type') || '';
