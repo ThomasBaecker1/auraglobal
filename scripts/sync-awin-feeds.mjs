@@ -102,6 +102,46 @@ function clean(v, max = 320) {
     .slice(0,max);
 }
 
+function validHttpUrl(v) {
+  try {
+    const u = new URL(String(v || '').trim());
+    return u.protocol === 'https:' || u.protocol === 'http:';
+  } catch {
+    return false;
+  }
+}
+
+function broadCategory({name='',brand='',merchant='',rawCategory=''}) {
+  const text = clean([name,brand,merchant,rawCategory].join(' '),700).toLowerCase();
+  const rules = [
+    [/e-?bike|fahrrad|bike|cycling|urwahn|tenways|dotblue/, 'E-Bikes & Mobilität'],
+    [/sneaker|schuh|shoe|jordan|adidas|nike|fashion|kleidung|bekleidung|apparel|momox/, 'Fashion & Sneaker'],
+    [/kaffee|coffee|espresso|nespresso|outin/, 'Kaffee & Genuss'],
+    [/powerstation|solar|strom|energie|allpowers/, 'Energie & Outdoor'],
+    [/katze|hund|pet|haustier|futter|feeder|brunnen|petlibro/, 'Smart Pet'],
+    [/schmuck|jewelry|ring|kette|armband|ophelia/, 'Schmuck'],
+    [/schreibtisch|desk|office|büro|buro|desktronic/, 'Home Office'],
+    [/rasen|garten|mäher|maher|rasendoktor/, 'Garten'],
+    [/porzellan|geschirr|teller|tasse|porzellantreff/, 'Haushalt & Wohnen'],
+    [/rameder|anhanger|anhänger|kupplung|automotive/, 'Auto & Zubehör'],
+    [/shifter|simracing|gaming|cockpit/, 'Gaming'],
+    [/mediakos|beauty|kosmetik|pflege/, 'Beauty & Pflege'],
+    [/delst|kurs|weiterbildung|education|lernen/, 'Lernen & Weiterbildung']
+  ];
+  for (const [pattern,label] of rules) if (pattern.test(text)) return label;
+  return clean(rawCategory,80) || 'Weitere Produkte';
+}
+
+function qualityScore(product) {
+  let score = 0;
+  if (validHttpUrl(product.image)) score += 3;
+  if (Number(product.price) > 0) score += 3;
+  if (clean(product.description).length >= 40) score += 2;
+  if (clean(product.brand)) score += 1;
+  if (clean(product.internalUrl)) score += 2;
+  return score;
+}
+
 function slug(v) {
   return clean(v,120).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'')
     .replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,80) || 'produkt';
@@ -310,6 +350,7 @@ for (const feed of selected) {
 
       const productId = pick(row,['aw_product_id','merchant_product_id','product_id','id']);
       const name = clean(pick(row,['product_name','title','name']),180);
+      if (name.length < 3 || /^(test|unknown|n\/a|produkt)$/i.test(name)) continue;
       const awDeep = pick(row,['aw_deep_link','tracking_url']);
       const merchantDeep = pick(row,['merchant_deep_link','deep_link','link']);
       const deep = awDeep || merchantDeep;
@@ -327,10 +368,14 @@ for (const feed of selected) {
       const price = salePrice || regularPrice;
       const oldPrice = regularPrice && price && regularPrice > price ? regularPrice : null;
       const merchant = clean(pick(row,['merchant_name','advertiser_name']) || advertiserName,100);
-      const category = clean(pick(row,['category_name','merchant_category','product_type','google_product_category']) || 'Weitere Produkte',100);
-      const image = pick(row,['large_image','merchant_image_url','aw_image_url','image_link','image']);
+      const rawCategory = clean(pick(row,['category_name','merchant_category','product_type','google_product_category']),160);
+      const imageRaw = pick(row,['large_image','merchant_image_url','aw_image_url','image_link','image']);
+      const image = validHttpUrl(imageRaw) ? imageRaw : '';
       const brand = clean(pick(row,['brand_name','brand']) || merchant,100);
-      const desc = clean(pick(row,['product_short_description','description']),280);
+      let desc = clean(pick(row,['product_short_description','description']),280);
+      if (desc && clean(desc).toLowerCase() === name.toLowerCase()) desc = '';
+      const category = broadCategory({name,brand,merchant,rawCategory});
+      const keywords = clean([rawCategory,brand,merchant].filter(Boolean).join(' · '),240);
       const currency = clean(pick(row,['currency']) || 'EUR',8);
       const url = trackingUrl(deep, advertiserId, productId || name);
       if (!url) continue;
@@ -342,7 +387,9 @@ for (const feed of selected) {
         brand,
         name,
         category,
+        categoryRaw: rawCategory,
         description: desc,
+        keywords,
         price,
         oldPrice,
         currency,
@@ -352,6 +399,7 @@ for (const feed of selected) {
         inStock: true,
         lastUpdated: clean(pick(row,['last_updated','updated_at']),40) || new Date().toISOString()
       });
+      products[products.length - 1].qualityScore = qualityScore(products[products.length - 1]);
 
       count++;
     }
