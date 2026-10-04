@@ -2,6 +2,12 @@ name: Sync Awin products
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/sync-awin-products.yml"
+      - "scripts/sync-awin-feeds.mjs"
   schedule:
     - cron: "17 4 * * *"
 
