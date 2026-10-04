@@ -1,14 +1,15 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import { gunzipSync } from 'node:zlib';
+import { createGunzip, gunzipSync } from 'node:zlib';
+import { Readable } from 'node:stream';
+import { StringDecoder } from 'node:string_decoder';
 
 const FEED_LIST_URL = process.env.AWIN_DATAFEED_LIST_URL;
 const API_KEY_INPUT = process.env.AWIN_DATAFEED_API_KEY;
 const API_KEY = API_KEY_INPUT && !/^https?:\/\//i.test(API_KEY_INPUT) ? API_KEY_INPUT : '';
 const PUBLISHER_ID = process.env.AWIN_PUBLISHER_ID || '3076553';
-const MAX_PRODUCTS = Number(process.env.AWIN_MAX_PRODUCTS || 50000);
-const MAX_PER_MERCHANT = Number(process.env.AWIN_MAX_PER_MERCHANT || 3000);
-const MAX_FEED_PRODUCTS = Number(process.env.AWIN_MAX_FEED_PRODUCTS || 100000);
+const MAX_PRODUCTS = Number(process.env.AWIN_MAX_PRODUCTS || 15000);
+const MAX_PER_MERCHANT = Number(process.env.AWIN_MAX_PER_MERCHANT || 500);
 const OUTPUT = path.resolve('data/products.json');
 
 if (!FEED_LIST_URL && !API_KEY_INPUT) {
@@ -16,7 +17,9 @@ if (!FEED_LIST_URL && !API_KEY_INPUT) {
   process.exit(1);
 }
 
-const listUrl = FEED_LIST_URL || (/^https?:\/\//i.test(API_KEY_INPUT || '') ? API_KEY_INPUT : `https://ui.awin.com/productdata-darwin-download/publisher/${encodeURIComponent(PUBLISHER_ID)}/${encodeURIComponent(API_KEY)}/1/feedList`);
+const listUrl = FEED_LIST_URL || (/^https?:\/\//i.test(API_KEY_INPUT || '')
+  ? API_KEY_INPUT
+  : `https://ui.awin.com/productdata-darwin-download/publisher/${encodeURIComponent(PUBLISHER_ID)}/${encodeURIComponent(API_KEY)}/1/feedList`);
 
 const INTERNAL_GUIDES = {
   '24089':'/paper-sons.html',
@@ -87,7 +90,7 @@ function number(v) {
   return Number.isFinite(n) && n >= 0 ? n : null;
 }
 
-function clean(v, max = 360) {
+function clean(v, max = 320) {
   return String(v ?? '')
     .replace(/<[^>]*>/g,' ')
     .replace(/&nbsp;/gi,' ')
@@ -123,18 +126,35 @@ function trackingUrl(raw, merchantId, productId) {
   return 'https://www.awin1.com/cread.php?' + params.toString();
 }
 
-function isGerman(feed) {
-  const lang = pick(feed,['Language','Locale','Primary Region']).toLowerCase();
-  return /german|de_de|de-at|de-ch|\bde\b|germany|austria|switzerland/.test(lang);
-}
-
 function joined(feed) {
   const status = pick(feed,['Membership Status','Membership','Status']).toLowerCase().replace(/\s+/g,' ');
   return status === 'joined' || status === 'active';
 }
 
+function isGerman(feed) {
+  const lang = pick(feed,['Language','Locale','Primary Region']).toLowerCase();
+  return /german|de_de|de-at|de-ch|\bde\b|germany|austria|switzerland/.test(lang);
+}
+
+function feedScore(feed) {
+  let score = 0;
+  if (isGerman(feed)) score += 100;
+  const format = pick(feed,['Datafeed Format','Format']).toLowerCase();
+  if (format === 'awin') score += 25;
+  else if (format === 'google') score += 12;
+
+  const name = pick(feed,['Feed Name','Product Datafeed Name','Product Feed Name']).toLowerCase();
+  if (/deutsch|germany|\bde\b/.test(name)) score += 15;
+  if (/\bat\b|austria/.test(name)) score -= 4;
+  if (/uk|usa|english/.test(name)) score -= 8;
+
+  const count = number(pick(feed,['No of products','Products','Product Count'])) || 0;
+  score += Math.min(Math.log10(count + 1), 6);
+  return score;
+}
+
 async function fetchText(url) {
-  const res = await fetch(url, {headers:{'user-agent':'AuraGlobal-Feed-Sync/2.1'}});
+  const res = await fetch(url, {headers:{'user-agent':'AuraGlobal-Feed-Sync/3.0'}});
   if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
   const buf = Buffer.from(await res.arrayBuffer());
   const contentType = res.headers.get('content-type') || '';
@@ -145,38 +165,125 @@ async function fetchText(url) {
   return buf.toString('utf8');
 }
 
+async function openProductStream(url) {
+  const res = await fetch(url, {headers:{'user-agent':'AuraGlobal-Feed-Sync/3.0'}});
+  if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
+  if (!res.body) throw new Error('Feed response has no body.');
+
+  const contentType = res.headers.get('content-type') || '';
+  const gzip = /gzip/i.test(contentType) || /\.gz(?:$|\?)/i.test(url) || url.includes('/compression/gzip/');
+  const source = Readable.fromWeb(res.body);
+  return gzip ? source.pipe(createGunzip()) : source;
+}
+
+async function* csvRowsFromStream(stream) {
+  const decoder = new StringDecoder('utf8');
+  let row = [];
+  let field = '';
+  let quoted = false;
+  let pendingQuote = false;
+
+  function consume(text) {
+    const completed = [];
+
+    for (let index = 0; index < text.length; index++) {
+      const ch = text[index];
+      let reprocess = true;
+
+      while (reprocess) {
+        reprocess = false;
+
+        if (quoted) {
+          if (pendingQuote) {
+            if (ch === '"') {
+              field += '"';
+              pendingQuote = false;
+            } else {
+              quoted = false;
+              pendingQuote = false;
+              reprocess = true;
+            }
+          } else if (ch === '"') {
+            pendingQuote = true;
+          } else {
+            field += ch;
+          }
+        } else if (ch === '"') {
+          quoted = true;
+        } else if (ch === ',') {
+          row.push(field);
+          field = '';
+        } else if (ch === '\n') {
+          row.push(field.replace(/\r$/, ''));
+          completed.push(row);
+          row = [];
+          field = '';
+        } else {
+          field += ch;
+        }
+      }
+    }
+
+    return completed;
+  }
+
+  try {
+    for await (const chunk of stream) {
+      for (const completed of consume(decoder.write(chunk))) yield completed;
+    }
+    for (const completed of consume(decoder.end())) yield completed;
+
+    if (pendingQuote) {
+      pendingQuote = false;
+      quoted = false;
+    }
+    if (field.length || row.length) {
+      row.push(field.replace(/\r$/, ''));
+      yield row;
+    }
+  } finally {
+    if (typeof stream.destroy === 'function' && !stream.destroyed) stream.destroy();
+  }
+}
+
+async function* streamRecords(url) {
+  const stream = await openProductStream(url);
+  let headers = null;
+
+  for await (const row of csvRowsFromStream(stream)) {
+    if (!headers) {
+      headers = row.map(h => String(h).replace(/^\uFEFF/,'').trim());
+      continue;
+    }
+    if (!row.some(v => String(v).trim() !== '')) continue;
+    yield Object.fromEntries(headers.map((h,i)=>[h, row[i] ?? '']));
+  }
+}
+
 const listText = await fetchText(listUrl);
-const feeds = records(listText).filter(joined);
-if (!feeds.length) throw new Error('No joined Awin product feeds returned.');
+const allJoinedFeeds = records(listText).filter(joined);
+if (!allJoinedFeeds.length) throw new Error('No joined Awin product feeds returned.');
+
+const eligibleFeeds = allJoinedFeeds.filter(feed => {
+  const advertiserId = pick(feed,['Advertiser ID','Merchant ID','merchant_id']);
+  return Boolean(INTERNAL_GUIDES[String(advertiserId)]);
+});
 
 const byMerchant = new Map();
-for (const feed of feeds) {
-  const id = pick(feed,['Advertiser ID','Merchant ID','merchant_id']) || pick(feed,['Advertiser Name','Merchant Name']);
+for (const feed of eligibleFeeds) {
+  const id = pick(feed,['Advertiser ID','Merchant ID','merchant_id']);
   if (!byMerchant.has(id)) byMerchant.set(id,[]);
   byMerchant.get(id).push(feed);
 }
 
 const selected = [];
-const skipped = [];
-for (const [merchantId,group] of byMerchant.entries()) {
+for (const [merchantId, group] of byMerchant.entries()) {
   const german = group.filter(isGerman);
   const candidates = german.length ? german : group;
-  candidates.sort((a,b)=>(number(pick(a,['No of products','Products','Product Count']))||0)-(number(pick(b,['No of products','Products','Product Count']))||0));
-
-  for (const feed of candidates) {
-    const declared = number(pick(feed,['No of products','Products','Product Count']));
-    if (declared && declared > MAX_FEED_PRODUCTS) {
-      skipped.push({
-        advertiserId: merchantId,
-        advertiserName: pick(feed,['Advertiser Name','Merchant Name']),
-        feedId: pick(feed,['Feed ID']),
-        reason: `deferred_large_feed_${declared}`
-      });
-      continue;
-    }
-    selected.push(feed);
-  }
+  candidates.sort((a,b) => feedScore(b) - feedScore(a));
+  if (candidates[0]) selected.push(candidates[0]);
 }
+selected.sort((a,b) => pick(a,['Advertiser Name']).localeCompare(pick(b,['Advertiser Name']),'de'));
 
 const products = [];
 const seen = new Set();
@@ -185,22 +292,21 @@ const failures = [];
 
 for (const feed of selected) {
   if (products.length >= MAX_PRODUCTS) break;
+
   const feedUrlRaw = pick(feed,['URL','Download URL','Feed URL']);
   if (!feedUrlRaw) continue;
+
   const feedUrl = feedUrlRaw.replace('/adultcontent/1/','/adultcontent/0/');
   const advertiserId = pick(feed,['Advertiser ID','Merchant ID','merchant_id']);
   const advertiserName = pick(feed,['Advertiser Name','Merchant Name','merchant_name']) || 'Partner';
-
-  if ((perMerchant.get(advertiserId) || 0) >= MAX_PER_MERCHANT) continue;
+  const feedId = pick(feed,['Feed ID']);
+  const declaredProducts = number(pick(feed,['No of products','Products','Product Count']));
 
   try {
-    const text = await fetchText(feedUrl);
-    const rows = records(text);
+    let count = 0;
 
-    for (const row of rows) {
-      if (products.length >= MAX_PRODUCTS) break;
-      const count = perMerchant.get(advertiserId) || 0;
-      if (count >= MAX_PER_MERCHANT) break;
+    for await (const row of streamRecords(feedUrl)) {
+      if (products.length >= MAX_PRODUCTS || count >= MAX_PER_MERCHANT) break;
 
       const productId = pick(row,['aw_product_id','merchant_product_id','product_id','id']);
       const name = clean(pick(row,['product_name','title','name']),180);
@@ -224,7 +330,7 @@ for (const feed of selected) {
       const category = clean(pick(row,['category_name','merchant_category','product_type','google_product_category']) || 'Weitere Produkte',100);
       const image = pick(row,['large_image','merchant_image_url','aw_image_url','image_link','image']);
       const brand = clean(pick(row,['brand_name','brand']) || merchant,100);
-      const desc = clean(pick(row,['product_short_description','description']),360);
+      const desc = clean(pick(row,['product_short_description','description']),280);
       const currency = clean(pick(row,['currency']) || 'EUR',8);
       const url = trackingUrl(deep, advertiserId, productId || name);
       if (!url) continue;
@@ -246,26 +352,38 @@ for (const feed of selected) {
         inStock: true,
         lastUpdated: clean(pick(row,['last_updated','updated_at']),40) || new Date().toISOString()
       });
-      perMerchant.set(advertiserId,count+1);
+
+      count++;
     }
-    console.log(`Synced ${advertiserName}: ${perMerchant.get(advertiserId) || 0} products`);
+
+    perMerchant.set(advertiserId,count);
+    console.log(`Synced ${advertiserName}: ${count} products (feed ${feedId || 'n/a'}, declared ${declaredProducts ?? 'n/a'})`);
   } catch (err) {
-    failures.push({advertiserId, advertiserName, error:String(err?.message || err)});
+    failures.push({
+      advertiserId,
+      advertiserName,
+      feedId,
+      error:String(err?.message || err)
+    });
     console.warn(`Feed failed for ${advertiserName}: ${err?.message || err}`);
   }
 }
 
 products.sort((a,b)=>a.merchant.localeCompare(b.merchant,'de') || a.name.localeCompare(b.name,'de'));
+
 const merchantCount = new Set(products.map(p=>p.merchantId || p.merchant)).size;
 const output = {
-  version: 2,
+  version: 3,
   updatedAt: new Date().toISOString(),
   source: 'awin-product-feed',
-  joinedFeedCount: feeds.length,
+  joinedFeedCount: allJoinedFeeds.length,
+  eligibleFeedCount: eligibleFeeds.length,
   selectedFeedCount: selected.length,
+  eligibleMerchantCount: byMerchant.size,
   merchantCount,
   productCount: products.length,
-  skipped,
+  maxProducts: MAX_PRODUCTS,
+  maxPerMerchant: MAX_PER_MERCHANT,
   failures,
   products
 };
@@ -273,4 +391,5 @@ const output = {
 await fs.mkdir(path.dirname(OUTPUT),{recursive:true});
 await fs.writeFile(OUTPUT,JSON.stringify(output,null,2)+'\n','utf8');
 console.log(`Wrote ${products.length} products from ${merchantCount} merchants to ${OUTPUT}`);
+
 if (!products.length) process.exitCode = 2;
