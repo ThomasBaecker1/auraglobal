@@ -207,6 +207,20 @@
       button.addEventListener('click', () => setQuery(button.dataset.quickSearch || button.textContent,{scroll:true}));
     });
 
+    document.querySelectorAll('[data-video-load]').forEach((button) => {
+      button.addEventListener('click', () => {
+        const id = norm(button.dataset.videoLoad);
+        if (!/^[A-Za-z0-9_-]{6,20}$/.test(id)) return;
+        const frame = document.createElement('iframe');
+        frame.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(id) + '?autoplay=1&rel=0&modestbranding=1';
+        frame.title = 'AuraGlobal Produktvideo';
+        frame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+        frame.referrerPolicy = 'strict-origin-when-cross-origin';
+        frame.allowFullscreen = true;
+        button.replaceWith(frame);
+      }, {once:true});
+    });
+
     els.merchant?.addEventListener('change', (e) => {
       state.merchant = e.target.value;
       state.visible = 24;
