@@ -34,8 +34,8 @@ jobs:
       - name: Sync Awin product feeds
         env:
           AWIN_DATAFEED_API_KEY: ${{ secrets.AWIN_DATAFEED_API_KEY }}
-          AWIN_MAX_PRODUCTS: "50000"
-          AWIN_MAX_PER_MERCHANT: "3000"
+          AWIN_MAX_PRODUCTS: "15000"
+          AWIN_MAX_PER_MERCHANT: "500"
         run: node scripts/sync-awin-feeds.mjs
 
       - name: Commit changed catalog
