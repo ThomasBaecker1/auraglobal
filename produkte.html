@@ -228,6 +228,22 @@ body.product-finder a{color:inherit}
 @media(max-width:900px){.ag-assistant-wrap{grid-template-columns:1fr}.ag-assistant-copy{position:static}.ag-assistant-copy h2{max-width:10ch}.ag-assistant{padding:70px 0}}
 @media(max-width:620px){.ag-assistant-form{grid-template-columns:1fr 52px}.ag-assistant-submit{grid-column:1/-1}.ag-rec{grid-template-columns:34px 82px 1fr}.ag-rec-img{height:76px}.ag-rec-bottom{align-items:flex-start;flex-direction:column}.ag-assistant-output{padding:16px}}
 
+/* POPULAR INTENTS */
+.pf-intent-hub{background:#fff;color:#10141a;padding:82px 0}
+.pf-intent-hub-head{display:grid;grid-template-columns:1fr .9fr;gap:30px;align-items:end;margin-bottom:22px}
+.pf-intent-hub-head .pf-kicker{color:#6f7883}
+.pf-intent-hub-head h2{font-size:clamp(42px,5.3vw,72px);line-height:.92;letter-spacing:-.055em;margin:9px 0 0;max-width:9ch}
+.pf-intent-hub-head p{margin:0;color:#65707a;font-size:14px;line-height:1.6}
+.pf-intent-hub-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.pf-intent-link{min-height:250px;border-radius:26px;padding:25px;display:flex;flex-direction:column;justify-content:space-between;text-decoration:none;overflow:hidden;position:relative}
+.pf-intent-link:nth-child(1){background:#c8ffe1;color:#082116}
+.pf-intent-link:nth-child(2){background:#ffe0a6;color:#2f2104}
+.pf-intent-link:nth-child(3){background:#ffd3de;color:#331119}
+.pf-intent-link small{font-size:9px;letter-spacing:.13em;text-transform:uppercase;font-weight:950;opacity:.65}
+.pf-intent-link b{display:block;font-size:32px;line-height:.96;letter-spacing:-.045em;max-width:9ch;margin-top:10px}
+.pf-intent-link span{font-size:11px;font-weight:950}
+@media(max-width:780px){.pf-intent-hub{padding:64px 0}.pf-intent-hub-head{grid-template-columns:1fr}.pf-intent-hub-grid{grid-template-columns:1fr}.pf-intent-link{min-height:190px}}
+
 /* PRODUCT CATALOG */
 .pf-catalog{background:#fff;color:#11151b;padding:94px 0 100px}
 .pf-catalog-head{display:grid;grid-template-columns:1.05fr .95fr;gap:30px;align-items:end;margin-bottom:24px}
@@ -469,6 +485,20 @@ body.product-finder a{color:inherit}
       <div class="ag-assistant-output" data-assistant-output>
         <div class="ag-assistant-empty">Stell eine konkrete Frage. AuraGlobal zeigt dir keine endlose Trefferliste, sondern zuerst die aktuell stärksten Matches und warum sie passen könnten.</div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="pf-intent-hub">
+  <div class="pf-shell">
+    <div class="pf-intent-hub-head">
+      <div><div class="pf-kicker">BELIEBTE ENTSCHEIDUNGEN</div><h2>Nicht suchen. Ein Problem lösen.</h2></div>
+      <p>Diese Seiten starten mit einer konkreten Kaufabsicht und verbinden Entscheidungshilfe mit aktuellen Awin-Produkten. Genau daraus bauen wir AuraGlobals organischen und bezahlten Traffic-Funnel.</p>
+    </div>
+    <div class="pf-intent-hub-grid">
+      <a class="pf-intent-link" href="/e-bike-unter-2000.html"><div><small>MOBILITÄT · BUDGET</small><b>E-Bike unter 2.000 €</b></div><span>Entscheidungshilfe + aktuelle Treffer →</span></a>
+      <a class="pf-intent-link" href="/portable-espressomaschine-camping.html"><div><small>OUTDOOR · GENUSS</small><b>Espresso fürs Camping</b></div><span>Portable Lösungen entdecken →</span></a>
+      <a class="pf-intent-link" href="/futterautomat-katze.html"><div><small>SMART PET · ALLTAG</small><b>Futterautomat für Katzen</b></div><span>Routine passend auswählen →</span></a>
     </div>
   </div>
 </section>
