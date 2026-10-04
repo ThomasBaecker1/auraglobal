@@ -109,7 +109,7 @@
     .pf-cinema{padding:20px 0 72px}
     .pf-cinema-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:14px;align-items:stretch}
     .pf-video{position:relative;overflow:hidden;border-radius:28px;border:1px solid rgba(255,255,255,.11);background:#0b1018;min-height:430px}
-    .pf-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+    .pf-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}\n    .pf-video-poster{position:absolute;inset:0;width:100%;height:100%;border:0;padding:0;background:#0b1018;color:#fff;cursor:pointer;text-align:left;overflow:hidden}\n    .pf-video-poster img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.9) contrast(1.02)}\n    .pf-video-poster:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(3,6,10,.08),rgba(3,6,10,.82))}\n    .pf-video-play{position:absolute;z-index:2;left:24px;right:24px;bottom:22px;display:flex;align-items:center;gap:13px}\n    .pf-video-play i{display:grid;place-items:center;width:50px;height:50px;border-radius:999px;background:#c9ffe4;color:#062116;font-style:normal;font-size:18px;box-shadow:0 12px 35px rgba(0,0,0,.3)}\n    .pf-video-play b{display:block;font-size:16px}.pf-video-play small{display:block;color:#bac5d2;font-size:10px;margin-top:3px}
     .pf-cinema-copy{display:flex;flex-direction:column;justify-content:center;padding:34px;border:1px solid rgba(255,255,255,.10);border-radius:28px;background:
       radial-gradient(circle at 85% 5%,rgba(93,240,180,.13),transparent 18rem),#0b1119}
     .pf-cinema-copy h2{font-size:clamp(34px,4vw,55px);line-height:.96;letter-spacing:-.05em;margin:10px 0 15px}
@@ -221,7 +221,7 @@
 </div></section>
 
 <section class="pf-cinema"><div class="pf-shell pf-cinema-grid">
-  <div class="pf-video"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/3Ye1pCWN3XQ?rel=0&amp;modestbranding=1" title="TENWAYS CGO600 offizieller Trailer" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+  <div class="pf-video"><button class="pf-video-poster" type="button" data-video-load="3Ye1pCWN3XQ" aria-label="Offiziellen TENWAYS CGO600 Trailer abspielen"><img loading="lazy" src="https://www.tenways.com/cdn/shop/files/Greygreen-1_1500x.webp?v=1758781276" alt="TENWAYS CGO600 City E-Bike"><span class="pf-video-play"><i>▶</i><span><b>Offiziellen Trailer abspielen</b><small>TENWAYS · Video wird erst nach deinem Klick geladen</small></span></span></button></div>
   <div class="pf-cinema-copy">
     <div class="pf-kicker">SHOPPING IN BEWEGUNG</div>
     <h2>Manche Produkte musst du sehen, nicht nur lesen.</h2>
