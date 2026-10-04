@@ -103,7 +103,7 @@
     if (cfg.maxPrice && Number.isFinite(price) && price > cfg.maxPrice) return false;
     if (cfg.minPrice && Number.isFinite(price) && price < cfg.minPrice) return false;
 
-    return merchantMatch || termMatch;
+    return cfg.requireTerm ? termMatch : (merchantMatch || termMatch);
   }
 
   function reason(p) {
