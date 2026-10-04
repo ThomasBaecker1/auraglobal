@@ -182,6 +182,52 @@ body.product-finder a{color:inherit}
 .pf-video-meta span{display:block;font-size:12px;line-height:1.5;color:#aeb9c7}
 .pf-video-meta a{display:inline-flex;margin-top:14px;text-decoration:none;font-size:11px;font-weight:950;border-bottom:1px solid rgba(255,255,255,.35);padding-bottom:3px}
 
+/* ASK AURAGLOBAL */
+.ag-assistant{background:linear-gradient(135deg,#0c131b 0%,#111a25 52%,#0d1720 100%);padding:96px 0;border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08)}
+.ag-assistant-wrap{display:grid;grid-template-columns:.82fr 1.18fr;gap:34px;align-items:start}
+.ag-assistant-copy{position:sticky;top:92px}
+.ag-assistant-copy .pf-kicker{color:#9ff5c9}
+.ag-assistant-copy h2{font-size:clamp(48px,6vw,82px);line-height:.88;letter-spacing:-.065em;margin:10px 0 18px;max-width:7.6ch}
+.ag-assistant-copy p{max-width:520px;color:#b8c4d0;font-size:15px;line-height:1.64;margin:0}
+.ag-assistant-copy strong{color:#fff}
+.ag-ai-badge{display:inline-flex;align-items:center;gap:7px;margin-top:18px;padding:8px 10px;border:1px solid rgba(191,255,220,.22);border-radius:999px;background:rgba(191,255,220,.06);color:#dfffee;font-size:10px;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
+.ag-ai-badge:before{content:"";width:7px;height:7px;border-radius:50%;background:#9ff5c9;box-shadow:0 0 16px #9ff5c9}
+.ag-assistant-box{border:1px solid rgba(255,255,255,.12);border-radius:30px;background:rgba(8,13,19,.84);box-shadow:0 28px 90px rgba(0,0,0,.28);overflow:hidden}
+.ag-assistant-top{padding:22px 22px 18px;border-bottom:1px solid rgba(255,255,255,.08)}
+.ag-assistant-form{display:grid;grid-template-columns:1fr auto auto;gap:8px;padding:7px;border:1px solid rgba(255,255,255,.15);border-radius:18px;background:#0c1219}
+.ag-assistant-form input{height:56px;border:0;outline:0;background:transparent;color:#fff;padding:0 14px;font-size:15px;min-width:0}
+.ag-assistant-form input::placeholder{color:#8090a0}
+.ag-assistant-form button{height:56px;border:0;border-radius:13px;font-weight:950;cursor:pointer}
+.ag-assistant-submit{padding:0 18px;background:#bfffdc;color:#082117}
+.ag-assistant-voice{width:56px;background:rgba(255,255,255,.07);color:#fff;font-size:17px;border:1px solid rgba(255,255,255,.09)!important}
+.ag-assistant-voice.is-listening{background:#ffb2c5;color:#36101a;animation:agPulse 1.2s ease infinite}
+@keyframes agPulse{0%,100%{box-shadow:0 0 0 0 rgba(255,178,197,.35)}50%{box-shadow:0 0 0 10px rgba(255,178,197,0)}}
+.ag-examples{display:flex;gap:7px;flex-wrap:wrap;margin-top:11px}
+.ag-examples span{font-size:9px;text-transform:uppercase;letter-spacing:.12em;color:#718091;font-weight:950;align-self:center}
+.ag-examples button{border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.035);color:#cbd4dd;border-radius:999px;padding:8px 10px;font-size:10px;font-weight:800;cursor:pointer}
+.ag-examples button:hover{border-color:rgba(191,255,220,.35);color:#fff}
+.ag-assistant-output{padding:22px}
+.ag-answer-head span{font-size:9px;letter-spacing:.13em;text-transform:uppercase;color:#9ff5c9;font-weight:950}
+.ag-answer-head h3{font-size:clamp(26px,3vw,38px);line-height:1.02;letter-spacing:-.035em;margin:8px 0 8px;max-width:15ch}
+.ag-answer-head p{color:#96a4b2;font-size:11px;line-height:1.5;margin:0;max-width:720px}
+.ag-rec-grid{display:grid;gap:10px;margin-top:18px}
+.ag-rec{display:grid;grid-template-columns:42px 116px 1fr;gap:13px;align-items:center;padding:10px;border:1px solid rgba(255,255,255,.09);border-radius:18px;background:rgba(255,255,255,.035)}
+.ag-rec-rank{font-size:10px;letter-spacing:.1em;color:#738190;font-weight:950;text-align:center}
+.ag-rec-img{height:94px;border-radius:13px;background:#f3f4f6;overflow:hidden}
+.ag-rec-img img{width:100%;height:100%;object-fit:contain;padding:6px}
+.ag-rec-copy small{display:block;color:#8c9aaa;font-size:8px;letter-spacing:.1em;text-transform:uppercase;font-weight:950}
+.ag-rec-copy h3{font-size:18px;line-height:1.1;margin:5px 0 5px;letter-spacing:-.02em}
+.ag-rec-copy p{font-size:10px;line-height:1.45;color:#aeb9c5;margin:0}
+.ag-rec-bottom{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:10px}
+.ag-rec-bottom>strong{font-size:14px}
+.ag-rec-actions{display:flex;gap:6px;flex-wrap:wrap}
+.ag-rec-actions a{display:inline-flex;align-items:center;min-height:34px;padding:0 10px;border:1px solid rgba(255,255,255,.12);border-radius:10px;text-decoration:none;font-size:9px;font-weight:950}
+.ag-rec-actions .ag-rec-buy{background:#fff;color:#111;border-color:#fff}
+.ag-show-catalog{margin-top:16px;min-height:42px;padding:0 13px;border:1px solid rgba(255,255,255,.13);border-radius:11px;background:rgba(255,255,255,.045);color:#fff;font-size:10px;font-weight:950;cursor:pointer}
+.ag-assistant-empty{padding:30px 22px;color:#8f9dac;font-size:12px;line-height:1.6}
+@media(max-width:900px){.ag-assistant-wrap{grid-template-columns:1fr}.ag-assistant-copy{position:static}.ag-assistant-copy h2{max-width:10ch}.ag-assistant{padding:70px 0}}
+@media(max-width:620px){.ag-assistant-form{grid-template-columns:1fr 52px}.ag-assistant-submit{grid-column:1/-1}.ag-rec{grid-template-columns:34px 82px 1fr}.ag-rec-img{height:76px}.ag-rec-bottom{align-items:flex-start;flex-direction:column}.ag-assistant-output{padding:16px}}
+
 /* PRODUCT CATALOG */
 .pf-catalog{background:#fff;color:#11151b;padding:94px 0 100px}
 .pf-catalog-head{display:grid;grid-template-columns:1.05fr .95fr;gap:30px;align-items:end;margin-bottom:24px}
@@ -399,11 +445,39 @@ body.product-finder a{color:inherit}
   </div>
 </section>
 
+<section class="ag-assistant" id="frag-auraglobal">
+  <div class="pf-shell ag-assistant-wrap">
+    <div class="ag-assistant-copy reveal">
+      <div class="pf-kicker">FRAG AURAGLOBAL · BETA</div>
+      <h2>Sag nicht, was du kaufen willst. Sag, was du brauchst.</h2>
+      <p>Schreib so, wie du mit einem Menschen reden würdest: <strong>Budget, Alltag, Prioritäten.</strong> Die erste AuraGlobal-Entscheidungssuche zerlegt deine Anfrage und sucht passende Produkte im echten Awin-Katalog.</p>
+      <div class="ag-ai-badge">erste Entscheidungssuche live</div>
+    </div>
+    <div class="ag-assistant-box reveal reveal-delay-1">
+      <div class="ag-assistant-top">
+        <form class="ag-assistant-form" data-assistant-form>
+          <input type="search" data-assistant-input placeholder="z. B. günstiges E-Bike unter 2.000 € für die Stadt" autocomplete="off" aria-label="Frag AuraGlobal">
+          <button class="ag-assistant-voice" type="button" data-assistant-voice aria-label="Anfrage sprechen">🎙</button>
+          <button class="ag-assistant-submit" type="submit">AuraGlobal fragen →</button>
+        </form>
+        <div class="ag-examples"><span>Probier:</span>
+          <button type="button" data-assistant-example="günstiges E-Bike unter 2000 Euro für die Stadt">E-Bike unter 2.000 €</button>
+          <button type="button" data-assistant-example="portable Espressomaschine fürs Camping">Espresso fürs Camping</button>
+          <button type="button" data-assistant-example="automatischer Futterspender für meine Katze">Smart Pet für Katze</button>
+        </div>
+      </div>
+      <div class="ag-assistant-output" data-assistant-output>
+        <div class="ag-assistant-empty">Stell eine konkrete Frage. AuraGlobal zeigt dir keine endlose Trefferliste, sondern zuerst die aktuell stärksten Matches und warum sie passen könnten.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="pf-catalog" id="katalog">
   <div class="pf-shell">
     <div class="pf-catalog-head reveal">
       <div><div class="pf-kicker">JETZT KONKRET</div><h2>Vom Gefühl zum Produkt.</h2></div>
-      <p>Hier wird aus Inspiration Auswahl. Heute noch klein; mit Awin-Feeds kann exakt dieser Katalog automatisch mit den freigeschalteten Produkten unserer Partner wachsen.</p>
+      <p>Hier wird aus Inspiration Auswahl. Der Katalog wird jetzt automatisch aus den freigeschalteten Awin-Produktfeeds aktualisiert und ist die Datenbasis für „Frag AuraGlobal“.</p>
     </div>
     <div class="pf-controls" aria-label="Produktfilter">
       <input type="search" data-product-query placeholder="Produkt, Marke oder Kategorie suchen …" autocomplete="off">
