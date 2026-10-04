@@ -459,3 +459,15 @@ function initShoppingIntent(){
   }
 }
 document.addEventListener('DOMContentLoaded',initShoppingIntent);
+
+
+function initVercelAnalytics(){
+  if(document.querySelector('script[data-auraglobal-analytics]')) return;
+  window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments);};
+  const script=document.createElement('script');
+  script.defer=true;
+  script.src='/_vercel/insights/script.js';
+  script.dataset.auraglobalAnalytics='1';
+  document.head.appendChild(script);
+}
+document.addEventListener('DOMContentLoaded',initVercelAnalytics);
