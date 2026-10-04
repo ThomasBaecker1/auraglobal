@@ -1,0 +1,45 @@
+name: Sync Awin products
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 4 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: awin-product-sync
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Sync Awin product feeds
+        env:
+          AWIN_DATAFEED_API_KEY: ${{ secrets.AWIN_DATAFEED_API_KEY }}
+          AWIN_MAX_PRODUCTS: "50000"
+          AWIN_MAX_PER_MERCHANT: "3000"
+        run: node scripts/sync-awin-feeds.mjs
+
+      - name: Commit changed catalog
+        run: |
+          if git diff --quiet -- data/products.json; then
+            echo "No product changes."
+            exit 0
+          fi
+          git config user.name "auraglobal-feed-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/products.json
+          git commit -m "Update Awin product catalog"
+          git push

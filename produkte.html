@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="AuraGlobal Produktfinder: Produkte aus unseren Partnerwelten durchsuchen, filtern und direkt zum passenden Vergleich oder Anbieter springen.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Produktfinder | AuraGlobal">
+  <meta property="og:description" content="Produkte und Angebote aus AuraGlobal Partnerwelten zentral durchsuchen.">
+  <meta property="og:url" content="https://auraglobal.vercel.app/produkte.html">
+  <meta name="twitter:card" content="summary">
+  <title>Produktfinder | AuraGlobal</title>
+  <link rel="canonical" href="https://auraglobal.vercel.app/produkte.html">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/aura-v2.css">
+  <style>
+    body.product-finder{background:#070a10;color:#f7f9fc}
+    .pf-hero{padding:68px 0 28px;background:
+      radial-gradient(circle at 14% 0%,rgba(92,240,179,.18),transparent 28rem),
+      radial-gradient(circle at 88% 8%,rgba(96,133,255,.16),transparent 30rem),
+      linear-gradient(180deg,#0b111b,#070a10);border-bottom:1px solid rgba(255,255,255,.08)}
+    .pf-hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:30px;align-items:end}
+    .pf-kicker{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#9effd2;font-weight:950}
+    .pf-hero h1{font-size:clamp(43px,7vw,82px);line-height:.94;letter-spacing:-.055em;margin:12px 0 16px;max-width:10ch;color:#fff}
+    .pf-hero p{max-width:720px;color:#dce4ed;font-size:17px;line-height:1.6;margin:0}
+    .pf-promise{padding:18px;border:1px solid rgba(255,255,255,.12);border-radius:20px;background:rgba(255,255,255,.045)}
+    .pf-promise b{display:block;color:#c8ffe5;font-size:16px;margin-bottom:8px}
+    .pf-promise span{display:block;color:#c6d0dc;font-size:13px;line-height:1.55}
+    .pf-shell{padding:24px 0 76px}
+    .pf-controls{position:sticky;top:66px;z-index:40;display:grid;grid-template-columns:minmax(260px,1.7fr) repeat(3,minmax(150px,.7fr));gap:10px;padding:12px;border:1px solid rgba(255,255,255,.12);border-radius:20px;background:rgba(9,14,22,.96);backdrop-filter:blur(16px);box-shadow:0 18px 50px rgba(0,0,0,.28)}
+    .pf-controls input,.pf-controls select{width:100%;min-height:48px;border:1px solid rgba(255,255,255,.12);border-radius:13px;background:#111925;color:#fff;padding:0 14px;font-size:14px;outline:0}
+    .pf-controls input:focus,.pf-controls select:focus{border-color:rgba(117,246,190,.55)}
+    .pf-status{display:flex;justify-content:space-between;gap:16px;align-items:center;padding:15px 2px;color:#aeb9c9;font-size:12px}
+    .pf-status strong{color:#fff}
+    .pf-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+    .pf-card{overflow:hidden;border:1px solid rgba(255,255,255,.10);border-radius:22px;background:linear-gradient(145deg,#0e151f,#090d13);min-width:0}
+    .pf-image{position:relative;aspect-ratio:1.15/1;background:#f3f5f7;overflow:hidden}
+    .pf-image img{width:100%;height:100%;object-fit:contain;display:block;padding:10px}
+    .pf-sale{position:absolute;top:11px;left:11px;padding:7px 9px;border-radius:999px;background:#bfffdc;color:#052415;font-size:11px;font-weight:950}
+    .pf-body{padding:17px}
+    .pf-topline{display:flex;justify-content:space-between;gap:8px;color:#93a1b3;font-size:10px;text-transform:uppercase;letter-spacing:.08em;font-weight:850}
+    .pf-card h2{font-size:20px;line-height:1.15;margin:9px 0 8px;color:#fff}
+    .pf-card p{color:#c5ced9;font-size:13px;line-height:1.48;margin:0;min-height:58px}
+    .pf-price{display:flex;align-items:baseline;gap:9px;margin:14px 0}
+    .pf-price strong{font-size:20px;color:#fff}
+    .pf-price del{color:#8996a8;font-size:12px}
+    .pf-price span{color:#dce5ee;font-size:13px;font-weight:800}
+    .pf-actions{display:grid;gap:8px}
+    .pf-buy,.pf-detail{display:flex;align-items:center;justify-content:center;min-height:43px;border-radius:12px;text-decoration:none;font-size:13px;font-weight:900;text-align:center}
+    .pf-buy{background:#c9ffe4;color:#062116}
+    .pf-detail{border:1px solid rgba(255,255,255,.13);color:#eef4fa;background:rgba(255,255,255,.035)}
+    .pf-note{display:block;margin-top:10px;color:#8592a2;font-size:10px;line-height:1.35}
+    .pf-empty{padding:38px;border:1px dashed rgba(255,255,255,.14);border-radius:20px;text-align:center;color:#c8d2de}
+    .pf-empty b{display:block;color:#fff;font-size:22px;margin-bottom:8px}
+    .pf-more{display:block;margin:24px auto 0;min-height:46px;padding:0 20px;border:1px solid rgba(255,255,255,.14);border-radius:13px;background:#111925;color:#fff;font-weight:900;cursor:pointer}
+    .pf-explain{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:32px}
+    .pf-explain article{padding:20px;border:1px solid rgba(255,255,255,.09);border-radius:18px;background:#0b111a}
+    .pf-explain b{color:#c9ffe4;display:block;margin-bottom:7px}
+    .pf-explain p{margin:0;color:#b8c3d0;font-size:13px;line-height:1.55}
+    @media(max-width:1080px){.pf-grid{grid-template-columns:repeat(3,1fr)}.pf-controls{grid-template-columns:1fr 1fr}}
+    @media(max-width:760px){
+      .pf-hero{padding:48px 0 22px}.pf-hero-grid{grid-template-columns:1fr}.pf-hero h1{font-size:48px}.pf-hero p{font-size:15px}
+      .pf-controls{position:static;grid-template-columns:1fr;padding:10px}.pf-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .pf-status{align-items:flex-start;flex-direction:column}.pf-explain{grid-template-columns:1fr}
+    }
+    @media(max-width:520px){
+      .pf-grid{grid-template-columns:1fr}.pf-card h2{font-size:22px}.pf-card p{font-size:14px;min-height:0}.pf-topline{font-size:11px}
+      .pf-buy,.pf-detail{font-size:14px}.pf-note{font-size:11px}.pf-image{aspect-ratio:1.35/1}
+    }
+  </style>
+</head>
+<body class="product-finder">
+<header class="topbar mock-nav"><div class="shell nav">
+  <a class="brand ag-brand approved-logo" href="/" aria-label="AuraGlobal"><svg class="ag-symbol" viewBox="0 0 100 92" aria-hidden="true"><defs><linearGradient id="auraA" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#eafff5"/><stop offset=".48" stop-color="#8ce8b9"/><stop offset="1" stop-color="#45c98e"/></linearGradient></defs><path fill="url(#auraA)" d="M8 88 48 4 92 88H75L48 31 24 81Z"/><path fill="url(#auraA)" d="M17 78C34 59 53 53 77 66L72 74C52 63 36 66 17 78Z"/></svg><span class="ag-wordmark"><span class="aura">AURA</span><span class="global">GLOBAL</span></span></a>
+  <nav class="navlinks"><a href="/produkte.html">Produktfinder</a><a href="/marken.html">Alle Vergleiche</a><a href="/methodik.html">So vergleichen wir</a></nav>
+  <div class="nav-icons"><a class="nav-cta" href="/marken.html">Vergleiche →</a></div>
+</div></header>
+
+<main>
+<section class="pf-hero"><div class="shell pf-hero-grid">
+  <div>
+    <div class="pf-kicker">AURAGLOBAL · PRODUKTFINDER</div>
+    <h1>Ein Ort. Viele Produkte.</h1>
+    <p>Durchsuche Produkte aus unseren Partnerwelten, filtere nach Shop und Kategorie und springe entweder in den AuraGlobal-Vergleich oder direkt zum Anbieter. Preise und Verfügbarkeit werden aus Partnerdaten übernommen, sobald ein Feed verfügbar ist.</p>
+  </div>
+  <aside class="pf-promise"><b>Nicht einfach nur weiterleiten.</b><span>AuraGlobal verbindet den großen Produktkatalog mit eigenen Vergleichen, Kaufkriterien und Entscheidungshilfen. So bleibt der Produktfinder auch bei sehr vielen Partnern übersichtlich.</span></aside>
+</div></section>
+
+<section class="pf-shell"><div class="shell">
+  <div class="pf-controls" aria-label="Produktfilter">
+    <input type="search" data-product-query placeholder="Was suchst du? z. B. E-Bike, Sneaker, Powerstation …" autocomplete="off">
+    <select data-product-merchant aria-label="Shop"><option>Alle Shops</option></select>
+    <select data-product-category aria-label="Kategorie"><option>Alle Kategorien</option></select>
+    <select data-product-sort aria-label="Sortierung">
+      <option value="relevance">Empfohlen</option>
+      <option value="price-asc">Preis aufsteigend</option>
+      <option value="price-desc">Preis absteigend</option>
+      <option value="merchant">Shop A–Z</option>
+    </select>
+  </div>
+
+  <div class="pf-status"><strong data-product-count>Produkte werden geladen …</strong><span data-feed-meta>Partnerdaten werden geladen …</span></div>
+
+  <div class="pf-grid" data-product-grid></div>
+  <div class="pf-empty" data-product-empty hidden><b>Nichts Passendes gefunden.</b><span>Suche allgemeiner oder schau in <a href="/marken.html">alle AuraGlobal-Vergleiche</a>.</span></div>
+  <button class="pf-more" type="button" data-product-more hidden>Mehr Produkte laden</button>
+
+  <div class="pf-explain">
+    <article><b>1 · Daten automatisch</b><p>Awin-Produktfeeds liefern Produktnamen, Bilder, Preise, Kategorien und Deep-Links. Dadurch muss nicht jedes Produkt einzeln gebaut werden.</p></article>
+    <article><b>2 · AuraGlobal ordnet ein</b><p>Relevante Produkte werden mit unseren bestehenden Vergleichsseiten, Kaufkriterien und Kategorien verbunden.</p></article>
+    <article><b>3 · Nur echte Partnerlinks</b><p>Ausgehende Kauf-Links laufen über die vorhandene Awin-Publisher-ID. Für Nutzer entstehen dadurch keine Mehrkosten.</p></article>
+  </div>
+</div></section>
+</main>
+
+<footer class="footer"><div class="shell">
+  <div>© 2026 AuraGlobal · Unabhängige Vergleichsplattform.</div>
+  <div class="footer-links"><a href="/partner.html">Für Marken & Partner</a><a href="/methodik.html">So vergleichen wir</a><a href="/impressum.html">Impressum</a><a href="/datenschutz.html">Datenschutz</a><a href="/affiliate-disclosure.html">Werbehinweis</a></div>
+</div></footer>
+<script src="/aura-v2.js"></script>
+<script src="/assets/product-engine.js"></script>
+</body>
+</html>
