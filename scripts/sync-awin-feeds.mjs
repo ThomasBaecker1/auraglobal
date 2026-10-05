@@ -16,7 +16,11 @@ function optionalLimit(name) {
 
 const MAX_PRODUCTS = optionalLimit('AWIN_MAX_PRODUCTS');
 const MAX_PER_MERCHANT = optionalLimit('AWIN_MAX_PER_MERCHANT');
+const CHUNK_SIZE = Math.max(100, Number(process.env.AWIN_CHUNK_SIZE || 1000));
+const PREVIEW_PER_MERCHANT = Math.max(12, Number(process.env.AWIN_PREVIEW_PER_MERCHANT || 48));
 const OUTPUT = path.resolve('data/products.json');
+const CATALOG_DIR = path.resolve('data/catalog');
+const MANIFEST_OUTPUT = path.join(CATALOG_DIR,'index.json');
 
 if (!FEED_LIST_URL && !API_KEY_INPUT) {
   console.error('Missing AWIN_DATAFEED_LIST_URL or AWIN_DATAFEED_API_KEY.');
@@ -331,13 +335,42 @@ for (const [merchantId, group] of byMerchant.entries()) {
 }
 selected.sort((a,b) => pick(a,['Advertiser Name']).localeCompare(pick(b,['Advertiser Name']),'de'));
 
-const products = [];
-const seen = new Set();
+await fs.rm(CATALOG_DIR,{recursive:true,force:true});
+await fs.mkdir(CATALOG_DIR,{recursive:true});
+
+const previewProducts = [];
 const perMerchant = new Map();
+const catalogMerchants = [];
+const allCategories = new Set();
 const failures = [];
+let totalProducts = 0;
+
+async function writeMerchantChunk(advertiserId, advertiserName, chunkIndex, rows) {
+  if (!rows.length) return '';
+  const dir = path.join(CATALOG_DIR,slug(advertiserId));
+  await fs.mkdir(dir,{recursive:true});
+  const fileName = 'chunk-' + String(chunkIndex).padStart(4,'0') + '.json';
+  const filePath = path.join(dir,fileName);
+  await fs.writeFile(filePath,JSON.stringify({
+    version: 1,
+    merchantId: String(advertiserId),
+    merchant: advertiserName,
+    chunk: chunkIndex,
+    productCount: rows.length,
+    products: rows
+  })+'\n','utf8');
+  return '/data/catalog/' + slug(advertiserId) + '/' + fileName;
+}
+
+function rememberPreview(list, product) {
+  list.push(product);
+  list.sort((a,b)=>(Number(b.qualityScore)||0)-(Number(a.qualityScore)||0) ||
+    (Number(a.price)||Number.MAX_SAFE_INTEGER)-(Number(b.price)||Number.MAX_SAFE_INTEGER));
+  if (list.length > PREVIEW_PER_MERCHANT) list.length = PREVIEW_PER_MERCHANT;
+}
 
 for (const feed of selected) {
-  if (products.length >= MAX_PRODUCTS) break;
+  if (totalProducts >= MAX_PRODUCTS) break;
 
   const feedUrlRaw = pick(feed,['URL','Download URL','Feed URL']);
   if (!feedUrlRaw) continue;
@@ -350,9 +383,16 @@ for (const feed of selected) {
 
   try {
     let count = 0;
+    let chunkIndex = 1;
+    let chunk = [];
+    const chunkPaths = [];
+    const merchantPreview = [];
+    const merchantCategories = new Set();
+    const seen = new Set();
+    let canonicalMerchant = advertiserName;
 
     for await (const row of streamRecords(feedUrl)) {
-      if (products.length >= MAX_PRODUCTS || count >= MAX_PER_MERCHANT) break;
+      if (totalProducts >= MAX_PRODUCTS || count >= MAX_PER_MERCHANT) break;
 
       const productId = pick(row,['aw_product_id','merchant_product_id','product_id','id']);
       const name = clean(pick(row,['product_name','title','name']),180);
@@ -365,7 +405,7 @@ for (const feed of selected) {
       const stockRaw = pick(row,['in_stock','stock_status','availability']).toLowerCase();
       if (/out of stock|out_of_stock|unavailable|false|^0$/.test(stockRaw)) continue;
 
-      const key = `${advertiserId}:${productId || name}`;
+      const key = String(productId || name);
       if (seen.has(key)) continue;
       seen.add(key);
 
@@ -374,6 +414,7 @@ for (const feed of selected) {
       const price = salePrice || regularPrice;
       const oldPrice = regularPrice && price && regularPrice > price ? regularPrice : null;
       const merchant = clean(pick(row,['merchant_name','advertiser_name']) || advertiserName,100);
+      canonicalMerchant = merchant || canonicalMerchant;
       const rawCategory = clean(pick(row,['category_name','merchant_category','product_type','google_product_category']),160);
       const imageRaw = pick(row,['large_image','merchant_image_url','aw_image_url','image_link','image']);
       const image = validHttpUrl(imageRaw) ? imageRaw : '';
@@ -386,7 +427,7 @@ for (const feed of selected) {
       const url = trackingUrl(deep, advertiserId, productId || name);
       if (!url) continue;
 
-      products.push({
+      const product = {
         id: `${slug(advertiserId)}-${slug(productId || name)}`,
         merchantId: advertiserId,
         merchant,
@@ -404,14 +445,44 @@ for (const feed of selected) {
         internalUrl: INTERNAL_GUIDES[String(advertiserId)] || '',
         inStock: true,
         lastUpdated: clean(pick(row,['last_updated','updated_at']),40) || new Date().toISOString()
-      });
-      products[products.length - 1].qualityScore = qualityScore(products[products.length - 1]);
+      };
+      product.qualityScore = qualityScore(product);
 
+      chunk.push(product);
+      rememberPreview(merchantPreview,product);
+      merchantCategories.add(category);
+      allCategories.add(category);
       count++;
+      totalProducts++;
+
+      if (chunk.length >= CHUNK_SIZE) {
+        const chunkPath = await writeMerchantChunk(advertiserId,canonicalMerchant,chunkIndex,chunk);
+        if (chunkPath) chunkPaths.push(chunkPath);
+        chunk = [];
+        chunkIndex++;
+      }
     }
 
-    perMerchant.set(advertiserId,count);
-    console.log(`Synced ${advertiserName}: ${count} products (feed ${feedId || 'n/a'}, declared ${declaredProducts ?? 'n/a'})`);
+    if (chunk.length) {
+      const chunkPath = await writeMerchantChunk(advertiserId,canonicalMerchant,chunkIndex,chunk);
+      if (chunkPath) chunkPaths.push(chunkPath);
+    }
+
+    if (count) {
+      previewProducts.push(...merchantPreview);
+      perMerchant.set(advertiserId,count);
+      catalogMerchants.push({
+        merchantId: String(advertiserId),
+        merchant: canonicalMerchant,
+        productCount: count,
+        declaredProducts,
+        categories: [...merchantCategories].sort((a,b)=>a.localeCompare(b,'de')),
+        chunks: chunkPaths,
+        internalUrl: INTERNAL_GUIDES[String(advertiserId)] || ''
+      });
+    }
+
+    console.log(`Synced ${advertiserName}: ${count} products in ${chunkPaths.length} chunks (feed ${feedId || 'n/a'}, declared ${declaredProducts ?? 'n/a'})`);
   } catch (err) {
     failures.push({
       advertiserId,
@@ -423,27 +494,47 @@ for (const feed of selected) {
   }
 }
 
-products.sort((a,b)=>a.merchant.localeCompare(b.merchant,'de') || a.name.localeCompare(b.name,'de'));
+previewProducts.sort((a,b)=>a.merchant.localeCompare(b.merchant,'de') ||
+  (Number(b.qualityScore)||0)-(Number(a.qualityScore)||0) ||
+  a.name.localeCompare(b.name,'de'));
+catalogMerchants.sort((a,b)=>a.merchant.localeCompare(b.merchant,'de'));
 
-const merchantCount = new Set(products.map(p=>p.merchantId || p.merchant)).size;
-const output = {
-  version: 4,
-  updatedAt: new Date().toISOString(),
+const updatedAt = new Date().toISOString();
+const merchantCount = catalogMerchants.length;
+const manifest = {
+  version: 5,
+  updatedAt,
   source: 'awin-product-feed',
   joinedFeedCount: allJoinedFeeds.length,
   eligibleFeedCount: eligibleFeeds.length,
   selectedFeedCount: selected.length,
   eligibleMerchantCount: byMerchant.size,
   merchantCount,
-  productCount: products.length,
+  productCount: totalProducts,
+  previewCount: previewProducts.length,
+  chunkSize: CHUNK_SIZE,
   maxProducts: Number.isFinite(MAX_PRODUCTS) ? MAX_PRODUCTS : null,
   maxPerMerchant: Number.isFinite(MAX_PER_MERCHANT) ? MAX_PER_MERCHANT : null,
+  categories: [...allCategories].sort((a,b)=>a.localeCompare(b,'de')),
   failures,
-  products
+  merchants: catalogMerchants
+};
+
+const output = {
+  version: 5,
+  updatedAt,
+  source: 'awin-product-feed-preview',
+  merchantCount,
+  productCount: totalProducts,
+  previewCount: previewProducts.length,
+  manifest: '/data/catalog/index.json',
+  failures,
+  products: previewProducts
 };
 
 await fs.mkdir(path.dirname(OUTPUT),{recursive:true});
+await fs.writeFile(MANIFEST_OUTPUT,JSON.stringify(manifest,null,2)+'\n','utf8');
 await fs.writeFile(OUTPUT,JSON.stringify(output,null,2)+'\n','utf8');
-console.log(`Wrote ${products.length} products from ${merchantCount} merchants to ${OUTPUT}`);
+console.log(`Wrote ${totalProducts} products from ${merchantCount} merchants into lazy-load catalog chunks; preview contains ${previewProducts.length} products.`);
 
-if (!products.length) process.exitCode = 2;
+if (!totalProducts) process.exitCode = 2;
