@@ -9,7 +9,11 @@
     category: 'all',
     sort: 'relevance',
     visible: 24,
-    attribution: {}
+    attribution: {},
+    manifest: null,
+    loadedChunks: new Set(),
+    loadingChunks: false,
+    searchTimer: null
   };
 
   const $ = (s) => document.querySelector(s);
@@ -61,6 +65,93 @@
       return u.protocol === 'https:' || u.protocol === 'http:';
     } catch { return false; }
   };
+
+  function mergeProducts(rows) {
+    const byId = new Map(state.products.map(p=>[String(p.id),p]));
+    for (const product of Array.isArray(rows) ? rows : []) {
+      if (!product || !product.id) continue;
+      byId.set(String(product.id),product);
+    }
+    state.products = [...byId.values()];
+  }
+
+  function manifestMerchant(name) {
+    if (!state.manifest?.merchants) return null;
+    return state.manifest.merchants.find(m=>norm(m.merchant) === norm(name)) || null;
+  }
+
+  function candidateChunkPaths() {
+    const merchants = Array.isArray(state.manifest?.merchants) ? state.manifest.merchants : [];
+    const scoped = state.merchant !== 'all'
+      ? merchants.filter(m=>norm(m.merchant) === state.merchant)
+      : merchants;
+
+    if (!scoped.length) return [];
+    const paths = [];
+    const maxChunks = Math.max(0,...scoped.map(m=>Array.isArray(m.chunks)?m.chunks.length:0));
+    for (let index=0; index<maxChunks; index++) {
+      for (const merchant of scoped) {
+        const path = merchant.chunks?.[index];
+        if (path && !state.loadedChunks.has(path)) paths.push(path);
+      }
+    }
+    return paths;
+  }
+
+  function hasMoreCatalogData() {
+    return candidateChunkPaths().length > 0;
+  }
+
+  async function loadChunkPaths(paths) {
+    const unique = [...new Set(paths)].filter(Boolean).filter(path=>!state.loadedChunks.has(path));
+    if (!unique.length || state.loadingChunks) return false;
+    state.loadingChunks = true;
+    if (els.more) {
+      els.more.disabled = true;
+      els.more.textContent = 'Weitere Produkte werden geladen …';
+    }
+    try {
+      for (let i=0; i<unique.length; i+=3) {
+        const batch = unique.slice(i,i+3);
+        const payloads = await Promise.all(batch.map(async path=>{
+          const res = await fetch(path,{cache:'no-store'});
+          if (!res.ok) throw new Error('catalog chunk unavailable');
+          const payload = await res.json();
+          state.loadedChunks.add(path);
+          return Array.isArray(payload.products) ? payload.products : [];
+        }));
+        payloads.forEach(mergeProducts);
+      }
+      return true;
+    } catch {
+      return false;
+    } finally {
+      state.loadingChunks = false;
+      if (els.more) els.more.disabled = false;
+    }
+  }
+
+  async function loadNextCatalogChunks(limit=3) {
+    const paths = candidateChunkPaths().slice(0,Math.max(1,limit));
+    return loadChunkPaths(paths);
+  }
+
+  function knownTotalForCurrentView() {
+    if (!state.manifest || state.query || state.category !== 'all') return null;
+    if (state.merchant === 'all') return Number(state.manifest.productCount) || null;
+    return Number(manifestMerchant(state.merchant)?.productCount) || null;
+  }
+
+  function setMetaText() {
+    if (!els.meta) return;
+    const payload = state.manifest;
+    if (!payload) return;
+    const d = payload.updatedAt ? new Date(payload.updatedAt) : null;
+    const stamp = d && !Number.isNaN(d.valueOf()) ? d.toLocaleString('de-DE',{dateStyle:'medium',timeStyle:'short'}) : 'aktuell';
+    const total = Number(payload.productCount) || state.products.length;
+    const shops = Number(payload.merchantCount) || (payload.merchants?.length || 0);
+    els.meta.textContent = 'Awin-Vollkatalog · Datenstand '+stamp+' · '+shops.toLocaleString('de-DE')+' Shops · '+total.toLocaleString('de-DE')+' Produkte · lädt bedarfsgerecht';
+  }
 
   function slugRef(v,max=28) {
     return fold(v).replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,max);
@@ -190,11 +281,19 @@
     const shown = state.filtered.slice(0,state.visible);
     els.grid.innerHTML = shown.map(card).join('');
     if (els.count) {
-      const label = state.filtered.length === 1 ? 'Produkt' : 'Produkte';
-      els.count.textContent = state.filtered.length.toLocaleString('de-DE') + ' ' + label + (state.query ? ' für „'+state.query+'“' : '');
+      const knownTotal = knownTotalForCurrentView();
+      const shownCount = knownTotal || state.filtered.length;
+      const label = shownCount === 1 ? 'Produkt' : 'Produkte';
+      const loadedHint = knownTotal && knownTotal > state.products.length ? ' · '+state.products.length.toLocaleString('de-DE')+' vorgeladen' : '';
+      els.count.textContent = shownCount.toLocaleString('de-DE') + ' ' + label + (state.query ? ' für „'+state.query+'“' : '') + loadedHint;
     }
-    if (els.empty) els.empty.hidden = state.filtered.length !== 0;
-    if (els.more) els.more.hidden = state.visible >= state.filtered.length;
+    if (els.empty) els.empty.hidden = state.filtered.length !== 0 || hasMoreCatalogData();
+    if (els.more) {
+      const canReveal = state.visible < state.filtered.length;
+      const canLoad = hasMoreCatalogData();
+      els.more.hidden = !(canReveal || canLoad);
+      if (!state.loadingChunks) els.more.textContent = canReveal ? 'Mehr Produkte anzeigen' : 'Weitere Produkte laden';
+    }
     bindResultTracking();
   }
 
@@ -389,7 +488,7 @@
     if (!ranked.length) {
       els.assistantOutput.innerHTML =
         '<div class="ag-answer-head"><span>AuraGlobal Beta</span><h3>Dafür habe ich im aktuellen Katalog noch keinen starken Treffer.</h3>'+
-        '<p>Das ist genau die Art Anfrage, die AuraGlobal langfristig lösen soll. Aktuell durchsuchen wir 25 Awin-Partnerwelten; weitere Kategorien kommen schrittweise dazu.</p></div>'+
+        '<p>Das ist genau die Art Anfrage, die AuraGlobal langfristig lösen soll. Der Awin-Katalog wird laufend aus allen freigeschalteten Partnerfeeds erweitert; weitere Kategorien kommen automatisch hinzu.</p></div>'+
         '<button class="ag-show-catalog" type="button" data-assistant-catalog>Gesamten Katalog ansehen →</button>';
     } else {
       els.assistantOutput.innerHTML =
@@ -456,6 +555,13 @@
       state.query = e.target.value;
       state.visible = 24;
       apply();
+      clearTimeout(state.searchTimer);
+      if (norm(state.query).length >= 2 && hasMoreCatalogData()) {
+        state.searchTimer = setTimeout(async ()=>{
+          const changed = await loadNextCatalogChunks(6);
+          if (changed) apply({updateUrl:false});
+        },350);
+      }
     });
 
     els.heroForm?.addEventListener('submit', (e) => {
@@ -496,9 +602,10 @@
       }, {once:true});
     });
 
-    els.merchant?.addEventListener('change', (e) => {
+    els.merchant?.addEventListener('change', async (e) => {
       state.merchant = e.target.value;
       state.visible = 24;
+      if (state.merchant !== 'all') await loadNextCatalogChunks(2);
       apply();
     });
 
@@ -513,9 +620,19 @@
       apply();
     });
 
-    els.more?.addEventListener('click', () => {
-      state.visible += 24;
-      render();
+    els.more?.addEventListener('click', async () => {
+      if (state.visible < state.filtered.length) {
+        state.visible += 24;
+        render();
+        return;
+      }
+      const changed = await loadNextCatalogChunks(state.merchant === 'all' ? 6 : 2);
+      if (changed) {
+        state.visible += 24;
+        apply({updateUrl:false});
+      } else {
+        render();
+      }
     });
 
     setupVoice();
@@ -535,13 +652,26 @@
     bind();
 
     try {
-      const res = await fetch('/data/products.json', {cache:'no-store'});
-      if (!res.ok) throw new Error('Produktdaten nicht erreichbar');
-      const payload = await res.json();
+      const [previewRes,manifestRes] = await Promise.all([
+        fetch('/data/products.json',{cache:'no-store'}),
+        fetch('/data/catalog/index.json',{cache:'no-store'}).catch(()=>null)
+      ]);
+      if (!previewRes.ok) throw new Error('Produktdaten nicht erreichbar');
+      const payload = await previewRes.json();
       state.products = Array.isArray(payload.products) ? payload.products : [];
 
-      const merchants = [...new Set(state.products.map(p => norm(p.merchant)).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'de'));
-      const categories = [...new Set(state.products.map(p => norm(p.category)).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'de'));
+      if (manifestRes?.ok) {
+        state.manifest = await manifestRes.json();
+      }
+
+      const manifestMerchants = Array.isArray(state.manifest?.merchants)
+        ? state.manifest.merchants.map(m=>norm(m.merchant)).filter(Boolean)
+        : [];
+      const merchants = [...new Set((manifestMerchants.length ? manifestMerchants : state.products.map(p=>norm(p.merchant))).filter(Boolean))]
+        .sort((a,b)=>a.localeCompare(b,'de'));
+      const manifestCategories = Array.isArray(state.manifest?.categories) ? state.manifest.categories.map(norm).filter(Boolean) : [];
+      const categories = [...new Set((manifestCategories.length ? manifestCategories : state.products.map(p=>norm(p.category))).filter(Boolean))]
+        .sort((a,b)=>a.localeCompare(b,'de'));
 
       fillSelect(els.merchant,merchants,'Alle Shops');
       fillSelect(els.category,categories,'Alle Kategorien');
@@ -556,13 +686,14 @@
       if (els.category) els.category.value = state.category;
       if (els.sort) els.sort.value = state.sort;
 
-      if (els.meta) {
+      if (state.manifest) setMetaText();
+      else if (els.meta) {
         const d = payload.updatedAt ? new Date(payload.updatedAt) : null;
         const stamp = d && !Number.isNaN(d.valueOf()) ? d.toLocaleString('de-DE',{dateStyle:'medium',timeStyle:'short'}) : 'wird aufgebaut';
-        const sourceLabel = payload.source === 'awin-product-feed' ? 'Awin-Feed' : 'Startkatalog';
-        els.meta.textContent = sourceLabel+' · Datenstand '+stamp+' · '+merchants.length+' Shops · '+state.products.length.toLocaleString('de-DE')+' Produkte';
+        els.meta.textContent = 'Awin-Feed · Datenstand '+stamp+' · '+merchants.length+' Shops · '+state.products.length.toLocaleString('de-DE')+' Produkte';
       }
 
+      if (state.merchant !== 'all') await loadNextCatalogChunks(2);
       apply({updateUrl:false});
 
       if (state.query && state.query.split(/\s+/).filter(Boolean).length >= 3) {
