@@ -66,6 +66,14 @@
     } catch { return false; }
   };
 
+  async function catalogFetch(primary,fallback) {
+    try {
+      const res = await fetch(primary,{cache:'no-store'});
+      if (res.ok) return res;
+    } catch {}
+    return fetch(fallback,{cache:'no-store'});
+  }
+
   function mergeProducts(rows) {
     const byId = new Map(state.products.map(p=>[String(p.id),p]));
     for (const product of Array.isArray(rows) ? rows : []) {
@@ -653,8 +661,8 @@
 
     try {
       const [previewRes,manifestRes] = await Promise.all([
-        fetch('/data/products.json',{cache:'no-store'}),
-        fetch('/data/catalog/index.json',{cache:'no-store'}).catch(()=>null)
+        catalogFetch('/api/catalog?file=preview','/data/products.json'),
+        catalogFetch('/api/catalog?file=manifest','/data/catalog/index.json').catch(()=>null)
       ]);
       if (!previewRes.ok) throw new Error('Produktdaten nicht erreichbar');
       const payload = await previewRes.json();
