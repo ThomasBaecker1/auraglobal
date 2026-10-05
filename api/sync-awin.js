@@ -8,11 +8,8 @@ export default async function handler(req,res) {
 
   const expected = process.env.CRON_SECRET;
   const provided = req.headers.authorization || '';
-  const onceToken = process.env.AWIN_SYNC_ONCE_TOKEN;
-  const onceProvided = String(req.query?.once || '');
   const cronAuthorized = Boolean(expected) && provided === `Bearer ${expected}`;
-  const onceAuthorized = Boolean(onceToken) && onceProvided === onceToken;
-  if (!cronAuthorized && !onceAuthorized) {
+  if (!cronAuthorized) {
     return res.status(401).json({error:'Unauthorized'});
   }
 
