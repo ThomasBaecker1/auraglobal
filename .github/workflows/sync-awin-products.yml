@@ -39,7 +39,7 @@ jobs:
 
       - name: Commit changed catalog
         run: |
-          if git diff --quiet -- data/products.json data/catalog; then
+          if [ -z "$(git status --porcelain -- data/products.json data/catalog)" ]; then
             echo "No product changes."
             exit 0
           fi
