@@ -27,6 +27,7 @@
     sort: $('[data-product-sort]'),
     count: $('[data-product-count]'),
     meta: $('[data-feed-meta]'),
+    partnerCount: $('[data-partner-count]'),
     empty: $('[data-product-empty]'),
     more: $('[data-product-more]'),
     catalog: $('#katalog'),
@@ -158,6 +159,7 @@
     const stamp = d && !Number.isNaN(d.valueOf()) ? d.toLocaleString('de-DE',{dateStyle:'medium',timeStyle:'short'}) : 'aktuell';
     const total = Number(payload.productCount) || state.products.length;
     const shops = Number(payload.merchantCount) || (payload.merchants?.length || 0);
+    if (els.partnerCount && shops > 0) els.partnerCount.textContent = shops.toLocaleString('de-DE');
     els.meta.textContent = 'Awin-Vollkatalog · Datenstand '+stamp+' · '+shops.toLocaleString('de-DE')+' Shops · '+total.toLocaleString('de-DE')+' Produkte · lädt bedarfsgerecht';
   }
 
