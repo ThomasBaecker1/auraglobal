@@ -39,12 +39,12 @@ jobs:
 
       - name: Commit changed catalog
         run: |
-          if git diff --quiet -- data/products.json; then
+          if git diff --quiet -- data/products.json data/catalog; then
             echo "No product changes."
             exit 0
           fi
           git config user.name "auraglobal-feed-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add data/products.json
-          git commit -m "Update Awin product catalog"
+          git add data/products.json data/catalog
+          git commit -m "Update complete Awin product catalog"
           git push
