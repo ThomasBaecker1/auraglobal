@@ -8,8 +8,14 @@ const FEED_LIST_URL = process.env.AWIN_DATAFEED_LIST_URL;
 const API_KEY_INPUT = process.env.AWIN_DATAFEED_API_KEY;
 const API_KEY = API_KEY_INPUT && !/^https?:\/\//i.test(API_KEY_INPUT) ? API_KEY_INPUT : '';
 const PUBLISHER_ID = process.env.AWIN_PUBLISHER_ID || '3076553';
-const MAX_PRODUCTS = Number(process.env.AWIN_MAX_PRODUCTS || 15000);
-const MAX_PER_MERCHANT = Number(process.env.AWIN_MAX_PER_MERCHANT || 500);
+
+function optionalLimit(name) {
+  const value = Number(process.env[name]);
+  return Number.isFinite(value) && value > 0 ? value : Infinity;
+}
+
+const MAX_PRODUCTS = optionalLimit('AWIN_MAX_PRODUCTS');
+const MAX_PER_MERCHANT = optionalLimit('AWIN_MAX_PER_MERCHANT');
 const OUTPUT = path.resolve('data/products.json');
 
 if (!FEED_LIST_URL && !API_KEY_INPUT) {
@@ -194,7 +200,7 @@ function feedScore(feed) {
 }
 
 async function fetchText(url) {
-  const res = await fetch(url, {headers:{'user-agent':'AuraGlobal-Feed-Sync/3.0'}});
+  const res = await fetch(url, {headers:{'user-agent':'AuraGlobal-Feed-Sync/4.0'}});
   if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
   const buf = Buffer.from(await res.arrayBuffer());
   const contentType = res.headers.get('content-type') || '';
@@ -206,7 +212,7 @@ async function fetchText(url) {
 }
 
 async function openProductStream(url) {
-  const res = await fetch(url, {headers:{'user-agent':'AuraGlobal-Feed-Sync/3.0'}});
+  const res = await fetch(url, {headers:{'user-agent':'AuraGlobal-Feed-Sync/4.0'}});
   if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
   if (!res.body) throw new Error('Feed response has no body.');
 
@@ -304,10 +310,10 @@ const listText = await fetchText(listUrl);
 const allJoinedFeeds = records(listText).filter(joined);
 if (!allJoinedFeeds.length) throw new Error('No joined Awin product feeds returned.');
 
-const eligibleFeeds = allJoinedFeeds.filter(feed => {
-  const advertiserId = pick(feed,['Advertiser ID','Merchant ID','merchant_id']);
-  return Boolean(INTERNAL_GUIDES[String(advertiserId)]);
-});
+// Every joined Awin merchant is eligible. INTERNAL_GUIDES is only used to add
+// AuraGlobal editorial guide links when we already have one; it must never
+// limit which merchants or products enter the catalog.
+const eligibleFeeds = allJoinedFeeds;
 
 const byMerchant = new Map();
 for (const feed of eligibleFeeds) {
@@ -421,7 +427,7 @@ products.sort((a,b)=>a.merchant.localeCompare(b.merchant,'de') || a.name.localeC
 
 const merchantCount = new Set(products.map(p=>p.merchantId || p.merchant)).size;
 const output = {
-  version: 3,
+  version: 4,
   updatedAt: new Date().toISOString(),
   source: 'awin-product-feed',
   joinedFeedCount: allJoinedFeeds.length,
@@ -430,8 +436,8 @@ const output = {
   eligibleMerchantCount: byMerchant.size,
   merchantCount,
   productCount: products.length,
-  maxProducts: MAX_PRODUCTS,
-  maxPerMerchant: MAX_PER_MERCHANT,
+  maxProducts: Number.isFinite(MAX_PRODUCTS) ? MAX_PRODUCTS : null,
+  maxPerMerchant: Number.isFinite(MAX_PER_MERCHANT) ? MAX_PER_MERCHANT : null,
   failures,
   products
 };
