@@ -3,6 +3,7 @@ import path from 'node:path';
 import { createGunzip, gunzipSync } from 'node:zlib';
 import { Readable } from 'node:stream';
 import { StringDecoder } from 'node:string_decoder';
+import { pathToFileURL } from 'node:url';
 
 const FEED_LIST_URL = process.env.AWIN_DATAFEED_LIST_URL;
 const API_KEY_INPUT = process.env.AWIN_DATAFEED_API_KEY;
@@ -22,14 +23,14 @@ const OUTPUT = path.resolve('data/products.json');
 const CATALOG_DIR = path.resolve('data/catalog');
 const MANIFEST_OUTPUT = path.join(CATALOG_DIR,'index.json');
 
-if (!FEED_LIST_URL && !API_KEY_INPUT) {
-  console.error('Missing AWIN_DATAFEED_LIST_URL or AWIN_DATAFEED_API_KEY.');
-  process.exit(1);
+function getListUrl() {
+  if (!FEED_LIST_URL && !API_KEY_INPUT) {
+    throw new Error('Missing AWIN_DATAFEED_LIST_URL or AWIN_DATAFEED_API_KEY.');
+  }
+  return FEED_LIST_URL || (/^https?:\/\//i.test(API_KEY_INPUT || '')
+    ? API_KEY_INPUT
+    : `https://ui.awin.com/productdata-darwin-download/publisher/${encodeURIComponent(PUBLISHER_ID)}/${encodeURIComponent(API_KEY)}/1/feedList`);
 }
-
-const listUrl = FEED_LIST_URL || (/^https?:\/\//i.test(API_KEY_INPUT || '')
-  ? API_KEY_INPUT
-  : `https://ui.awin.com/productdata-darwin-download/publisher/${encodeURIComponent(PUBLISHER_ID)}/${encodeURIComponent(API_KEY)}/1/feedList`);
 
 const INTERNAL_GUIDES = {
   '24089':'/paper-sons.html',
@@ -310,231 +311,297 @@ async function* streamRecords(url) {
   }
 }
 
-const listText = await fetchText(listUrl);
-const allJoinedFeeds = records(listText).filter(joined);
-if (!allJoinedFeeds.length) throw new Error('No joined Awin product feeds returned.');
-
-// Every joined Awin merchant is eligible. INTERNAL_GUIDES is only used to add
-// AuraGlobal editorial guide links when we already have one; it must never
-// limit which merchants or products enter the catalog.
-const eligibleFeeds = allJoinedFeeds;
-
-const byMerchant = new Map();
-for (const feed of eligibleFeeds) {
-  const id = pick(feed,['Advertiser ID','Merchant ID','merchant_id']);
-  if (!byMerchant.has(id)) byMerchant.set(id,[]);
-  byMerchant.get(id).push(feed);
-}
-
-const selected = [];
-for (const [merchantId, group] of byMerchant.entries()) {
-  const german = group.filter(isGerman);
-  const candidates = german.length ? german : group;
-  candidates.sort((a,b) => feedScore(b) - feedScore(a));
-  if (candidates[0]) selected.push(candidates[0]);
-}
-selected.sort((a,b) => pick(a,['Advertiser Name']).localeCompare(pick(b,['Advertiser Name']),'de'));
-
-await fs.rm(CATALOG_DIR,{recursive:true,force:true});
-await fs.mkdir(CATALOG_DIR,{recursive:true});
-
-const previewProducts = [];
-const perMerchant = new Map();
-const catalogMerchants = [];
-const allCategories = new Set();
-const failures = [];
-let totalProducts = 0;
-
-async function writeMerchantChunk(advertiserId, advertiserName, chunkIndex, rows) {
-  if (!rows.length) return '';
-  const dir = path.join(CATALOG_DIR,slug(advertiserId));
-  await fs.mkdir(dir,{recursive:true});
-  const fileName = 'chunk-' + String(chunkIndex).padStart(4,'0') + '.json';
-  const filePath = path.join(dir,fileName);
-  await fs.writeFile(filePath,JSON.stringify({
-    version: 1,
-    merchantId: String(advertiserId),
-    merchant: advertiserName,
-    chunk: chunkIndex,
-    productCount: rows.length,
-    products: rows
-  })+'\n','utf8');
-  return '/data/catalog/' + slug(advertiserId) + '/' + fileName;
-}
-
-function rememberPreview(list, product) {
-  list.push(product);
-  list.sort((a,b)=>(Number(b.qualityScore)||0)-(Number(a.qualityScore)||0) ||
-    (Number(a.price)||Number.MAX_SAFE_INTEGER)-(Number(b.price)||Number.MAX_SAFE_INTEGER));
-  if (list.length > PREVIEW_PER_MERCHANT) list.length = PREVIEW_PER_MERCHANT;
-}
-
-for (const feed of selected) {
-  if (totalProducts >= MAX_PRODUCTS) break;
-
-  const feedUrlRaw = pick(feed,['URL','Download URL','Feed URL']);
-  if (!feedUrlRaw) continue;
-
-  const feedUrl = feedUrlRaw.replace('/adultcontent/1/','/adultcontent/0/');
-  const advertiserId = pick(feed,['Advertiser ID','Merchant ID','merchant_id']);
-  const advertiserName = pick(feed,['Advertiser Name','Merchant Name','merchant_name']) || 'Partner';
-  const feedId = pick(feed,['Feed ID']);
-  const declaredProducts = number(pick(feed,['No of products','Products','Product Count']));
-
-  try {
-    let count = 0;
-    let chunkIndex = 1;
-    let chunk = [];
-    const chunkPaths = [];
-    const merchantPreview = [];
-    const merchantCategories = new Set();
-    const seen = new Set();
-    let canonicalMerchant = advertiserName;
-
-    for await (const row of streamRecords(feedUrl)) {
-      if (totalProducts >= MAX_PRODUCTS || count >= MAX_PER_MERCHANT) break;
-
-      const productId = pick(row,['aw_product_id','merchant_product_id','product_id','id']);
-      const name = clean(pick(row,['product_name','title','name']),180);
-      if (name.length < 3 || /^(test|unknown|n\/a|produkt)$/i.test(name)) continue;
-      const awDeep = pick(row,['aw_deep_link','tracking_url']);
-      const merchantDeep = pick(row,['merchant_deep_link','deep_link','link']);
-      const deep = awDeep || merchantDeep;
-      if (!name || !deep) continue;
-
-      const stockRaw = pick(row,['in_stock','stock_status','availability']).toLowerCase();
-      if (/out of stock|out_of_stock|unavailable|false|^0$/.test(stockRaw)) continue;
-
-      const key = String(productId || name);
-      if (seen.has(key)) continue;
-      seen.add(key);
-
-      const salePrice = number(pick(row,['sale_price','search_price','store_price']));
-      const regularPrice = number(pick(row,['price','rrp_price','product_price_old','old_price','rrp']));
-      const price = salePrice || regularPrice;
-      const oldPrice = regularPrice && price && regularPrice > price ? regularPrice : null;
-      const merchant = clean(pick(row,['merchant_name','advertiser_name']) || advertiserName,100);
-      canonicalMerchant = merchant || canonicalMerchant;
-      const rawCategory = clean(pick(row,['category_name','merchant_category','product_type','google_product_category']),160);
-      const imageRaw = pick(row,['large_image','merchant_image_url','aw_image_url','image_link','image']);
-      const image = validHttpUrl(imageRaw) ? imageRaw : '';
-      const brand = clean(pick(row,['brand_name','brand']) || merchant,100);
-      let desc = clean(pick(row,['product_short_description','description']),280);
-      if (desc && clean(desc).toLowerCase() === name.toLowerCase()) desc = '';
-      const category = broadCategory({name,brand,merchant,rawCategory});
-      const keywords = clean([rawCategory,brand,merchant].filter(Boolean).join(' · '),240);
-      const currency = clean(pick(row,['currency']) || 'EUR',8);
-      const url = trackingUrl(deep, advertiserId, productId || name);
-      if (!url) continue;
-
-      const product = {
-        id: `${slug(advertiserId)}-${slug(productId || name)}`,
-        merchantId: advertiserId,
-        merchant,
-        brand,
-        name,
-        category,
-        categoryRaw: rawCategory,
-        description: desc,
-        keywords,
-        price,
-        oldPrice,
-        currency,
-        image,
-        url,
-        internalUrl: INTERNAL_GUIDES[String(advertiserId)] || '',
-        inStock: true,
-        lastUpdated: clean(pick(row,['last_updated','updated_at']),40) || new Date().toISOString()
-      };
-      product.qualityScore = qualityScore(product);
-
-      chunk.push(product);
-      rememberPreview(merchantPreview,product);
-      merchantCategories.add(category);
-      allCategories.add(category);
-      count++;
-      totalProducts++;
-
-      if (chunk.length >= CHUNK_SIZE) {
+export async function runSync({storageMode=process.env.AWIN_STORAGE_MODE || 'filesystem'}={}) {
+  const listUrl = getListUrl();
+  const listText = await fetchText(listUrl);
+  const allJoinedFeeds = records(listText).filter(joined);
+  if (!allJoinedFeeds.length) throw new Error('No joined Awin product feeds returned.');
+  
+  // Every joined Awin merchant is eligible. INTERNAL_GUIDES is only used to add
+  // AuraGlobal editorial guide links when we already have one; it must never
+  // limit which merchants or products enter the catalog.
+  const eligibleFeeds = allJoinedFeeds;
+  
+  const byMerchant = new Map();
+  for (const feed of eligibleFeeds) {
+    const id = pick(feed,['Advertiser ID','Merchant ID','merchant_id']);
+    if (!byMerchant.has(id)) byMerchant.set(id,[]);
+    byMerchant.get(id).push(feed);
+  }
+  
+  const selected = [];
+  for (const [merchantId, group] of byMerchant.entries()) {
+    const german = group.filter(isGerman);
+    const candidates = german.length ? german : group;
+    candidates.sort((a,b) => feedScore(b) - feedScore(a));
+    if (candidates[0]) selected.push(candidates[0]);
+  }
+  selected.sort((a,b) => pick(a,['Advertiser Name']).localeCompare(pick(b,['Advertiser Name']),'de'));
+  
+  const blobMode = storageMode === 'blob';
+  let blobPut = null;
+  if (blobMode) {
+    ({put: blobPut} = await import('@vercel/blob'));
+  } else {
+    await fs.rm(CATALOG_DIR,{recursive:true,force:true});
+    await fs.mkdir(CATALOG_DIR,{recursive:true});
+  }
+  
+  const previewProducts = [];
+  const perMerchant = new Map();
+  const catalogMerchants = [];
+  const allCategories = new Set();
+  const failures = [];
+  let totalProducts = 0;
+  
+  async function writeMerchantChunk(advertiserId, advertiserName, chunkIndex, rows) {
+    if (!rows.length) return '';
+    const fileName = 'chunk-' + String(chunkIndex).padStart(4,'0') + '.json';
+    const payload = JSON.stringify({
+      version: 1,
+      merchantId: String(advertiserId),
+      merchant: advertiserName,
+      chunk: chunkIndex,
+      productCount: rows.length,
+      products: rows
+    })+'\n';
+  
+    if (blobMode) {
+      const blob = await blobPut(
+        'auraglobal/catalog/' + slug(advertiserId) + '/' + fileName,
+        payload,
+        {
+          access:'public',
+          addRandomSuffix:false,
+          allowOverwrite:true,
+          cacheControlMaxAge:300,
+          contentType:'application/json; charset=utf-8'
+        }
+      );
+      return blob.url;
+    }
+  
+    const dir = path.join(CATALOG_DIR,slug(advertiserId));
+    await fs.mkdir(dir,{recursive:true});
+    const filePath = path.join(dir,fileName);
+    await fs.writeFile(filePath,payload,'utf8');
+    return '/data/catalog/' + slug(advertiserId) + '/' + fileName;
+  }
+  
+  function rememberPreview(list, product) {
+    list.push(product);
+    list.sort((a,b)=>(Number(b.qualityScore)||0)-(Number(a.qualityScore)||0) ||
+      (Number(a.price)||Number.MAX_SAFE_INTEGER)-(Number(b.price)||Number.MAX_SAFE_INTEGER));
+    if (list.length > PREVIEW_PER_MERCHANT) list.length = PREVIEW_PER_MERCHANT;
+  }
+  
+  for (const feed of selected) {
+    if (totalProducts >= MAX_PRODUCTS) break;
+  
+    const feedUrlRaw = pick(feed,['URL','Download URL','Feed URL']);
+    if (!feedUrlRaw) continue;
+  
+    const feedUrl = feedUrlRaw.replace('/adultcontent/1/','/adultcontent/0/');
+    const advertiserId = pick(feed,['Advertiser ID','Merchant ID','merchant_id']);
+    const advertiserName = pick(feed,['Advertiser Name','Merchant Name','merchant_name']) || 'Partner';
+    const feedId = pick(feed,['Feed ID']);
+    const declaredProducts = number(pick(feed,['No of products','Products','Product Count']));
+  
+    try {
+      let count = 0;
+      let chunkIndex = 1;
+      let chunk = [];
+      const chunkPaths = [];
+      const merchantPreview = [];
+      const merchantCategories = new Set();
+      const seen = new Set();
+      let canonicalMerchant = advertiserName;
+  
+      for await (const row of streamRecords(feedUrl)) {
+        if (totalProducts >= MAX_PRODUCTS || count >= MAX_PER_MERCHANT) break;
+  
+        const productId = pick(row,['aw_product_id','merchant_product_id','product_id','id']);
+        const name = clean(pick(row,['product_name','title','name']),180);
+        if (name.length < 3 || /^(test|unknown|n\/a|produkt)$/i.test(name)) continue;
+        const awDeep = pick(row,['aw_deep_link','tracking_url']);
+        const merchantDeep = pick(row,['merchant_deep_link','deep_link','link']);
+        const deep = awDeep || merchantDeep;
+        if (!name || !deep) continue;
+  
+        const stockRaw = pick(row,['in_stock','stock_status','availability']).toLowerCase();
+        if (/out of stock|out_of_stock|unavailable|false|^0$/.test(stockRaw)) continue;
+  
+        const key = String(productId || name);
+        if (seen.has(key)) continue;
+        seen.add(key);
+  
+        const salePrice = number(pick(row,['sale_price','search_price','store_price']));
+        const regularPrice = number(pick(row,['price','rrp_price','product_price_old','old_price','rrp']));
+        const price = salePrice || regularPrice;
+        const oldPrice = regularPrice && price && regularPrice > price ? regularPrice : null;
+        const merchant = clean(pick(row,['merchant_name','advertiser_name']) || advertiserName,100);
+        canonicalMerchant = merchant || canonicalMerchant;
+        const rawCategory = clean(pick(row,['category_name','merchant_category','product_type','google_product_category']),160);
+        const imageRaw = pick(row,['large_image','merchant_image_url','aw_image_url','image_link','image']);
+        const image = validHttpUrl(imageRaw) ? imageRaw : '';
+        const brand = clean(pick(row,['brand_name','brand']) || merchant,100);
+        let desc = clean(pick(row,['product_short_description','description']),280);
+        if (desc && clean(desc).toLowerCase() === name.toLowerCase()) desc = '';
+        const category = broadCategory({name,brand,merchant,rawCategory});
+        const keywords = clean([rawCategory,brand,merchant].filter(Boolean).join(' · '),240);
+        const currency = clean(pick(row,['currency']) || 'EUR',8);
+        const url = trackingUrl(deep, advertiserId, productId || name);
+        if (!url) continue;
+  
+        const product = {
+          id: `${slug(advertiserId)}-${slug(productId || name)}`,
+          merchantId: advertiserId,
+          merchant,
+          brand,
+          name,
+          category,
+          categoryRaw: rawCategory,
+          description: desc,
+          keywords,
+          price,
+          oldPrice,
+          currency,
+          image,
+          url,
+          internalUrl: INTERNAL_GUIDES[String(advertiserId)] || '',
+          inStock: true,
+          lastUpdated: clean(pick(row,['last_updated','updated_at']),40) || new Date().toISOString()
+        };
+        product.qualityScore = qualityScore(product);
+  
+        chunk.push(product);
+        rememberPreview(merchantPreview,product);
+        merchantCategories.add(category);
+        allCategories.add(category);
+        count++;
+        totalProducts++;
+  
+        if (chunk.length >= CHUNK_SIZE) {
+          const chunkPath = await writeMerchantChunk(advertiserId,canonicalMerchant,chunkIndex,chunk);
+          if (chunkPath) chunkPaths.push(chunkPath);
+          chunk = [];
+          chunkIndex++;
+        }
+      }
+  
+      if (chunk.length) {
         const chunkPath = await writeMerchantChunk(advertiserId,canonicalMerchant,chunkIndex,chunk);
         if (chunkPath) chunkPaths.push(chunkPath);
-        chunk = [];
-        chunkIndex++;
       }
-    }
-
-    if (chunk.length) {
-      const chunkPath = await writeMerchantChunk(advertiserId,canonicalMerchant,chunkIndex,chunk);
-      if (chunkPath) chunkPaths.push(chunkPath);
-    }
-
-    if (count) {
-      previewProducts.push(...merchantPreview);
-      perMerchant.set(advertiserId,count);
-      catalogMerchants.push({
-        merchantId: String(advertiserId),
-        merchant: canonicalMerchant,
-        productCount: count,
-        declaredProducts,
-        categories: [...merchantCategories].sort((a,b)=>a.localeCompare(b,'de')),
-        chunks: chunkPaths,
-        internalUrl: INTERNAL_GUIDES[String(advertiserId)] || ''
+  
+      if (count) {
+        previewProducts.push(...merchantPreview);
+        perMerchant.set(advertiserId,count);
+        catalogMerchants.push({
+          merchantId: String(advertiserId),
+          merchant: canonicalMerchant,
+          productCount: count,
+          declaredProducts,
+          categories: [...merchantCategories].sort((a,b)=>a.localeCompare(b,'de')),
+          chunks: chunkPaths,
+          internalUrl: INTERNAL_GUIDES[String(advertiserId)] || ''
+        });
+      }
+  
+      console.log(`Synced ${advertiserName}: ${count} products in ${chunkPaths.length} chunks (feed ${feedId || 'n/a'}, declared ${declaredProducts ?? 'n/a'})`);
+    } catch (err) {
+      failures.push({
+        advertiserId,
+        advertiserName,
+        feedId,
+        error:String(err?.message || err)
       });
+      console.warn(`Feed failed for ${advertiserName}: ${err?.message || err}`);
     }
-
-    console.log(`Synced ${advertiserName}: ${count} products in ${chunkPaths.length} chunks (feed ${feedId || 'n/a'}, declared ${declaredProducts ?? 'n/a'})`);
-  } catch (err) {
-    failures.push({
-      advertiserId,
-      advertiserName,
-      feedId,
-      error:String(err?.message || err)
-    });
-    console.warn(`Feed failed for ${advertiserName}: ${err?.message || err}`);
   }
+  
+  previewProducts.sort((a,b)=>a.merchant.localeCompare(b.merchant,'de') ||
+    (Number(b.qualityScore)||0)-(Number(a.qualityScore)||0) ||
+    a.name.localeCompare(b.name,'de'));
+  catalogMerchants.sort((a,b)=>a.merchant.localeCompare(b.merchant,'de'));
+  
+  const updatedAt = new Date().toISOString();
+  const merchantCount = catalogMerchants.length;
+  const manifest = {
+    version: 5,
+    updatedAt,
+    source: 'awin-product-feed',
+    joinedFeedCount: allJoinedFeeds.length,
+    eligibleFeedCount: eligibleFeeds.length,
+    selectedFeedCount: selected.length,
+    eligibleMerchantCount: byMerchant.size,
+    merchantCount,
+    productCount: totalProducts,
+    previewCount: previewProducts.length,
+    chunkSize: CHUNK_SIZE,
+    maxProducts: Number.isFinite(MAX_PRODUCTS) ? MAX_PRODUCTS : null,
+    maxPerMerchant: Number.isFinite(MAX_PER_MERCHANT) ? MAX_PER_MERCHANT : null,
+    categories: [...allCategories].sort((a,b)=>a.localeCompare(b,'de')),
+    failures,
+    merchants: catalogMerchants
+  };
+  
+  const output = {
+    version: 5,
+    updatedAt,
+    source: 'awin-product-feed-preview',
+    merchantCount,
+    productCount: totalProducts,
+    previewCount: previewProducts.length,
+    manifest: '/data/catalog/index.json',
+    failures,
+    products: previewProducts
+  };
+  
+  let manifestUrl = '/data/catalog/index.json';
+  let previewUrl = '/data/products.json';
+  
+  if (blobMode) {
+    const [manifestBlob,previewBlob] = await Promise.all([
+      blobPut('auraglobal/catalog/index.json',JSON.stringify(manifest)+'\n',{
+        access:'public',
+        addRandomSuffix:false,
+        allowOverwrite:true,
+        cacheControlMaxAge:300,
+        contentType:'application/json; charset=utf-8'
+      }),
+      blobPut('auraglobal/catalog/preview.json',JSON.stringify(output)+'\n',{
+        access:'public',
+        addRandomSuffix:false,
+        allowOverwrite:true,
+        cacheControlMaxAge:300,
+        contentType:'application/json; charset=utf-8'
+      })
+    ]);
+    manifestUrl = manifestBlob.url;
+    previewUrl = previewBlob.url;
+  } else {
+    await fs.mkdir(path.dirname(OUTPUT),{recursive:true});
+    await fs.writeFile(MANIFEST_OUTPUT,JSON.stringify(manifest,null,2)+'\n','utf8');
+    await fs.writeFile(OUTPUT,JSON.stringify(output,null,2)+'\n','utf8');
+  }
+  
+  console.log(`Wrote ${totalProducts} products from ${merchantCount} merchants into lazy-load catalog chunks; preview contains ${previewProducts.length} products.`);
+  return {
+    updatedAt,
+    merchantCount,
+    productCount: totalProducts,
+    previewCount: previewProducts.length,
+    failures,
+    manifestUrl,
+    previewUrl,
+    storageMode
+  };
+  
 }
 
-previewProducts.sort((a,b)=>a.merchant.localeCompare(b.merchant,'de') ||
-  (Number(b.qualityScore)||0)-(Number(a.qualityScore)||0) ||
-  a.name.localeCompare(b.name,'de'));
-catalogMerchants.sort((a,b)=>a.merchant.localeCompare(b.merchant,'de'));
-
-const updatedAt = new Date().toISOString();
-const merchantCount = catalogMerchants.length;
-const manifest = {
-  version: 5,
-  updatedAt,
-  source: 'awin-product-feed',
-  joinedFeedCount: allJoinedFeeds.length,
-  eligibleFeedCount: eligibleFeeds.length,
-  selectedFeedCount: selected.length,
-  eligibleMerchantCount: byMerchant.size,
-  merchantCount,
-  productCount: totalProducts,
-  previewCount: previewProducts.length,
-  chunkSize: CHUNK_SIZE,
-  maxProducts: Number.isFinite(MAX_PRODUCTS) ? MAX_PRODUCTS : null,
-  maxPerMerchant: Number.isFinite(MAX_PER_MERCHANT) ? MAX_PER_MERCHANT : null,
-  categories: [...allCategories].sort((a,b)=>a.localeCompare(b,'de')),
-  failures,
-  merchants: catalogMerchants
-};
-
-const output = {
-  version: 5,
-  updatedAt,
-  source: 'awin-product-feed-preview',
-  merchantCount,
-  productCount: totalProducts,
-  previewCount: previewProducts.length,
-  manifest: '/data/catalog/index.json',
-  failures,
-  products: previewProducts
-};
-
-await fs.mkdir(path.dirname(OUTPUT),{recursive:true});
-await fs.writeFile(MANIFEST_OUTPUT,JSON.stringify(manifest,null,2)+'\n','utf8');
-await fs.writeFile(OUTPUT,JSON.stringify(output,null,2)+'\n','utf8');
-console.log(`Wrote ${totalProducts} products from ${merchantCount} merchants into lazy-load catalog chunks; preview contains ${previewProducts.length} products.`);
-
-if (!totalProducts) process.exitCode = 2;
+const isCli = process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.argv[1])).href;
+if (isCli) {
+  const result = await runSync();
+  if (!result.productCount) process.exitCode = 2;
+}
