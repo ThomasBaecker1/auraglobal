@@ -1,0 +1,13 @@
+{
+  "functions": {
+    "api/sync-awin.js": {
+      "maxDuration": 300
+    }
+  },
+  "crons": [
+    {
+      "path": "/api/sync-awin",
+      "schedule": "17 4 * * *"
+    }
+  ]
+}
