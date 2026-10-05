@@ -3,5 +3,8 @@
   "type": "module",
   "dependencies": {
     "@vercel/blob": "2.8.0"
+  },
+  "scripts": {
+    "build": "node scripts/init-awin-blob.mjs"
   }
 }
