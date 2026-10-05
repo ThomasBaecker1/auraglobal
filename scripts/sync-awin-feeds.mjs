@@ -17,7 +17,8 @@ function optionalLimit(name) {
 
 const MAX_PRODUCTS = optionalLimit('AWIN_MAX_PRODUCTS');
 const MAX_PER_MERCHANT = optionalLimit('AWIN_MAX_PER_MERCHANT');
-const CHUNK_SIZE = Math.max(100, Number(process.env.AWIN_CHUNK_SIZE || 1000));
+const CHUNK_SIZE = Math.max(100, Number(process.env.AWIN_CHUNK_SIZE || 2000));
+const BLOB_UPLOAD_CONCURRENCY = Math.max(1, Math.min(12, Number(process.env.AWIN_BLOB_UPLOAD_CONCURRENCY || 6)));
 const PREVIEW_PER_MERCHANT = Math.max(12, Number(process.env.AWIN_PREVIEW_PER_MERCHANT || 48));
 const OUTPUT = path.resolve('data/products.json');
 const CATALOG_DIR = path.resolve('data/catalog');
@@ -412,7 +413,20 @@ export async function runSync({storageMode=process.env.AWIN_STORAGE_MODE || 'fil
       let chunkIndex = 1;
       let chunk = [];
       const chunkPaths = [];
+      const activeUploads = new Set();
       const merchantPreview = [];
+
+      async function queueChunkUpload(rows,index) {
+        const task = writeMerchantChunk(advertiserId,canonicalMerchant,index,rows)
+          .then(url => { if (url) chunkPaths[index - 1] = url; })
+          .finally(() => activeUploads.delete(task));
+        activeUploads.add(task);
+        if (blobMode && activeUploads.size >= BLOB_UPLOAD_CONCURRENCY) {
+          await Promise.race(activeUploads);
+        } else if (!blobMode) {
+          await task;
+        }
+      }
       const merchantCategories = new Set();
       const seen = new Set();
       let canonicalMerchant = advertiserName;
@@ -482,17 +496,21 @@ export async function runSync({storageMode=process.env.AWIN_STORAGE_MODE || 'fil
         totalProducts++;
   
         if (chunk.length >= CHUNK_SIZE) {
-          const chunkPath = await writeMerchantChunk(advertiserId,canonicalMerchant,chunkIndex,chunk);
-          if (chunkPath) chunkPaths.push(chunkPath);
+          const rows = chunk;
+          const index = chunkIndex++;
           chunk = [];
-          chunkIndex++;
+          await queueChunkUpload(rows,index);
         }
       }
   
       if (chunk.length) {
-        const chunkPath = await writeMerchantChunk(advertiserId,canonicalMerchant,chunkIndex,chunk);
-        if (chunkPath) chunkPaths.push(chunkPath);
+        const rows = chunk;
+        const index = chunkIndex++;
+        chunk = [];
+        await queueChunkUpload(rows,index);
       }
+      if (activeUploads.size) await Promise.all(activeUploads);
+      const orderedChunkPaths = chunkPaths.filter(Boolean);
   
       if (count) {
         previewProducts.push(...merchantPreview);
@@ -503,12 +521,12 @@ export async function runSync({storageMode=process.env.AWIN_STORAGE_MODE || 'fil
           productCount: count,
           declaredProducts,
           categories: [...merchantCategories].sort((a,b)=>a.localeCompare(b,'de')),
-          chunks: chunkPaths,
+          chunks: orderedChunkPaths,
           internalUrl: INTERNAL_GUIDES[String(advertiserId)] || ''
         });
       }
   
-      console.log(`Synced ${advertiserName}: ${count} products in ${chunkPaths.length} chunks (feed ${feedId || 'n/a'}, declared ${declaredProducts ?? 'n/a'})`);
+      console.log(`Synced ${advertiserName}: ${count} products in ${orderedChunkPaths.length} chunks (feed ${feedId || 'n/a'}, declared ${declaredProducts ?? 'n/a'})`);
     } catch (err) {
       failures.push({
         advertiserId,
