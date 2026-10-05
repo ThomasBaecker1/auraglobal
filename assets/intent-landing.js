@@ -157,10 +157,36 @@
   async function init() {
     if (!grid) return;
     try {
-      const res = await fetch('/data/products.json',{cache:'no-store'});
-      if (!res.ok) throw new Error('catalog unavailable');
-      const payload = await res.json();
-      const products = Array.isArray(payload.products) ? payload.products : [];
+      const [previewRes,manifestRes] = await Promise.all([
+        fetch('/data/products.json',{cache:'no-store'}),
+        fetch('/data/catalog/index.json',{cache:'no-store'}).catch(()=>null)
+      ]);
+      if (!previewRes.ok) throw new Error('catalog unavailable');
+      const payload = await previewRes.json();
+      const manifest = manifestRes?.ok ? await manifestRes.json() : null;
+      const byId = new Map((Array.isArray(payload.products) ? payload.products : []).map(p=>[String(p.id),p]));
+
+      if (Array.isArray(manifest?.merchants)) {
+        const targetIds = new Set((cfg.merchantIds || []).map(String));
+        const targetNames = (cfg.preferredMerchants || []).map(fold).filter(Boolean);
+        const relevant = manifest.merchants.filter(m =>
+          targetIds.has(String(m.merchantId || '')) ||
+          targetNames.some(name=>fold(m.merchant).includes(name))
+        );
+
+        const paths = [...new Set(relevant.flatMap(m=>Array.isArray(m.chunks)?m.chunks:[]))];
+        for (let i=0; i<paths.length; i+=3) {
+          const chunks = await Promise.all(paths.slice(i,i+3).map(async path=>{
+            const res = await fetch(path,{cache:'no-store'});
+            if (!res.ok) return [];
+            const chunk = await res.json();
+            return Array.isArray(chunk.products) ? chunk.products : [];
+          }));
+          for (const rows of chunks) for (const product of rows) if (product?.id) byId.set(String(product.id),product);
+        }
+      }
+
+      const products = [...byId.values()];
       const ranked = products
         .filter(matchProduct)
         .map(p=>({p,score:scoreProduct(p)}))
@@ -173,7 +199,8 @@
       if (meta) {
         const d = payload.updatedAt ? new Date(payload.updatedAt) : null;
         const stamp = d && !Number.isNaN(d.valueOf()) ? d.toLocaleString('de-DE',{dateStyle:'medium',timeStyle:'short'}) : 'aktuell';
-        meta.textContent = 'Awin-Produktfeeds · Datenstand '+stamp;
+        const total = Number(manifest?.productCount || payload.productCount || products.length);
+        meta.textContent = 'Awin-Vollkatalog · Datenstand '+stamp+' · '+total.toLocaleString('de-DE')+' Produkte';
       }
 
       if (!ranked.length) {
