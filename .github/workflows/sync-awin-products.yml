@@ -21,7 +21,7 @@ concurrency:
 jobs:
   sync:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 60
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -34,8 +34,7 @@ jobs:
       - name: Sync Awin product feeds
         env:
           AWIN_DATAFEED_API_KEY: ${{ secrets.AWIN_DATAFEED_API_KEY }}
-          AWIN_MAX_PRODUCTS: "15000"
-          AWIN_MAX_PER_MERCHANT: "500"
+          AWIN_PUBLISHER_ID: "3076553"
         run: node scripts/sync-awin-feeds.mjs
 
       - name: Commit changed catalog
