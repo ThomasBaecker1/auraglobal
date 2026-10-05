@@ -24,6 +24,14 @@
     } catch { return false; }
   };
 
+  async function catalogFetch(primary,fallback) {
+    try {
+      const res = await fetch(primary,{cache:'no-store'});
+      if (res.ok) return res;
+    } catch {}
+    return fetch(fallback,{cache:'no-store'});
+  }
+
   function slugRef(v,max=28) {
     return fold(v).replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,max);
   }
@@ -158,8 +166,8 @@
     if (!grid) return;
     try {
       const [previewRes,manifestRes] = await Promise.all([
-        fetch('/data/products.json',{cache:'no-store'}),
-        fetch('/data/catalog/index.json',{cache:'no-store'}).catch(()=>null)
+        catalogFetch('/api/catalog?file=preview','/data/products.json'),
+        catalogFetch('/api/catalog?file=manifest','/data/catalog/index.json').catch(()=>null)
       ]);
       if (!previewRes.ok) throw new Error('catalog unavailable');
       const payload = await previewRes.json();
