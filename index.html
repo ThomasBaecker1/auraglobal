@@ -7,14 +7,14 @@
   <meta name="color-scheme" content="dark">
   <meta name="format-detection" content="telephone=no">
   <title>AuraGlobal — Produkte entdecken, vergleichen, besser entscheiden</title>
-  <link rel="canonical" href="https://auraglobal.net/">
+  <link rel="canonical" href="https://auraglobal.vercel.app/">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://images.pexels.com" crossorigin>
   <meta name="theme-color" content="#05070c">
   <meta property="og:title" content="AuraGlobal — Entdecken. Vergleichen. Entscheiden.">
   <meta property="og:description" content="Visuelle Produktvergleiche für schnellere Kaufentscheidungen.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://auraglobal.net/">
+  <meta property="og:url" content="https://auraglobal.vercel.app/">
   <meta property="og:site_name" content="AuraGlobal">
   <meta property="og:locale" content="de_DE">
   <meta property="og:image" content="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1200&h=630&q=90">
@@ -25,48 +25,8 @@
   <meta name="twitter:image" content="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1200&h=630&q=90">
   <meta name="impact-site-verification" value="b2caa8d9-4501-42ba-a0b7-f7304717e386">
   <link rel="stylesheet" href="/aura-v2.css">
-  <style>
-  /* compact start-page partner wall — high density without inventing discounts */
-  .home-market-wall{padding:14px 0 18px;background:
-    radial-gradient(circle at 12% 0%,rgba(80,235,171,.12),transparent 28rem),
-    radial-gradient(circle at 88% 8%,rgba(111,128,255,.12),transparent 26rem),
-    #060910;border-bottom:1px solid rgba(255,255,255,.07)}
-  .hmw-head{display:flex;align-items:end;justify-content:space-between;gap:18px;margin-bottom:10px}
-  .hmw-head-left{min-width:0}
-  .hmw-kicker{display:block;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:#91a0b4;font-weight:900;margin-bottom:3px}
-  .hmw-head h1{font-size:clamp(25px,2.7vw,39px);line-height:.98;letter-spacing:-.045em;margin:0;color:#fff}
-  .hmw-head p{margin:5px 0 0;color:#9facbd;font-size:11px;line-height:1.35;max-width:650px}
-  .hmw-count{flex:none;display:flex;align-items:center;gap:8px;padding:8px 10px;border:1px solid rgba(255,255,255,.1);border-radius:12px;background:rgba(255,255,255,.035);font-size:10px;color:#b9c5d5}
-  .hmw-count b{font-size:18px;color:#c6ffe4}
-  .hmw-grid{display:grid;grid-template-columns:repeat(9,minmax(0,1fr));gap:7px}
-  .hmw-card{position:relative;display:block;height:104px;overflow:hidden;border-radius:13px;border:1px solid rgba(255,255,255,.11);background:#111722;text-decoration:none;isolation:isolate;transition:transform .16s ease,border-color .16s ease}
-  .hmw-card:hover{transform:translateY(-2px);border-color:rgba(145,255,205,.38)}
-  .hmw-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.015)}
-  .hmw-card:after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(3,7,11,.04) 0%,rgba(3,7,11,.20) 35%,rgba(3,7,11,.92) 100%)}
-  .hmw-card.c-green:before,.hmw-card.c-blue:before,.hmw-card.c-orange:before,.hmw-card.c-pink:before,.hmw-card.c-purple:before{content:"";position:absolute;inset:0;z-index:1;mix-blend-mode:screen;opacity:.22}
-  .hmw-card.c-green:before{background:linear-gradient(135deg,#37e7a0,transparent 55%)}
-  .hmw-card.c-blue:before{background:linear-gradient(135deg,#4e8cff,transparent 55%)}
-  .hmw-card.c-orange:before{background:linear-gradient(135deg,#ff914d,transparent 55%)}
-  .hmw-card.c-pink:before{background:linear-gradient(135deg,#ff6fae,transparent 55%)}
-  .hmw-card.c-purple:before{background:linear-gradient(135deg,#9b72ff,transparent 55%)}
-  .hmw-card-copy{position:absolute;z-index:2;left:9px;right:9px;bottom:8px;min-width:0}
-  .hmw-card-copy small{display:block;font-size:7px;line-height:1.15;letter-spacing:.09em;text-transform:uppercase;color:#c5d0dc;font-weight:900;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .hmw-card-copy b{display:block;margin-top:2px;font-size:13px;line-height:1.05;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .hmw-badge{position:absolute;z-index:3;top:7px;right:7px;padding:5px 6px;border-radius:8px;background:rgba(5,9,13,.80);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.12);font-size:8px;line-height:1;font-weight:950;color:#eef4fb;letter-spacing:.02em}
-  .hmw-badge.deal{background:#eafff5;color:#07110d;border-color:rgba(255,255,255,.35)}
-  .hmw-more{display:none}
-  @media(max-width:1180px){.hmw-grid{grid-template-columns:repeat(7,minmax(0,1fr))}.hmw-card{height:106px}}
-  @media(max-width:900px){.hmw-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.hmw-card{height:112px}.hmw-head{align-items:flex-start}.hmw-count{display:none}}
-  @media(max-width:620px){
-    .home-market-wall{padding:10px 0 14px}
-    .hmw-head h1{font-size:29px}.hmw-head p{font-size:11px}
-    .hmw-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
-    .hmw-card{height:105px}.hmw-card-copy b{font-size:13px}.hmw-card-copy small{font-size:8px}.hmw-badge{font-size:8px}
-  }
-  </style>
-  
-<script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"WebSite","name":"AuraGlobal","url":"https://auraglobal.net/","description":"Visuelle Produktvergleichs- und Affiliate-Plattform für klarere Kaufentscheidungen."}
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebSite","name":"AuraGlobal","url":"https://auraglobal.vercel.app/","description":"Visuelle Produktvergleichs- und Affiliate-Plattform für klarere Kaufentscheidungen."}
   </script>
 
 
@@ -406,14 +366,14 @@ radial-gradient(circle at 96% 0%,rgba(31,225,151,.13),transparent 25rem),
     </div>
     <span class="equal-badge">ZUHAUSE</span>
     <div class="equal-copy"><small>HAUS · GARTEN · DIY</small><strong>Mehr aus Zuhause machen.</strong><span>Haus, Garten, Freizeit und DIY nach konkretem Einsatz entdecken.</span><em>Entdecken →</em></div>
-  </a><a class="equal-card equal-green" data-tags="home garden" data-deal="0" href="/rasendoktor.html" aria-label="Rasendoktor entdecken">
+  </a><a class="equal-card equal-green" data-tags="home garden" data-deal="1" href="/rasendoktor.html" aria-label="Rasendoktor entdecken">
     <div class="equal-media"><img class="equal-photo" src="https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&w=1200&q=90" alt="Gartenmoment mit gepflegtem Grün" loading="lazy" decoding="async"><div class="equal-tint"></div></div>
     <div class="equal-top">
       <span class="equal-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain_url=https://rasendoktor.de" alt="" aria-hidden="true" loading="lazy" decoding="async"><b>Rasendoktor</b></span>
       
     </div>
     <span class="equal-badge" data-deal-start="2026-10-05" data-deal-end="2026-11-08">7 % NEU*</span>
-    <div class="equal-copy"><small>RASENPFLEGE</small><strong>Vom Problem zum grünen Rasen.</strong><span>Pflege und Gartenlösungen nach Problem und Anwendung einordnen.</span><em>Entdecken →</em></div>
+    <div class="equal-copy"><small>RASENPFLEGE · DEAL AKTIV</small><strong>Vom Problem zum grünen Rasen.</strong><span>7 % für Neukunden ohne MBW · Code SQZMVVNC bis 08.11.</span><em>Deal & Auswahl prüfen →</em></div>
   </a><a class="equal-card equal-gold" data-tags="fashion" data-deal="0" href="/vorteilshop.html" aria-label="Vorteilshop entdecken">
     <div class="equal-media"><img class="equal-photo" src="https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=1200&q=90" alt="Vorteilshop – MODE, SCHUHE UND MARKEN" loading="lazy" decoding="async"><div class="equal-tint"></div></div>
     <div class="equal-top">
