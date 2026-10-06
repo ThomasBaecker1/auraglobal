@@ -64,252 +64,13 @@
     .hmw-card{height:105px}.hmw-card-copy b{font-size:13px}.hmw-card-copy small{font-size:8px}.hmw-badge{font-size:8px}
   }
   </style>
-  <style>
-/* brand mosaic v2 — logos, larger emotional cards, still dense */
-.hmw-v2{padding:18px 0 22px;background:
-radial-gradient(circle at 9% 4%,rgba(255,80,150,.12),transparent 25rem),
-radial-gradient(circle at 46% 0%,rgba(255,170,70,.11),transparent 27rem),
-radial-gradient(circle at 88% 5%,rgba(70,135,255,.14),transparent 28rem),
-#060910}
-.hmw-v2 .hmw-head{margin-bottom:12px}
-.hmw-v2 .hmw-head h1{font-size:clamp(31px,3.25vw,50px);max-width:780px}
-.hmw-v2 .hmw-head p{font-size:12px;max-width:760px;color:#b5c0cf}
-.hmw-all{display:flex;align-items:center;gap:9px;flex:none;padding:9px 12px;border-radius:14px;border:1px solid rgba(255,255,255,.13);background:rgba(255,255,255,.045);text-decoration:none;color:#d8e2ee}
-.hmw-all b{font-size:23px;color:#bcffdd}.hmw-all span{font-size:10px;line-height:1.2}
-.hmw-feature-grid{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:8px}
-.hmw-feature-grid .hmw-card{height:184px}
-.hmw-feature-grid .hmw-wide{grid-column:span 2}
-.hmw-rest-head{display:flex;justify-content:space-between;align-items:center;margin:15px 1px 7px;color:#d5deea}
-.hmw-rest-head span{font-size:11px;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
-.hmw-rest-head a{font-size:10px;color:#aaffd5;text-decoration:none}
-.hmw-rest-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:7px}
-.hmw-rest-grid .hmw-card{height:122px}
-.hmw-v2 .hmw-card{border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.18)}
-.hmw-v2 .hmw-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.01);filter:saturate(1.12) contrast(1.02)}
-.hmw-v2 .hmw-card:after{background:linear-gradient(180deg,rgba(2,5,9,.05),rgba(2,5,9,.08) 30%,rgba(2,5,9,.92) 100%)}
-.hmw-v2 .hmw-glow{position:absolute;z-index:1;inset:0;opacity:.30;mix-blend-mode:screen;pointer-events:none}
-.hmw-v2 .c-pink .hmw-glow{background:linear-gradient(135deg,#ff2f91,transparent 60%)}
-.hmw-v2 .c-orange .hmw-glow{background:linear-gradient(135deg,#ff8c2f,transparent 60%)}
-.hmw-v2 .c-green .hmw-glow{background:linear-gradient(135deg,#21e59d,transparent 60%)}
-.hmw-v2 .c-blue .hmw-glow{background:linear-gradient(135deg,#347dff,transparent 60%)}
-.hmw-v2 .c-purple .hmw-glow{background:linear-gradient(135deg,#9b55ff,transparent 60%)}
-.hmw-logo{position:absolute;z-index:4;top:9px;left:9px;display:flex;align-items:center;gap:6px;max-width:62%;height:28px;padding:4px 7px;border-radius:9px;background:rgba(255,255,255,.93);box-shadow:0 5px 16px rgba(0,0,0,.22);overflow:hidden}
-.hmw-logo img{position:static!important;width:auto!important;height:18px!important;max-width:64px!important;object-fit:contain!important;transform:none!important;filter:none!important}
-.hmw-logo span{font-size:8px;line-height:1;color:#111820;font-weight:950;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.hmw-v2 .hmw-badge{top:9px;right:9px;font-size:8px;padding:6px 7px;border-radius:9px}
-.hmw-v2 .hmw-badge.deal{background:#eafff3;color:#07110c}
-.hmw-v2 .hmw-card-copy{left:11px;right:11px;bottom:10px}
-.hmw-feature-grid .hmw-card-copy small{font-size:8px}.hmw-feature-grid .hmw-card-copy b{font-size:17px;white-space:normal;line-height:1.04}
-.hmw-feature-grid .hmw-card-copy em{display:block;margin-top:5px;color:#d9e4ef;font-size:9px;font-style:normal;font-weight:800}
-.hmw-rest-grid .hmw-card-copy b{font-size:13px}.hmw-rest-grid .hmw-card-copy small{font-size:7px}
-@media(max-width:1200px){
-  .hmw-feature-grid{grid-template-columns:repeat(6,minmax(0,1fr))}
-  .hmw-feature-grid .hmw-wide{grid-column:span 2}
-  .hmw-rest-grid{grid-template-columns:repeat(6,minmax(0,1fr))}
-}
-@media(max-width:900px){
-  .hmw-feature-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .hmw-feature-grid .hmw-wide{grid-column:span 1}
-  .hmw-feature-grid .hmw-card{height:175px}
-  .hmw-rest-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
-  .hmw-rest-grid .hmw-card{height:120px}
-}
-@media(max-width:620px){
-  .hmw-v2{padding-top:12px}
-  .hmw-v2 .hmw-head h1{font-size:31px}
-  .hmw-v2 .hmw-head p{font-size:11px}
-  .hmw-all{display:none}
-  .hmw-feature-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
-  .hmw-feature-grid .hmw-card{height:150px}
-  .hmw-rest-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
-  .hmw-rest-grid .hmw-card{height:108px}
-  .hmw-logo{height:25px;max-width:64%;padding:3px 6px}.hmw-logo img{height:16px!important;max-width:53px!important}.hmw-logo span{font-size:7px}
-  .hmw-feature-grid .hmw-card-copy b{font-size:15px}
-}
-</style>
+  
 <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"WebSite","name":"AuraGlobal","url":"https://auraglobal.net/","description":"Visuelle Produktvergleichs- und Affiliate-Plattform für klarere Kaufentscheidungen."}
   </script>
-<style>
-/* homepage market wall v3 — no dead space, strong logos, concrete deals */
-.hmw-v3{padding:16px 0 18px!important;background:
-radial-gradient(circle at 4% 0%,rgba(255,36,128,.18),transparent 24rem),
-radial-gradient(circle at 42% 0%,rgba(255,180,47,.15),transparent 26rem),
-radial-gradient(circle at 78% 2%,rgba(44,130,255,.18),transparent 28rem),
-radial-gradient(circle at 100% 58%,rgba(46,231,159,.12),transparent 22rem),
-#07090f!important;border-bottom:1px solid rgba(255,255,255,.08)}
-.hmw-v3 .hmw-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin:0 0 12px!important}
-.hmw-v3 .hmw-kicker{font-size:9px!important;color:#b8c4d4!important}
-.hmw-v3 .hmw-head h1{font-size:clamp(33px,3.7vw,56px)!important;line-height:.94!important;letter-spacing:-.055em!important;max-width:850px!important;margin:4px 0 0!important}
-.hmw-v3 .hmw-head p{font-size:12px!important;color:#c0cad8!important;max-width:780px!important;margin:7px 0 0!important}
-.hmw-v3 .hmw-all{display:flex;align-items:center;gap:9px;flex:none;padding:10px 13px;border-radius:15px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.055);text-decoration:none;color:#edf4fb}
-.hmw-v3 .hmw-all b{font-size:25px;color:#baffdc}.hmw-v3 .hmw-all span{font-size:10px;line-height:1.2;font-weight:800}
-.hmw-top-grid{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));grid-auto-flow:dense;gap:8px;margin:0!important}
-.hmw-v3 .hmw-card{position:relative;display:block;overflow:hidden;min-width:0;border:1px solid rgba(255,255,255,.14);border-radius:18px;background:#131720;text-decoration:none;isolation:isolate;box-shadow:0 12px 32px rgba(0,0,0,.20);transition:.18s ease}
-.hmw-v3 .hmw-card:hover{transform:translateY(-2px) scale(1.006);border-color:rgba(255,255,255,.34)}
-.hmw-top-grid .hmw-card{height:205px;grid-column:span 2}
-.hmw-top-grid .hmw-hero{height:260px;grid-column:span 4}
-.hmw-top-grid .hmw-feature{height:195px}
-.hmw-v3 .hmw-photo{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;object-fit:cover!important;transform:none!important;filter:saturate(1.18) contrast(1.04)!important}
-.hmw-v3 .hmw-card:after{content:"";position:absolute;z-index:1;inset:0;background:linear-gradient(180deg,rgba(4,6,10,.07) 0%,rgba(4,6,10,.12) 28%,rgba(4,6,10,.94) 100%)}
-.hmw-v3 .hmw-glow{position:absolute;z-index:1;inset:0;opacity:.46;mix-blend-mode:screen;pointer-events:none}
-.hmw-v3 .c-pink .hmw-glow{background:linear-gradient(135deg,#ff258d,transparent 56%)}
-.hmw-v3 .c-gold .hmw-glow,.hmw-v3 .c-orange .hmw-glow{background:linear-gradient(135deg,#ff9c32,transparent 56%)}
-.hmw-v3 .c-green .hmw-glow{background:linear-gradient(135deg,#1ee6a0,transparent 56%)}
-.hmw-v3 .c-blue .hmw-glow{background:linear-gradient(135deg,#2d7cff,transparent 56%)}
-.hmw-v3 .c-purple .hmw-glow{background:linear-gradient(135deg,#9c4dff,transparent 56%)}
-.hmw-v3 .hmw-logo{position:absolute;z-index:4;top:10px;left:10px;display:flex;align-items:center;gap:7px;height:32px;max-width:64%;padding:5px 9px;border-radius:10px;background:rgba(255,255,255,.96);box-shadow:0 5px 18px rgba(0,0,0,.28);overflow:hidden}
-.hmw-v3 .hmw-logo img{position:static!important;width:20px!important;height:20px!important;max-width:20px!important;object-fit:contain!important;transform:none!important;filter:none!important;flex:none}
-.hmw-v3 .hmw-logo span{color:#11151b!important;font-size:10px!important;font-weight:950!important;letter-spacing:-.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.hmw-v3 .hmw-badge{position:absolute;z-index:4;top:10px;right:10px;padding:7px 9px;border-radius:10px;background:#121720;color:#fff;border:1px solid rgba(255,255,255,.18);font-size:9px;font-weight:950;box-shadow:0 5px 18px rgba(0,0,0,.20)}
-.hmw-v3 .hmw-badge.deal{background:#f5ff9a!important;color:#11150b!important;border-color:#fff!important}
-.hmw-v3 .hmw-card-copy{position:absolute;z-index:3;left:12px;right:12px;bottom:11px}
-.hmw-v3 .hmw-card-copy small{display:block;color:#e9f0f7!important;font-size:8px!important;letter-spacing:.1em;text-transform:uppercase;font-weight:950}
-.hmw-v3 .hmw-card-copy b{display:block;color:#fff!important;font-size:17px!important;line-height:1.03!important;margin-top:4px;letter-spacing:-.025em;white-space:normal!important}
-.hmw-v3 .hmw-hero .hmw-card-copy b{font-size:26px!important;max-width:17ch}
-.hmw-v3 .hmw-card-copy em{display:block;color:#e0e8f0!important;font-style:normal;font-size:10px!important;line-height:1.28;margin-top:6px;max-width:48ch}
-.hmw-v3 .hmw-card-copy strong{display:inline-flex;margin-top:7px;padding:6px 8px;border-radius:8px;background:rgba(255,255,255,.94);color:#10141a!important;font-size:9px!important;font-weight:950}
-.hmw-v3 .hmw-rest-head{display:flex;align-items:center;justify-content:space-between;margin:14px 1px 7px!important}
-.hmw-v3 .hmw-rest-head span{font-size:10px;font-weight:950;letter-spacing:.11em;text-transform:uppercase;color:#d5deea}
-.hmw-v3 .hmw-rest-head a{font-size:10px;color:#baffdc;text-decoration:none;font-weight:900}
-.hmw-v3 .hmw-rest-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:7px;margin:0!important}
-.hmw-v3 .hmw-rest-grid .hmw-card{height:124px}
-.hmw-v3 .hmw-rest-grid .hmw-card-copy b{font-size:13px!important}.hmw-v3 .hmw-rest-grid .hmw-card-copy small{font-size:7px!important}
-.hmw-v3 .hmw-rest-grid .hmw-logo{height:27px;padding:4px 7px}.hmw-v3 .hmw-rest-grid .hmw-logo img{width:17px!important;height:17px!important}.hmw-v3 .hmw-rest-grid .hmw-logo span{font-size:8px!important}
-.hmw-v3 .hmw-footnote{margin-top:8px;color:#7f8a99;font-size:8px;line-height:1.35}
-body.brand-home .visual-search{margin-top:0!important}
-@media(max-width:1100px){
- .hmw-top-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
- .hmw-top-grid .hmw-hero{grid-column:span 2}.hmw-top-grid .hmw-card{grid-column:span 1}
- .hmw-v3 .hmw-rest-grid{grid-template-columns:repeat(5,minmax(0,1fr))}
-}
-@media(max-width:760px){
- .hmw-v3{padding:11px 0 14px!important}
- .hmw-v3 .hmw-head{align-items:flex-start}.hmw-v3 .hmw-all{display:none}
- .hmw-v3 .hmw-head h1{font-size:34px!important}.hmw-v3 .hmw-head p{font-size:11px!important}
- .hmw-top-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
- .hmw-top-grid .hmw-hero,.hmw-top-grid .hmw-card{grid-column:span 1;height:175px}
- .hmw-v3 .hmw-hero .hmw-card-copy b{font-size:17px!important}
- .hmw-v3 .hmw-card-copy b{font-size:15px!important}.hmw-v3 .hmw-card-copy em{font-size:9px!important;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
- .hmw-v3 .hmw-rest-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.hmw-v3 .hmw-rest-grid .hmw-card{height:112px}
- .hmw-v3 .hmw-logo{max-width:65%}
-}
-</style>
 
-<style>
-/* cinematic commerce v4 — video + brand energy above the partner wall */
-.cinema-commerce{
-  padding:12px 0 10px;
-  background:
-    radial-gradient(circle at 15% 10%,rgba(255,148,40,.18),transparent 26rem),
-    radial-gradient(circle at 82% 12%,rgba(78,105,255,.18),transparent 28rem),
-    #07090e;
-  border-bottom:1px solid rgba(255,255,255,.08);
-}
-.cinema-shell{padding-left:18px!important;padding-right:18px!important}
-.cinema-grid{
-  display:grid;
-  grid-template-columns:1.25fr .95fr;
-  grid-template-rows:340px 162px;
-  gap:10px;
-}
-.cinema-panel,.cinema-mini{
-  position:relative;overflow:hidden;text-decoration:none;color:#fff!important;
-  border-radius:22px;border:1px solid rgba(255,255,255,.15);
-  background:#11151d;isolation:isolate;box-shadow:0 16px 45px rgba(0,0,0,.24)
-}
-.cinema-panel{grid-row:1}
-.cinema-nespresso{grid-column:1}
-.cinema-shifter{grid-column:2}
-.cinema-video-wrap,.cinema-fallback,.cinema-photo{position:absolute;inset:0;width:100%;height:100%}
-.cinema-fallback{z-index:0}.cinema-fallback img,.cinema-photo{width:100%;height:100%;object-fit:cover}
-.cinema-video-wrap{z-index:1;overflow:hidden;pointer-events:none;background:#15100c}
-.cinema-video-wrap iframe{
-  position:absolute;left:50%;top:50%;width:178vh;min-width:100%;height:56.25vw;min-height:100%;
-  transform:translate(-50%,-50%) scale(1.04);border:0;pointer-events:none
-}
-.cinema-shade{position:absolute;z-index:2;inset:0;background:linear-gradient(180deg,rgba(3,5,8,.10) 0%,rgba(3,5,8,.22) 36%,rgba(3,5,8,.94) 100%)}
-.cinema-nespresso .cinema-shade{background:
-  linear-gradient(180deg,rgba(24,10,3,.05),rgba(24,10,3,.16) 34%,rgba(18,8,2,.94) 100%),
-  linear-gradient(90deg,rgba(174,88,21,.18),transparent 60%)}
-.cinema-shifter .cinema-shade{background:
-  linear-gradient(180deg,rgba(3,8,18,.05),rgba(3,8,18,.16) 34%,rgba(3,8,18,.96) 100%),
-  linear-gradient(135deg,rgba(70,115,255,.28),transparent 62%)}
-.cinema-brand{
-  position:absolute;z-index:5;top:13px;left:13px;display:flex;align-items:center;gap:8px;
-  padding:8px 10px;border-radius:11px;background:rgba(255,255,255,.95);box-shadow:0 8px 24px rgba(0,0,0,.22)
-}
-.cinema-brand-light{background:rgba(255,255,255,.96)}
-.cinema-wordmark{font-size:12px;font-weight:950;letter-spacing:.06em;color:#111!important}
-.nespresso-wordmark{font-family:Georgia,serif;letter-spacing:.12em}
-.shifter-wordmark{letter-spacing:.13em}
-.cinema-partner-tag{font-size:7px;color:#4f5864;font-weight:900;letter-spacing:.08em}
-.cinema-deal-badge{
-  position:absolute;z-index:5;top:13px;right:13px;display:flex;align-items:center;gap:6px;
-  padding:8px 10px;border-radius:12px;background:#ffe359;color:#151007;border:2px solid rgba(255,255,255,.95);
-  box-shadow:0 8px 24px rgba(0,0,0,.22)
-}
-.cinema-deal-badge strong{font-size:24px;line-height:.9}.cinema-deal-badge span{font-size:8px;line-height:1.05;font-weight:950}
-.cinema-copy{position:absolute;z-index:5;left:17px;right:17px;bottom:16px;text-shadow:0 4px 22px rgba(0,0,0,.78)}
-.cinema-copy small{display:block;font-size:9px;letter-spacing:.12em;font-weight:950;color:#f0f5fb!important}
-.cinema-copy h2{margin:5px 0 5px;font-size:clamp(25px,2.5vw,40px);line-height:.96;letter-spacing:-.045em;max-width:13ch;color:#fff!important}
-.cinema-shifter .cinema-copy h2{font-size:clamp(23px,2.1vw,34px);max-width:15ch}
-.cinema-copy p{margin:0;max-width:650px;font-size:10px;line-height:1.4;color:#dce4ed!important}
-.cinema-cta{display:inline-flex;margin-top:8px;padding:7px 9px;border-radius:9px;background:#fff;color:#111!important;text-shadow:none;font-size:9px;font-weight:950}
-.cinema-apple-card{
-  position:absolute;z-index:5;right:13px;top:54px;width:138px;padding:11px;border-radius:14px;
-  background:rgba(6,9,15,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
-  border:1px solid rgba(255,255,255,.16);box-shadow:0 12px 30px rgba(0,0,0,.25)
-}
-.cinema-apple-card small{display:block;font-size:7px;letter-spacing:.08em;color:#dce5f0;font-weight:950}
-.cinema-apple-card strong{display:inline-block;margin-top:5px;font-size:25px;letter-spacing:-.05em;color:#fff}
-.cinema-apple-card del{display:block;margin-top:1px;font-size:10px;color:#97a2b1}
-.cinema-apple-card span{display:block;margin-top:4px;font-size:8px;color:#baffdc;font-weight:900}
-.cinema-mini{grid-row:2;height:162px}
-.cinema-mini:nth-of-type(3){grid-column:1}
-.cinema-mini:nth-of-type(4){grid-column:2}
-.cinema-mini:nth-of-type(5){display:none}
-.cinema-mini img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(1.17)}
-.cinema-mini-shade{position:absolute;z-index:1;inset:0;background:linear-gradient(180deg,rgba(3,5,8,.04),rgba(3,5,8,.88))}
-.cinema-mini>div:last-child{position:absolute;z-index:3;left:11px;right:11px;bottom:9px}
-.cinema-mini small{display:block;font-size:7px;letter-spacing:.1em;font-weight:950;color:#e7eef7}
-.cinema-mini b{display:block;margin-top:2px;font-size:16px;line-height:1.04;color:#fff}
-.cinema-mini em{display:block;margin-top:4px;font-size:9px;font-style:normal;color:#d7e0e9}
-.cinema-mini-logo{position:absolute;z-index:4;top:8px;left:8px;padding:6px 8px;border-radius:8px;background:rgba(255,255,255,.94);color:#111!important;font-size:9px;font-weight:950}
-.cinema-mini-badge{position:absolute;z-index:4;top:8px;right:8px;padding:6px 8px;border-radius:8px;background:#eaff99;color:#111!important;font-size:8px;font-weight:950}
-.mini-outin{box-shadow:inset 0 0 0 2px rgba(255,151,64,.10),0 16px 45px rgba(0,0,0,.22)}
-.mini-pet{box-shadow:inset 0 0 0 2px rgba(80,232,175,.10),0 16px 45px rgba(0,0,0,.22)}
-.mini-bike{box-shadow:inset 0 0 0 2px rgba(90,125,255,.10),0 16px 45px rgba(0,0,0,.22)}
-/* the dense wall starts immediately after the hero mosaic; no giant dead zones */
-.hmw-v3{padding-top:12px!important}
-.hmw-v3 .hmw-head h1{font-size:clamp(28px,2.8vw,42px)!important}
-@media(min-width:1050px){
-  .cinema-grid{grid-template-columns:1.18fr .82fr .82fr;grid-template-rows:340px 160px}
-  .cinema-nespresso{grid-column:1/3}
-  .cinema-shifter{grid-column:3}
-  .cinema-mini:nth-of-type(3){grid-column:1}
-  .cinema-mini:nth-of-type(4){grid-column:2}
-  .cinema-mini:nth-of-type(5){display:block;grid-column:3}
-}
-@media(max-width:760px){
-  .cinema-commerce{padding:8px 0}
-  .cinema-shell{padding-left:10px!important;padding-right:10px!important}
-  .cinema-grid{grid-template-columns:1fr 1fr;grid-template-rows:250px 220px 135px;gap:7px}
-  .cinema-nespresso{grid-column:1/3;grid-row:1}
-  .cinema-shifter{grid-column:1/3;grid-row:2}
-  .cinema-mini{height:135px!important;grid-row:3!important}
-  .cinema-mini:nth-of-type(3){grid-column:1}.cinema-mini:nth-of-type(4){grid-column:2}.cinema-mini:nth-of-type(5){display:none}
-  .cinema-panel,.cinema-mini{border-radius:16px}
-  .cinema-copy{left:12px;right:12px;bottom:11px}
-  .cinema-copy h2,.cinema-shifter .cinema-copy h2{font-size:27px;max-width:15ch}
-  .cinema-copy p{font-size:9px;max-width:90%}
-  .cinema-apple-card{top:48px;right:10px;width:125px}
-  .cinema-video-wrap iframe{width:190vh}
-}
-@media(prefers-reduced-motion:reduce){
-  .cinema-video-wrap{display:none}
-}
-</style>
+
+
 <style>
 /* equal brand wall v5 — every partner gets the same visual weight */
 .equal-wall{padding:12px 0 18px!important;background:
@@ -723,12 +484,12 @@ radial-gradient(circle at 96% 0%,rgba(31,225,151,.13),transparent 25rem),
       </div>
       <div class="live-deal-copy"><small>OUTIN · KAFFEE-SPECIAL</small><b>Espresso unterwegs – aktuell 20 % auf Mino, Nano und ausgewählte Sets.</b><span>Mino 151,99 € statt 189,99 €. 38,00 € sparen bei Mino.</span><strong>Deal & Modelle prüfen →</strong></div>
     </a>
-    <a class="live-deal live-deal-emotion" href="/petlibro.html" data-deal-start="2026-10-02" data-deal-end="2026-10-05" aria-label="PETLIBRO Deals prüfen">
+    <a class="live-deal live-deal-emotion" href="/rasendoktor.html" data-deal-start="2026-10-05" data-deal-end="2026-11-08" aria-label="Rasendoktor Neukunden-Rabatt prüfen">
       <div class="live-deal-visual">
-        <img class="live-deal-life" src="https://images.pexels.com/photos/6001460/pexels-photo-6001460.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Junger Mann mit seiner Katze zuhause" loading="eager" decoding="async">
-        <div class="live-deal-badge">12 %<br>GRANARY 2</div>
+        <img class="live-deal-life" src="https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&w=1200&q=90" alt="Gartenmoment auf gepflegtem Grün" loading="eager" decoding="async">
+        <div class="live-deal-badge">7 %<br>NEUKUNDEN</div>
       </div>
-      <div class="live-deal-copy"><small>PETLIBRO · BIS 05.10.</small><b>Smart füttern – 12 % auf Granary 2 mit G2AFF12.</b><span>18 % auf weitere Produkte mit PLAFF18; 20 % auf Bundles mit PLAFF20.</span><strong>Rabatt & Modelle prüfen →</strong></div>
+      <div class="live-deal-copy"><small>RASENDOKTOR · BIS 08.11.</small><b>7 % für Neukunden – auch auf viele Geräte, ohne Mindestbestellwert.</b><span>Code SQZMVVNC. Sale und Geschenkgutscheine ausgeschlossen; nicht mit anderen Codes kombinierbar.</span><strong>Deal & Gartenwelt prüfen →</strong></div>
     </a>
   </div>
 </section>
@@ -767,7 +528,7 @@ radial-gradient(circle at 96% 0%,rgba(31,225,151,.13),transparent 25rem),
 <section class="deal-radar" id="deals">
   <div class="shell">
     <div class="deal-head">
-      <div><div class="kicker">Deal Radar · zuletzt geprüft 03.10.2026</div><h2>Was ist gerade wirklich günstiger?</h2></div>
+      <div><div class="kicker">Deal Radar · zuletzt geprüft 06.10.2026</div><h2>Was ist gerade wirklich günstiger?</h2></div>
       <p>Nur aktuell verifizierte Aktionen. Abgelaufene Deals verschwinden automatisch – damit „Sale“ bei AuraGlobal auch wirklich Sale bedeutet.</p>
     </div>
     <div class="deal-grid" data-deal-grid>
@@ -796,6 +557,8 @@ radial-gradient(circle at 96% 0%,rgba(31,225,151,.13),transparent 25rem),
         <div class="deal-copy"><small>PETLIBRO PRIME DAY · 06.–07.10.</small><h3>Dann wechseln die Top-Deals auf ausgewählte Bestseller.</h3><p>Für 06.–07.10. hat PETLIBRO u. a. <strong>30 % auf Scout</strong> und <strong>28 % auf Dockstream 2</strong> angekündigt. Die angekündigte Aktion gilt am 06.–07.10.; Preise und Verfügbarkeit beim Anbieter prüfen.</p><div class="deal-actions"><a class="deal-cta" href="/petlibro.html">Smart-Pet-Vergleich öffnen →</a></div></div>
       </article>
 <article class="deal-card deal-blue deal-text" data-deal-start="2026-10-01" data-deal-end="2026-10-31"><div class="deal-copy"><small>NORMA24 · GEPRÜFT 03.10.2026</small><h3>Oktober-Gutscheine: bis zu 20 € sparen.</h3><p><strong>AFM_10_150_Okt26</strong>: 10 € ab 150 €. <strong>AFM_20_250_Okt26</strong>: 20 € ab 250 €. <strong>AFM_VSK_Okt26</strong>: versandkostenfrei ab 60 €. Bis 31.10.; Quelle: Awin-Partneraktion. Keine Kombinierbarkeit zugesichert.</p><div class="deal-actions"><a class="deal-cta" href="/norma24.html">Angebot & Auswahl prüfen</a></div></div></article><article class="deal-card deal-blue deal-text"><div class="deal-copy"><small>RAIBU · GEPRÜFT 03.10.2026</small><h3>5 % zusätzlich auf Wellness-Bundles.</h3><p>Code <strong>EXTRA5</strong> gilt laut Awin-Partneraktion zusätzlich auf reduzierte Bundles. Kaufe ein Bundle nur, wenn du seine Bestandteile tatsächlich brauchst. Kein Ablaufdatum vom Anbieter genannt.</p><div class="deal-actions"><a class="deal-cta" href="/raibu.html">Angebot & Auswahl prüfen</a></div></div></article>
+<article class="deal-card deal-green deal-text" data-deal-start="2026-10-06" data-deal-end="2026-10-12"><div class="deal-copy"><small>RASENDOKTOR · GEPRÜFT 06.10.2026 · BIS 12.10.</small><h3>14 € auf das Jahresdüngungs-Paket ESSENTIAL.</h3><p>Das Paket für die ganzjährige Rasenpflege ist laut heutiger Awin-Partneraktion bereits im Shop reduziert. <strong>14 € Ersparnis</strong>, solange der Vorrat reicht.</p><div class="deal-actions"><a class="deal-cta" href="/rasendoktor.html">Rasenpflege zuerst einordnen →</a><a class="deal-link" href="https://www.awin1.com/cread.php?awinmid=26999&awinaffid=3076553&campaign=&ued=https%3A%2F%2Fwww.rasendoktor.de%2Fangebote%2Fjahresduengung-essential%2F" target="_blank" rel="sponsored noopener">ESSENTIAL bei Rasendoktor ↗</a></div><div class="adnote">Anzeige · Quelle: Awin-Partneraktion vom 06.10.2026</div></div></article>
+<article class="deal-card deal-orange deal-text" data-deal-start="2026-10-05" data-deal-end="2026-11-08"><div class="deal-copy"><small>RASENDOKTOR · GEPRÜFT 06.10.2026 · BIS 08.11.</small><h3>7 % für Neukunden – ohne Mindestbestellwert.</h3><p>Code <strong>SQZMVVNC</strong> gilt laut Awin auch auf viele Geräte. Sale und Geschenkgutscheine sind ausgeschlossen; der Code ist nicht mit anderen Codes kombinierbar.</p><div class="deal-actions"><a class="deal-cta" href="/rasendoktor.html">Gartenwelt vergleichen →</a><a class="deal-link" href="https://www.awin1.com/cread.php?awinmid=26999&awinaffid=3076553&campaign=&ued=https%3A%2F%2Fwww.rasendoktor.de" target="_blank" rel="sponsored noopener">Direkt zu Rasendoktor ↗</a></div><div class="adnote">Anzeige · Quelle: Awin-Partneraktion vom 06.10.2026</div></div></article>
     </div>
     <div class="deal-note">Stand und Quelle werden pro Aktion geprüft. Maßgeblich sind Preis, Bedingungen und Verfügbarkeit beim Anbieter. Bekannte Start- und Enddaten werden automatisch berücksichtigt.</div>
   </div>
