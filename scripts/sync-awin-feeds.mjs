@@ -127,6 +127,7 @@ function validHttpUrl(v) {
 function broadCategory({name='',brand='',merchant='',rawCategory=''}) {
   const text = clean([name,brand,merchant,rawCategory].join(' '),700).toLowerCase();
   const rules = [
+    [/scheppach|werkzeug|abbruchhammer|bohrmaschine|saege|säge/, 'Werkstatt & Garten'],
     [/e-?bike|fahrrad|bike|cycling|urwahn|tenways|dotblue/, 'E-Bikes & Mobilität'],
     [/sneaker|schuh|shoe|jordan|adidas|nike|fashion|kleidung|bekleidung|apparel|momox/, 'Fashion & Sneaker'],
     [/kaffee|coffee|espresso|nespresso|outin/, 'Kaffee & Genuss'],
