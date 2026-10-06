@@ -68,11 +68,41 @@
   };
 
   async function catalogFetch(primary,fallback) {
-    try {
-      const res = await fetch(primary,{cache:'no-store'});
-      if (res.ok) return res;
-    } catch {}
-    return fetch(fallback,{cache:'no-store'});
+    const expected = primary.includes('manifest') ? 'merchants' : 'products';
+    async function read(url) {
+      const res = await fetch(url,{cache:'no-store',signal:AbortSignal.timeout(8000)});
+      if (!res.ok) throw new Error('Catalog unavailable');
+      const payload = await res.clone().json();
+      if (!Array.isArray(payload?.[expected])) throw new Error('Invalid catalog payload');
+      return res;
+    }
+    const results = await Promise.allSettled([read(primary),read(fallback)]);
+    const candidates = results.filter(r=>r.status === 'fulfilled').map(r=>r.value);
+    if (!candidates.length) throw new Error('Catalog unavailable');
+    if (expected === 'products' && candidates.length > 1) {
+      const dates = await Promise.all(candidates.map(async res=>Date.parse((await res.clone().json()).updatedAt) || 0));
+      return candidates[dates[1] > dates[0] ? 1 : 0];
+    }
+    return candidates[0];
+  }
+
+  function availableProducts(rows) {
+    const seen = new Set();
+    return (Array.isArray(rows) ? rows : []).filter(p => {
+      if (!p?.id || String(p.merchantId) === '68034' || p.inStock === false || !urlOk(p.url)) return false;
+      let destination;
+      try {
+        const link = new URL(p.url,location.origin);
+        destination = link.searchParams.get('ued') || link.href;
+        const target = new URL(destination);
+        target.searchParams.delete('clickref');
+        destination = target.href;
+      } catch { return false; }
+      const key = [p.merchantId,destination,p.currency || 'EUR'].join('|');
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
   }
 
   function mergeProducts(rows) {
@@ -81,7 +111,7 @@
       if (!product || !product.id) continue;
       byId.set(String(product.id),product);
     }
-    state.products = [...byId.values()];
+    state.products = availableProducts([...byId.values()]);
   }
 
   function manifestMerchant(name) {
@@ -91,9 +121,10 @@
 
   function candidateChunkPaths() {
     const merchants = Array.isArray(state.manifest?.merchants) ? state.manifest.merchants : [];
+    const eligible = merchants.filter(m=>String(m.merchantId) !== '68034');
     const scoped = state.merchant !== 'all'
-      ? merchants.filter(m=>norm(m.merchant) === state.merchant)
-      : merchants;
+      ? eligible.filter(m=>norm(m.merchant) === state.merchant)
+      : eligible;
 
     if (!scoped.length) return [];
     const paths = [];
@@ -259,7 +290,7 @@
 
   function card(p) {
     const price = money(p.price,p.currency);
-    const old = money(p.oldPrice,p.currency);
+    const old = savings(p) ? money(p.oldPrice,p.currency) : '';
     const save = savings(p);
     const img = urlOk(p.image) ? p.image : '/favicon.svg';
     const outbound = urlOk(p.url) ? attributedUrl(p.url,p) : '#';
@@ -282,7 +313,7 @@
       '<div class="pf-actions">'+
       '<a class="pf-buy" href="'+esc(outbound)+'" target="_blank" rel="sponsored noopener" data-affiliate-product="'+esc(p.id)+'" data-affiliate-merchant="'+esc(p.merchant)+'">Zum Angebot ↗</a>'+
       source+
-      '</div><small class="pf-note">Anzeige · Produktdaten und Verfügbarkeit können sich beim Anbieter ändern.</small></div>'+
+      '</div><small class="pf-note">Anzeige · Datenstand '+esc(p.lastUpdated ? new Date(p.lastUpdated).toLocaleDateString('de-DE') : 'siehe Katalog')+' · Preis und Verfügbarkeit beim Anbieter prüfen.</small></div>'+
       '</article>';
   }
 
@@ -668,14 +699,15 @@
       ]);
       if (!previewRes.ok) throw new Error('Produktdaten nicht erreichbar');
       const payload = await previewRes.json();
-      state.products = Array.isArray(payload.products) ? payload.products : [];
+      state.products = availableProducts(payload.products);
 
       if (manifestRes?.ok) {
-        state.manifest = await manifestRes.json();
+        const manifest = await manifestRes.json();
+        if ((Date.parse(manifest.updatedAt) || 0) >= (Date.parse(payload.updatedAt) || 0)) state.manifest = manifest;
       }
 
       const manifestMerchants = Array.isArray(state.manifest?.merchants)
-        ? state.manifest.merchants.map(m=>norm(m.merchant)).filter(Boolean)
+        ? state.manifest.merchants.filter(m=>String(m.merchantId) !== '68034').map(m=>norm(m.merchant)).filter(Boolean)
         : [];
       const merchants = [...new Set((manifestMerchants.length ? manifestMerchants : state.products.map(p=>norm(p.merchant))).filter(Boolean))]
         .sort((a,b)=>a.localeCompare(b,'de'));
@@ -700,7 +732,8 @@
       else if (els.meta) {
         const d = payload.updatedAt ? new Date(payload.updatedAt) : null;
         const stamp = d && !Number.isNaN(d.valueOf()) ? d.toLocaleString('de-DE',{dateStyle:'medium',timeStyle:'short'}) : 'wird aufgebaut';
-        els.meta.textContent = 'Awin-Feed · Datenstand '+stamp+' · '+merchants.length+' Shops · '+state.products.length.toLocaleString('de-DE')+' Produkte';
+        if (els.partnerCount) els.partnerCount.textContent = merchants.length.toLocaleString('de-DE');
+        els.meta.textContent = 'Produktauswahl · Stand '+stamp+' · '+merchants.length+' Shops · '+state.products.length.toLocaleString('de-DE')+' Einträge';
       }
 
       if (state.merchant !== 'all') await loadNextCatalogChunks(2);
@@ -710,6 +743,8 @@
         askAuraGlobal(state.query,{scroll:false});
       }
     } catch (err) {
+      if (els.count) els.count.textContent = 'Produkte momentan nicht verfügbar';
+      if (els.more) els.more.hidden = true;
       if (els.meta) els.meta.textContent = 'Produktkatalog wird gerade synchronisiert.';
       if (els.empty) els.empty.hidden = false;
       if (els.assistantOutput) {

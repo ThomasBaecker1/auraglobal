@@ -25,11 +25,41 @@
   };
 
   async function catalogFetch(primary,fallback) {
-    try {
-      const res = await fetch(primary,{cache:'no-store'});
-      if (res.ok) return res;
-    } catch {}
-    return fetch(fallback,{cache:'no-store'});
+    const expected = primary.includes('manifest') ? 'merchants' : 'products';
+    async function read(url) {
+      const res = await fetch(url,{cache:'no-store',signal:AbortSignal.timeout(8000)});
+      if (!res.ok) throw new Error('Catalog unavailable');
+      const payload = await res.clone().json();
+      if (!Array.isArray(payload?.[expected])) throw new Error('Invalid catalog payload');
+      return res;
+    }
+    const results = await Promise.allSettled([read(primary),read(fallback)]);
+    const candidates = results.filter(r=>r.status === 'fulfilled').map(r=>r.value);
+    if (!candidates.length) throw new Error('Catalog unavailable');
+    if (expected === 'products' && candidates.length > 1) {
+      const dates = await Promise.all(candidates.map(async res=>Date.parse((await res.clone().json()).updatedAt) || 0));
+      return candidates[dates[1] > dates[0] ? 1 : 0];
+    }
+    return candidates[0];
+  }
+
+  function availableProducts(rows) {
+    const seen = new Set();
+    return (Array.isArray(rows) ? rows : []).filter(p => {
+      if (!p?.id || String(p.merchantId) === '68034' || p.inStock === false || !urlOk(p.url)) return false;
+      let destination;
+      try {
+        const link = new URL(p.url,location.origin);
+        destination = link.searchParams.get('ued') || link.href;
+        const target = new URL(destination);
+        target.searchParams.delete('clickref');
+        destination = target.href;
+      } catch { return false; }
+      const key = [p.merchantId,destination,p.currency || 'EUR'].join('|');
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
   }
 
   function slugRef(v,max=28) {
@@ -171,7 +201,8 @@
       ]);
       if (!previewRes.ok) throw new Error('catalog unavailable');
       const payload = await previewRes.json();
-      const manifest = manifestRes?.ok ? await manifestRes.json() : null;
+      const candidateManifest = manifestRes?.ok ? await manifestRes.json() : null;
+      const manifest = candidateManifest && (Date.parse(candidateManifest.updatedAt) || 0) >= (Date.parse(payload.updatedAt) || 0) ? candidateManifest : null;
       const byId = new Map((Array.isArray(payload.products) ? payload.products : []).map(p=>[String(p.id),p]));
 
       if (Array.isArray(manifest?.merchants)) {
@@ -194,7 +225,7 @@
         }
       }
 
-      const products = [...byId.values()];
+      const products = availableProducts([...byId.values()]);
       const ranked = products
         .filter(matchProduct)
         .map(p=>({p,score:scoreProduct(p)}))
@@ -208,7 +239,7 @@
         const d = payload.updatedAt ? new Date(payload.updatedAt) : null;
         const stamp = d && !Number.isNaN(d.valueOf()) ? d.toLocaleString('de-DE',{dateStyle:'medium',timeStyle:'short'}) : 'aktuell';
         const total = Number(manifest?.productCount || payload.productCount || products.length);
-        meta.textContent = 'Awin-Vollkatalog · Datenstand '+stamp+' · '+total.toLocaleString('de-DE')+' Produkte';
+        meta.textContent = (manifest ? 'Produktkatalog · Stand ' : 'Produktauswahl · Stand ')+stamp+' · '+total.toLocaleString('de-DE')+' Produkte';
       }
 
       if (!ranked.length) {

@@ -34,6 +34,7 @@ function getListUrl() {
 }
 
 const INTERNAL_GUIDES = {
+  '18306':'/scheppach.html',
   '24089':'/paper-sons.html',
   '123708':'/vintage-realm.html',
   '124878':'/wau.html',
@@ -321,7 +322,7 @@ export async function runSync({storageMode=process.env.AWIN_STORAGE_MODE || 'fil
   // Every joined Awin merchant is eligible. INTERNAL_GUIDES is only used to add
   // AuraGlobal editorial guide links when we already have one; it must never
   // limit which merchants or products enter the catalog.
-  const eligibleFeeds = allJoinedFeeds;
+  const eligibleFeeds = allJoinedFeeds.filter(feed => pick(feed,['Advertiser ID','Merchant ID','merchant_id']) !== '68034');
   
   const byMerchant = new Map();
   for (const feed of eligibleFeeds) {
