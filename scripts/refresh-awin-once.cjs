@@ -1,9 +1,15 @@
 
 const fs = require('node:fs');
 (async () => {
-const base = 'https://f9ry80ftsut5huwd.public.blob.vercel-storage.com/auraglobal/catalog/';
-const oldManifest = await fetch(base+'index.json').then(r=>{if(!r.ok)throw Error('Previous catalog unavailable');return r.json()});
-const oldPreview = await fetch(base+'preview.json').then(r=>{if(!r.ok)throw Error('Previous preview unavailable');return r.json()});
+const {head} = await import('@vercel/blob');
+const getJSON = async name => {
+  const object = await head('auraglobal/catalog/'+name);
+  const response = await fetch(object.url);
+  if(!response.ok) throw Error('Previous catalog unavailable: HTTP '+response.status);
+  return response.json();
+};
+const oldManifest = await getJSON('index.json');
+const oldPreview = await getJSON('preview.json');
 let source = fs.readFileSync('scripts/sync-awin-feeds.mjs','utf8');
 const marker = '  previewProducts.sort((a,b)=>';
 if(!source.includes(marker))throw Error('Unexpected importer structure');
