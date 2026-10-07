@@ -1,6 +1,6 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import { createGunzip, gunzipSync } from 'node:zlib';
+import { createGunzip, gunzipSync, gzipSync } from 'node:zlib';
 import { Readable } from 'node:stream';
 import { StringDecoder } from 'node:string_decoder';
 import { pathToFileURL } from 'node:url';
@@ -314,6 +314,10 @@ async function* streamRecords(url) {
   }
 }
 
+export function encodeCatalogChunk(payload) {
+  return gzipSync(Buffer.from(payload, 'utf8'), {level: 9});
+}
+
 export async function runSync({storageMode=process.env.AWIN_STORAGE_MODE || 'filesystem'}={}) {
   const listUrl = getListUrl();
   const listText = await fetchText(listUrl);
@@ -371,14 +375,14 @@ export async function runSync({storageMode=process.env.AWIN_STORAGE_MODE || 'fil
   
     if (blobMode) {
       const blob = await blobPut(
-        'auraglobal/catalog/' + slug(advertiserId) + '/' + fileName,
-        payload,
+        'auraglobal/catalog/' + slug(advertiserId) + '/' + fileName + '.gz',
+        encodeCatalogChunk(payload),
         {
           access:'public',
           addRandomSuffix:false,
           allowOverwrite:true,
           cacheControlMaxAge:300,
-          contentType:'application/json; charset=utf-8'
+          contentType:'application/gzip'
         }
       );
       return blob.url;
