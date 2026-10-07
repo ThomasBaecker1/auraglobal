@@ -24,6 +24,17 @@
     } catch { return false; }
   };
 
+  async function readCatalogChunk(response) {
+    const bytes = new Uint8Array(await response.arrayBuffer());
+    // Inspect the bytes: HTTP Content-Encoding may already have decompressed
+    // the response, while .json.gz objects have no such header.
+    if (bytes[0] === 0x1f && bytes[1] === 0x8b) {
+      const stream = new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'));
+      return new Response(stream).json();
+    }
+    return JSON.parse(new TextDecoder().decode(bytes));
+  }
+
   async function catalogFetch(primary,fallback) {
     const expected = primary.includes('manifest') ? 'merchants' : 'products';
     async function read(url) {
@@ -218,7 +229,7 @@
           const chunks = await Promise.all(paths.slice(i,i+3).map(async path=>{
             const res = await fetch(path,{cache:'no-store'});
             if (!res.ok) return [];
-            const chunk = await res.json();
+            const chunk = await readCatalogChunk(res);
             return Array.isArray(chunk.products) ? chunk.products : [];
           }));
           for (const rows of chunks) for (const product of rows) if (product?.id) byId.set(String(product.id),product);
