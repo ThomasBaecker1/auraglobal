@@ -4,8 +4,10 @@ const fs = require('node:fs');
 const {head} = await import('@vercel/blob');
 const getJSON = async name => {
   const object = await head('auraglobal/catalog/'+name);
-  const response = await fetch(object.url);
-  if(!response.ok) throw Error('Previous catalog unavailable: HTTP '+response.status);
+  const url = new URL(object.url);
+  if(!url.hostname.endsWith('.blob.vercel-storage.com')) throw Error('Unexpected catalog host');
+  const response = await fetch(url,{headers:{authorization:'Bearer '+process.env.BLOB_READ_WRITE_TOKEN}});
+  if(!response.ok) throw Error('Previous catalog unavailable: HTTP '+response.status+' '+(await response.text()).slice(0,200));
   return response.json();
 };
 const oldManifest = await getJSON('index.json');
