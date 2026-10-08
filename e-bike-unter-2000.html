@@ -10,6 +10,7 @@
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/aura-v2.css">
 <link rel="stylesheet" href="/assets/intent-landing.css">
+<link rel="stylesheet" href="/assets/conversion-focus.css">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="AuraGlobal">
 <meta property="og:locale" content="de_DE">
@@ -52,10 +53,21 @@
 
 <section class="intent-trust">
   <div class="intent-shell intent-trust-grid">
-    <div><small>01 · Bedarf</small><b>Unter 2.000 €.</b><span>Produkte über der gesetzten Preisgrenze werden auf dieser Seite nicht ausgespielt, sofern ein Preis im Feed vorhanden ist.</span></div>
+    <div><small>01 · Bedarf</small><b>Unter 2.000 €.</b><span>Nur Angebote mit ausgewiesenem Preis bis zur gesetzten Obergrenze werden angezeigt.</span></div>
     <div><small>02 · Daten</small><b>Echte Partnerfeeds.</b><span>Produkte, Preise und Links kommen aus den freigeschalteten Awin-Feeds.</span></div>
     <div><small>03 · Auswahl</small><b>Keine erfundenen Sieger.</b><span>Fehlen Daten, zeigen wir lieber weniger Treffer als falsche Sicherheit.</span></div>
     <div><small>Transparenz</small><b>Für dich kostenlos.</b><span>Bei Käufen über Partnerlinks können wir eine Provision erhalten.</span></div>
+  </div>
+</section>
+
+<section class="intent-products" id="treffer">
+  <div class="intent-shell">
+    <div class="intent-products-head">
+      <div><div class="intent-kicker">ANGEBOTE ANSEHEN · AUS DEM PARTNERKATALOG</div><h2>Aktuelle E-Bike-Treffer bis 2.000 €.</h2></div>
+      <p>Nur Angebote mit ausgewiesenem Preis bis 2.000 € werden gezeigt. Die Produktdaten stammen aus Partnerfeeds und können sich beim Anbieter ändern.</p>
+    </div>
+    <div class="intent-product-status"><strong data-intent-count>Produkte werden geladen …</strong><span data-intent-meta>Partnerdaten werden geladen …</span></div>
+    <div class="intent-grid" data-intent-grid></div>
   </div>
 </section>
 
@@ -71,16 +83,7 @@
   </div>
 </section>
 
-<section class="intent-products" id="treffer">
-  <div class="intent-shell">
-    <div class="intent-products-head">
-      <div><div class="intent-kicker">LIVE AUS DEM AWIN-KATALOG</div><h2>Aktuelle E-Bike-Treffer bis 2.000 €.</h2></div>
-      <p>Das ist keine starre Bestenliste. Die Auswahl aktualisiert sich automatisch mit den freigeschalteten Partnerfeeds und zeigt zuerst relevante Treffer mit brauchbaren Daten.</p>
-    </div>
-    <div class="intent-product-status"><strong data-intent-count>Produkte werden geladen …</strong><span data-intent-meta>Partnerdaten werden geladen …</span></div>
-    <div class="intent-grid" data-intent-grid></div>
-  </div>
-</section>
+
 
 <section class="intent-method">
   <div class="intent-shell intent-method-grid">
