@@ -103,8 +103,10 @@ function results(){
    '<ul class="am-product-notes">'+(Array.isArray(p.notes)?p.notes:[]).map(n=>'<li>'+esc(n)+'</li>').join('')+'</ul>'+
    '<div class="am-product-actions"><a class="am-buy" href="'+esc(p.href)+'" rel="sponsored noopener" target="_blank" data-match-buy="'+esc(p.id)+'">Shop-Preis prüfen ↗</a>'+
    (validGuide(p.guide)?'<a class="am-compare" href="'+esc(p.guide)+'">Kaufhilfe lesen →</a>':'')+
+   '<button type="button" class="am-wish-toggle" data-wish-button="'+esc(p.id)+'" aria-pressed="false">♡ Merken</button>'+
    '</div><small class="am-product-disclosure">Anzeige / Partnerlink · Konditionen beim Anbieter prüfen.</small></div></article>';
  }).join('');
+ window.dispatchEvent(new Event('ag:wishlist-changed'));
  if(!list.length)nodes.products.innerHTML='<p>Für diese Auswahl sind gerade keine kuratierten Angebote hinterlegt. Prüfe die zugehörige Kaufberatung.</p>';
  if(nodes.guide){nodes.guide.href=validGuide(c.guide)?c.guide:'/kaufberatung.html';nodes.guide.textContent='Ratgeber '+c.label+' →'}
  const q=new URL(location.href);q.searchParams.set('category',state.category);q.searchParams.set('need',state.need);
