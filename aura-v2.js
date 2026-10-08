@@ -1,3 +1,48 @@
+/* Manual QA mode: open any AuraGlobal page with ?ag_test=1 to disable affiliate
+   redirects for this browser tab. ?ag_test=0 resets it.
+   Awin can count real clicks, so keep previews out of its reports. */
+function initAffiliateTestMode(){
+  let active=false;
+  try{
+    const u=new URL(window.location.href);
+    if(u.searchParams.get('ag_test')==='1')sessionStorage.setItem('ag_test_mode','1');
+    if(u.searchParams.get('ag_test')==='0')sessionStorage.removeItem('ag_test_mode');
+    active=sessionStorage.getItem('ag_test_mode')==='1';
+  }catch{active=new URLSearchParams(window.location.search).get('ag_test')==='1'}
+  if(!active)return;
+  const intercept=event=>{
+    const a=event.target?.closest?.('a[rel~="sponsored"],a[href*="awin1.com/"]');
+    if(!a)return;
+    event.preventDefault();
+    event.stopImmediatePropagation();
+    const label=document.getElementById('ag-qa-click-note');
+    if(label)label.textContent='Awin-Weiterleitung verhindert – dieser Test erhöht keine Affiliate-Klickzahl.';
+  };
+  document.addEventListener('click',intercept,true);
+  document.addEventListener('DOMContentLoaded',()=>{
+    if(document.getElementById('ag-qa-banner'))return;
+    const banner=document.createElement('div');
+    banner.id='ag-qa-banner';
+    banner.style.cssText='position:fixed;z-index:2147483647;bottom:0;left:0;right:0;padding:12px 18px;background:#152c28;color:#fff;border-top:2px solid #bfffdc;font:600 13px/1.6 system-ui,sans-serif;display:flex;align-items:center;flex-wrap:wrap;justify-content:center;gap:14px;text-align:center';
+    const text=document.createElement('span');
+    text.id='ag-qa-click-note';
+    text.textContent='AuraGlobal Testmodus: Affiliate-Klicks sind blockiert und werden nicht an Awin gesendet.';
+    const btn=document.createElement('button');
+    btn.type='button';
+    btn.textContent='Testmodus beenden';
+    btn.style.cssText='border:0;background:#bfffdc;color:#10291e;border-radius:8px;padding:8px 12px;font-weight:850;cursor:pointer';
+    btn.addEventListener('click',()=>{
+      try{sessionStorage.removeItem('ag_test_mode')}catch{}
+      const u=new URL(window.location.href);
+      u.searchParams.delete('ag_test');
+      window.location.href=u.toString();
+    });
+    banner.append(text,btn);
+    document.body.append(banner);
+  });
+}
+initAffiliateTestMode();
+
 const catalog=[
   {title:"House of Sneakers",type:"Vergleich",href:"/house-of-sneakers.html",tags:"house of sneakers sneaker nike adidas jordan campus schuhe streetwear"},
   {title:'Alle Marken & Vergleiche',type:'Übersicht',href:'/marken.html',tags:'alle marken partner vergleiche übersicht katalog kategorien'},
