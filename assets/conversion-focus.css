@@ -61,3 +61,14 @@
 .ag-choose-links span{color:#a5edc4;font-size:11px;line-height:1.35}
 .ag-choose-links a:focus-visible{outline:3px solid #afffd9;outline-offset:3px}
 @media(max-width:800px){.ag-choose-inner{grid-template-columns:1fr}.ag-choose-links{grid-template-columns:1fr}.ag-choose-links a{padding:13px 15px}}
+
+
+/* Revenue funnel: clearly labelled seasonal manufacturer offer. No fake countdowns. */
+.intent-page .ag-hero-offer{border:1px solid rgba(191,255,220,.65);background:linear-gradient(145deg,rgba(16,41,43,.97),rgba(10,24,32,.97));box-shadow:0 22px 55px rgba(0,0,0,.22)}
+.intent-page .ag-hero-offer small{color:#baffd8}
+.intent-page .ag-hero-offer strong{display:block;color:#fff;font-size:clamp(18px,2vw,24px);line-height:1.2}
+.intent-page .ag-hero-offer strong s{font-size:.67em;color:#b2bfca;margin-left:7px;font-weight:600}
+.intent-page .ag-hero-offer .ag-offer-cta{display:inline-flex;align-items:center;justify-content:center;text-align:center;padding:13px 15px;margin-top:15px;border-radius:10px;background:#baffd8;color:#0b271b!important;font-size:13px;font-weight:900;text-decoration:none;min-height:44px}
+.intent-page .ag-hero-offer .ag-offer-cta:hover{background:#e4ffec}
+.intent-page .ag-hero-offer .ag-offer-cta:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.intent-page .ag-hero-offer .ag-offer-disclosure{display:block;margin-top:11px;font-size:10px;color:#b9c9d0}
