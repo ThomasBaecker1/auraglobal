@@ -77,3 +77,16 @@
 .ag-featured-thumb{display:block;width:100%;height:158px;object-fit:contain;object-position:center;border-radius:12px;background:linear-gradient(140deg,#d6f2e6,#f4f8f5);margin:0 0 16px}
 .ag-featured-card:has(.ag-featured-thumb){padding-top:18px}
 @media(max-width:760px){.ag-featured-thumb{height:140px;}}
+
+
+/* Merchant-confirmed EU partner coupon – only claim redemption after buyer confirms it in shop. */
+.ag-offer-coupon{display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin-top:17px;padding:12px;border:1px dashed rgba(188,255,213,.64);border-radius:12px;background:rgba(14,31,31,.75)}
+.ag-offer-coupon>div{flex:1;min-width:145px}
+.ag-offer-coupon b{display:block;font-size:10px;letter-spacing:.13em;color:#baffd8}
+.ag-offer-coupon span{display:block;color:#d3e7dd;font-size:11px;line-height:1.45;margin-top:4px}
+.ag-offer-coupon .ag-copy-coupon{border:1px solid rgba(189,255,220,.5);border-radius:9px;background:#d5ffe7;color:#123426;display:flex;align-items:center;gap:9px;padding:10px 12px;cursor:pointer;min-height:43px}
+.ag-copy-coupon code{color:#0b2a1b;font-size:14px;font-weight:950;letter-spacing:.09em}
+.ag-copy-coupon span{color:#153e2a;font-weight:850;margin-top:0}
+.ag-offer-coupon .ag-coupon-feedback{flex-basis:100%;font-size:10px;color:#bcffde}
+.ag-copy-coupon:focus-visible{outline:3px solid #fff;outline-offset:3px}
+@media(max-width:550px){.ag-offer-coupon{align-items:stretch}.ag-offer-coupon .ag-copy-coupon{width:100%;justify-content:center}}
