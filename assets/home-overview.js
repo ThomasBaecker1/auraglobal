@@ -27,6 +27,12 @@ async function expandCatalog(){
   try{manifest=await fetchJson('/api/catalog?file=manifest')}
   catch{return}
   if(!Array.isArray(manifest?.merchants))return;
+  // Awin feed merchants are not the same as public brand-directory cards.
+  // Count only merchants with a real product feed in the joined-program manifest.
+  const feedMerchants=Array.isArray(manifest.merchants)
+    ?manifest.merchants.filter(m=>Number(m.productCount)>0&&String(m.merchantId)!=='68034').length
+    :0;
+  if(feedMerchants>0)text('[data-live-programs]',fmt(feedMerchants));
   const count=Number(manifest.productCount);
   if(Number.isFinite(count)&&count>0){
     text('[data-live-products]',fmt(count));
