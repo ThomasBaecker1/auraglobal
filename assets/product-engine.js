@@ -272,7 +272,12 @@
     let rows = state.products.filter((p) => {
       if (state.merchant !== 'all' && norm(p.merchant) !== state.merchant) return false;
       if (state.category !== 'all' && norm(p.category) !== state.category) return false;
-      if (q && !searchable(p).includes(q)) return false;
+      if (q && !searchable(p).includes(q)) {
+        if(!p.curated)return false;
+        const ignored=new Set(['unter','bis','max','maximal','euro','eur','kaufen','test','testsieger','preis','preise','günstig','günstiges','günstige','für','mit','von','einen','eine','einer','ein','und','der','die','das','beste','bestes','alternative','online']);
+        const meaningful=q.split(/[^a-z0-9äöüß-]+/).filter(t=>t.length>=3&&!/^\\d+$/.test(t)&&!ignored.has(t));
+        if(!meaningful.length||!meaningful.some(t=>searchable(p).includes(t)))return false;
+      }
       return p.inStock !== false;
     });
 
@@ -698,6 +703,55 @@
     state.sort = norm(params.get('sort')) || 'relevance';
   }
 
+  /* Fail-open retail UX: make the verified Awin choices from AuraMatch
+     usable in Productfinder even when the dynamic partner feed is down. */
+  function curatedProductFallback() {
+    const offers=window.AURA_MATCH_DATA?.offers;
+    if(!Array.isArray(offers))return [];
+    const labels={bike:'E-Bikes',coffee:'Kaffee',pets:'Haustiere',power:'Camping & Energie',office:'Homeoffice',fashion:'Secondhand'};
+    const words={bike:'e-bike ebike fahrrad citybike stadtrad pendler riemenantrieb sushi bike damen herren',
+      coffee:'kaffee espresso portable reise camping kaffeemaschine outdoor',
+      pets:'haustier katze katzen hund futter futterautomat kamera',
+      power:'strom powerstation camping wohnmobil solar batterie',
+      office:'büro homeoffice schreibtisch höhenverstellbar ergonomisch',
+      fashion:'fashion mode secondhand second hand gebraucht kleidung bücher'};
+    return offers.filter(o=>{
+      try{const u=new URL(o.href);return u.protocol==='https:'&&u.hostname==='www.awin1.com'&&u.searchParams.get('awinaffid')==='3076553'}catch{return false}
+    }).map(o=>({
+      id:'curated-'+o.id,name:o.title,brand:o.merchant,merchant:o.merchant,
+      merchantId:new URL(o.href).searchParams.get('awinmid')||'',
+      category:labels[o.category]||'Kaufberatung',categoryRaw:o.category,
+      description:o.reason+' '+(o.notes||[]).join(' '),
+      keywords:(words[o.category]||'')+' '+o.badge,
+      image:o.photo||'',price:null,oldPrice:null,currency:'EUR',
+      url:o.href,internalUrl:o.guide,inStock:null,curated:true,lastUpdated:null
+    }));
+  }
+
+  function useFallbackCatalog(reason) {
+    const fallback=availableProducts(curatedProductFallback());
+    if(!fallback.length)return false;
+    state.products=fallback;state.manifest=null;
+    const merchants=[...new Set(fallback.map(p=>p.merchant))].sort((a,b)=>a.localeCompare(b,'de'));
+    const categories=[...new Set(fallback.map(p=>p.category))].sort((a,b)=>a.localeCompare(b,'de'));
+    fillSelect(els.merchant,merchants,'Alle Shops');
+    fillSelect(els.category,categories,'Alle Kategorien');
+    if(!merchants.includes(state.merchant))state.merchant='all';
+    if(!categories.includes(state.category))state.category='all';
+    if(els.query)els.query.value=state.query;
+    if(els.heroQuery)els.heroQuery.value=state.query;
+    if(els.merchant)els.merchant.value=state.merchant;
+    if(els.category)els.category.value=state.category;
+    if(els.sort)els.sort.value=state.sort;
+    if(els.meta)els.meta.textContent='Kuratierte Awin-Partnerauswahl · '+fallback.length+' Angebote · keine Live-Preise und keine Bestandsbestätigung.';
+    if(els.partnerCount)els.partnerCount.textContent=String(merchants.length);
+    apply({updateUrl:false});
+    if(els.assistantOutput)els.assistantOutput.innerHTML='<div class="ag-answer-head"><span>AuraGlobal · kuratierte Auswahl</span><h3>Kaufberatung und Partnerangebote verfügbar.</h3><p>Der Live-Katalog ist gerade nicht erreichbar. Wir zeigen geprüfte Linkformate ohne aktuellen Preis oder Lagerstatus.</p><a class="pf-detail" href="/match.html">AuraMatch öffnen →</a></div>';
+    window.dataLayer=window.dataLayer||[];
+    window.dataLayer.push({event:'ag_catalog_fallback',reason,offer_count:fallback.length});
+    return true;
+  }
+
   async function init() {
     readInitialState();
     captureAttribution();
@@ -711,6 +765,7 @@
       if (!previewRes.ok) throw new Error('Produktdaten nicht erreichbar');
       const payload = await previewRes.json();
       state.products = availableProducts(payload.products);
+      if(!state.products.length){useFallbackCatalog('feed_empty');return;}
 
       if (manifestRes?.ok) {
         const manifest = await manifestRes.json();
@@ -754,12 +809,12 @@
         askAuraGlobal(state.query,{scroll:false});
       }
     } catch (err) {
-      if (els.count) els.count.textContent = 'Produkte momentan nicht verfügbar';
-      if (els.more) els.more.hidden = true;
-      if (els.meta) els.meta.textContent = 'Produktkatalog wird gerade synchronisiert.';
-      if (els.empty) els.empty.hidden = false;
-      if (els.assistantOutput) {
-        els.assistantOutput.innerHTML = '<div class="ag-answer-head"><span>AuraGlobal Beta</span><h3>Der Produktkatalog wird gerade synchronisiert.</h3><p>Versuch es gleich noch einmal.</p></div>';
+      if (!useFallbackCatalog('feed_unreachable')) {
+        if (els.count) els.count.textContent='Produktkatalog vorübergehend nicht erreichbar';
+        if (els.more) els.more.hidden=true;
+        if (els.meta) els.meta.textContent='Kaufberatungen sind weiterhin erreichbar.';
+        if (els.empty) els.empty.hidden=false;
+        if (els.assistantOutput)els.assistantOutput.innerHTML='<div class="ag-answer-head"><h3>Unsere Kaufberatungen sind weiterhin online.</h3><a class="pf-detail" href="/kaufberatung.html">Kaufberatungen öffnen →</a></div>';
       }
     }
   }
