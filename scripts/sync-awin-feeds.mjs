@@ -59,7 +59,22 @@ const INTERNAL_GUIDES = {
   '114194':'/raibu.html',
   '115541':'/dotblue.html',
   '119967':'/delst.html',
-  '127589':'/braingood.html'
+  '127589':'/braingood.html',
+  '124508':'/go-off.html', // GO-OFF
+  '116603':'/pure-electric.html', // Pure Electric
+  '45579':'/iscooter.html', // iScooter
+  '129923':'/manhenke.html', // Manhenke
+  '15538':'/vingino.html', // Vingino
+  '110230':'/takko.html', // Takko Fashion
+  '29591':'/heideman.html', // Heideman
+  '14609':'/timeshop24.html', // Timeshop24
+  '117285':'/toolchest.html', // Toolchest
+  '11609':'/druckdichdrauf.html', // DruckDichDrauf
+  '69168':'/ameropa.html', // Ameropa
+  '11395':'/magix.html', // MAGIX
+  '55091':'/messmer.html', // Meßmer
+  '17492':'/linguatv.html', // LinguaTV
+  '131130':'/synbiotic-shield.html', // SYNBIOTIC SHIELD
 };
 
 function parseCsv(text) {
