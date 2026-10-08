@@ -94,3 +94,19 @@ a{color:inherit}
 @media(max-width:800px){.am-flow{grid-template-columns:1fr}.am-side{position:static}.am-result-grid{grid-template-columns:1fr}.am-product{flex-direction:row}.am-product-media{height:auto;min-height:235px;width:33%;min-width:33%}.am-product-body{padding:20px}}
 @media(max-width:600px){.am-shell{width:calc(100% - 30px)}.am-top-inner{min-height:67px}.am-top-links a:first-child{display:none}.am-hero{padding:44px 0 38px}.am-hero h1{font-size:clamp(48px,12vw,66px)}.am-hero-proof{display:none}.am-main{padding-top:25px}.am-panel,.am-side{padding:20px;border-radius:19px}.am-categories{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.am-cat{min-height:135px;padding:13px}.am-cat .am-cat-icon{margin-bottom:9px}.am-intent-grid{grid-template-columns:1fr}.am-intent{min-height:72px}.am-result-grid{grid-template-columns:1fr}.am-product{flex-direction:column}.am-product-media{min-height:190px;height:190px;width:100%}.am-result-head{align-items:flex-start}.am-result-head h2{font-size:38px}.am-footer .am-shell{display:block}.am-footer a{display:inline-block;margin:6px 12px 0 0}.am-actions .am-button{flex:1}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
+
+
+/* Bookmarking is first-party and local-only; no account or hidden checkout. */
+.am-wish-toggle{appearance:none;border:1px solid rgba(191,255,220,.35);border-radius:9px;background:transparent;color:#c6ecda;min-height:44px;padding:11px 14px;cursor:pointer;font-weight:900;font-size:12px}
+.am-wish-toggle[aria-pressed="true"]{background:#204e3c;border-color:#b9ffda;color:#fff}
+.am-wish-toggle:hover{border-color:#b9ffda;background:#1b3a35}
+.am-wishlist-head{padding:60px 0 34px}
+.am-wishlist-head h1{font-size:clamp(44px,7vw,76px);line-height:.98;letter-spacing:-.07em;margin:12px 0 17px}
+.am-wishlist-head p{font-size:15px;color:#acc2ba;line-height:1.7;max-width:580px}
+.am-wishlist-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.am-wishlist-empty{background:#15292c;border:1px solid rgba(190,255,223,.2);border-radius:18px;padding:38px;margin:15px 0 60px;text-align:center}
+.am-wishlist-empty strong{font-size:24px;letter-spacing:-.03em}
+.am-wishlist-empty p{color:#bfd6c9;font-size:13px;line-height:1.65}
+.am-wishlist-empty .am-button{margin-top:12px}
+@media(max-width:950px){.am-wishlist-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){.am-wishlist-grid{grid-template-columns:1fr}.am-wishlist-head{padding-top:38px}}
