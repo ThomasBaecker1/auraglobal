@@ -61,7 +61,7 @@ Format 33s, warme Lifestyle-Ästhetik, aber echte Kaufhilfe.
 Optionale B-Roll: https://www.pexels.com/video/woman-having-coffee-with-mountain-background-5738129/, https://www.pexels.com/video/an-espresso-machine-pouring-coffee-into-a-ceramic-cup-13737150/ (zeigt eine allgemeine Maschine, NICHT den OutIn Nano).
 
 ## Plattform-spezifischer Link-Funnel
-- YouTube Profil-Link auf den jeweiligen aktuell priorisierten Einstieg setzen: `https://auraglobal.vercel.app/e-bike-pendelrechner.html?utm_source=youtube&utm_medium=profile&utm_campaign=shorts` (bei mehreren Themen besser auf einen dedizierten /shorts/-Hub verweisen).
+- YouTube Profil-Link auf den jeweiligen aktuell priorisierten Einstieg setzen: `https://auraglobal.vercel.app/e-bike-pendelrechner.html?utm_source=youtube&utm_medium=profile&utm_campaign=shorts` (bei mehreren Themen auf den jetzt erstellten /start.html-Hub verweisen).
 - Instagram Bio-Link mit `utm_source=instagram&utm_medium=bio&utm_campaign=shorts`. Bei vorhandenem Stories-Link-Sticker ggf. separat.
 - TikTok Bio/Profil-Link nur nutzen, wenn der Account diese Funktion tatsächlich freigeschaltet hat.
 - Formatvarianten ohne plattformeigene Wasserzeichen crossposten.
@@ -72,3 +72,10 @@ Optionale B-Roll: https://www.pexels.com/video/woman-having-coffee-with-mountain
 ## Abhängigkeiten
 Videobearbeitung: Descript / vergleichbarer Editor verbunden oder lokal mit lizenziertem Bewegtbild und hochwertigem TTS. Aktuell keine nutzbaren Runway Video-Credits bestätigt.
 Vollendung setzt echten Film- oder Bildmaterialzugriff voraus. Das alte Grafikpaket NICHT als Premium-V2 deklarieren.
+
+
+### Einheitlicher Profil-Link (ab 8.10.2026 vorhanden)
+- YouTube: `https://auraglobal.vercel.app/start.html?utm_source=youtube&utm_medium=profile&utm_campaign=shorts`
+- Instagram: `https://auraglobal.vercel.app/start.html?utm_source=instagram&utm_medium=bio&utm_campaign=shorts`
+- TikTok: `https://auraglobal.vercel.app/start.html?utm_source=tiktok&utm_medium=bio&utm_campaign=shorts`
+- /start.html ist ein bewusst **noindex** gesetzter mobiler Einsteiger-Hub: nur die drei im Video erwähnten Themen, vorhandene Awin-Affiliatebuttons und Werbehinweis. Das erhält Übersichtlichkeit und verhindert eine dünne zweite SEO-Startseite.
