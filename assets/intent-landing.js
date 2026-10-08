@@ -149,8 +149,10 @@
     const termMatch = include.length ? include.some(t=>text.includes(t)) : true;
 
     const price = Number(p.price);
-    if (cfg.maxPrice && Number.isFinite(price) && price > cfg.maxPrice) return false;
-    if (cfg.minPrice && Number.isFinite(price) && price < cfg.minPrice) return false;
+    // A budget landing must never claim an unpriced product is under budget.
+    if ((cfg.maxPrice || cfg.minPrice) && (!Number.isFinite(price) || price <= 0)) return false;
+    if (cfg.maxPrice && price > cfg.maxPrice) return false;
+    if (cfg.minPrice && price < cfg.minPrice) return false;
 
     return cfg.requireTerm ? termMatch : (merchantMatch || termMatch);
   }
@@ -182,6 +184,24 @@
       (internal ? '<a class="intent-guide-link" href="'+esc(internal)+'">AuraGlobal Guide →</a>' : '')+
       '</div><small class="intent-disclosure">Anzeige · Preise und Verfügbarkeit können sich beim Anbieter ändern.</small>'+
       '</div></article>';
+  }
+
+  function usefulFallback(reason) {
+    // Never make up a product price when a live feed is temporarily unavailable.
+    const links = {
+      'e-bike-unter-2000':[
+        ['TENWAYS E-Bikes nach Einsatz vergleichen','/tenways.html'],
+        ['DOTBLUE Falt-E-Bikes ansehen','/dotblue.html']
+      ],
+      'portable-espressomaschine-camping':[
+        ['OutIn Nano & Mino vergleichen','/outin.html'],
+        ['Kaffee für unterwegs entdecken','/kaffee.html']
+      ]
+    };
+    const choices = links[String(cfg.slug)] || [['Alle Kaufberatungen ansehen','/kaufberatung.html']];
+    return '<div class="intent-empty"><strong>'+esc(reason)+'</strong>'+
+      '<p>Die Vergleichsseiten helfen dir trotzdem weiter. Preise und Verfügbarkeit bitte direkt beim jeweiligen Anbieter prüfen.</p>'+
+      '<div class="intent-fallback-links">'+choices.map(([label,href])=>'<a href="'+esc(href)+'">'+esc(label)+' →</a>').join('')+'</div></div>';
   }
 
   function trackLinks() {
@@ -254,7 +274,7 @@
       }
 
       if (!ranked.length) {
-        grid.innerHTML = '<div class="intent-empty">Im aktuellen Partnerkatalog gibt es für diese genaue Kombination noch keinen sicheren Treffer. AuraGlobal zeigt bewusst nichts Erfundenes. <a href="/produkte.html">Gesamten Produktfinder öffnen →</a></div>';
+        grid.innerHTML = usefulFallback('Im aktuellen Partnerfeed ist gerade kein sicher passendes Angebot mit diesen Kriterien verfügbar.');
       } else {
         grid.innerHTML = ranked.map(card).join('');
       }
@@ -272,7 +292,7 @@
         gclid:attribution.gclid
       });
     } catch {
-      grid.innerHTML = '<div class="intent-empty">Der Produktkatalog wird gerade synchronisiert. <a href="/produkte.html">Zum Produktfinder →</a></div>';
+      grid.innerHTML = usefulFallback('Der Produktkatalog wird gerade synchronisiert.');
       if (count) count.textContent = 'Katalog wird synchronisiert';
     }
   }
