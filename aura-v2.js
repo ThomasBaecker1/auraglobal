@@ -399,7 +399,7 @@ function initShoppingIntent(){
   const bar=document.querySelector('[data-shop-intent]');
   const grid=document.querySelector('.equal-grid');
   if(!bar||!grid) return;
-  const cards=[...grid.querySelectorAll('.equal-card')];
+  const cards=()=>[...grid.querySelectorAll('.equal-card')];
 
   const tagMap={
     all:()=>true,
@@ -412,51 +412,56 @@ function initShoppingIntent(){
     pet:c=>(c.dataset.tags||'').includes('pet'),
     career:c=>(c.dataset.tags||'').includes('career')
   };
-
+  let current='all';
+  const notify=()=>document.dispatchEvent(new Event('ag:partner-filtered'));
   const apply=key=>{
+    current=key;
     const test=tagMap[key]||tagMap.all;
-    cards.forEach(card=>{ card.hidden=!test(card); });
+    cards().forEach(card=>{card.hidden=!test(card)});
     bar.querySelectorAll('[data-filter]').forEach(btn=>btn.classList.toggle('is-active',btn.dataset.filter===key));
+    bar.querySelector('[data-for-you]')?.classList.remove('is-active');
+    notify();
   };
-
   bar.addEventListener('click',e=>{
     const btn=e.target.closest('[data-filter]');
-    if(btn){
-      apply(btn.dataset.filter);
-      const payload={event:'shopping_intent',intent:btn.dataset.filter,page_path:window.location.pathname};
-      window.dataLayer=window.dataLayer||[]; window.dataLayer.push(payload);
-      if(typeof window.gtag==='function') window.gtag('event','shopping_intent',{intent:btn.dataset.filter});
-    }
+    if(!btn)return;
+    apply(btn.dataset.filter);
+    window.dataLayer=window.dataLayer||[];
+    window.dataLayer.push({event:'shopping_intent',intent:btn.dataset.filter,page_path:window.location.pathname});
+    if(typeof window.gtag==='function') window.gtag('event','shopping_intent',{intent:btn.dataset.filter});
   });
-
-  cards.forEach(card=>{
-    card.addEventListener('click',()=>{
-      const tags=(card.dataset.tags||'').split(' ').filter(Boolean);
-      const partner=(card.querySelector('.equal-logo b')?.textContent||card.getAttribute('aria-label')||'').trim();
-      window.dataLayer=window.dataLayer||[];
-      window.dataLayer.push({event:'partner_interest',partner,tags:tags.join(','),page_path:window.location.pathname});
-      if(typeof window.gtag==='function') window.gtag('event','partner_interest',{partner,interest_tags:tags.join(',')});
-      if(!tags.length) return;
-      try{
-        const scores=JSON.parse(localStorage.getItem('ag_interest_scores')||'{}');
-        tags.forEach(t=>scores[t]=(scores[t]||0)+1);
-        localStorage.setItem('ag_interest_scores',JSON.stringify(scores));
-      }catch{}
-    });
+  grid.addEventListener('click',e=>{
+    const card=e.target.closest('.equal-card');
+    if(!card)return;
+    const tags=(card.dataset.tags||'').split(' ').filter(Boolean);
+    const partner=(card.querySelector('.equal-logo b')?.textContent||card.getAttribute('aria-label')||'').trim();
+    window.dataLayer=window.dataLayer||[];
+    window.dataLayer.push({event:'partner_interest',partner,tags:tags.join(','),page_path:window.location.pathname});
+    if(typeof window.gtag==='function')window.gtag('event','partner_interest',{partner,interest_tags:tags.join(',')});
+    if(!tags.length)return;
+    try{
+      const scores=JSON.parse(localStorage.getItem('ag_interest_scores')||'{}');
+      tags.forEach(t=>scores[t]=(scores[t]||0)+1);
+      localStorage.setItem('ag_interest_scores',JSON.stringify(scores));
+    }catch{}
   });
-
   const forYou=bar.querySelector('[data-for-you]');
-  if(forYou){
-    forYou.addEventListener('click',()=>{
-      let scores={};
-      try{scores=JSON.parse(localStorage.getItem('ag_interest_scores')||'{}')}catch{}
-      const score=card=>(card.dataset.tags||'').split(' ').reduce((sum,t)=>sum+(scores[t]||0),0);
-      cards.sort((a,b)=>score(b)-score(a)).forEach(card=>grid.appendChild(card));
-      cards.forEach(card=>card.hidden=false);
-      bar.querySelectorAll('[data-filter]').forEach(btn=>btn.classList.remove('is-active'));
-      forYou.classList.add('is-active');
-    });
-  }
+  const personalize=()=>{
+    let scores={};
+    try{scores=JSON.parse(localStorage.getItem('ag_interest_scores')||'{}')}catch{}
+    const score=card=>(card.dataset.tags||'').split(' ').reduce((sum,t)=>sum+(scores[t]||0),0);
+    cards().sort((a,b)=>score(b)-score(a)).forEach(card=>grid.appendChild(card));
+    cards().forEach(card=>card.hidden=false);
+    bar.querySelectorAll('[data-filter]').forEach(btn=>btn.classList.remove('is-active'));
+    forYou?.classList.add('is-active');
+    notify();
+  };
+  forYou?.addEventListener('click',personalize);
+  document.addEventListener('ag:partners-updated',()=>{
+    if(forYou?.classList.contains('is-active'))personalize();
+    else apply(current);
+  });
+  apply('all');
 }
 document.addEventListener('DOMContentLoaded',initShoppingIntent);
 
