@@ -49,6 +49,11 @@
       <small>ANZEIGE · TENWAYS EU · AKTION BIS 25.10.2026</small>
       <strong>CGO600 New Edition: 1.199 € <s>1.299 €</s></strong>
       <span>100 € unter regulärem Aktionsvergleichspreis. Laut TENWAYS-Partnerinformation ist ein Gepäckträger als Zugabe vorgesehen. Modell, Ausstattung, Preis und Verfügbarkeit beim Hersteller prüfen.</span>
+      <div class="ag-offer-coupon" aria-label="Zusätzlicher EU-Partner-Rabattcode">
+        <div><b>EXTRA-RABATTCODE</b><span>Laut TENWAYS-Partnerinformation zusätzlich zum Angebot einlösbar; im Warenkorb prüfen.</span></div>
+        <button type="button" class="ag-copy-coupon" data-copy-coupon="TENAFF30" aria-label="Rabattcode TENAFF30 kopieren"><code>TENAFF30</code><span>Code kopieren</span></button>
+        <span class="ag-coupon-feedback" role="status" aria-live="polite"></span>
+      </div>
       <a class="ag-offer-cta" href="https://www.awin1.com/cread.php?awinmid=72399&awinaffid=3076553&ued=https%3A%2F%2Fwww.tenways.com%2Fde%2Fproducts%2Fcgo600" target="_blank" rel="sponsored noopener">E-Bike-Angebot beim Hersteller prüfen ↗</a>
       <span class="ag-offer-disclosure">Werbelink: Beim Kauf können wir eine Provision erhalten, ohne Mehrkosten für dich.</span>
     </aside>
@@ -89,7 +94,7 @@
         <article class="ag-featured-card">
           <div class="ag-featured-kicker">CITY-E-BIKE · HERSTELLER</div>
           <img class="ag-featured-thumb" loading="lazy" decoding="async" src="https://www.tenways.com/cdn/shop/files/Greygreen-1_1500x.webp?v=1758781276" alt="TENWAYS CGO600 – Produktfoto des Herstellers"><h3>TENWAYS CGO600</h3>
-          <p><strong>CGO600 New Edition: 1.199 € statt 1.299 € – 100 € Preisvorteil bis 25.10.2026 laut Händler.</strong> 15 kg Herstellergewicht, Carbon-Riemen und Drehmomentsensor. Maßgeblich ist der Shoppreis.</p>
+          <p><strong>CGO600 New Edition: 1.199 € statt 1.299 € – 100 € Preisvorteil bis 25.10.2026 laut Händler.</strong> <strong>Extra-Code TENAFF30 laut Partnerinformation; Einlösung im Warenkorb prüfen.</strong> 15 kg Herstellergewicht, Carbon-Riemen und Drehmomentsensor. Maßgeblich ist der Shoppreis.</p>
           <div class="ag-featured-actions">
             <a class="ag-featured-buy" target="_blank" rel="sponsored noopener" href="https://www.awin1.com/cread.php?awinmid=72399&amp;awinaffid=3076553&amp;ued=https%3A%2F%2Fwww.tenways.com%2Fde%2Fproducts%2Fcgo600">Preis beim Anbieter prüfen ↗</a>
             <a class="ag-featured-guide" href="/tenways.html">Vergleich lesen →</a>
@@ -174,6 +179,29 @@
 </div></footer>
 
 <script>window.AURA_INTENT_CONFIG={"slug":"e-bike-unter-2000","merchantIds":["72399"],"preferredMerchants":["Tenways"],"includeTerms":["e-bike","ebike","fahrrad","bike","citybike","city bike"],"requireTerm":true,"maxPrice":2000,"limit":12};</script>
+<script>
+/* Optional customer convenience; never sets a discount without merchant confirmation. */
+(() => {
+  document.addEventListener('click',async event => {
+    const button=event.target?.closest?.('[data-copy-coupon]');
+    if(!button)return;
+    const code=button.dataset.copyCoupon;
+    const status=button.closest('.ag-offer-coupon')?.querySelector('.ag-coupon-feedback');
+    try {
+      if(navigator.clipboard?.writeText){
+        await navigator.clipboard.writeText(code);
+        if(status)status.textContent='Kopiert – bitte beim Anbieter im Warenkorb prüfen.';
+      } else {
+        if(status)status.textContent='Rabattcode: '+code+' – beim Anbieter im Warenkorb eingeben.';
+      }
+    } catch {
+      if(status)status.textContent='Rabattcode: '+code+' – bitte manuell eingeben.';
+    }
+    window.dataLayer=window.dataLayer||[];
+    window.dataLayer.push({event:'affiliate_coupon_interest',partner:'tenways',page_path:location.pathname});
+  });
+})();
+</script>
 <script src="/aura-v2.js"></script>
 <script src="/assets/intent-landing.js"></script>
 </body>
