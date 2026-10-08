@@ -6,9 +6,7 @@ const catalog=[
   {title:'TENWAYS CGO600',type:'Produkt',href:'/tenways.html#cgo600',tags:'tenways leicht city ebike'},
   {title:'TENWAYS CGO600 Pro',type:'Produkt',href:'/tenways.html#cgo600-pro',tags:'tenways pendler reichweite akku'},
   {title:'TENWAYS CGO800S',type:'Produkt',href:'/tenways.html#cgo800s',tags:'tenways komfort durchstieg federgabel'},
-  {title:'URWAHN',type:'Vergleich',href:'/urwahn.html',tags:'urwahn stadtfuchs waldwiesel urban gravel ebike'},
   {title:'OutIn Nano vs Mino',type:'Vergleich',href:'/outin.html',tags:'outin nano mino espresso kaffee portable reise camping'},
-  {title:'DEKVIO Leder & Reise',type:'Partner',href:'/dekvio.html',tags:'dekvio leder tasche rucksack reise laptop work travel'},
   {title:'Haustiere & Smart Pet',type:'Kategorie',href:'/petlibro.html',tags:'haustier haustiere katze katzen tier futterautomat smart pet feeder'},
   {title:'PETLIBRO Smart Pet',type:'Vergleich',href:'/petlibro.html',tags:'petlibro futterautomat katze katzen haustier haustiere feeder smart pet granary'},
   {title:'Paper & Sons Rucksäcke',type:'Vergleich',href:'/paper-sons.html',tags:'paper sons rucksack laptop kraftpapier vegan nachhaltig'},
@@ -39,19 +37,30 @@ const catalog=[
 ];
 
 function getHits(query){
-  const q=query.trim().toLowerCase();
-  if(!q) return [];
-  return catalog
+  const q=query.trim().toLocaleLowerCase('de-DE');
+  if(!q)return [];
+  // Index every live homepage partner automatically; newly synced Awin partners
+  // become searchable without maintaining a second handwritten list.
+  const partnerCards=[...document.querySelectorAll('[data-live-partner-grid] .equal-card')];
+  const livePartners=partnerCards.map(card=>({
+    title:(card.querySelector('.equal-logo b')?.textContent||card.getAttribute('aria-label')||'').trim(),
+    type:'Partnerwelt',
+    href:card.getAttribute('href'),
+    tags:[card.dataset.tags||'',card.querySelector('.equal-copy')?.textContent||''].join(' ')
+  })).filter(p=>p.title&&p.href);
+  const seen=new Set();
+  return [...livePartners,...catalog]
+    .filter(item=>{const key=item.href+'|'+item.title.toLocaleLowerCase('de-DE');if(seen.has(key))return false;seen.add(key);return true})
     .map(item=>{
-      const hay=(item.title+' '+item.tags).toLowerCase();
-      const score=(item.title.toLowerCase().startsWith(q)?3:0)+(item.title.toLowerCase().includes(q)?2:0)+(hay.includes(q)?1:0);
+      const title=item.title.toLocaleLowerCase('de-DE');
+      const hay=(item.title+' '+item.tags).toLocaleLowerCase('de-DE');
+      const score=(title.startsWith(q)?4:0)+(title.includes(q)?3:0)+(hay.includes(q)?1:0);
       return {...item,score};
     })
     .filter(x=>x.score>0)
     .sort((a,b)=>b.score-a.score)
     .slice(0,6);
 }
-
 function initSearch(){
   const input=document.querySelector('[data-search]');
   const out=document.querySelector('[data-results]');
