@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>E-Bike Pendelrechner 2026: Reichweite, Stromkosten & Arbeitsweg | AuraGlobal</title>
+<meta name="description" content="Kostenloser E-Bike Pendelrechner: Pendelstrecke, Stromkosten pro Jahr, Akku-Reichweite und Ladebedarf selbst berechnen. Mit veränderbaren Annahmen und Kaufhilfe.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://auraglobal.vercel.app/e-bike-pendelrechner.html">
+<meta property="og:type" content="website"><meta property="og:locale" content="de_DE">
+<meta property="og:title" content="Wie alltagstauglich ist ein E-Bike für deinen Arbeitsweg? | AuraGlobal">
+<meta property="og:description" content="Berechne Jahreskilometer, Stromkosten und theoretische Akku-Reichweite mit deinen eigenen Annahmen. Kostenlos und ohne Anmeldung.">
+<meta property="og:url" content="https://auraglobal.vercel.app/e-bike-pendelrechner.html">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/aura-v2.css">
+<meta name="theme-color" content="#08121a">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"E-Bike Pendelrechner | AuraGlobal","url":"https://auraglobal.vercel.app/e-bike-pendelrechner.html","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"description":"Interaktive Modellrechnung zu E-Bike-Pendeldistanz, Akkureichweite und Stromkosten bei frei einstellbaren Annahmen."}</script>
+<style>
+:root{--mint:#bfffdc;--ink:#07121b;--mute:#bfd0d9;--edge:rgba(196,255,220,.15)}
+*,*:before,*:after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#09141e;color:#fff;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+a{color:inherit}
+.pr-shell{max-width:1220px;margin:0 auto;padding:0 22px}
+.pr-nav{display:flex;justify-content:space-between;align-items:center;padding:20px 0;gap:15px}
+.pr-nav>a:first-child{font-weight:950;font-size:20px;letter-spacing:-.045em;text-decoration:none}
+.pr-nav>a span{color:var(--mint)}
+.pr-nav a:last-child{font-size:13px;color:#ccdddf;text-decoration:none;border-bottom:1px solid #6f8d86}
+.pr-hero{background:radial-gradient(circle at 82% 17%,rgba(83,226,154,.22),transparent 35%),radial-gradient(circle at 11% 67%,rgba(67,124,186,.19),transparent 35%),#07121b;padding:42px 0 43px;border-bottom:1px solid var(--edge)}
+.pr-kicker{font-size:11px;font-weight:900;letter-spacing:.19em;color:var(--mint)}
+h1,h2,h3,p{margin-top:0}
+.pr-hero h1{font-size:clamp(48px,8vw,100px);line-height:.95;letter-spacing:-.07em;max-width:930px;margin:18px 0 21px}
+.pr-hero h1 em{font-style:normal;color:var(--mint)}
+.pr-intro{max-width:690px;font-size:clamp(16px,1.9vw,20px);line-height:1.6;color:#b7cbd4}
+.pr-pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+.pr-pills span{border:1px solid rgba(194,255,227,.24);border-radius:40px;padding:8px 13px;font-size:12px;color:#d9ece4;background:rgba(167,255,213,.06)}
+.pr-main{padding:35px 0 70px}
+.pr-panels{display:grid;grid-template-columns:minmax(0,420px) minmax(0,1fr);gap:18px;align-items:start}
+.pr-panel{background:#101f2a;border:1px solid var(--edge);border-radius:22px;padding:25px}
+.pr-panel h2{font-size:26px;letter-spacing:-.04em;margin-bottom:7px}
+.pr-panel-sub{color:#9eafbc;font-size:13px;line-height:1.5;margin:0 0 20px}
+.pr-field{margin:0 0 20px}
+.pr-field>label{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:13px;font-weight:800;margin-bottom:9px}
+.pr-field output{color:#bfffdc;font-size:15px}
+.pr-field input[type=range]{width:100%;accent-color:#a1f6c8;cursor:pointer}
+.pr-field small{font-size:11px;color:#9eafbc}
+.pr-split{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pr-numeric{display:grid;gap:7px}
+.pr-numeric label{font-size:12px;font-weight:800;color:#dae9ed}
+.pr-numeric input{background:#07141e;color:#fff;border:1px solid rgba(196,255,220,.3);border-radius:10px;padding:12px;font-size:16px;width:100%}
+.pr-panel :focus-visible,.pr-cta a:focus-visible{outline:3px solid #bfffdc;outline-offset:2px}
+.pr-result{background:linear-gradient(150deg,#142c31,#0c1723);border:1px solid rgba(191,255,220,.24);border-radius:22px;padding:27px}
+.pr-result h2{font-size:27px;letter-spacing:-.04em}
+.pr-metrics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.pr-metric{padding:20px;border:1px solid rgba(187,250,212,.17);background:rgba(7,18,27,.7);border-radius:15px}
+.pr-metric b{display:block;font-size:clamp(27px,3.5vw,42px);letter-spacing:-.05em;line-height:1.1;overflow-wrap:anywhere}
+.pr-metric small{display:block;color:#a8c0c5;line-height:1.5;font-size:12px;margin-top:8px}
+.pr-progress{margin-top:20px}
+.pr-progress-head{display:flex;justify-content:space-between;gap:12px;font-size:12px;color:#c4d7d5;margin-bottom:10px}
+.pr-bar{height:13px;border-radius:20px;background:rgba(255,255,255,.1);overflow:hidden}
+.pr-bar>span{display:block;height:100%;width:35%;background:linear-gradient(90deg,#6dd7b1,#cdfdde);border-radius:20px;transition:width .15s}
+.pr-explanation{color:#c2d1d2;font-size:13px;line-height:1.7;margin:17px 0 0}
+.pr-section{padding:44px 0 0}
+.pr-section h2{font-size:clamp(28px,4vw,45px);letter-spacing:-.045em;margin-bottom:10px}
+.pr-section>p{color:#b7cbd4;max-width:920px;line-height:1.75}
+.pr-guide-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:22px}
+.pr-guide-grid article{padding:22px;border-radius:18px;background:#12232d;border:1px solid var(--edge)}
+.pr-guide-grid strong{color:var(--mint);font-size:12px}
+.pr-guide-grid h3{font-size:19px;margin:9px 0}
+.pr-guide-grid p{font-size:13px;line-height:1.65;color:#bfd0d9;margin:0}
+.pr-cta{background:#d3fce4;color:#10281d;border-radius:20px;padding:30px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:42px}
+.pr-cta h2{font-size:28px;letter-spacing:-.045em;margin-bottom:7px}
+.pr-cta p{margin:0;color:#38594b;font-size:13px;line-height:1.5}
+.pr-cta-links{display:flex;flex-wrap:wrap;gap:8px}
+.pr-cta a{background:#122b20;border:0;border-radius:10px;padding:13px 17px;text-decoration:none;font-weight:850;color:#fff;font-size:13px}
+.pr-cta a:last-child{background:#fff;color:#143025}
+.pr-legal{font-size:12px;line-height:1.75;color:#9fb3bd;max-width:960px;margin-top:20px}
+.pr-faq details{padding:18px 0;border-bottom:1px solid var(--edge)}
+.pr-faq summary{cursor:pointer;font-weight:850}
+.pr-faq details p{color:#c6d5d8;font-size:14px;line-height:1.7;margin:13px 0 0}
+.pr-footer{border-top:1px solid var(--edge);padding:30px 0;color:#a4b4bc;font-size:12px}
+.pr-footer a{margin-left:12px}
+@media(max-width:860px){.pr-panels{grid-template-columns:1fr}.pr-guide-grid{grid-template-columns:1fr}.pr-shell{padding:0 16px}}
+@media(max-width:460px){.pr-hero h1{font-size:45px}.pr-panel,.pr-result{padding:17px}.pr-metric{padding:15px}.pr-metric b{font-size:28px}.pr-split{grid-template-columns:1fr}.pr-cta{padding:22px}}
+</style>
+</head>
+<body>
+<header class="pr-shell pr-nav"><a href="/" aria-label="AuraGlobal Startseite">AURA<span>GLOBAL</span></a><a href="/e-bike-unter-2000.html">E-Bikes bis 2.000 € vergleichen ↗</a></header>
+<main>
+<section class="pr-hero"><div class="pr-shell">
+<div class="pr-kicker">KOSTENLOSER E-BIKE-RECHNER · 2026</div>
+<h1>Wie weit bringt dich <em>dein E-Bike?</em></h1>
+<p class="pr-intro">10 km ins Büro, Akku mit 360 Wh, jeden Tag fahren: Was bedeutet das für Reichweite, Ladungen und Stromkosten? Berechne es mit deinen eigenen Annahmen statt Fantasiezahlen aus Werbeprospekten.</p>
+<div class="pr-pills"><span>Keine Anmeldung</span><span>Eigene Werte eingeben</span><span>Transparente Formel</span><span>Auch auf dem Handy nutzbar</span></div>
+</div></section>
+<div class="pr-shell pr-main">
+<div class="pr-panels">
+<section class="pr-panel" aria-label="Angaben zum E-Bike Pendeln">
+<h2>Dein Arbeitsweg.</h2><p class="pr-panel-sub">Regler bewegen – die Ergebnisse berechnen sich direkt neu.</p>
+<div class="pr-field"><label for="oneWay">Einfache Strecke <output for="oneWay" id="oOneWay">10 km</output></label><input id="oneWay" type="range" min="1" max="70" step="1" value="10"><small>Der Rückweg wird mitgerechnet.</small></div>
+<div class="pr-field"><label for="days">Fahrtage im Jahr <output for="days" id="oDays">220 Tage</output></label><input id="days" type="range" min="20" max="300" step="5" value="220"><small>Homeoffice und Urlaub schon abziehen.</small></div>
+<div class="pr-field"><label for="battery">Akku-Kapazität <output for="battery" id="oBattery">360 Wh</output></label><input id="battery" type="range" min="180" max="900" step="20" value="360"><small>Nennkapazität laut Hersteller.</small></div>
+<div class="pr-field"><label for="usage">Verbrauch <output for="usage" id="oUsage">12 Wh/km</output></label><input id="usage" type="range" min="5" max="30" step="1" value="12"><small>Abhängig von Motor, Gegenwind, Unterstützungsstufe und Strecke.</small></div>
+<div class="pr-split">
+<div class="pr-numeric"><label for="electric">Strompreis in €/kWh</label><input id="electric" type="number" inputmode="decimal" min="0.01" max="3" step="0.01" value="0.35"></div>
+<div class="pr-numeric"><label for="chargeLoss">Ladeverluste in %</label><input id="chargeLoss" type="number" inputmode="decimal" min="0" max="40" step="1" value="10"></div>
+</div>
+</section>
+<section class="pr-result" aria-label="Berechnete Ergebnisse" aria-live="polite">
+<div class="pr-kicker">DEINE MODELLRECHNUNG</div>
+<h2>Dein Jahr auf zwei Rädern.</h2>
+<div class="pr-metrics">
+<div class="pr-metric"><b id="rKm">4.400 km</b><small>Geschätzte Pendelkilometer / Jahr</small></div>
+<div class="pr-metric"><b id="rCost">20,33 €</b><small>Geschätzte Stromkosten / Jahr</small></div>
+<div class="pr-metric"><b id="rRange">30 km</b><small>Rechnerische Akku-Reichweite</small></div>
+<div class="pr-metric"><b id="rEnergy">58,1 kWh</b><small>Strom aus der Steckdose / Jahr</small></div>
+</div>
+<div class="pr-progress"><div class="pr-progress-head"><strong>Akkuladung für Hin- und Rückweg</strong><strong id="rShare">67 %</strong></div><div class="pr-bar"><span id="rBar"></span></div></div>
+<p id="rNote" class="pr-explanation">Die theoretische Reichweite ist ein Rechenwert, keine Herstellerzusage. Prüfe Reserven für Kälte, Gegenwind, Alterung und Umwege.</p>
+</section>
+</div>
+<section class="pr-section"><h2>Wie rechnet AuraGlobal?</h2>
+<p>Die Jahreskilometer ergeben sich aus <strong>einfacher Strecke × 2 × Fahrtage</strong>. Für den Strombedarf rechnen wir <strong>Jahreskilometer × Verbrauch (Wh/km) ÷ 1.000</strong> und berücksichtigen anschließend die eingestellten Ladeverluste. Die rechnerische Reichweite ist <strong>Akku-Wh ÷ Verbrauch (Wh/km)</strong>. Diese Formel ersetzt keine reale Reichweitenmessung.</p>
+<div class="pr-guide-grid">
+<article><strong>01 · WICHTIGER ALS DAS PROSPEKT</strong><h3>Reichweite braucht Reserve.</h3><p>Plane Hin- und Rückweg so, dass du auch bei kalten Temperaturen, Gegenwind oder alterndem Akku noch entspannt ankommst. Die volle Nennkapazität ist nicht immer im Alltag nutzbar.</p></article>
+<article><strong>02 · DEIN ALLTAG ENTSCHEIDET</strong><h3>Gewicht kann wichtiger sein.</h3><p>Musst du dein Rad in eine Wohnung tragen oder regelmäßig in die Bahn heben, solltest du das reale Gewicht inklusive Akku, Zubehör und Gepäck vergleichen.</p></article>
+<article><strong>03 · KOSTEN RICHTIG EINORDNEN</strong><h3>Strom ist nicht alles.</h3><p>Die angezeigten Beträge sind ausschließlich modellierte Stromkosten. Anschaffung, Wartung, Versicherung, Reparaturen, Verschleiß und Wertverlust sind nicht enthalten.</p></article>
+</div></section>
+<section class="pr-cta"><div><h2>Passendes E-Bike finden.</h2><p>Aus Zahlen wird erst durch ein passendes Modell eine gute Kaufentscheidung. Preise immer im Shop prüfen.</p></div><div class="pr-cta-links"><a href="/e-bike-unter-2000.html">E-Bikes bis 2.000 € →</a><a href="/tenways.html">TENWAYS vergleichen →</a><a href="/dotblue.html">Falt-E-Bikes →</a></div></section>
+<p class="pr-legal">Rechner-Hinweis: Beispielwerte sind veränderbare Annahmen, keine Messwerte für ein bestimmtes Produkt oder verbindliche Kostenprognose. Ergebnisse gerundet. Bei einem Kauf über gekennzeichnete Partnerlinks kann AuraGlobal eine Provision erhalten; für dich entstehen keine Mehrkosten.</p>
+<section class="pr-section pr-faq"><h2>Häufige Fragen</h2>
+<details><summary>Wie weit komme ich mit einem 360-Wh-Akku?</summary><p>Bei angenommenen 12 Wh/km ergibt die Formel 360 ÷ 12 = 30 km theoretische Reichweite. In der Praxis schwankt der Verbrauch; zudem sollte immer eine Reserve eingeplant werden.</p></details>
+<details><summary>Warum können reale Stromkosten abweichen?</summary><p>Weil Strompreis, Ladeverluste, Fahrprofil, Akku-Temperatur und tatsächlich gefahrene Kilometer variieren. Trage deine bekannten Werte ein, um die Modellrechnung anzupassen.</p></details>
+<details><summary>Ist ein E-Bike für 20 km tägliche Pendelstrecke geeignet?</summary><p>Das hängt vom Modell und von deiner Route ab. Für 20 km täglich solltest du auf Reichweite mit Reserve, Ergonomie, Licht, Gepäckmöglichkeiten und Service achten.</p></details>
+<details><summary>Welche E-Bikes sind empfehlenswert?</summary><p>Ein einzelnes „bestes“ E-Bike gibt es nicht. AuraGlobal zeigt Partnervergleiche nach Einsatz, Budget und konkreten Ausstattungsmerkmalen. Eigene Praxistests werden nicht behauptet.</p></details>
+</section>
+</div>
+</main>
+<footer class="pr-footer"><div class="pr-shell">© 2026 AuraGlobal · Kostenlose Kaufhilfe <a href="/impressum.html">Impressum</a><a href="/datenschutz.html">Datenschutz</a><a href="/affiliate-disclosure.html">Werbehinweis</a></div></footer>
+<script src="/aura-v2.js" defer></script>
+<script>
+(()=>{
+ const g=id=>document.getElementById(id);
+ const distance=g('oneWay'),days=g('days'),battery=g('battery'),usage=g('usage'),electric=g('electric'),loss=g('chargeLoss');
+ const format=n=>new Intl.NumberFormat('de-DE',{maximumFractionDigits:0}).format(n);
+ const money=n=>new Intl.NumberFormat('de-DE',{style:'currency',currency:'EUR'}).format(n);
+ const number=(v,min,max,fallback)=>{const n=Number(v);return Number.isFinite(n)?Math.min(max,Math.max(min,n)):fallback};
+ function recalc(){
+   const d=number(distance.value,1,70,10),y=number(days.value,20,300,220),b=number(battery.value,180,900,360),w=number(usage.value,5,30,12);
+   const price=number(electric.value,.01,3,.35),overhead=number(loss.value,0,40,10)/100;
+   const km=d*2*y,kwh=km*w/1000*(1+overhead),range=b/w;
+   const roundTrip=d*2,share=roundTrip/range*100;
+   g('oOneWay').textContent=d+' km';g('oDays').textContent=y+' Tage';g('oBattery').textContent=b+' Wh';g('oUsage').textContent=w+' Wh/km';
+   g('rKm').textContent=format(km)+' km';g('rCost').textContent=money(kwh*price);
+   g('rRange').textContent=format(range)+' km';g('rEnergy').textContent=new Intl.NumberFormat('de-DE',{maximumFractionDigits:1}).format(kwh)+' kWh';
+   g('rShare').textContent=format(share)+' %';g('rBar').style.width=Math.min(100,share)+'%';
+   g('rNote').textContent=share>100?'Achtung: Schon der rechnerische Hin- und Rückweg übersteigt eine volle Akkuladung. Laden am Ziel oder eine andere Akkukapazität einplanen.':share>75?'Wenig Reserve: Die theoretische Strecke beansprucht den Akku stark. Kälte, Wind und Umwege berücksichtigen.':'Rechnerisch bleibt Akku-Reserve für Hin- und Rückweg. Realer Verbrauch und nutzbare Kapazität können abweichen.';
+ }
+ [distance,days,battery,usage,electric,loss].forEach(x=>x.addEventListener('input',recalc));
+ recalc();
+})();
+</script>
+</body></html>
