@@ -202,6 +202,26 @@
   });
 })();
 </script>
+<aside class="ag-mobile-affiliate" id="agMobileAffiliate" aria-label="Partnerangebot für Mobilgeräte" hidden>
+  <div class="ag-mobile-affiliate-inner">
+    <div class="ag-mobile-affiliate-copy"><small>WERBUNG · TENWAYS</small><strong>City-E-Bike beim Hersteller ansehen</strong></div>
+    <a href="https://www.awin1.com/cread.php?awinmid=72399&amp;awinaffid=3076553&amp;ued=https%3A%2F%2Fwww.tenways.com%2Fde%2Fproducts%2Fcgo600" target="_blank" rel="sponsored noopener">Shop prüfen ↗</a>
+    <button type="button" aria-label="Leiste schließen" id="agMobileAffiliateDismiss">×</button>
+  </div>
+</aside>
+<script>
+(()=> {
+ const bar=document.getElementById('agMobileAffiliate'),btn=document.getElementById('agMobileAffiliateDismiss');
+ if(!bar||!btn)return;
+ let dismissed=false;
+ try{dismissed=sessionStorage.getItem('ag_mobile_offer_dismissed')==='1'}catch{}
+ function update(){bar.hidden=dismissed||window.innerWidth>760||window.scrollY<540}
+ btn.addEventListener('click',()=>{dismissed=true;try{sessionStorage.setItem('ag_mobile_offer_dismissed','1')}catch{}update()});
+ window.addEventListener('scroll',update,{passive:true});
+ window.addEventListener('resize',update,{passive:true});
+ update();
+})();
+</script>
 <script src="/aura-v2.js"></script>
 <script src="/assets/intent-landing.js"></script>
 </body>
