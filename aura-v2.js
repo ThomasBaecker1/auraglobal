@@ -209,7 +209,7 @@ function initAffiliateClickTracking(){
     }
   }catch{}
   const page=clean(window.location.pathname.replace(/\.html$/,'').replace(/^\//,'')||'home').slice(0,20);
-  const ref=['ag',clean(attribution.source).slice(0,10),page].filter(Boolean).join('_').slice(0,48);
+  const refBase=['ag',clean(attribution.source).slice(0,10),page].filter(Boolean).join('_');
   document.addEventListener('click',event=>{
     const link=event.target?.closest?.('a[rel~="sponsored"]');
     if(!link)return;
@@ -221,9 +221,18 @@ function initAffiliateClickTracking(){
         &&url.searchParams.get('awinaffid')==='3076553';
       if(ownAffiliate){
         merchantId=url.searchParams.get('awinmid')||url.searchParams.get('mid')||'';
+        const ref=[refBase,clean(merchantId).slice(0,8)].filter(Boolean).join('_').slice(0,50);
         const current=url.searchParams.get('clickref');
-        if(!current)url.searchParams.set('clickref',ref);
-        else if(!url.searchParams.get('clickref2')&&current!==ref)url.searchParams.set('clickref2',ref);
+        if(current&&current!==ref){
+          for(let i=2;i<=6;i++){
+            const key='clickref'+i;
+            if(!url.searchParams.has(key)){url.searchParams.set(key,current.slice(0,50));break}
+          }
+        }
+        url.searchParams.set('clickref',ref);
+        // Awin asks for click references to precede the encoded destination.
+        const deep=url.searchParams.get('ued');
+        if(deep!==null){url.searchParams.delete('ued');url.searchParams.set('ued',deep)}
         link.href=url.toString();
       }
     }catch{}
@@ -235,7 +244,7 @@ function initAffiliateClickTracking(){
       page_path:window.location.pathname,
       traffic_source:attribution.source,
       traffic_campaign:attribution.campaign,
-      click_reference:ref
+      click_reference:[refBase,clean(merchantId).slice(0,8)].filter(Boolean).join('_').slice(0,50)
     };
     window.dataLayer=window.dataLayer||[];
     window.dataLayer.push(payload);
