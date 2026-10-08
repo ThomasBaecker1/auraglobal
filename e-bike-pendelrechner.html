@@ -81,6 +81,11 @@ h1,h2,h3,p{margin-top:0}
 .pr-footer a{margin-left:12px}
 @media(max-width:860px){.pr-panels{grid-template-columns:1fr}.pr-guide-grid{grid-template-columns:1fr}.pr-shell{padding:0 16px}}
 @media(max-width:460px){.pr-hero h1{font-size:45px}.pr-panel,.pr-result{padding:17px}.pr-metric{padding:15px}.pr-metric b{font-size:28px}.pr-split{grid-template-columns:1fr}.pr-cta{padding:22px}}
+.pr-share-wrap{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:20px}
+.pr-share-wrap button{font:800 13px/1.3 system-ui,sans-serif;padding:13px 18px;border-radius:10px;border:0;background:#bfffdc;color:#0c261b;cursor:pointer}
+.pr-share-wrap button:hover{background:#e4ffee}
+.pr-share-wrap button:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.pr-share-wrap span{font-size:12px;color:#d2e1e1}
 </style>
 </head>
 <body>
@@ -102,7 +107,7 @@ h1,h2,h3,p{margin-top:0}
 <div class="pr-field"><label for="usage">Verbrauch <output for="usage" id="oUsage">12 Wh/km</output></label><input id="usage" type="range" min="5" max="30" step="1" value="12"><small>Abhängig von Motor, Gegenwind, Unterstützungsstufe und Strecke.</small></div>
 <div class="pr-split">
 <div class="pr-numeric"><label for="electric">Strompreis in €/kWh</label><input id="electric" type="number" inputmode="decimal" min="0.01" max="3" step="0.01" value="0.35"></div>
-<div class="pr-numeric"><label for="chargeLoss">Ladeverluste in %</label><input id="chargeLoss" type="number" inputmode="decimal" min="0" max="40" step="1" value="10"></div>
+<div class="pr-numeric"><label for="chargeLoss">Mehrverbrauch beim Laden in %</label><input id="chargeLoss" type="number" inputmode="decimal" min="0" max="40" step="1" value="10"></div>
 </div>
 </section>
 <section class="pr-result" aria-label="Berechnete Ergebnisse" aria-live="polite">
@@ -115,11 +120,12 @@ h1,h2,h3,p{margin-top:0}
 <div class="pr-metric"><b id="rEnergy">58,1 kWh</b><small>Strom aus der Steckdose / Jahr</small></div>
 </div>
 <div class="pr-progress"><div class="pr-progress-head"><strong>Akkuladung für Hin- und Rückweg</strong><strong id="rShare">67 %</strong></div><div class="pr-bar"><span id="rBar"></span></div></div>
+<div class="pr-share-wrap"><button id="prShare" type="button">Meine Rechnung teilen ↗</button><span id="prShareStatus" role="status" aria-live="polite"></span></div>
 <p id="rNote" class="pr-explanation">Die theoretische Reichweite ist ein Rechenwert, keine Herstellerzusage. Prüfe Reserven für Kälte, Gegenwind, Alterung und Umwege.</p>
 </section>
 </div>
 <section class="pr-section"><h2>Wie rechnet AuraGlobal?</h2>
-<p>Die Jahreskilometer ergeben sich aus <strong>einfacher Strecke × 2 × Fahrtage</strong>. Für den Strombedarf rechnen wir <strong>Jahreskilometer × Verbrauch (Wh/km) ÷ 1.000</strong> und berücksichtigen anschließend die eingestellten Ladeverluste. Die rechnerische Reichweite ist <strong>Akku-Wh ÷ Verbrauch (Wh/km)</strong>. Diese Formel ersetzt keine reale Reichweitenmessung.</p>
+<p>Die Jahreskilometer ergeben sich aus <strong>einfacher Strecke × 2 × Fahrtage</strong>. Für den Strombedarf rechnen wir <strong>Jahreskilometer × Verbrauch (Wh/km) ÷ 1.000</strong> und schlagen anschließend den eingestellten Lade-Mehrverbrauch auf. Die rechnerische Reichweite ist <strong>Akku-Wh ÷ Verbrauch (Wh/km)</strong>. Diese Formel ersetzt keine reale Reichweitenmessung.</p>
 <div class="pr-guide-grid">
 <article><strong>01 · WICHTIGER ALS DAS PROSPEKT</strong><h3>Reichweite braucht Reserve.</h3><p>Plane Hin- und Rückweg so, dass du auch bei kalten Temperaturen, Gegenwind oder alterndem Akku noch entspannt ankommst. Die volle Nennkapazität ist nicht immer im Alltag nutzbar.</p></article>
 <article><strong>02 · DEIN ALLTAG ENTSCHEIDET</strong><h3>Gewicht kann wichtiger sein.</h3><p>Musst du dein Rad in eine Wohnung tragen oder regelmäßig in die Bahn heben, solltest du das reale Gewicht inklusive Akku, Zubehör und Gepäck vergleichen.</p></article>
@@ -144,6 +150,12 @@ h1,h2,h3,p{margin-top:0}
  const format=n=>new Intl.NumberFormat('de-DE',{maximumFractionDigits:0}).format(n);
  const money=n=>new Intl.NumberFormat('de-DE',{style:'currency',currency:'EUR'}).format(n);
  const number=(v,min,max,fallback)=>{const n=Number(v);return Number.isFinite(n)?Math.min(max,Math.max(min,n)):fallback};
+ const sourceParams=new URLSearchParams(location.search);
+ for(const [el,key,min,max] of [[distance,'d',1,70],[days,'days',20,300],[battery,'battery',180,900],[usage,'whkm',5,30],[electric,'electric',.01,3],[loss,'overhead',0,40]]){
+   if(sourceParams.has(key))el.value=number(sourceParams.get(key),min,max,Number(el.value));
+ }
+ let measured=false;
+ function measurement(){if(measured)return;measured=true;window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'ebike_calculator_used',page_path:location.pathname});}
  function recalc(){
    const d=number(distance.value,1,70,10),y=number(days.value,20,300,220),b=number(battery.value,180,900,360),w=number(usage.value,5,30,12);
    const price=number(electric.value,.01,3,.35),overhead=number(loss.value,0,40,10)/100;
@@ -155,7 +167,20 @@ h1,h2,h3,p{margin-top:0}
    g('rShare').textContent=format(share)+' %';g('rBar').style.width=Math.min(100,share)+'%';
    g('rNote').textContent=share>100?'Achtung: Schon der rechnerische Hin- und Rückweg übersteigt eine volle Akkuladung. Laden am Ziel oder eine andere Akkukapazität einplanen.':share>75?'Wenig Reserve: Die theoretische Strecke beansprucht den Akku stark. Kälte, Wind und Umwege berücksichtigen.':'Rechnerisch bleibt Akku-Reserve für Hin- und Rückweg. Realer Verbrauch und nutzbare Kapazität können abweichen.';
  }
- [distance,days,battery,usage,electric,loss].forEach(x=>x.addEventListener('input',recalc));
+ [distance,days,battery,usage,electric,loss].forEach(x=>x.addEventListener('input',()=>{measurement();recalc()}));
+ g('prShare')?.addEventListener('click',async()=>{
+   const u=new URL(location.pathname,location.origin);
+   [['d',distance],['days',days],['battery',battery],['whkm',usage],['electric',electric],['overhead',loss]].forEach(([k,el])=>u.searchParams.set(k,el.value));
+   u.searchParams.set('utm_source','share');u.searchParams.set('utm_medium','calculator');u.searchParams.set('utm_campaign','ebike_pendelrechner');
+   const payload={title:'Mein E-Bike-Pendelrechner | AuraGlobal',text:'Meine Modellrechnung zu Reichweite und Stromkosten:',url:u.toString()};
+   try{
+     if(navigator.share)await navigator.share(payload);
+     else if(navigator.clipboard){await navigator.clipboard.writeText(payload.url);g('prShareStatus').textContent='Link kopiert!'}
+     else{window.prompt('Link kopieren',payload.url);g('prShareStatus').textContent='Link bereitgestellt'}
+     window.dataLayer=window.dataLayer||[];
+     window.dataLayer.push({event:'ebike_calculator_share',page_path:location.pathname});
+   }catch(err){if(err?.name!=='AbortError')g('prShareStatus').textContent='Bitte Link aus der Adresszeile kopieren.'}
+ });
  recalc();
 })();
 </script>
