@@ -1,0 +1,28 @@
+/* Conversion-focused layout for paid-search product landing pages.
+   Offers appear directly after the trust band. */
+.intent-page .intent-hero{min-height:min(64vh,650px)}
+.intent-page .intent-hero-inner{padding:clamp(54px,6vw,82px) 0 34px}
+.intent-page .intent-products{padding:48px 0 78px}
+.intent-page .intent-products-head{margin-bottom:18px}
+.intent-page .intent-product-status{margin-bottom:13px}
+.intent-page .intent-primary{box-shadow:0 12px 35px rgba(117,255,172,.14)}
+.intent-page .intent-buy{min-height:44px}
+.intent-page .intent-products .intent-kicker{font-size:11px;letter-spacing:.12em}
+.intent-page .intent-empty a{display:inline-flex;margin:8px 6px 0 0;padding:12px 16px;border-radius:12px;background:#bfffdc;color:#09251b;text-decoration:none;font-size:13px;font-weight:900}
+.intent-page .intent-empty a:hover{background:#e1ffed}
+@media(max-width:760px){
+  .intent-page .intent-hero{min-height:auto}
+  .intent-page .intent-hero-inner{padding:46px 0 31px}
+  .intent-page .intent-products{padding:39px 0 60px}
+}
+@media(max-width:520px){
+  .intent-page .intent-hero h1{font-size:clamp(38px,10vw,47px)}
+  .intent-page .intent-hero-note{padding:12px 14px}
+  .intent-page .intent-trust-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .intent-page .intent-trust-grid div{padding:12px;min-width:0;border-right:1px solid #e5e7ea}
+  .intent-page .intent-trust-grid div:nth-child(2n){border-right:0}
+  .intent-page .intent-trust-grid div:nth-child(-n+2){border-bottom:1px solid #e5e7ea}
+  .intent-page .intent-trust b{font-size:13px}
+  .intent-page .intent-trust span{font-size:9px}
+  .intent-page .intent-products-head h2{font-size:36px}
+}
