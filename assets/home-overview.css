@@ -1,0 +1,47 @@
+/* AuraGlobal / Homepage search and full live-partner directory */
+body.brand-home .visual-search.ag-search-first{
+  padding:clamp(28px,5.2vw,68px) 0 clamp(25px,4vw,44px)!important;
+  background:radial-gradient(circle at 92% 10%,rgba(117,255,194,.15),transparent 33%),radial-gradient(circle at 12% 100%,rgba(56,102,193,.17),transparent 41%),#090f17!important;
+  color:#fff!important;border-bottom:1px solid rgba(255,255,255,.12)!important;
+}
+body.brand-home .ag-search-first .visual-search-inner{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(18px,4vw,68px)}
+body.brand-home .ag-search-first .visual-search-kicker{color:#97edbe!important;letter-spacing:.18em!important}
+body.brand-home .ag-search-first h1{color:#fff!important;font-size:clamp(38px,5.4vw,75px)!important;line-height:.96!important;letter-spacing:-.055em!important;max-width:12ch;margin:10px 0 16px!important}
+body.brand-home .ag-search-first h1 em{color:#a9f7cd;font-style:normal}
+body.brand-home .ag-search-first .ag-search-desc{font-size:clamp(13px,1.3vw,16px);line-height:1.58;color:#b6c2cf;max-width:480px;margin:0}
+body.brand-home .ag-search-first .mock-search{border:1px solid rgba(255,255,255,.38)!important;border-radius:17px!important;box-shadow:0 16px 48px rgba(0,0,0,.25)!important;background:#fff!important;padding:4px!important}
+body.brand-home .ag-search-first .mock-search input{color:#101722!important;font-size:clamp(14px,1.35vw,17px)!important}
+body.brand-home .ag-search-first .mock-search button{background:#b6ffcf!important;color:#0d2719!important;border-radius:12px!important;font-weight:950!important}
+body.brand-home .ag-search-first .visual-search-chips{margin-top:12px!important;flex-wrap:wrap}
+body.brand-home .ag-search-first .visual-search-chips a{background:rgba(255,255,255,.06)!important;border:1px solid rgba(255,255,255,.13)!important;color:#e3eef5!important;padding:9px 12px!important}
+body.brand-home .ag-search-first .visual-search-chips a:hover{border-color:#a9f7cd!important;background:rgba(169,247,205,.09)!important}
+body.brand-home .ag-search-first .search-results{z-index:200;background:#111c27!important;color:#fff}
+.ag-market-stats{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px;align-items:center}
+.ag-market-stat{display:inline-flex;align-items:baseline;gap:8px;padding:10px 14px;background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.13);border-radius:12px;color:#c1cbd5;font-size:12px}
+.ag-market-stat strong{font-size:21px;font-weight:950;letter-spacing:-.04em;color:#a7ffcf;font-variant-numeric:tabular-nums}
+.ag-market-stat small{font-size:11px;color:#b8c7d1}
+.ag-market-stat.ag-catalog-stat strong{font-size:16px}
+.ag-wall-title{display:flex;align-items:end;justify-content:space-between;gap:18px;margin:22px 0 15px}
+.ag-wall-title small{display:block;color:#87efba;font-size:10px;font-weight:950;letter-spacing:.19em}
+.ag-wall-title h2{margin:6px 0 3px;color:#fff;font-size:clamp(25px,3vw,39px);line-height:1.02;letter-spacing:-.045em}
+.ag-wall-title p{margin:0;color:#b5c2d0;line-height:1.5;font-size:12px}
+.ag-wall-title a{flex:none;color:#b6ffda;border:1px solid rgba(182,255,218,.28);padding:10px 13px;border-radius:10px;text-decoration:none;font-size:11px;font-weight:850}
+.ag-wall-feedback{display:flex;align-items:center;gap:8px;color:#9aabbc;font-size:11px;margin-bottom:13px}
+.ag-wall-feedback:before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:#a4fbc8}
+body.brand-home .equal-grid .equal-card[hidden]{display:none!important}
+body.brand-home .equal-grid .equal-card.ag-feed-card .equal-media{background:linear-gradient(120deg,#153949,#13201d)}
+body.brand-home .equal-grid .equal-card.ag-feed-card .equal-copy strong{min-height:0!important}
+.ag-feed-card .equal-logo{max-width:90%!important}
+@media(max-width:900px){body.brand-home .ag-search-first .visual-search-inner{grid-template-columns:1fr;gap:18px}}
+@media(max-width:620px){
+ body.brand-home .visual-search.ag-search-first{padding:28px 0 23px!important}
+ body.brand-home .ag-search-first h1{font-size:clamp(35px,10vw,49px)!important;max-width:14ch;margin-bottom:10px!important}
+ body.brand-home .ag-search-first .visual-search-chips{margin:12px -12px 0!important;flex-wrap:nowrap}
+ body.brand-home .ag-search-first .mock-search button{display:flex!important;min-width:43px!important;min-height:43px!important;align-items:center!important;justify-content:center!important}
+ .ag-market-stats{margin-top:14px;gap:7px}
+ .ag-market-stat{padding:8px 10px;font-size:10px;gap:5px}
+ .ag-market-stat strong{font-size:17px}
+ .ag-wall-title{margin-top:20px;align-items:start}
+ .ag-wall-title h2{font-size:26px}
+ .ag-wall-title a{display:none}
+}
