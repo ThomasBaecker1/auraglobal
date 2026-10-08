@@ -90,3 +90,16 @@
 .ag-offer-coupon .ag-coupon-feedback{flex-basis:100%;font-size:10px;color:#bcffde}
 .ag-copy-coupon:focus-visible{outline:3px solid #fff;outline-offset:3px}
 @media(max-width:550px){.ag-offer-coupon{align-items:stretch}.ag-offer-coupon .ag-copy-coupon{width:100%;justify-content:center}}
+
+
+/* Dismissible mobile buying shortcut: price-less to remain valid after the October promotion. */
+.ag-mobile-affiliate[hidden]{display:none!important}
+.ag-mobile-affiliate{display:none;position:fixed;left:0;right:0;bottom:0;z-index:1400;background:rgba(7,21,28,.98);border-top:1px solid rgba(194,255,223,.48);box-shadow:0 -13px 31px rgba(0,0,0,.3);padding:9px max(12px,env(safe-area-inset-left));padding-bottom:max(9px,env(safe-area-inset-bottom))}
+.ag-mobile-affiliate-inner{display:flex;align-items:center;gap:10px}
+.ag-mobile-affiliate-copy{flex:1;min-width:0;color:#fff;line-height:1.2}
+.ag-mobile-affiliate-copy small{display:block;font-size:9px;letter-spacing:.13em;font-weight:900;color:#b6ffda}
+.ag-mobile-affiliate-copy strong{display:block;font-size:12px;line-height:1.2;margin-top:5px}
+.ag-mobile-affiliate a{display:inline-flex;min-height:44px;align-items:center;justify-content:center;text-decoration:none;font-size:12px;font-weight:900;background:#c3ffe0;color:#09241b!important;border-radius:10px;padding:8px 12px}
+.ag-mobile-affiliate button{display:grid;place-items:center;background:transparent;color:#ddd;border:1px solid rgba(255,255,255,.2);width:30px;height:36px;border-radius:8px;cursor:pointer;font-size:20px}
+.ag-mobile-affiliate a:focus-visible,.ag-mobile-affiliate button:focus-visible{outline:3px solid #fff;outline-offset:3px}
+@media(max-width:760px){.ag-mobile-affiliate:not([hidden]){display:block}}
