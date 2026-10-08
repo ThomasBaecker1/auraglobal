@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="de"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#071015">
+<title>AuraMatch: Was passt wirklich zu dir? | AuraGlobal</title>
+<meta name="description" content="Nicht 100 Produkte durchscrollen: AuraMatch zeigt dir passende Kaufwege für E-Bikes, Kaffee, Haustiere, Powerstations, Homeoffice und Secondhand. Kostenlos.">
+<link rel="canonical" href="https://auraglobal.vercel.app/match.html">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://www.tenways.com" crossorigin>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AuraGlobal">
+<meta property="og:title" content="AuraMatch – Finde den Kaufweg, der zu dir passt">
+<meta property="og:description" content="Sechs Produktwelten, wenige Fragen, kuratierte Partnerangebote. Ein kostenloser Produktberater mit klaren Entscheidungsgründen.">
+<meta property="og:url" content="https://auraglobal.vercel.app/match.html">
+<meta property="og:locale" content="de_DE">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"AuraMatch von AuraGlobal","url":"https://auraglobal.vercel.app/match.html","operatingSystem":"Any","applicationCategory":"ShoppingApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"description":"Kostenlose Produkt-Entscheidungshilfe mit kuratierten Partnerlinks und nachvollziehbaren Auswahlkriterien."}</script>
+<link rel="stylesheet" href="/assets/aura-match.css">
+</head>
+<body class="am-body">
+<header class="am-top">
+  <nav class="am-shell am-top-inner" aria-label="Navigation">
+    <a class="am-logo" href="/" aria-label="AuraGlobal Startseite">AURA<em>GLOBAL</em></a>
+    <div class="am-top-links">
+      <a href="/kaufberatung.html">Kaufberatung</a>
+      <a href="/produkte.html">Alle Produkte</a>
+      <a href="/" class="am-home">Zur Startseite ↗</a>
+    </div>
+  </nav>
+</header>
+<div class="am-progress" aria-label="Fortschritt im Produktberater"><div data-match-progress style="width:34%"></div></div>
+<main>
+<section class="am-hero">
+<div class="am-orb" aria-hidden="true"></div>
+<div class="am-shell am-hero-shell">
+<div>
+  <div class="am-kicker">AURA MATCH / VERSION 01 · INTERAKTIVE KAUFHILFE</div>
+  <h1>Weniger suchen.<br><em>Besser entscheiden.</em></h1>
+  <p class="am-intro">Die meisten Shops zeigen dir Produkte. Wir starten mit dir. Wähle, was du wirklich brauchst, und entdecke nachvollziehbare Optionen aus unserem bestehenden Awin-Partnernetz.</p>
+</div>
+<div class="am-hero-proof">
+  <small>AURA-MATCH-ANSATZ</small>
+  <strong>6 Welten.</strong>
+  <span>Wenige Fragen. Direkte Kaufhilfen. Keine Registrierung und keine erfundenen Testsieger.</span>
+</div>
+</div>
+</section>
+<div class="am-shell am-main" data-aura-match>
+  <div class="am-flow">
+    <section class="am-panel" data-step="1" aria-label="Produktauswahl">
+      <div class="am-step-kicker"><span>01</span> ZUERST DER BEDARF</div>
+      <h2>Was soll besser werden?</h2>
+      <p>Nicht jeder braucht das gleiche Produkt. Such zuerst deine Welt aus. Danach zeigen wir dir nur die wesentlichen Auswahlfragen.</p>
+      <div class="am-categories" data-match-categories></div>
+      <div class="am-actions"><button type="button" class="am-button" data-match-next disabled>Weiter: Was zählt dir? <span aria-hidden="true">→</span></button></div>
+    </section>
+    <section class="am-panel am-hide" data-step="2" hidden aria-label="Kaufpriorität auswählen">
+      <div class="am-step-kicker"><span>02</span> DEINE PRIORITÄT</div>
+      <h2 data-match-question>Was ist dir wirklich wichtig?</h2>
+      <p>Wähle deine wichtigste Priorität. Wir sortieren nachvollziehbar, nicht nach einem geheimen „Testsieger“-Score.</p>
+      <div class="am-intent-grid" data-match-intents></div>
+      <div class="am-actions">
+        <button type="button" class="am-button" data-match-finish disabled>Passende Wege zeigen <span aria-hidden="true">→</span></button>
+        <button type="button" class="am-button am-button-secondary" data-match-prev>← Andere Produktwelt</button>
+      </div>
+    </section>
+    <aside class="am-side" data-match-side aria-label="So funktioniert AuraMatch">
+      <div class="am-kicker">AURAGLOBAL · KLARHEIT</div><h3>Der Weg ist einfach.</h3>
+      <p>Wähle die Produktwelt und deinen Einsatzzweck. Wir verlinken ausschließlich bereits eingebundene Awin-Partnerangebote.</p>
+      <ul class="am-side-list"><li><b>01</b><span>Bedarf verstehen</span></li><li><b>02</b><span>Priorität setzen</span></li><li><b>03</b><span>Modelle prüfen</span></li></ul>
+    </aside>
+  </div>
+  <section class="am-results am-hide" data-match-results hidden aria-label="Produktvorschläge" aria-live="polite">
+    <div class="am-result-head">
+      <div><div class="am-kicker">03 / AURA-MATCH-ERGEBNIS</div><h2 data-match-title>Deine passenden nächsten Schritte</h2>
+      <p data-match-summary>Wir zeigen dir kuratierte Kaufoptionen aus bestehenden Partnerschaften.</p></div>
+      <div class="am-result-tools">
+        <button class="am-button am-button-secondary" type="button" data-match-share>Ergebnis teilen ↗</button>
+        <button class="am-button am-button-secondary" type="button" data-match-reset>Neu starten ↺</button>
+      </div>
+    </div>
+    <p data-match-share-info role="status" aria-live="polite"></p>
+    <div class="am-result-grid" data-match-products></div>
+    <div class="am-result-bottom">
+      <div><b>Noch etwas unklar?</b><p>Eine gute Entscheidung beginnt mit den richtigen Produktfragen.</p></div>
+      <a class="am-button am-button-secondary" data-match-guide href="/kaufberatung.html">Passende Kaufberatung →</a>
+    </div>
+  </section>
+  <div class="am-meta-note">
+    <b>Unabhängig und transparent:</b> AuraMatch ist eine kuratierte Auswahlhilfe, kein unabhängiger Labortest. Ohne Echtzeit-Verfügbarkeitsgarantie. Mit gekennzeichneten Partnerlinks können wir bei einem Kauf eine Provision erhalten, für dich entstehen dadurch keine Mehrkosten. Preise, Lieferbarkeit, Produktvarianten und Konditionen immer im Shop prüfen.
+  </div>
+</div>
+</main>
+<footer class="am-footer"><div class="am-shell"><div>© 2026 AuraGlobal · Produkte entdecken. Besser entscheiden.</div>
+<div><a href="/methodik.html">Methodik</a><a href="/affiliate-disclosure.html">Werbehinweis</a><a href="/impressum.html">Impressum</a><a href="/datenschutz.html">Datenschutz</a></div></div></footer>
+<script src="/assets/aura-match-data.js"></script>
+<script src="/aura-v2.js"></script>
+<script src="/assets/aura-match.js"></script>
+</body></html>
