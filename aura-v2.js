@@ -194,35 +194,55 @@ document.addEventListener('DOMContentLoaded',initRailControls);
 
 
 function initAffiliateClickTracking(){
+  // Keep the paid-traffic source across internal pages, never store personal click IDs.
+  const clean=v=>String(v||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,'_').replace(/^_+|_+$/g,'');
+  const params=new URLSearchParams(window.location.search);
+  let attribution={source:'direct',campaign:''};
+  try{
+    const stored=JSON.parse(sessionStorage.getItem('ag_campaign_context')||'null');
+    if(stored && typeof stored.source==='string')attribution=stored;
+    const src=clean(params.get('utm_source')||(params.has('gclid')?'google':''));
+    const campaign=clean(params.get('utm_campaign')||'');
+    if(src || campaign){
+      attribution={source:src||attribution.source,campaign:campaign||attribution.campaign};
+      sessionStorage.setItem('ag_campaign_context',JSON.stringify(attribution));
+    }
+  }catch{}
+  const page=clean(window.location.pathname.replace(/\.html$/,'').replace(/^\//,'')||'home').slice(0,20);
+  const ref=['ag',clean(attribution.source).slice(0,10),page].filter(Boolean).join('_').slice(0,48);
   document.addEventListener('click',event=>{
-    const link=event.target.closest('a[rel~="sponsored"]');
-    if(!link) return;
-    let destination='';
+    const link=event.target?.closest?.('a[rel~="sponsored"]');
+    if(!link)return;
+    let destination='',merchantId='';
     try{
       const url=new URL(link.href,window.location.href);
       destination=url.hostname;
+      const ownAffiliate=(url.hostname==='www.awin1.com'||url.hostname==='awin1.com')
+        &&url.searchParams.get('awinaffid')==='3076553';
+      if(ownAffiliate){
+        merchantId=url.searchParams.get('awinmid')||url.searchParams.get('mid')||'';
+        const current=url.searchParams.get('clickref');
+        if(!current)url.searchParams.set('clickref',ref);
+        else if(!url.searchParams.get('clickref2')&&current!==ref)url.searchParams.set('clickref2',ref);
+        link.href=url.toString();
+      }
     }catch{}
-    const params=new URLSearchParams(window.location.search);
     const payload={
-      event:'affiliate_click',
+      event:'awin_outbound_click',
+      merchant_id:merchantId,
       affiliate_destination:destination,
-      affiliate_url:link.href,
-      affiliate_text:(link.textContent||'').trim().slice(0,120),
+      affiliate_text:(link.textContent||'').trim().slice(0,90),
       page_path:window.location.pathname,
-      traffic_source:params.get('utm_source')||'',
-      traffic_medium:params.get('utm_medium')||'',
-      traffic_campaign:params.get('utm_campaign')||''
+      traffic_source:attribution.source,
+      traffic_campaign:attribution.campaign,
+      click_reference:ref
     };
     window.dataLayer=window.dataLayer||[];
     window.dataLayer.push(payload);
-    if(typeof window.gtag==='function'){
-      window.gtag('event','affiliate_click',{
-        event_category:'affiliate',
-        event_label:destination,
-        link_url:link.href,
-        link_text:payload.affiliate_text
-      });
-    }
+    if(typeof window.va==='function')window.va('event','Awin outbound',{page:page,source:attribution.source,merchant:merchantId||'unknown'});
+    if(typeof window.gtag==='function')window.gtag('event','awin_outbound_click',{
+      event_category:'affiliate',merchant_id:merchantId,page_path:window.location.pathname,traffic_source:attribution.source
+    });
   },{capture:true});
 }
 document.addEventListener('DOMContentLoaded',initAffiliateClickTracking);
