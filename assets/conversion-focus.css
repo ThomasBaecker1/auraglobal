@@ -46,3 +46,18 @@
 .ag-featured-guide:hover{border-color:#acfbd0}
 .ag-featured-card a:focus-visible{outline:3px solid #afffd9;outline-offset:3px}
 @media(max-width:760px){.ag-featured-affiliates{margin-top:19px}.ag-featured-grid{grid-template-columns:1fr}.ag-featured-card{padding:19px}.ag-featured-head small{line-height:1.5}}
+
+
+/* User-intent shortcuts: explain the exact shopping path before offers. */
+.ag-choose-intent{background:#0c1720;border-bottom:1px solid rgba(190,255,218,.13);padding:27px 0}
+.ag-choose-eyebrow{color:#a6ffce;font-size:10px;font-weight:900;letter-spacing:.17em}
+.ag-choose-inner{display:grid;grid-template-columns:minmax(200px,.7fr) 1.5fr;gap:25px;align-items:center;margin-top:10px}
+.ag-choose-inner h2{font-size:clamp(23px,3vw,35px);line-height:1.02;letter-spacing:-.05em;margin:0 0 8px;color:#fff}
+.ag-choose-inner p{font-size:12px;color:#aebec9;line-height:1.6;margin:0;max-width:33ch}
+.ag-choose-links{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
+.ag-choose-links a{display:flex;flex-direction:column;gap:9px;text-decoration:none;border-radius:14px;border:1px solid rgba(184,255,217,.24);background:#16232c;padding:16px 13px;transition:background .16s,transform .16s}
+.ag-choose-links a:hover{background:#1d3839;transform:translateY(-2px)}
+.ag-choose-links strong{color:#fff;font-size:13px;line-height:1.25}
+.ag-choose-links span{color:#a5edc4;font-size:11px;line-height:1.35}
+.ag-choose-links a:focus-visible{outline:3px solid #afffd9;outline-offset:3px}
+@media(max-width:800px){.ag-choose-inner{grid-template-columns:1fr}.ag-choose-links{grid-template-columns:1fr}.ag-choose-links a{padding:13px 15px}}
