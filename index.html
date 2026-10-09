@@ -126,6 +126,57 @@ radial-gradient(circle at 96% 0%,rgba(31,225,151,.13),transparent 25rem),
 <link rel="stylesheet" href="/assets/home-readability-fix.css?v=20261009f">
 <link rel="stylesheet" href="/assets/home-shorts-2026.css?v=20261009d">
 <script src="/assets/home-shorts-2026.js?v=20261009d" defer></script>
+<style>
+/* Conversion shortcut after the real video stories. Keeps images, shorts, original Aura branding. */
+body.brand-home .ag-fast-buy{padding:43px 0 53px;background:radial-gradient(circle at 4% 6%,rgba(242,153,99,.11),transparent 39%),radial-gradient(circle at 94% 91%,rgba(99,225,180,.10),transparent 37%),#0b1922;color:#fff}
+body.brand-home .ag-fast-buy-inner{max-width:1340px;margin:auto;padding:0 24px}
+body.brand-home .ag-fast-buy-heading{display:flex;justify-content:space-between;align-items:flex-end;gap:22px;margin-bottom:21px}
+body.brand-home .ag-fast-buy-kicker{color:#9cf0bb;font-size:12px;font-weight:850;letter-spacing:.15em}
+body.brand-home .ag-fast-buy-heading h2{font-size:clamp(30px,3.3vw,43px)!important;line-height:1.11;letter-spacing:-.045em;color:white!important;margin:8px 0}
+body.brand-home .ag-fast-buy-heading h2 em{font-style:normal;color:#ffd8a1}
+body.brand-home .ag-fast-buy-heading p{font-size:15px;color:#d6e7e5;line-height:1.5;margin:0;max-width:720px}
+body.brand-home .ag-fast-buy-all{font-size:14px;color:#c3f4dc;font-weight:750;flex:none;text-decoration:none}
+body.brand-home .ag-fast-buy-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+body.brand-home .ag-fast-buy-card{display:flex!important;flex-direction:column;min-width:0;overflow:hidden;border-radius:20px;border:1px solid rgba(255,255,255,.23);background:#172b30;color:#fff!important;text-decoration:none!important;box-shadow:0 13px 35px rgba(0,0,0,.19);transition:transform .2s,border-color .2s}
+body.brand-home .ag-fast-buy-card:hover{transform:translateY(-3px);border-color:rgba(170,244,216,.8)}
+body.brand-home .ag-fast-buy-photo{height:177px;position:relative;overflow:hidden;flex:none;background:#16292b}
+body.brand-home .ag-fast-buy-photo img{width:100%;height:100%;display:block;object-fit:cover;object-position:center;filter:saturate(1.12)}
+body.brand-home .ag-fast-buy-green .ag-fast-buy-photo{background:#cde5d8}
+body.brand-home .ag-fast-buy-green .ag-fast-buy-photo img{object-fit:contain;padding:9px}
+body.brand-home .ag-fast-buy-photo:after{content:"";pointer-events:none;position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.23),transparent 60%)}
+body.brand-home .ag-fast-buy-brand{position:absolute;z-index:1;left:12px;top:12px;display:inline-flex;padding:8px 11px;background:rgba(8,19,23,.90);border:1px solid rgba(255,255,255,.3);border-radius:9px;font-size:13px;color:#fff;font-weight:850}
+body.brand-home .ag-fast-buy-body{display:flex;flex-direction:column;flex:1;gap:8px;padding:18px;background:#15252e}
+body.brand-home .ag-fast-buy-berry .ag-fast-buy-body{background:#2b2230}
+body.brand-home .ag-fast-buy-amber .ag-fast-buy-body{background:#29281d}
+body.brand-home .ag-fast-buy-body small{font-size:11px;font-weight:750;letter-spacing:.11em;color:#aff5cd}
+body.brand-home .ag-fast-buy-berry .ag-fast-buy-body small{color:#f4bed8}
+body.brand-home .ag-fast-buy-amber .ag-fast-buy-body small{color:#ffe3a7}
+body.brand-home .ag-fast-buy-body strong{font-size:22px;line-height:1.15;letter-spacing:-.025em;color:#fff!important}
+body.brand-home .ag-fast-buy-body>span{font-size:14px;line-height:1.5;color:#e3eaed;opacity:1}
+body.brand-home .ag-fast-buy-body b{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-top:auto;padding:13px 14px;background:#bcf1d2;border-radius:10px;font-size:14px;line-height:1.3;color:#0a2318;font-weight:850}
+body.brand-home .ag-fast-buy-berry .ag-fast-buy-body b{background:#f6c7db;color:#311521}
+body.brand-home .ag-fast-buy-amber .ag-fast-buy-body b{background:#ffe1a4;color:#312007}
+body.brand-home .ag-fast-buy-disclosure{color:#bfcdd0;font-size:12px;line-height:1.55;margin:18px 0 0}
+body.brand-home .ag-home-direct-shortcut{display:inline-flex;align-items:center;gap:8px;padding:11px 15px;margin-top:12px;background:#d4ffdd!important;color:#0f2b21!important;border-radius:10px;font-size:14px!important;font-weight:850;line-height:1.3;text-decoration:none}
+body.brand-home .ag-home-direct-shortcut:focus-visible,body.brand-home .ag-fast-buy-card:focus-visible{outline:3px solid #ffe4a3!important;outline-offset:3px}
+@media(max-width:980px){body.brand-home .ag-fast-buy-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:680px){
+ body.brand-home .ag-fast-buy{padding:32px 0 35px}
+ body.brand-home .ag-fast-buy-inner{padding:0 16px}
+ body.brand-home .ag-fast-buy-heading{display:block;margin-bottom:16px}
+ body.brand-home .ag-fast-buy-heading h2{font-size:31px!important}
+ body.brand-home .ag-fast-buy-heading p{font-size:14px}
+ body.brand-home .ag-fast-buy-all{display:inline-block;margin-top:10px}
+ body.brand-home .ag-fast-buy-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-left:3px;gap:12px;padding:2px 0 10px;scrollbar-width:thin}
+ body.brand-home .ag-fast-buy-card{flex:0 0 min(80vw,312px);scroll-snap-align:start}
+ body.brand-home .ag-fast-buy-photo{height:160px}
+ body.brand-home .ag-fast-buy-body{padding:15px}
+ body.brand-home .ag-fast-buy-body strong{font-size:20px}
+ body.brand-home .ag-fast-buy-body>span{font-size:14px}
+ body.brand-home .ag-fast-buy-body b{font-size:13px}
+ body.brand-home .ag-home-direct-shortcut{font-size:13px!important;min-height:44px}
+}
+</style>
 </head>
 <body class="vc-page brand-home">
 <header class="topbar mock-nav"><div class="shell nav"><a class="brand ag-brand approved-logo" href="/" aria-label="AuraGlobal"><svg class="ag-symbol" viewBox="0 0 100 92" aria-hidden="true"><defs><linearGradient id="auraA" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#eafff5"/><stop offset=".48" stop-color="#8ce8b9"/><stop offset="1" stop-color="#45c98e"/></linearGradient></defs><path fill="url(#auraA)" d="M8 88 48 4 92 88H75L48 31 24 81Z"/><path fill="url(#auraA)" d="M17 78C34 59 53 53 77 66L72 74C52 63 36 66 17 78Z"/></svg><span class="ag-wordmark"><span class="aura">AURA</span><span class="global">GLOBAL</span></span></a><nav class="navlinks"><a href="#shopcats">Kategorien</a><a href="#deals">Deals</a><a href="/produkte.html">Produktfinder</a><a href="/match.html">AuraMatch</a><a href="/merkliste.html">♡ Merkliste</a><a href="/marken.html">Alle Vergleiche</a></nav><div class="nav-icons"><a href="#search" aria-label="Suchen">⌕</a><a href="#deals" aria-label="Aktuelle Deals">％</a><a class="nav-cta" href="/produkte.html">Produktfinder →</a></div></div></header>
@@ -138,6 +189,7 @@ radial-gradient(circle at 96% 0%,rgba(31,225,151,.13),transparent 25rem),
       <h1>Finde, was <em>wirklich zu dir passt.</em></h1>
       <p class="ag-search-desc">Produkte, Reisen und Services für deinen Alltag. Entdecke deine Kategorie und vergleiche passende Angebote.</p>
       <div class="ag-home-promise" aria-label="So hilft dir AuraGlobal"><span>Passende Produkte finden</span><span>Unterschiede verstehen</span><span>Sicherer entscheiden</span></div>
+<a class="ag-home-direct-shortcut" href="#direktangebote">Schon kaufbereit? Direkt zu Angeboten <span aria-hidden="true">↗</span></a>
     </div>
     <div class="visual-search-tools">
       <div id="search" class="searchbox mock-search" role="search">
@@ -207,6 +259,25 @@ radial-gradient(circle at 96% 0%,rgba(31,225,151,.13),transparent 25rem),
     <p class="ag-shorts-footer">Videos der jeweiligen Anbieter bzw. Videoplattform. Stummes Autoplay kann je nach Browser, Verbindung und Datenschutzeinstellung eingeschränkt sein.</p>
   </div>
 </section>
+<section class="ag-fast-buy" id="direktangebote" aria-labelledby="ag-fast-buy-title">
+<div class="ag-fast-buy-inner">
+ <div class="ag-fast-buy-heading"><div><span class="ag-fast-buy-kicker">SCHON KAUFBEREIT?</span><h2 id="ag-fast-buy-title">Dein nächster Fund. <em>Ein Klick entfernt.</em></h2><p>Keine lange Suche: Wähle deinen Favoriten und prüfe Preis, Verfügbarkeit und Konditionen direkt im Shop.</p></div><a class="ag-fast-buy-all" href="/produkte.html">Noch mehr Produkte <span aria-hidden="true">↗</span></a></div>
+ <div class="ag-fast-buy-grid">
+ <a class="ag-fast-buy-card ag-fast-buy-green" href="https://www.awin1.com/cread.php?awinmid=72399&amp;awinaffid=3076553&amp;clickref=ag_home_fastbuy_tenways&amp;ued=https%3A%2F%2Fwww.tenways.com%2Fde%2Fproducts%2Fcgo600" target="_blank" rel="sponsored noopener" data-ag-offer="tenways_cgo600" aria-label="TENWAYS CGO600 im Hersteller-Shop prüfen, Partnerlink">
+  <div class="ag-fast-buy-photo"><img src="https://www.tenways.com/cdn/shop/files/Greygreen-1_1500x.webp?v=1758781276" alt="TENWAYS CGO600 City-E-Bike" loading="lazy" decoding="async"><span class="ag-fast-buy-brand">TENWAYS</span></div>
+  <div class="ag-fast-buy-body"><small>CITY & MOBILITÄT</small><strong>CGO600 – leicht durch die Stadt.</strong><span>Herstelleraktion und bestätigten Code TENAFF30 beim Kauf prüfen.</span><b>CGO600 beim Hersteller prüfen <span aria-hidden="true">↗</span></b></div>
+ </a>
+ <a class="ag-fast-buy-card ag-fast-buy-berry" href="https://www.awin1.com/cread.php?awinmid=107808&amp;awinaffid=3076553&amp;clickref=ag_home_fastbuy_koro" target="_blank" rel="sponsored noopener" data-ag-offer="koro_shop" aria-label="KoRo Lebensmittel im Shop entdecken, Partnerlink">
+  <div class="ag-fast-buy-photo"><img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&amp;fit=crop&amp;w=1000&amp;q=84" alt="Lebensmittel und Zutaten für die Küche" loading="lazy" decoding="async"><span class="ag-fast-buy-brand">KoRo</span></div>
+  <div class="ag-fast-buy-body"><small>GENUSS & VORRAT</small><strong>Deine neuen Snack-Favoriten.</strong><span>Nussmus, Snacks und Vorrat unkompliziert im Partner-Shop entdecken.</span><b>KoRo-Shop öffnen <span aria-hidden="true">↗</span></b></div>
+ </a>
+ <a class="ag-fast-buy-card ag-fast-buy-amber" href="https://www.awin1.com/cread.php?awinmid=127821&amp;awinaffid=3076553&amp;clickref=ag_home_fastbuy_outin&amp;ued=https%3A%2F%2Fde.outin.com%2Fcollections%2Fportable_espresso_machine" target="_blank" rel="sponsored noopener" data-ag-offer="outin_shop" aria-label="OutIn portable Espressomaschinen im Shop prüfen, Partnerlink">
+  <div class="ag-fast-buy-photo"><img src="https://de.outin.com/cdn/shop/files/nano-listing-grey-view_01bfe22a-eec7-44d4-9967-454fb7871b7e.jpg?v=1756794363&amp;width=1100" alt="Tragbare OutIn Espressomaschine" loading="lazy" decoding="async"><span class="ag-fast-buy-brand">OutIn</span></div>
+  <div class="ag-fast-buy-body"><small>KAFFEE UNTERWEGS</small><strong>Espresso, wo du willst.</strong><span>Portable Espressomaschinen für unterwegs direkt beim Anbieter vergleichen.</span><b>OutIn-Angebote prüfen <span aria-hidden="true">↗</span></b></div>
+ </a>
+ </div>
+ <p class="ag-fast-buy-disclosure">Anzeige · Awin-Partnerlinks. Bei einem Einkauf können wir eine Provision erhalten. Preise, Verfügbarkeit und Gutscheine gelten ausschließlich nach Bestätigung beim jeweiligen Anbieter.</p>
+</div></section>
 <section class="ag-home-curation" aria-label="AuraGlobal kuratierte E-Bike-Angebote">
  <div class="ag-home-shell">
   <div class="ag-home-head">
