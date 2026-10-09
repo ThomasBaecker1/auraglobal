@@ -246,7 +246,8 @@ function initAffiliateClickTracking(){
   try{
     const stored=JSON.parse(sessionStorage.getItem('ag_campaign_context')||'null');
     if(stored && typeof stored.source==='string')attribution=stored;
-    const src=clean(params.get('utm_source')||(params.has('gclid')?'google':''));
+    const paidGoogle=['gclid','gbraid','wbraid'].some(key=>params.has(key));
+    const src=clean(params.get('utm_source')||(paidGoogle?'google':''));
     const campaign=clean(params.get('utm_campaign')||'');
     if(src || campaign){
       attribution={source:src||attribution.source,campaign:campaign||attribution.campaign};
@@ -255,9 +256,7 @@ function initAffiliateClickTracking(){
   }catch{}
   const page=clean(window.location.pathname.replace(/\.html$/,'').replace(/^\//,'')||'home').slice(0,20);
   const refBase=['ag',clean(attribution.source).slice(0,10),page].filter(Boolean).join('_');
-  document.addEventListener('click',event=>{
-    const link=event.target?.closest?.('a[rel~="sponsored"]');
-    if(!link)return;
+  const prepareLink=link=>{
     let destination='',merchantId='',clickReference='';
     try{
       const url=new URL(link.href,window.location.href);
@@ -283,6 +282,7 @@ function initAffiliateClickTracking(){
         if(current&&current!==ref){
           for(let i=2;i<=6;i++){
             const key='clickref'+i;
+            if([...url.searchParams.values()].includes(current.slice(0,50)))break;
             if(!url.searchParams.has(key)){url.searchParams.set(key,current.slice(0,50));break}
           }
         }
@@ -290,9 +290,30 @@ function initAffiliateClickTracking(){
         // Awin asks for click references to precede the encoded destination.
         const deep=url.searchParams.get('ued');
         if(deep!==null){url.searchParams.delete('ued');url.searchParams.set('ued',deep)}
-        link.href=url.toString();
+        const prepared=url.toString();
+        if(link.href!==prepared)link.href=prepared;
       }
     }catch{}
+    return {destination,merchantId,clickReference};
+  };
+  // Prepare URLs before activation so middle-click and browser menu actions carry
+  // the same Awin reference as a regular click. No request is sent to Awin here.
+  const prepareTree=root=>{
+    if(root.matches?.('a[rel~="sponsored"]'))prepareLink(root);
+    root.querySelectorAll?.('a[rel~="sponsored"]').forEach(prepareLink);
+  };
+  prepareTree(document);
+  new MutationObserver(records=>{
+    records.forEach(record=>{
+      if(record.type==='attributes'){
+        if(record.target.matches?.('a[rel~="sponsored"]'))prepareLink(record.target);
+      }else record.addedNodes.forEach(prepareTree);
+    });
+  }).observe(document.body,{childList:true,subtree:true,attributes:true,attributeFilter:['href','rel']});
+  document.addEventListener('click',event=>{
+    const link=event.target?.closest?.('a[rel~="sponsored"]');
+    if(!link)return;
+    const {destination,merchantId,clickReference}=prepareLink(link);
     const payload={
       event:'awin_outbound_click',
       merchant_id:merchantId,
