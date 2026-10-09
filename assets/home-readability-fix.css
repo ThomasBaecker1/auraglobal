@@ -1,48 +1,165 @@
-/* AuraGlobal: original visual identity preserved; text legibility repair, 2026-10-09.
-   Applies only to the restored homepage. No logo, images, color scheme or copy replaced. */
-body.brand-home .equal-wall-v6 .equal-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:13px!important}
-body.brand-home .equal-wall-v6 .equal-card{height:300px!important;min-height:300px!important;border-radius:18px!important}
-body.brand-home .equal-wall-v6 .equal-copy{left:14px!important;right:14px!important;bottom:14px!important}
-body.brand-home .equal-wall-v6 .equal-copy small{font-size:11px!important;line-height:1.35!important;letter-spacing:.06em!important}
-body.brand-home .equal-wall-v6 .equal-copy strong{font-size:19px!important;line-height:1.14!important;min-height:0!important;margin-top:5px!important;letter-spacing:-.025em!important;overflow-wrap:anywhere}
-body.brand-home .equal-wall-v6 .equal-copy span{font-size:13px!important;line-height:1.5!important;min-height:0!important;margin-top:7px!important;color:#f2f7fa!important;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
-body.brand-home .equal-wall-v6 .equal-copy em{font-size:12px!important;line-height:1.3!important;min-height:35px;align-items:center;padding:7px 11px!important;margin-top:10px}
-body.brand-home .equal-wall-v6 .equal-logo{height:37px!important;max-width:83%!important;padding:6px 9px!important}
-body.brand-home .equal-wall-v6 .equal-logo b{font-size:12px!important;line-height:1.2!important}
-body.brand-home .equal-wall-v6 .equal-logo img{height:23px!important;width:23px!important}
-body.brand-home .equal-wall-v6 .equal-badge{font-size:11px!important;line-height:1.2!important;padding:7px 9px!important;top:53px!important}
-body.brand-home .equal-wall-v6 .equal-video-chip{font-size:10px!important}
-body.brand-home .equal-wall-v6 .equal-tint{background:linear-gradient(180deg,rgba(2,4,8,.05) 5%,rgba(2,4,8,.23) 32%,rgba(2,4,8,.96) 100%)!important}
-body.brand-home .equal-head>div>span{font-size:12px!important}
-body.brand-home .equal-head p,body.brand-home .ag-wall-title p{font-size:14px!important;line-height:1.6!important;color:#dfecf3!important}
-body.brand-home .equal-note{font-size:12px!important;line-height:1.55!important;color:#cad5df!important}
-body.brand-home .ag-wall-feedback{font-size:13px!important;color:#dee8f0!important}
-body.brand-home .ag-wall-title small{font-size:12px!important}
-body.brand-home .shop-chip{font-size:13px!important;min-height:42px;line-height:1.3!important}
-body.brand-home .ag-home-curation .ag-home-copy p,
-body.brand-home .ag-home-discover-content p{font-size:14px!important;line-height:1.65!important}
-body.brand-home .ag-home-curation .ag-home-actions a,
-body.brand-home .ag-home-discover-actions a{font-size:13px!important}
-body.brand-home .ag-home-curation .ag-home-notice,
-body.brand-home .ag-home-discover-note{font-size:11px!important;line-height:1.5!important}
-body.brand-home :is(a,button,input):focus-visible{outline:3px solid #fbd68a!important;outline-offset:3px!important}
-@media(max-width:1150px){body.brand-home .equal-wall-v6 .equal-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}}
-@media(max-width:760px){
- body.brand-home .equal-wall-v6 .equal-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:9px!important}
- body.brand-home .equal-wall-v6 .equal-card{height:285px!important;min-height:285px!important}
- body.brand-home .equal-wall-v6 .equal-copy{left:10px!important;right:10px!important;bottom:11px!important}
- body.brand-home .equal-wall-v6 .equal-copy strong{font-size:16px!important;line-height:1.2!important}
- body.brand-home .equal-wall-v6 .equal-copy span{font-size:12px!important;line-height:1.4!important;-webkit-line-clamp:3}
- body.brand-home .equal-wall-v6 .equal-copy small{font-size:10px!important}
- body.brand-home .equal-wall-v6 .equal-logo{height:33px!important;max-width:87%!important;padding:5px 7px!important}
- body.brand-home .equal-wall-v6 .equal-logo b{font-size:11px!important}
- body.brand-home .equal-wall-v6 .equal-badge{font-size:10px!important;top:49px!important}
- body.brand-home .equal-wall-v6 .equal-copy em{font-size:11px!important;min-height:34px}
+/* AuraGlobal homepage accessibility hotfix, 2026-10-09.
+   Keep the authentic AURA GLOBAL logo, color identity, imagery and affiliate content.
+   Readable type is more important than cramming multiple small tiles into a screen. */
+body.brand-home .equal-wall-v6 .equal-grid{
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:18px!important;
 }
-@media(max-width:360px){
- body.brand-home .equal-wall-v6 .equal-grid{grid-template-columns:1fr!important}
- body.brand-home .equal-wall-v6 .equal-card{height:270px!important;min-height:270px!important}
- body.brand-home .equal-wall-v6 .equal-copy strong{font-size:18px!important}
- body.brand-home .equal-wall-v6 .equal-copy span{font-size:13px!important}
+body.brand-home .equal-wall-v6 .equal-card{
+  display:block!important;
+  height:425px!important;
+  min-height:425px!important;
+  border-radius:22px!important;
+  overflow:hidden!important;
+  background:#131c27!important;
+  border:1px solid rgba(255,255,255,.22)!important;
+  isolation:isolate!important;
+}
+body.brand-home .equal-wall-v6 .equal-media,
+body.brand-home .equal-wall-v6 .equal-photo,
+body.brand-home .equal-wall-v6 .equal-fallback{
+  position:absolute!important;
+}
+body.brand-home .equal-wall-v6 .equal-tint{
+  background:linear-gradient(180deg,rgba(2,5,11,.05) 0%,rgba(2,5,11,.12) 38%,rgba(2,5,11,.85) 100%)!important;
+}
+body.brand-home .equal-wall-v6 .equal-copy{
+  position:absolute!important;
+  z-index:8!important;
+  left:14px!important;right:14px!important;bottom:14px!important;
+  display:block!important;
+  padding:17px 18px 16px!important;
+  border-radius:16px!important;
+  background:rgba(7,15,23,.97)!important;
+  border:1px solid rgba(255,255,255,.23)!important;
+  box-shadow:0 12px 30px rgba(0,0,0,.43)!important;
+  backdrop-filter:none!important;
+  text-shadow:none!important;
+  color:#fff!important;
+  opacity:1!important;
+}
+body.brand-home .equal-wall-v6 .equal-copy small{
+  display:block!important;
+  font-size:12px!important;
+  line-height:1.4!important;
+  letter-spacing:.07em!important;
+  font-weight:750!important;
+  color:#d7f5e6!important;
+  opacity:1!important;
+  white-space:normal!important;
+  overflow:visible!important;
+  text-overflow:clip!important;
+}
+body.brand-home .equal-wall-v6 .equal-copy strong{
+  display:block!important;
+  font-size:clamp(21px,2vw,25px)!important;
+  line-height:1.17!important;
+  font-weight:800!important;
+  letter-spacing:-.035em!important;
+  color:#fff!important;
+  opacity:1!important;
+  margin-top:6px!important;
+  min-height:0!important;
+  overflow-wrap:anywhere!important;
+}
+body.brand-home .equal-wall-v6 .equal-copy span{
+  display:block!important;
+  font-size:16px!important;
+  line-height:1.5!important;
+  color:#f5f7fa!important;
+  opacity:1!important;
+  margin-top:10px!important;
+  min-height:0!important;
+  overflow:visible!important;
+  text-overflow:clip!important;
+  -webkit-line-clamp:unset!important;
+  -webkit-box-orient:initial!important;
+  overflow-wrap:anywhere!important;
+}
+body.brand-home .equal-wall-v6 .equal-copy em{
+  display:inline-flex!important;
+  align-items:center!important;
+  min-height:43px!important;
+  margin-top:13px!important;
+  padding:10px 14px!important;
+  border-radius:9px!important;
+  font-size:14px!important;
+  line-height:1.35!important;
+  font-weight:800!important;
+  color:#071b14!important;
+  background:#b9f7d5!important;
+  text-shadow:none!important;
+  opacity:1!important;
+}
+body.brand-home .equal-wall-v6 .equal-top{z-index:7!important;left:14px!important;right:14px!important;top:14px!important}
+body.brand-home .equal-wall-v6 .equal-logo{
+  height:auto!important;
+  min-height:42px!important;
+  max-width:88%!important;
+  padding:8px 12px!important;
+  background:#fff!important;
+  border-radius:10px!important;
+}
+body.brand-home .equal-wall-v6 .equal-logo b{
+  display:block!important;
+  font-size:14px!important;
+  line-height:1.3!important;
+  color:#12202b!important;
+  overflow:visible!important;
+  white-space:normal!important;
+  overflow-wrap:anywhere!important;
+}
+body.brand-home .equal-wall-v6 .equal-logo img{width:24px!important;height:24px!important}
+body.brand-home .equal-wall-v6 .equal-badge{
+  z-index:7!important;
+  top:65px!important;
+  right:14px!important;
+  max-width:88%!important;
+  padding:8px 10px!important;
+  font-size:13px!important;
+  line-height:1.3!important;
+  font-weight:850!important;
+  border:1px solid rgba(0,0,0,.12)!important;
+}
+body.brand-home .equal-wall-v6 .equal-video-chip{font-size:12px!important;line-height:1.3!important}
+body.brand-home .ag-wall-title small,
+body.brand-home .shop-intent-label{font-size:14px!important;line-height:1.4!important}
+body.brand-home .ag-wall-title p,
+body.brand-home .equal-head p,
+body.brand-home .ag-wall-feedback,
+body.brand-home .equal-note{font-size:15px!important;line-height:1.6!important;color:#ebf3f6!important;opacity:1!important}
+body.brand-home .shop-chip,
+body.brand-home .shop-compare-link{font-size:15px!important;line-height:1.35!important;min-height:44px!important;padding:11px 15px!important}
+body.brand-home .ag-search-first .visual-search-kicker{font-size:13px!important;line-height:1.4!important}
+body.brand-home .ag-search-first .ag-search-desc{font-size:17px!important;line-height:1.55!important;color:#edf6f0!important}
+body.brand-home .ag-search-first .visual-search-chips a{font-size:14px!important;line-height:1.35!important}
+body.brand-home .ag-home-curation .ag-home-copy p,
+body.brand-home .ag-home-discover-content p,
+body.brand-home .ag-match-launch p{font-size:16px!important;line-height:1.65!important}
+body.brand-home .ag-home-curation .ag-home-actions a,
+body.brand-home .ag-home-discover-actions a{font-size:15px!important}
+body.brand-home .ag-home-curation .ag-home-notice,
+body.brand-home .ag-home-discover-note{font-size:13px!important;line-height:1.5!important;color:#dce7e3!important}
+body.brand-home :is(a,button,input):focus-visible{outline:3px solid #ffe39f!important;outline-offset:3px!important}
+@media(max-width:1050px){
+  body.brand-home .equal-wall-v6 .equal-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}
+@media(max-width:700px){
+  body.brand-home .equal-wall-v6 .equal-grid{grid-template-columns:1fr!important;gap:16px!important}
+  body.brand-home .equal-wall-v6 .equal-card{height:400px!important;min-height:400px!important}
+  body.brand-home .equal-wall-v6 .equal-copy{left:13px!important;right:13px!important;bottom:13px!important;padding:16px!important}
+  body.brand-home .equal-wall-v6 .equal-copy small{font-size:12px!important}
+  body.brand-home .equal-wall-v6 .equal-copy strong{font-size:23px!important;line-height:1.2!important}
+  body.brand-home .equal-wall-v6 .equal-copy span{font-size:16px!important;line-height:1.45!important}
+  body.brand-home .equal-wall-v6 .equal-copy em{font-size:14px!important}
+  body.brand-home .equal-wall-v6 .equal-logo b{font-size:14px!important}
+  body.brand-home .ag-search-first h1{font-size:clamp(36px,9vw,53px)!important;line-height:1.05!important;letter-spacing:-.04em!important}
+  body.brand-home .shop-intent{gap:9px!important}
+}
+@media(max-width:370px){
+  body.brand-home .equal-wall-v6 .equal-card{height:430px!important;min-height:430px!important}
+  body.brand-home .equal-wall-v6 .equal-copy strong{font-size:21px!important}
+  body.brand-home .equal-wall-v6 .equal-copy span{font-size:15px!important}
 }
 @media(prefers-reduced-motion:reduce){body.brand-home .equal-card{transform:none!important;transition:none!important}}
