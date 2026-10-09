@@ -333,7 +333,7 @@ async function* streamRecords(url) {
 }
 
 export function encodeCatalogChunk(payload) {
-  return gzipSync(Buffer.from(payload, 'utf8'), {level: 9});
+  return gzipSync(Buffer.from(payload, 'utf8'), {level: 5});
 }
 
 export async function runSync({storageMode=process.env.AWIN_STORAGE_MODE || 'filesystem'}={}) {
@@ -467,7 +467,16 @@ export async function runSync({storageMode=process.env.AWIN_STORAGE_MODE || 'fil
       const seen = new Set();
       let canonicalMerchant = advertiserName;
   
+      // Bound streaming work so one giant advertiser does not exhaust the
+      // Vercel runtime. Finish this merchant's chunks before writing a manifest.
+      let inspectedRows = 0;
       for await (const row of streamRecords(feedUrl)) {
+        if ((++inspectedRows % 256) === 0 &&
+            Date.now() - syncStartedAt >= SYNC_TIME_BUDGET_MS - 30000) {
+          truncatedForRuntime = true;
+          console.warn('Awin stream deadline reached for '+advertiserId+'; finalizing collected products.');
+          break;
+        }
         if (totalProducts >= MAX_PRODUCTS || count >= MAX_PER_MERCHANT) break;
   
         const productId = pick(row,['aw_product_id','merchant_product_id','product_id','id']);
