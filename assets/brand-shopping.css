@@ -60,3 +60,55 @@ body.brand-journey{background:var(--bj-night);color:#fff;margin:0;font-family:In
 .brand-journey a:focus-visible{outline:3px solid #ffe0a1;outline-offset:4px}
 @media(max-width:800px){.brand-journey .bj-section-head{grid-template-columns:1fr}.brand-journey .bj-cards{grid-template-columns:1fr}.brand-journey .bj-tips{grid-template-columns:1fr}.brand-journey .bj-card{min-height:0}.brand-journey .bj-outro-box{grid-template-columns:1fr}.brand-journey .bj-main{padding:57px 0}.brand-journey .bj-intro{min-height:470px}}
 @media(max-width:540px){.brand-journey .bj-header{min-height:69px}.brand-journey .bj-header nav{gap:9px}.brand-journey .bj-header nav a{font-size:10px}.brand-journey .bj-intro{min-height:490px}.brand-journey .bj-intro:after{background:linear-gradient(90deg,rgba(7,22,19,.91),rgba(7,22,19,.47)),linear-gradient(0deg,rgba(7,22,19,.78),transparent)}.brand-journey .bj-hero-content{padding:53px 0}.brand-journey h1{font-size:clamp(42px,11.5vw,61px)!important}.brand-journey .bj-lead{font-size:16px}.brand-journey .bj-hero-cta a{width:100%}.brand-journey .bj-section-head h2{font-size:40px}.brand-journey .bj-main{padding:50px 0}.brand-journey .bj-checklist{padding:46px 0}}
+
+
+/* Partner editorials / one AuraGlobal identity, two distinct shopping moods. */
+body.brand-journey{--bj-tint-a:#c9f2d5;--bj-tint-b:#ffdca4;--bj-tint-c:#f4eadc}
+body.bj-koro{--bj-night:#2b1d1a;--bj-forest:#6a4038;--bj-cream:#fff4e5;--bj-mint:#ffe1ad;--bj-ink:#34251f;--bj-tint-a:#ffd69f;--bj-tint-b:#f7b6b0;--bj-tint-c:#fff3df}
+body.bj-anker-solix{--bj-night:#0c2636;--bj-forest:#123b46;--bj-cream:#ecf5f4;--bj-mint:#c3eaf2;--bj-ink:#19363d;--bj-tint-a:#a7dfec;--bj-tint-b:#ffe39c;--bj-tint-c:#e3f4f5}
+body.bj-koro .bj-head{background:#251918;border-bottom-color:#65443e}
+body.bj-anker-solix .bj-head{background:#0a2634;border-bottom-color:#42677b}
+body.brand-journey .bj-brand span{color:var(--bj-tint-a)}
+body.brand-journey .bj-intro{background:linear-gradient(120deg,var(--bj-night),var(--bj-forest))}
+body.brand-journey .bj-intro:after{background:linear-gradient(90deg,rgba(17,25,22,.91),rgba(17,25,23,.69) 44%,rgba(18,31,27,.15) 89%),linear-gradient(0deg,rgba(12,20,16,.49),transparent 52%)}
+body.bj-koro .bj-intro:after{background:linear-gradient(93deg,rgba(49,24,21,.91),rgba(53,32,21,.70) 45%,rgba(60,32,20,.14) 90%)}
+body.bj-anker-solix .bj-intro:after{background:linear-gradient(93deg,rgba(5,31,44,.94),rgba(5,38,53,.67) 43%,rgba(8,39,52,.09) 90%)}
+body.brand-journey .bj-hero-photo{filter:saturate(1.12) contrast(1.045)}
+body.brand-journey .bj-hero-content{padding-block:100px 108px}
+body.brand-journey .bj-eyebrow{color:var(--bj-tint-a);letter-spacing:.17em}
+body.brand-journey h1{font-size:clamp(53px,6.6vw,91px)!important;letter-spacing:-.086em!important;text-shadow:0 3px 26px rgba(0,0,0,.18);max-width:780px;line-height:.99!important;text-wrap:balance}
+body.brand-journey h1 em{color:var(--bj-tint-a)}
+body.brand-journey .bj-lead{color:#fff4ee;font-size:clamp(17px,1.7vw,20px);max-width:620px}
+body.brand-journey .bj-primary{background:linear-gradient(105deg,var(--bj-tint-a),var(--bj-tint-b));color:#20332b!important;min-height:53px;box-shadow:0 13px 35px rgba(0,0,0,.23);transition:transform .2s,filter .2s}
+body.brand-journey .bj-primary:hover{transform:translateY(-2px);filter:brightness(1.07)}
+body.brand-journey .bj-secondary{min-height:53px}
+body.brand-journey .bj-navigation{background:transparent;padding-block:22px;border-bottom:1px solid rgba(25,62,48,.12);font-size:12px}
+body.brand-journey .bj-cream{background:var(--bj-cream)}
+body.brand-journey .bj-navigation{color:#48695b}
+body.brand-journey .bj-section-head h2{letter-spacing:-.082em;line-height:.98;text-wrap:balance}
+body.brand-journey .bj-dark-eyebrow{color:var(--bj-forest)}
+body.brand-journey .bj-cards{gap:20px}
+body.brand-journey .bj-card{border:1px solid rgba(56,79,58,.12);border-top:4px solid var(--bj-tint-a);border-radius:13px;min-height:330px;padding:28px;background:#fff;box-shadow:0 15px 39px rgba(19,41,28,.075);transition:transform .25s,box-shadow .25s}
+body.brand-journey .bj-card:nth-child(3n+2){border-top-color:var(--bj-tint-b)}
+body.brand-journey .bj-card:nth-child(3n){border-top-color:#b9c9ed}
+body.brand-journey .bj-card:hover{transform:translateY(-5px);box-shadow:0 26px 57px rgba(19,41,28,.15)}
+body.brand-journey .bj-card h3{font-size:clamp(27px,2.5vw,34px);letter-spacing:-.06em;line-height:1.07;color:var(--bj-ink)}
+body.brand-journey .bj-card p{font-size:13px;line-height:1.75;max-width:42ch;color:#586d63}
+body.bj-koro .bj-card p{color:#715e55}
+body.bj-anker-solix .bj-card p{color:#5c7376}
+body.brand-journey .bj-card-index{color:var(--bj-forest);letter-spacing:.14em}
+body.brand-journey .bj-card a{background:var(--bj-forest);border-radius:7px;min-height:51px}
+body.brand-journey .bj-card a:hover{background:var(--bj-night)}
+body.brand-journey .bj-checklist{background:radial-gradient(circle at 9% 12%,rgba(255,207,157,.1),transparent 33%),linear-gradient(125deg,var(--bj-night),var(--bj-forest))}
+body.brand-journey .bj-checklist .bj-tip{border-top-color:rgba(248,255,232,.28)}
+body.brand-journey .bj-tip b{color:var(--bj-tint-a);font-size:18px}
+body.brand-journey .bj-tip p{color:#e2efe7}
+body.brand-journey .bj-outro{background:var(--bj-tint-c)}
+body.brand-journey .bj-outro h2{color:var(--bj-ink)}
+body.brand-journey .bj-outro p{color:#607367}
+body.brand-journey .bj-outro a{background:var(--bj-forest);border-radius:7px;min-height:51px}
+body.brand-journey .bj-footer{background:var(--bj-night)}
+body.brand-journey a:focus-visible{outline:3px solid var(--bj-tint-b)!important;outline-offset:3px!important}
+@media(max-width:800px){body.brand-journey .bj-card{min-height:0}body.brand-journey .bj-hero-content{padding-block:74px}body.brand-journey .bj-intro{min-height:470px}}
+@media(max-width:540px){body.brand-journey h1{font-size:clamp(44px,11vw,62px)!important}body.brand-journey .bj-intro{min-height:480px}body.brand-journey .bj-hero-content{padding-block:58px}body.brand-journey .bj-card{padding:23px}}
+@media(prefers-reduced-motion:reduce){body.brand-journey .bj-card,body.brand-journey .bj-primary{transform:none!important;transition:none!important}}
