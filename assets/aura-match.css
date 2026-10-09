@@ -110,3 +110,46 @@ a{color:inherit}
 .am-wishlist-empty .am-button{margin-top:12px}
 @media(max-width:950px){.am-wishlist-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:700px){.am-wishlist-grid{grid-template-columns:1fr}.am-wishlist-head{padding-top:38px}}
+
+
+/* AuraMatch / emotional 2026 refresh. Category personalities, calm decisions. */
+body.am-body{--am-bg:#081c1b;--am-bg2:#102d29;--am-card:#14332e;--am-edge:rgba(209,255,223,.21);--am-accent:#c6f4d7;--am-white:#f5fff9;--am-muted:#bed7c8;background:radial-gradient(circle at 12% 4%,rgba(139,202,160,.08),transparent 36%),#081b19}
+.am-top{background:rgba(10,31,26,.96)!important;backdrop-filter:blur(18px);border-bottom-color:rgba(221,255,230,.19)!important}
+.am-logo em{color:#c9f7d9}
+.am-progress{background:#173529}
+.am-progress>div{background:linear-gradient(90deg,#bdf6cb,#fce3a4,#f1b9d4)!important}
+.am-hero{background:radial-gradient(circle at 75% 18%,rgba(231,171,212,.15),transparent 37%),radial-gradient(circle at 12% 85%,rgba(148,221,241,.12),transparent 45%),linear-gradient(135deg,#0a2723,#0b1c21)!important;padding:75px 0 69px}
+.am-hero h1{font-size:clamp(54px,7.3vw,96px)!important;line-height:.95!important;letter-spacing:-.083em!important;max-width:880px!important;text-wrap:balance}
+.am-hero h1 em{color:#c3f5d6!important}
+.am-kicker{color:#bcefd0!important;letter-spacing:.16em!important}
+.am-intro{color:#d2e8d9!important;font-size:clamp(15px,1.65vw,19px)!important;line-height:1.75!important;max-width:700px!important}
+.am-hero-proof{border:1px solid rgba(238,255,224,.3)!important;background:linear-gradient(140deg,rgba(234,195,231,.13),rgba(108,174,145,.08))!important;box-shadow:0 20px 60px rgba(0,0,0,.22)}
+.am-main{padding-top:38px}
+.am-panel,.am-side,.am-results{background:linear-gradient(155deg,#17382f,#102822)!important;border:1px solid rgba(202,250,218,.2)!important;box-shadow:0 20px 60px rgba(0,0,0,.12)}
+.am-panel h2,.am-result-head h2{letter-spacing:-.06em!important}
+.am-panel p{color:#c0d9c9!important;line-height:1.75!important}
+.am-cat{background:linear-gradient(155deg,#1a3a34,#17302e)!important;border:1px solid rgba(199,255,219,.2)!important;border-radius:16px!important;transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}
+.am-cat:nth-child(6n+1){border-top:3px solid #9cebc4!important}
+.am-cat:nth-child(6n+2){border-top:3px solid #ffc49f!important}
+.am-cat:nth-child(6n+3){border-top:3px solid #a3dceb!important}
+.am-cat:nth-child(6n+4){border-top:3px solid #dfbbec!important}
+.am-cat:nth-child(6n+5){border-top:3px solid #ffe2a3!important}
+.am-cat:nth-child(6n){border-top:3px solid #aebef5!important}
+.am-cat:hover{transform:translateY(-4px)!important;box-shadow:0 20px 36px rgba(2,17,12,.2)!important;border-color:#e2ffe7!important}
+.am-cat[aria-pressed="true"],.am-cat.is-selected{border-color:#c6f8dd!important;background:linear-gradient(135deg,#2b6450,#154536)!important}
+.am-cat .am-cat-icon{border-radius:13px!important;background:rgba(230,255,241,.08)}
+.am-intent{background:linear-gradient(140deg,#1b3c34,#16312c)!important;border:1px solid rgba(195,245,211,.25)!important;border-radius:14px!important;transition:transform .2s,border-color .2s}
+.am-intent:hover{transform:translateY(-2px);border-color:#c3f4d1!important}
+.am-intent[aria-pressed="true"],.am-intent.is-selected{background:#285942!important;border-color:#cbf7d5!important}
+.am-button:not(.am-button-secondary){background:linear-gradient(120deg,#c2f4d3,#e4f8cb)!important;color:#153926!important;border:0!important;box-shadow:0 9px 29px rgba(10,42,28,.23)}
+.am-button:disabled{opacity:.47!important;filter:saturate(.5)}
+.am-button:focus-visible,.am-cat:focus-visible,.am-intent:focus-visible{outline:3px solid #ffe4a7!important;outline-offset:3px!important}
+.am-product{border-radius:18px!important;border-color:rgba(226,255,232,.2)!important;background:#19362f!important;box-shadow:0 16px 39px rgba(0,0,0,.10)}
+.am-product:nth-child(3n+1){border-top:3px solid #bee9cb!important}
+.am-product:nth-child(3n+2){border-top:3px solid #ffd8a6!important}
+.am-product:nth-child(3n){border-top:3px solid #d9c4ec!important}
+.am-product .am-product-media{background:#edf5ea!important}
+.am-product h3{letter-spacing:-.045em!important}
+.am-wishlist-grid .am-product{box-shadow:0 16px 50px rgba(0,0,0,.17)}
+@media(max-width:700px){.am-hero{padding:45px 0 43px}.am-hero h1{font-size:clamp(46px,11.3vw,65px)!important}.am-panel,.am-side{padding:20px}.am-main{padding-top:25px}}
+@media(prefers-reduced-motion:reduce){.am-cat,.am-intent{transform:none!important;transition:none!important}}
