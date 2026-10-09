@@ -1,0 +1,74 @@
+/* The AuraGlobal discovery journey: contrasting emotional chapters, 2026. */
+body.product-finder{--ag-coral:#ffb6a4;--ag-sky:#a6e3f1;--ag-violet:#d1bdeb;--ag-sun:#ffde9a;--ag-mint:#c2f5d1;}
+body.product-finder .pf-hero{min-height:min(86vh,820px);background:#112321}
+body.product-finder .pf-hero-bg img{filter:saturate(1.14) contrast(1.05)}
+body.product-finder .pf-hero-bg:after{background:linear-gradient(95deg,rgba(4,18,20,.88),rgba(11,36,30,.65) 45%,rgba(8,24,22,.15) 90%),linear-gradient(0deg,rgba(5,16,14,.89),transparent 48%)}
+body.product-finder .pf-hero-copy h1{font-size:clamp(52px,7.4vw,103px)!important;line-height:.94!important;letter-spacing:-.085em!important;text-wrap:balance;max-width:10.5ch!important}
+body.product-finder .pf-hero-copy h1 em{color:#c6f3d8!important}
+body.product-finder .pf-hero-copy p{line-height:1.7!important;color:#e4f2e8!important;max-width:660px}
+body.product-finder .pf-hero-search{border-radius:15px!important;background:rgba(10,30,25,.88)!important;border-color:rgba(217,255,229,.35)!important}
+body.product-finder .pf-hero-search button{background:linear-gradient(115deg,#c7f8d9,#f9e6ad)!important;color:#143b2d!important;border-radius:9px!important;padding-inline:24px!important}
+body.product-finder .pf-hero-search button:hover{background:#e2ffdf!important}
+body.product-finder .pf-side-card{background:rgba(14,38,31,.78)!important;border-color:rgba(222,255,232,.29)!important;border-radius:14px!important}
+body.product-finder .pf-band{background:linear-gradient(110deg,#f3f1e9,#dff0e4,#edf0e8)!important;color:#243d2d!important}
+body.product-finder .pf-band-inner{gap:5px}
+body.product-finder .pf-band-item{border-color:#d7e3d7!important}
+body.product-finder .pf-band-item b{color:#1a4b34!important;letter-spacing:-.035em}
+body.product-finder .pf-band-item span{color:#586d5e!important;line-height:1.6}
+body.product-finder .pf-chapter{background:#f9f6ee!important;color:#162f23!important;padding-block:75px!important}
+body.product-finder .pf-chapter-head h2{letter-spacing:-.07em!important;color:#173a29!important}
+body.product-finder .pf-chapter-head p{color:#667668!important;line-height:1.7!important}
+body.product-finder .pf-story{border-radius:15px!important;border:1px solid #dfe4d9!important;box-shadow:0 22px 56px rgba(12,48,26,.13);overflow:hidden;transition:transform .25s,box-shadow .25s}
+body.product-finder .pf-story:hover{transform:translateY(-5px);box-shadow:0 31px 72px rgba(19,44,33,.21)}
+body.product-finder .pf-story:nth-child(4n+1){outline:3px solid rgba(149,219,177,.25);outline-offset:0}
+body.product-finder .pf-story:nth-child(4n+2){outline:3px solid rgba(244,167,201,.23);outline-offset:0}
+body.product-finder .pf-story:nth-child(4n+3){outline:3px solid rgba(171,210,246,.25);outline-offset:0}
+body.product-finder .pf-story:nth-child(4n){outline:3px solid rgba(255,218,150,.25);outline-offset:0}
+body.product-finder .pf-story-copy b{letter-spacing:-.056em!important;line-height:1.07!important;text-wrap:balance}
+body.product-finder .pf-desires{background:radial-gradient(circle at 89% 0%,rgba(247,173,212,.12),transparent 38%),radial-gradient(circle at 8% 100%,rgba(139,207,236,.13),transparent 41%),#0b2021!important}
+body.product-finder .pf-desires-head h2{letter-spacing:-.07em!important;text-wrap:balance}
+body.product-finder .pf-desire{border:1px solid rgba(211,255,228,.24)!important;border-radius:18px!important;box-shadow:0 18px 43px rgba(0,0,0,.13);transition:transform .22s,box-shadow .22s}
+body.product-finder .pf-desire:hover{transform:translateY(-4px);box-shadow:0 29px 66px rgba(0,0,0,.24)}
+body.product-finder .pf-desire:nth-child(3n+1){border-top:4px solid #b5efd1!important}
+body.product-finder .pf-desire:nth-child(3n+2){border-top:4px solid #f7b9ce!important}
+body.product-finder .pf-desire:nth-child(3n){border-top:4px solid #c6cafa!important}
+body.product-finder .pf-desire b{letter-spacing:-.05em!important}
+body.product-finder .pf-featured{background:#eaf3e9!important;color:#1b3425!important}
+body.product-finder .pf-featured-head h2{color:#173926!important;letter-spacing:-.07em!important}
+body.product-finder .pf-featured-head p{color:#65786a!important;line-height:1.7}
+body.product-finder .pf-feature{border-radius:16px!important;border:1px solid #d1ddd1!important;box-shadow:0 20px 60px rgba(29,54,41,.13);overflow:hidden}
+body.product-finder .pf-feature-copy h3{letter-spacing:-.064em!important}
+body.product-finder .pf-feature-actions a:first-child{background:#204a35!important;color:#fff!important;border-radius:8px!important}
+body.product-finder .pf-feature-actions a:first-child:hover{background:#326c4c!important}
+body.product-finder .pf-cinema{background:linear-gradient(135deg,#0c2525,#122d31)!important}
+body.product-finder .pf-cinema-head h2{letter-spacing:-.07em!important}
+body.product-finder .pf-video-card{border-radius:16px!important;border:1px solid rgba(215,250,239,.24)!important;overflow:hidden}
+body.product-finder .pf-video-card:nth-child(2n){border-top:3px solid #ffc9a3!important}
+body.product-finder .pf-video-card:nth-child(2n+1){border-top:3px solid #b9e0e7!important}
+body.product-finder .ag-assistant{background:radial-gradient(circle at 93% 9%,rgba(246,182,209,.18),transparent 45%),linear-gradient(118deg,#182e39,#152a2e)!important}
+body.product-finder .ag-assistant-copy h2{letter-spacing:-.07em!important;text-wrap:balance}
+body.product-finder .ag-assistant-box{border:1px solid rgba(202,251,219,.23)!important;border-radius:17px!important;box-shadow:0 24px 70px rgba(0,0,0,.2)}
+body.product-finder .ag-assistant-submit{background:#c7f8d7!important;color:#17412b!important}
+body.product-finder .pf-intent-hub{background:linear-gradient(150deg,#f5f3e9,#f0f5eb)!important;color:#1b362a!important}
+body.product-finder .pf-intent-hub-head h2{letter-spacing:-.065em!important;color:#163b28!important}
+body.product-finder .pf-intent-link{border-radius:15px!important;border:1px solid #e0e4d9!important;box-shadow:0 13px 40px rgba(19,43,26,.07);transition:transform .2s,box-shadow .2s}
+body.product-finder .pf-intent-link:hover{transform:translateY(-3px);box-shadow:0 21px 48px rgba(19,43,26,.14)}
+body.product-finder .pf-intent-link:nth-child(3n+1){border-top:4px solid #a3dfb4!important}
+body.product-finder .pf-intent-link:nth-child(3n+2){border-top:4px solid #f3c5a2!important}
+body.product-finder .pf-intent-link:nth-child(3n){border-top:4px solid #e5c2e8!important}
+body.product-finder .pf-catalog{background:#0d2422!important}
+body.product-finder .pf-catalog-head h2{letter-spacing:-.07em!important}
+body.product-finder .pf-controls{background:linear-gradient(115deg,#153a32,#122d30)!important;border:1px solid rgba(207,255,224,.24)!important;border-radius:17px!important}
+body.product-finder .pf-controls input,body.product-finder .pf-controls select{min-height:45px}
+body.product-finder .pf-card{border-radius:15px!important;box-shadow:0 17px 43px rgba(0,0,0,.15);transition:transform .2s,box-shadow .2s}
+body.product-finder .pf-card:hover{transform:translateY(-3px);box-shadow:0 26px 65px rgba(0,0,0,.23)}
+body.product-finder .pf-card:nth-child(4n+1){border-top:3px solid #b4edc9!important}
+body.product-finder .pf-card:nth-child(4n+2){border-top:3px solid #ffc4a7!important}
+body.product-finder .pf-card:nth-child(4n+3){border-top:3px solid #d0c0ec!important}
+body.product-finder .pf-card:nth-child(4n){border-top:3px solid #addce5!important}
+body.product-finder .pf-buy{border-radius:8px!important;min-height:48px!important}
+body.product-finder .pf-close{background:radial-gradient(circle at 4% 97%,rgba(180,234,189,.12),transparent 38%),#0b1a18!important}
+body.product-finder .pf-close-grid h2{letter-spacing:-.07em!important}
+body.product-finder :is(button,input,select,a):focus-visible{outline:3px solid #ffe2a3!important;outline-offset:3px!important}
+@media(max-width:760px){body.product-finder .pf-hero{min-height:0;padding:0}body.product-finder .pf-hero-copy h1{font-size:clamp(45px,10.6vw,67px)!important;line-height:.97!important}body.product-finder .pf-chapter{padding-block:49px!important}body.product-finder .pf-story{border-radius:12px!important}body.product-finder .pf-card{border-radius:12px!important}body.product-finder .pf-story-copy b{font-size:clamp(22px,6vw,29px)!important}}
+@media(prefers-reduced-motion:reduce){body.product-finder :is(.pf-story,.pf-desire,.pf-card,.pf-intent-link){transform:none!important;transition:none!important}}
