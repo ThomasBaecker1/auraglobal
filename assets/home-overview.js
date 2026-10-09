@@ -12,7 +12,7 @@ function publishCounts(){
   text('[data-live-partners]',fmt(cards.length));
   const visible=cards.filter(card=>!card.hidden).length;
   text('[data-visible-partners]',fmt(visible));
-  text('[data-partner-filter-info]',visible===cards.length?'Alle Partnerwelten auf dieser Seite':'Passende Partnerwelten');
+  text('[data-partner-filter-info]',visible===cards.length?'Alle Produktwelten auf dieser Seite':'Passende Produktwelten');
 }
 publishCounts();
 document.addEventListener('ag:partner-filtered',publishCounts);
@@ -39,7 +39,7 @@ async function expandCatalog(){
     const hint=document.querySelector('[data-catalog-stamp]');
     if(hint && manifest.updatedAt){
       const d=new Date(manifest.updatedAt);
-      if(!Number.isNaN(d.getTime()))hint.title='Letzter Produktfeed-Abgleich: '+d.toLocaleString('de-DE');
+      if(!Number.isNaN(d.getTime()))hint.title='Zuletzt aktualisiert: '+d.toLocaleString('de-DE');
     }
   }
   const cards=[...grid.querySelectorAll('.equal-card')];
@@ -73,7 +73,7 @@ async function expandCatalog(){
     card.innerHTML='<div class="equal-media">'+img+'<div class="equal-tint"></div></div>'+
       '<div class="equal-top"><span class="equal-logo"><b>'+esc(name)+'</b></span></div>'+
       '<div class="equal-copy"><small>'+esc(category)+'</small><strong>'+esc(name)+'</strong>'+
-      '<span>'+fmt(num)+' Produkte aus dem Awin-Katalog entdecken.</span><em>Produkte ansehen →</em></div>';
+      '<span>'+fmt(num)+' Produkte entdecken und vergleichen.</span><em>Produkte ansehen →</em></div>';
     grid.appendChild(card);
   }
   document.dispatchEvent(new Event('ag:partners-updated'));
