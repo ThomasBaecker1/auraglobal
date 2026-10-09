@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Entdecke E-Bikes, Kaffee, Haustierprodukte und vieles mehr. Verständliche Produktvergleiche, Kaufhilfen und ausgewählte Partnerangebote.">
-  <meta name="color-scheme" content="light">
+  <meta name="description" content="AuraGlobal hilft dir, Produkte visuell zu vergleichen und schneller zu entscheiden – mit klaren Kaufkriterien statt Datenchaos.">
+  <meta name="color-scheme" content="dark">
   <meta name="format-detection" content="telephone=no">
-  <title>AuraGlobal – Finde das Richtige für deinen Alltag</title>
+  <title>AuraGlobal — Produkte entdecken, vergleichen, besser entscheiden</title>
   <link rel="canonical" href="https://auraglobal.vercel.app/">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://images.pexels.com" crossorigin>
-  <meta name="theme-color" content="#fbfcf9">
+  <meta name="theme-color" content="#05070c">
   <meta property="og:title" content="AuraGlobal — Entdecken. Vergleichen. Entscheiden.">
   <meta property="og:description" content="Visuelle Produktvergleiche für schnellere Kaufentscheidungen.">
   <meta property="og:type" content="website">
@@ -25,44 +25,145 @@
   <meta name="twitter:image" content="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1200&h=630&q=90">
   <meta name="impact-site-verification" value="b2caa8d9-4501-42ba-a0b7-f7304717e386">
   <link rel="stylesheet" href="/aura-v2.css">
-<link rel="stylesheet" href="/assets/home-editorial.css">
-<link rel="stylesheet" href="/assets/home-premium-2026.css">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"AuraGlobal","url":"https://auraglobal.vercel.app/","description":"Kaufhilfen, Produktvergleiche und Angebote für bessere Entscheidungen","potentialAction":{"@type":"SearchAction","target":"https://auraglobal.vercel.app/produkte.html?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+  <link rel="stylesheet" href="/assets/aura-match-promo.css">
+  <link rel="stylesheet" href="/assets/spotlight-deals.css">
+  <link rel="stylesheet" href="/assets/home-editorial.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebSite","name":"AuraGlobal","url":"https://auraglobal.vercel.app/","description":"Produktvergleiche und Kaufhilfen für bessere Entscheidungen."}
+  </script>
+
+
+
+<style>
+/* equal brand wall v5 — every partner gets the same visual weight */
+.equal-wall{padding:12px 0 18px!important;background:
+radial-gradient(circle at 4% 0%,rgba(255,40,139,.16),transparent 24rem),
+radial-gradient(circle at 33% 0%,rgba(255,169,47,.14),transparent 25rem),
+radial-gradient(circle at 66% 0%,rgba(44,126,255,.16),transparent 25rem),
+radial-gradient(circle at 96% 0%,rgba(31,225,151,.13),transparent 25rem),
+#07090f!important}
+.equal-shell{padding-left:14px!important;padding-right:14px!important}
+.equal-head{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;margin-bottom:9px}
+.equal-head>div>span{display:block;font-size:9px;font-weight:950;letter-spacing:.14em;color:#b8c4d3}
+.equal-head h1{margin:3px 0 0!important;font-size:clamp(30px,3.2vw,48px)!important;line-height:.95!important;letter-spacing:-.055em!important;color:#fff!important}
+.equal-head p{margin:5px 0 0!important;font-size:11px!important;line-height:1.35!important;color:#b7c3d1!important;max-width:780px}
+.equal-head>a{flex:none;padding:9px 11px;border-radius:11px;border:1px solid rgba(255,255,255,.13);background:rgba(255,255,255,.05);color:#c6ffe2!important;font-size:10px;font-weight:900;text-decoration:none}
+.equal-grid{display:grid!important;grid-template-columns:repeat(6,minmax(0,1fr))!important;gap:7px!important;margin:0!important}
+.equal-card{position:relative!important;display:block!important;height:220px!important;min-height:220px!important;overflow:hidden!important;border-radius:16px!important;border:1px solid rgba(255,255,255,.14)!important;background:#121722!important;text-decoration:none!important;color:#fff!important;isolation:isolate!important;box-shadow:0 10px 28px rgba(0,0,0,.20)!important;transition:transform .17s ease,border-color .17s ease!important}
+.equal-card:hover{transform:translateY(-2px)!important;border-color:rgba(255,255,255,.34)!important}
+.equal-media{position:absolute;inset:0;z-index:0;background:#151b24;overflow:hidden}
+.equal-photo,.equal-fallback{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;object-fit:cover!important;transform:none!important;filter:saturate(1.17) contrast(1.02)!important}
+.equal-fallback{z-index:0}
+.equal-video{position:absolute;z-index:1;inset:0;overflow:hidden;pointer-events:none;background:#141820}
+.equal-video iframe{position:absolute;left:50%;top:50%;width:178vh;min-width:100%;height:56.25vw;min-height:100%;transform:translate(-50%,-50%) scale(1.08);border:0;pointer-events:none}
+.equal-tint{position:absolute;z-index:2;inset:0;background:linear-gradient(180deg,rgba(3,5,9,.06) 0%,rgba(3,5,9,.10) 30%,rgba(3,5,9,.94) 100%)}
+.equal-card:after{content:"";position:absolute;z-index:1;inset:0;pointer-events:none;opacity:.28;mix-blend-mode:screen}
+.equal-pink:after{background:linear-gradient(135deg,#ff258d,transparent 55%)}
+.equal-gold:after,.equal-orange:after{background:linear-gradient(135deg,#ff9c32,transparent 55%)}
+.equal-green:after{background:linear-gradient(135deg,#1ee6a0,transparent 55%)}
+.equal-blue:after,.equal-cyan:after{background:linear-gradient(135deg,#2d7cff,transparent 55%)}
+.equal-purple:after{background:linear-gradient(135deg,#9c4dff,transparent 55%)}
+.equal-top{position:absolute;z-index:5;left:9px;right:9px;top:9px;display:flex;align-items:center;justify-content:space-between;gap:6px}
+.equal-logo{display:flex;align-items:center;gap:6px;min-width:0;max-width:72%;height:29px;padding:4px 7px;border-radius:9px;background:rgba(255,255,255,.96);box-shadow:0 6px 18px rgba(0,0,0,.22)}
+.equal-logo img{position:static!important;width:19px!important;height:19px!important;object-fit:contain!important;transform:none!important;filter:none!important;flex:none}
+.equal-logo b{font-size:9px!important;line-height:1!important;color:#111722!important;font-weight:950!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.equal-video-chip{padding:6px 7px;border-radius:8px;background:#ff304f;color:#fff;font-size:7px;font-weight:950;letter-spacing:.06em;box-shadow:0 5px 16px rgba(0,0,0,.24)}
+.equal-badge{position:absolute;z-index:5;right:9px;top:45px;max-width:78%;padding:6px 7px;border-radius:8px;background:#efff93;color:#11160d;font-size:8px;font-weight:950;box-shadow:0 5px 16px rgba(0,0,0,.22)}
+.equal-copy{position:absolute;z-index:5;left:10px;right:10px;bottom:10px;text-shadow:0 4px 18px rgba(0,0,0,.72)}
+.equal-copy small{display:block;font-size:7px!important;line-height:1.15!important;letter-spacing:.10em!important;color:#e8eef6!important;font-weight:950!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.equal-copy strong{display:block;margin-top:3px;color:#fff!important;font-size:14px!important;line-height:1.06!important;letter-spacing:-.02em!important;min-height:30px}
+.equal-copy span{display:-webkit-box;margin-top:4px;color:#d9e2eb!important;font-size:9px!important;line-height:1.28!important;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:23px}
+.equal-copy em{display:inline-flex;margin-top:6px;padding:5px 7px;border-radius:7px;background:rgba(255,255,255,.94);color:#111722!important;font-size:8px!important;line-height:1!important;font-style:normal!important;font-weight:950!important;text-shadow:none}
+.equal-note{margin-top:8px;color:#7f8b9a;font-size:8px;line-height:1.35}
+@media(max-width:1250px){.equal-grid{grid-template-columns:repeat(5,minmax(0,1fr))!important}}
+@media(max-width:1020px){.equal-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important}.equal-card{height:215px!important;min-height:215px!important}}
+@media(max-width:760px){
+ .equal-wall{padding-top:9px!important}.equal-shell{padding-left:9px!important;padding-right:9px!important}
+ .equal-head{align-items:flex-start}.equal-head>a{display:none}.equal-head h1{font-size:31px!important}.equal-head p{font-size:10px!important}
+ .equal-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:7px!important}
+ .equal-card{height:205px!important;min-height:205px!important}
+ .equal-copy strong{font-size:13px!important}.equal-copy span{font-size:8px!important}
+}
+@media(max-width:390px){.equal-card{height:198px!important;min-height:198px!important}}
+@media(prefers-reduced-motion:reduce){.equal-video{display:none}}
+</style>
+<style>
+/* v6: direct-to-content, unique imagery, stronger emotion and five official-video cards */
+.equal-wall-v6{padding-top:8px!important}
+.equal-wall-v6 .equal-grid{margin-top:0!important}
+.equal-wall-v6 .equal-card{height:232px!important;min-height:232px!important;border-radius:18px!important}
+.equal-wall-v6 .equal-media{background:#111826!important}
+.equal-wall-v6 .equal-photo,.equal-wall-v6 .equal-fallback{filter:saturate(1.28) contrast(1.05) brightness(1.02)!important}
+.equal-wall-v6 .equal-tint{background:linear-gradient(180deg,rgba(2,4,8,.02) 0%,rgba(2,4,8,.08) 32%,rgba(2,4,8,.96) 100%)!important}
+.equal-wall-v6 .equal-card:after{opacity:.42!important}
+.equal-wall-v6 .equal-pink:after{background:linear-gradient(135deg,#ff1c8e 0%,rgba(255,70,171,.35) 35%,transparent 67%)!important}
+.equal-wall-v6 .equal-gold:after{background:linear-gradient(135deg,#ffcf42 0%,rgba(255,135,34,.38) 38%,transparent 68%)!important}
+.equal-wall-v6 .equal-orange:after{background:linear-gradient(135deg,#ff732c 0%,rgba(255,183,48,.36) 38%,transparent 68%)!important}
+.equal-wall-v6 .equal-green:after{background:linear-gradient(135deg,#16e89d 0%,rgba(56,224,116,.32) 38%,transparent 68%)!important}
+.equal-wall-v6 .equal-blue:after{background:linear-gradient(135deg,#3478ff 0%,rgba(84,74,255,.34) 38%,transparent 68%)!important}
+.equal-wall-v6 .equal-cyan:after{background:linear-gradient(135deg,#16d9ef 0%,rgba(57,112,255,.32) 38%,transparent 68%)!important}
+.equal-wall-v6 .equal-purple:after{background:linear-gradient(135deg,#a739ff 0%,rgba(255,67,175,.28) 38%,transparent 68%)!important}
+.equal-wall-v6 .equal-badge{background:#fff!important;color:#111722!important;border:0!important}
+.equal-wall-v6 .equal-pink .equal-badge{background:#ff74b8!important}
+.equal-wall-v6 .equal-gold .equal-badge{background:#ffe05b!important}
+.equal-wall-v6 .equal-orange .equal-badge{background:#ffab56!important}
+.equal-wall-v6 .equal-green .equal-badge{background:#7dffc2!important}
+.equal-wall-v6 .equal-blue .equal-badge{background:#8eb4ff!important}
+.equal-wall-v6 .equal-cyan .equal-badge{background:#7deeff!important}
+.equal-wall-v6 .equal-purple .equal-badge{background:#d49cff!important}
+.equal-wall-v6 .equal-logo{height:31px!important;background:rgba(255,255,255,.97)!important}
+.equal-wall-v6 .equal-logo b{font-size:9.5px!important}
+.equal-wall-v6 .equal-copy{bottom:11px!important}
+.equal-wall-v6 .equal-copy strong{font-size:15px!important;min-height:31px!important}
+.equal-wall-v6 .equal-copy span{font-size:9.2px!important;line-height:1.3!important;min-height:24px!important}
+.equal-wall-v6 .equal-copy em{background:rgba(255,255,255,.96)!important}
+.equal-wall-v6 .equal-video{opacity:.96}
+.equal-wall-v6 .equal-video-chip{background:#ff244d!important;color:#fff!important}
+@media(max-width:1020px){.equal-wall-v6 .equal-card{height:225px!important;min-height:225px!important}}
+@media(max-width:760px){.equal-wall-v6 .equal-card{height:213px!important;min-height:213px!important}.equal-wall-v6 .equal-copy strong{font-size:13.5px!important}.equal-wall-v6 .equal-copy span{font-size:8.5px!important}}
+</style>
+<link rel="stylesheet" href="/assets/home-overview.css">
 </head>
-<body class="ag7-home brand-home">
-<a class="ag7-skip" href="#main">Direkt zum Inhalt</a>
+<body class="vc-page brand-home">
+<header class="topbar mock-nav"><div class="shell nav"><a class="brand ag-brand approved-logo" href="/" aria-label="AuraGlobal"><svg class="ag-symbol" viewBox="0 0 100 92" aria-hidden="true"><defs><linearGradient id="auraA" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#eafff5"/><stop offset=".48" stop-color="#8ce8b9"/><stop offset="1" stop-color="#45c98e"/></linearGradient></defs><path fill="url(#auraA)" d="M8 88 48 4 92 88H75L48 31 24 81Z"/><path fill="url(#auraA)" d="M17 78C34 59 53 53 77 66L72 74C52 63 36 66 17 78Z"/></svg><span class="ag-wordmark"><span class="aura">AURA</span><span class="global">GLOBAL</span></span></a><nav class="navlinks"><a href="#shopcats">Kategorien</a><a href="#deals">Deals</a><a href="/produkte.html">Produktfinder</a><a href="/match.html">AuraMatch</a><a href="/merkliste.html">♡ Merkliste</a><a href="/marken.html">Alle Vergleiche</a></nav><div class="nav-icons"><a href="#search" aria-label="Suchen">⌕</a><a href="#deals" aria-label="Aktuelle Deals">％</a><a class="nav-cta" href="/produkte.html">Produktfinder →</a></div></div></header>
+<main>
 
-<header class="ag7-header"><div class="ag7-header-inner">
-<a class="ag7-brand" href="/" aria-label="AuraGlobal Startseite"><span class="ag7-mark" aria-hidden="true">A</span><span>AURA<b>GLOBAL</b></span></a>
-<nav class="ag7-nav" aria-label="Hauptnavigation"><a href="#discover">Kategorien</a><a href="#angebote">Angebote</a><a href="/produkte.html">Produktfinder</a><a href="/match.html">AuraMatch</a><a href="/marken.html">Alle Marken</a></nav>
-<a class="ag7-header-cta" href="/match.html">Passendes finden ↗</a>
-<details class="ag7-menu"><summary>Menü ☰</summary><nav aria-label="Mobile Navigation"><a href="#discover">Kategorien entdecken</a><a href="#angebote">Aktuelle Angebote</a><a href="/produkte.html">Produktfinder</a><a href="/match.html">AuraMatch starten</a><a href="/merkliste.html">Merkliste</a><a href="/marken.html">Alle Marken & Vergleiche</a></nav></details>
-</div></header>
-<main id="main">
-
-<section class="ag7-hero" aria-label="Bessere Kaufentscheidungen treffen">
-<div class="ag7-container ag7-hero-grid"><div>
-<span class="ag7-kicker">ENTDECKEN. VERGLEICHEN. BESSER ENTSCHEIDEN.</span>
-<h1>Finde, was dein Leben <span>besser macht.</span></h1>
-<p class="ag7-hero-lead">Weniger suchen. Mehr entdecken. Vergleiche Produkte nach dem, was im Alltag wirklich zählt – und finde Angebote, die zu dir passen.</p>
-<div class="ag7-hero-actions"><a class="ag7-button" href="#angebote">Angebote entdecken ↗</a><a class="ag7-button ag7-button-alt" href="/match.html">AuraMatch starten →</a></div>
-<div class="ag7-search-panel">
-<label class="ag7-search-label" for="home-product-search">Wonach suchst du?</label>
-<div id="search" class="searchbox ag7-searchbox" role="search"><input id="home-product-search" type="search" data-search aria-label="Produkte suchen" aria-expanded="false" aria-controls="search-results" autocomplete="off" spellcheck="false" placeholder="z. B. E-Bike, Espresso, Futterautomat"><button type="button" aria-label="Suche starten">→</button></div>
-<div id="search-results" class="search-results ag7-search-results" data-results aria-live="polite" aria-label="Suchvorschläge"></div>
-<p class="ag7-search-help">Kostenlos stöbern · Ohne Anmeldung · Transparente Werbelinks</p>
-</div></div>
-<div class="ag7-visual" aria-label="Inspiration für deinen Alltag">
-<a class="ag7-large" href="/e-bikes.html"><img fetchpriority="high" src="https://images.pexels.com/photos/7242978/pexels-photo-7242978.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200" alt="Radfahrerin unterwegs in der Stadt"><span class="ag7-image-copy"><small>FREIHEIT & MOBILITÄT</small><strong>Dein nächster Weg beginnt hier. ↗</strong></span></a>
-<a href="/kaffee.html"><img loading="lazy" src="https://images.pexels.com/photos/12903246/pexels-photo-12903246.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=700" alt="Kaffee genießen"><span class="ag7-image-copy"><small>GENUSS</small><strong>Guter Kaffee. Jeden Tag. ↗</strong></span></a>
-<a href="/petlibro.html"><img loading="lazy" src="https://images.pexels.com/photos/6001460/pexels-photo-6001460.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=700" alt="Besitzer verbringt Zeit mit einer Katze"><span class="ag7-image-copy"><small>SMART PET</small><strong>Mehr Zeit fürs Wesentliche. ↗</strong></span></a>
-</div></div></section>
-<div class="ag7-trust"><div class="ag7-container ag7-trust-grid"><div class="ag7-trust-item"><span class="ag7-trust-icon">✓</span>Passende Produkte finden</div><div class="ag7-trust-item"><span class="ag7-trust-icon">✓</span>Unterschiede verstehen</div><div class="ag7-trust-item"><span class="ag7-trust-icon">✓</span>Konditionen direkt prüfen</div></div></div><section class="ag7-categories" id="discover"><div class="ag7-container"><div class="ag7-section-heading"><div><span class="ag7-kicker">WAS BEWEGT DICH GERADE?</span><h2>Deine Welt. Deine Auswahl.</h2></div><p>Starte nicht mit tausend Shops. Starte mit dem, was du suchst – und entdecke passende Vergleiche.</p></div><div class="ag7-category-grid"><a class="ag7-category" href="/e-bikes.html"><img loading="lazy" src="https://images.pexels.com/photos/7242978/pexels-photo-7242978.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=850" alt="Radfahrerin mit E-Bike"><span class="ag7-category-content"><small>FREIHEIT & MOBILITÄT</small><strong>E-Bikes</strong><span>Leicht, faltbar oder reichweitenstark?</span><em>E-Bikes vergleichen ↗</em></span></a>
-<a class="ag7-category" href="/kaffee.html"><img loading="lazy" src="https://images.pexels.com/photos/1549181/pexels-photo-1549181.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=850" alt="Kaffee in einer Alltagsszene"><span class="ag7-category-content"><small>GENUSSMOMENT</small><strong>Kaffee & Espresso</strong><span>Welche Maschine passt zu dir?</span><em>Kaffee entdecken ↗</em></span></a>
-<a class="ag7-category" href="/petlibro.html"><img loading="lazy" src="https://images.pexels.com/photos/6001460/pexels-photo-6001460.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=850" alt="Mensch mit Katze"><span class="ag7-category-content"><small>FÜR DEINE LIEBSTEN</small><strong>Haustiere</strong><span>Mehr Zeit für Nähe und Entspannung.</span><em>Smart Pet entdecken ↗</em></span></a>
-<a class="ag7-category" href="/momox-fashion.html"><img loading="lazy" src="https://images.pexels.com/photos/4005033/pexels-photo-4005033.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=850" alt="Freude bei der Modeauswahl"><span class="ag7-category-content"><small>DEIN STIL</small><strong>Fashion</strong><span>Lieblingsstücke statt Fehlkäufe.</span><em>Mode entdecken ↗</em></span></a></div><p style="margin:25px 0 0"><a class="ag7-section-link" href="/produkte.html">Alle Produktkategorien entdecken →</a></p></div></section><section class="ag7-deals" id="angebote"><div class="ag7-container"><div class="ag7-section-heading"><div><span class="ag7-kicker">DEALS MIT ORIENTIERUNG</span><h2>Ein guter Deal passt auch zu dir.</h2></div><p>Preisvorteile sind nur sinnvoll, wenn das Produkt passt. Die angegebenen Prüfstände sind keine Live-Preisgarantie.</p></div><div class="ag7-deal-grid"><article class="ag7-deal"  data-deal-end="2026-10-25"><div class="ag7-deal-visual"><img loading="lazy" src="https://www.tenways.com/cdn/shop/files/Greygreen-1_1500x.webp?v=1758781276" alt="TENWAYS CGO600 E-Bike – Herstellerbild"><span class="ag7-deal-badge">100 € Ersparnis*</span></div><div class="ag7-deal-content"><small>E-BIKE · TENWAYS</small><h3>Weniger Gewicht. Mehr Freiheit.</h3><p>CGO600 New Edition, zuletzt <strong>1.199 € statt 1.299 €</strong>. Für alle, die ein leichtes City-E-Bike suchen.</p><span class="ag7-deal-meta">*Stand 03.10. · laut Partnerinfo bis 25.10.2026</span><div class="ag7-deal-actions"><a class="ag7-deal-main" href="/e-bike-unter-2000.html">E-Bikes vergleichen →</a><a class="ag7-deal-sub" data-ag-offer="tenways_cgo600" rel="sponsored noopener noreferrer" target="_blank" href="https://www.awin1.com/cread.php?awinmid=72399&amp;awinaffid=3076553&amp;ued=https%3A%2F%2Fwww.tenways.com%2Fde%2Fproducts%2Fcgo600">Zum Shop ↗</a></div></div></article>
-<article class="ag7-deal"  ><div class="ag7-deal-visual"><img loading="lazy" src="https://images.pexels.com/photos/1549181/pexels-photo-1549181.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1000" alt="Espresso unterwegs – Symbolbild"><span class="ag7-deal-badge">Für Kaffeefans</span></div><div class="ag7-deal-content"><small>ESPRESSO · OUTIN</small><h3>Ein Barista-Moment. Wo du willst.</h3><p>Portable Espressomaschinen für Reisen, Camping und Büro einordnen. Aktion und Preise im Shop neu prüfen.</p><span class="ag7-deal-meta">Aktionshinweis zuletzt geprüft 03.10.2026</span><div class="ag7-deal-actions"><a class="ag7-deal-main" href="/outin.html">OutIn vergleichen →</a><a class="ag7-deal-sub" data-ag-offer="outin_portable_espresso" rel="sponsored noopener noreferrer" target="_blank" href="https://www.awin1.com/cread.php?awinmid=127821&amp;awinaffid=3076553&amp;ued=https%3A%2F%2Fde.outin.com%2Fcollections%2Fportable_espresso_machine">Zum Shop ↗</a></div></div></article>
-<article class="ag7-deal" data-deal-start="2026-10-05" data-deal-end="2026-11-08"><div class="ag7-deal-visual"><img loading="lazy" src="https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&amp;fit=crop&amp;w=1000&amp;q=85" alt="Gepflegter Rasen in einem Garten"><span class="ag7-deal-badge">7 % für Neukunden*</span></div><div class="ag7-deal-content"><small>GARTEN · RASENDOKTOR</small><h3>Mehr Freude am eigenen Grün.</h3><p>Laut Partneraktion 7 % Neukundenrabatt mit <strong>SQZMVVNC</strong> ohne Mindestbestellwert. Ausschlüsse im Shop prüfen.</p><span class="ag7-deal-meta">*Stand 06.10. · bis 08.11.2026</span><div class="ag7-deal-actions"><a class="ag7-deal-main" href="/rasendoktor.html">Gartenwelt ansehen →</a><a class="ag7-deal-sub" data-ag-offer="rasendoktor_neukunden" rel="sponsored noopener noreferrer" target="_blank" href="https://www.awin1.com/cread.php?awinmid=26999&amp;awinaffid=3076553&amp;ued=https%3A%2F%2Fwww.rasendoktor.de">Zum Shop ↗</a></div></div></article></div><p class="ag7-deal-fine">Anzeige bei externen Shop-Links. Preise, Gutscheine, Gültigkeit und Verfügbarkeit vor dem Kauf beim Anbieter prüfen.</p></div></section><section class="ag-home-curation" aria-label="AuraGlobal kuratierte E-Bike-Angebote">
+<section class="visual-search ag-search-first" aria-label="AuraGlobal Suche">
+  <div class="shell visual-search-inner">
+    <div>
+      <span class="visual-search-kicker">GUTE ENTSCHEIDUNGEN FÜHLEN SICH EINFACH AN.</span>
+      <h1>Finde, was <em>wirklich zu dir passt.</em></h1>
+      <p class="ag-search-desc">E-Bike, Espresso oder etwas ganz anderes? Vergleiche passende Produkte, erkenne die Unterschiede und entscheide in Ruhe – ohne dich durch endlose Shops zu klicken.</p>
+      <div class="ag-home-promise" aria-label="So hilft dir AuraGlobal"><span>Passende Produkte finden</span><span>Unterschiede verstehen</span><span>Sicherer entscheiden</span></div>
+    </div>
+    <div class="visual-search-tools">
+      <div id="search" class="searchbox mock-search" role="search">
+        <input data-search aria-label="Wunschprodukt suchen" aria-expanded="false" aria-controls="search-results" autocomplete="off" spellcheck="false" placeholder="Was suchst du? z. B. E-Bike oder Kaffeemaschine">
+        <button type="button" aria-label="Suche starten">→</button>
+      </div>
+      <div id="search-results" class="search-results" data-results aria-live="polite" aria-label="Suchvorschläge"></div>
+      <div class="hero-chips visual-search-chips">
+        <a href="/produkte.html">Produkte entdecken</a>
+        <a href="/momox-fashion.html">Secondhand-Mode</a>
+        <a href="#deals">Angebote ansehen</a>
+        <a href="/e-bike-unter-2000.html">E-Bikes bis 2.000 €</a>
+        <a href="/e-bike-pendelrechner.html">E-Bike-Reichweite</a>
+        <a href="/sushi-bike-alternative.html">City-E-Bikes vergleichen</a>
+        <a href="/kaffee.html">Kaffee &amp; Espresso</a>
+        <a href="/petlibro.html">Für Haustiere</a>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="ag-match-launch" aria-label="AuraMatch Produktberater">
+ <div class="ag-match-wrap">
+ <div><small class="ag-match-eyebrow">NEU · AURA MATCH · 6 PRODUKTWELTEN</small>
+ <h2>Dein Bedarf. Passende Wege. Kein Datenchaos.</h2>
+ <p>In wenigen Klicks von E-Bikes über Espresso bis Smart Pet zu passenden Partnerangeboten. Kostenlos, ohne Anmeldung und ohne erfundene Testsieger.</p></div>
+ <a class="ag-match-go" href="/match.html">AuraMatch starten <span aria-hidden="true">↗</span></a>
+ </div>
+</section>
+<section class="ag-home-curation" aria-label="AuraGlobal kuratierte E-Bike-Angebote">
  <div class="ag-home-shell">
   <div class="ag-home-head">
    <div><span class="ag-home-eyebrow">FÜR DICH AUSGEWÄHLT</span><h2>Gute Dinge.<br>Für deinen Alltag.</h2></div>
@@ -112,14 +213,6 @@
   </div>
  </div>
 </section>
-<section class="ag-match-launch" aria-label="AuraMatch Produktberater">
- <div class="ag-match-wrap">
- <div><small class="ag-match-eyebrow">NEU · AURA MATCH · 6 PRODUKTWELTEN</small>
- <h2>Dein Bedarf. Passende Wege. Kein Datenchaos.</h2>
- <p>In wenigen Klicks von E-Bikes über Espresso bis Smart Pet zu passenden Partnerangeboten. Kostenlos, ohne Anmeldung und ohne erfundene Testsieger.</p></div>
- <a class="ag-match-go" href="/match.html">AuraMatch starten <span aria-hidden="true">↗</span></a>
- </div>
-</section>
 <section class="ag-home-discover" aria-label="Weitere Produktwelten entdecken"><div class="ag-home-discover-shell">
  <div class="ag-home-discover-title"><span>MEHR ENTDECKEN</span><h2>Kleine Freuden. Große Möglichkeiten.</h2><p>Zwei neue Wege zu guten Entscheidungen – vom Vorratsschrank bis zum eigenen Sonnenstrom.</p></div>
  <div class="ag-home-discover-grid">
@@ -135,8 +228,502 @@
   </article>
  </div>
  </div></section>
-<section class="ag7-journey" id="warum"><div class="ag7-container"><div class="ag7-section-heading"><div><span class="ag7-kicker">GUTE KAUFENTSCHEIDUNGEN</span><h2>Drei Schritte. Ein gutes Gefühl.</h2></div><p>Wir sortieren das Wesentliche. Du entscheidest selbst, wann und wo du kaufst.</p></div><div class="ag7-steps"><div class="ag7-step"><span>01</span><h3>Entdecke, was passt.</h3><p>Starte bei deinem Bedarf – und nicht mit hundert unübersichtlichen Shopseiten.</p></div><div class="ag7-step"><span>02</span><h3>Verstehe den Unterschied.</h3><p>Vergleiche Modelle nach Kriterien, die für deinen Alltag einen echten Unterschied machen.</p></div><div class="ag7-step"><span>03</span><h3>Prüfe dein Angebot.</h3><p>Gehe mit mehr Klarheit zum Anbieter. Der Preis und die Konditionen im Shop sind maßgeblich.</p></div></div></div></section><section class="ag7-directory"><div class="ag7-container ag7-directory-inner"><div><span class="ag7-kicker">MEHR ALS EIN EINZELNER SHOP</span><h2>Deine nächste Entdeckung wartet.</h2><p>Von Solar über Fashion bis Mobilität – stöbere durch alle Markenwelten oder gehe direkt zu einer konkreten Kaufberatung.</p></div><div class="ag7-directory-actions"><a class="ag7-button" href="/marken.html">Alle Marken entdecken →</a><a class="ag7-button ag7-button-outline" href="/kaufberatung.html">Kaufberatungen öffnen →</a></div></div></section>
+<section class="home-market-wall equal-wall equal-wall-v6" aria-label="AuraGlobal Marken und aktuelle Angebote">
+<div class="shell equal-shell">
+  <div class="shop-intent" data-shop-intent aria-label="Produkte nach Bedarf entdecken">
+  <span class="shop-intent-label">Was brauchst du gerade?</span>
+  <button class="shop-chip is-active" type="button" data-filter="all">Alles</button>
+  <button class="shop-chip" type="button" data-filter="deals">Deals</button>
+  <button class="shop-chip" type="button" data-filter="tech">Tech</button>
+  <button class="shop-chip" type="button" data-filter="mobility">Mobilität</button>
+  <button class="shop-chip" type="button" data-filter="home">Zuhause & Garten</button>
+  <button class="shop-chip" type="button" data-filter="beauty">Beauty & Wohlbefinden</button>
+  <button class="shop-chip" type="button" data-filter="food">Genuss</button>
+  <button class="shop-chip" type="button" data-filter="pet">Haustiere</button>
+  <button class="shop-chip" type="button" data-filter="career">Karriere</button>
+  <button class="shop-chip" type="button" data-for-you>Für dich</button>
+  <a class="shop-compare-link" href="/produkte.html">Alle Produkte durchsuchen ↗</a>
+  <a class="shop-compare-link" href="/e-bikes.html">E-Bikes vergleichen ↗</a>
+  <a class="shop-compare-link" href="/kaffee.html">Kaffee vergleichen ↗</a>
+</div>
+  <div class="ag-wall-title" id="alle-partner"><div><small>FÜR DICH ZUM ENTDECKEN</small><h2>Entdecke <span data-live-partners>50</span> Markenwelten.</h2><p>Finde deine Lieblingsmarke und die passende Kaufhilfe – in Ruhe und auf einen Blick.</p></div><a href="/marken.html">Alphabetisches Markenverzeichnis ↗</a></div>
+  <div class="ag-wall-feedback" aria-live="polite"><strong data-visible-partners>50</strong> <span data-partner-filter-info>Alle Markenwelten auf dieser Seite</span></div>
+  <div class="equal-grid" data-live-partner-grid><a class="equal-card equal-green" data-tags="fashion" data-deal="0" href="/house-of-sneakers.html" aria-label="House of Sneakers entdecken"><div class="equal-media"><img class="equal-photo" src="https://house-of-sneakers.de/cdn/shop/files/1169692_00_png.png?crop=center&height=630&v=1786199883&width=1200" alt="Air Jordan 1 Low Panda" loading="lazy"><div class="equal-tint"></div></div><div class="equal-top"><span class="equal-logo"><b>House of Sneakers</b></span></div><div class="equal-copy"><small>SNEAKER & STREETWEAR</small><strong>Welcher Look ist deiner?</strong><span>Jordan, Campus und Air Force nach Stil vergleichen.</span><em>Entdecken →</em></div></a><a class="equal-card equal-pink" data-tags="beauty fashion" data-deal="1" href="/momox-fashion.html" aria-label="momox fashion entdecken">
+    <div class="equal-media"><img class="equal-photo" src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1200&q=90" alt="momox fashion – SECONDHAND FASHION" loading="lazy" decoding="async"><div class="equal-tint"></div></div>
+    <div class="equal-top">
+      <span class="equal-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain_url=https://momoxfashion.com" alt="" aria-hidden="true" loading="lazy" decoding="async"><b>momox fashion</b></span>
+      
+    </div>
+    <span class="equal-badge">15 % NEUKUNDEN*</span>
+    <div class="equal-copy"><small>SECONDHAND FASHION</small><strong>Second Hand ab 5,99 €</strong><span>Mit HEY15 sparen Neukund:innen 15 % ab 40 € Mindestbestellwert.</span><em>Entdecken →</em></div>
+  </a><a class="equal-card equal-gold" data-tags="food coffee" data-deal="1" href="/nespresso.html" aria-label="NESPRESSO entdecken">
+    <div class="equal-media"><img class="equal-fallback" src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1200&q=90" alt="NESPRESSO – KAFFEE & GENUSS" loading="lazy" decoding="async"><div class="equal-video" aria-hidden="true"><iframe src="https://www.youtube-nocookie.com/embed/pqFrYeVVQtI?autoplay=1&mute=1&controls=0&loop=1&playlist=pqFrYeVVQtI&modestbranding=1&playsinline=1&rel=0" title="NESPRESSO Video" loading="lazy" allow="autoplay; encrypted-media" tabindex="-1"></iframe></div><div class="equal-tint"></div></div>
+    <div class="equal-top">
+      <span class="equal-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain_url=https://nespresso.com" alt="" aria-hidden="true" loading="lazy" decoding="async"><b>NESPRESSO</b></span>
+      <span class="equal-video-chip">▶ VIDEO</span>
+    </div>
+    <span class="equal-badge">BIS 4 STANGEN GRATIS*</span>
+    <div class="equal-copy"><small>KAFFEE & GENUSS</small><strong>Nespresso ORIGINAL vergleichen</strong><span>Kompakte Maschinen für Espresso und Milchgetränke nach Alltag auswählen.</span><em>Entdecken →</em></div>
+  </a><a class="equal-card equal-blue" data-tags="tech" data-deal="1" href="/shifter.html" aria-label="SHIFTER entdecken">
+    <div class="equal-media"><img class="equal-photo" src="https://images.unsplash.com/photo-1434494878577-86c23bcb06b9?auto=format&fit=crop&w=1200&q=90" alt="SHIFTER – APPLE · TECH · OUTLET" loading="lazy" decoding="async"><div class="equal-tint"></div></div>
+    <div class="equal-top">
+      <span class="equal-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain_url=https://shifter.shop" alt="" aria-hidden="true" loading="lazy" decoding="async"><b>SHIFTER</b></span>
+      
+    </div>
+    <span class="equal-badge">APPLE DEAL*</span>
+    <div class="equal-copy"><small>APPLE · TECH · OUTLET</small><strong>Apple Watch Ultra 2 stark reduziert</strong><span>Aktuell 499 € statt 899 € · dazu iPhone, Zubehör, Notebooks und Outlet.</span><em>Entdecken →</em></div>
+  </a><a class="equal-card equal-green" data-tags="pet home" data-deal="1" href="/petlibro.html" aria-label="PETLIBRO entdecken">
+    <div class="equal-media"><img class="equal-fallback" src="https://de.petlibro.com/cdn/shop/files/preview_images/8c5bd0c66441434eab65f47f077cee95.thumbnail.0000000000_2400x.jpg?v=1726048145" alt="PETLIBRO – SMART PET" loading="lazy" decoding="async"><div class="equal-video" aria-hidden="true"><iframe src="https://www.youtube-nocookie.com/embed/46bmq1MXRZ0?autoplay=1&mute=1&controls=0&loop=1&playlist=46bmq1MXRZ0&modestbranding=1&playsinline=1&rel=0" title="PETLIBRO Video" loading="lazy" allow="autoplay; encrypted-media" tabindex="-1"></iframe></div><div class="equal-tint"></div></div>
+    <div class="equal-top">
+      <span class="equal-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain_url=https://de.petlibro.com" alt="" aria-hidden="true" loading="lazy" decoding="async"><b>PETLIBRO</b></span>
+      <span class="equal-video-chip">▶ VIDEO</span>
+    </div>
+    <span class="equal-badge">BIS 30 %*</span>
+    <div class="equal-copy"><small>SMART PET</small><strong>Smart Pet mit bis zu 30 %</strong><span>Futterautomaten, Trinkbrunnen und Smart-Features für entspannteren Alltag.</span><em>Entdecken →</em></div>
+  </a><a class="equal-card equal-cyan" data-tags="mobility tech" data-deal="1" href="/tenways.html" aria-label="TENWAYS entdecken">
+    <div class="equal-media"><img class="equal-photo" src="https://www.tenways.com/cdn/shop/files/willow_mist-1_1500x.webp?v=1775096126" alt="TENWAYS CGO600 Pro E-Bike" loading="lazy" decoding="async"><div class="equal-tint"></div></div>
+    <div class="equal-top">
+      <span class="equal-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain_url=https://tenways.com" alt="" aria-hidden="true" loading="lazy" decoding="async"><b>TENWAYS</b></span>
+    </div>
+    <span class="equal-badge">100 € OFF + GIFT*</span>
+    <div class="equal-copy"><small>CITY E-BIKES</small><strong>CGO600 aktuell günstiger + Extra</strong><span>Urban, leicht und wartungsarm – aktuelle Aktion direkt vergleichen.</span><em>Entdecken →</em></div>
+  </a><a class="equal-card equal-orange" data-tags="food coffee travel" data-deal="1" href="/outin.html" aria-label="OutIn entdecken">
+    <div class="equal-media"><img class="equal-photo" src="https://de.outin.com/cdn/shop/files/7E94C31A-7B53-4C88-B9B5-C0CA8FDD3D77_13d72bde-f3e5-42bb-b715-e6720fa2dda8.jpg?v=1756794363&width=1600" alt="OutIn – ESPRESSO TO-GO" loading="lazy" decoding="async"><div class="equal-tint"></div></div>
+    <div class="equal-top">
+      <span class="equal-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain_url=https://de.outin.com" alt="" aria-hidden="true" loading="lazy" decoding="async"><b>OutIn</b></span>
+      
+    </div>
+    <span class="equal-badge">20 %*</span>
+    <div class="equal-copy"><small>ESPRESSO TO-GO</small><strong>Mino 151,99 € statt 189,99 €</strong><span>Nano 119,99 € statt 149,99 € · 20 % auf Maschinen und ausgewählte Sets.</span><em>Entdecken →</em></div>
+  </a><a class="equal-card equal-green" data-tags="home garden tech" data-deal="1" href="/anthbot.html" aria-label="ANTHBOT entdecken">
+    <div class="equal-media"><img class="equal-fallback" src="https://de.anthbot.com/cdn/shop/files/Mask_group_131e8dab-62f5-4254-b348-b32c931a42f7.jpg?v=1778470296&width=1200" alt="ANTHBOT – MÄHROBOTER" loading="lazy" decoding="async"><div class="equal-video" aria-hidden="true"><iframe src="https://www.youtube-nocookie.com/embed/PQdq3glWPS8?autoplay=1&mute=1&controls=0&loop=1&playlist=PQdq3glWPS8&modestbranding=1&playsinline=1&rel=0" title="ANTHBOT Video" loading="lazy" allow="autoplay; encrypted-media" tabindex="-1"></iframe></div><div class="equal-tint"></div></div>
+    <div class="equal-top">
+      <span class="equal-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain_url=https://de.anthbot.com" alt="" aria-hidden="true" loading="lazy" decoding="async"><b>ANTHBOT</b></span>
+      <span class="equal-video-chip">▶ VIDEO</span>
+    </div>
+    <span class="equal-badge">HERBSTSALE*</span>
+    <div class="equal-copy"><small>MÄHROBOTER</small><strong>M5 599 € statt 749 €</strong><span>M9 ab 649 € statt 849 € · smarter Rasen ohne Begrenzungskabel.</span><em>Entdecken →</em></div>
+  </a><a class="equal-card equal-orange" data-tags="home outdoor tech" data-deal="1" href="/allpowers.html" aria-label="ALLPOWERS entdecken">
+    <div class="equal-media"><img class="equal-fallback" src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1200&q=90" alt="ALLPOWERS – POWERSTATIONS" loading="lazy" decoding="async"><div class="equal-video" aria-hidden="true"><iframe src="https://www.youtube-nocookie.com/embed/0FccK_tinzo?autoplay=1&mute=1&controls=0&loop=1&playlist=0FccK_tinzo&modestbranding=1&playsinline=1&rel=0" title="ALLPOWERS Video" loading="lazy" allow="autoplay; encrypted-media" tabindex="-1"></iframe></div><div class="equal-tint"></div></div>
+    <div class="equal-top">
+      <span class="equal-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain_url=https://iallpowers.de" alt="" aria-hidden="true" loading="lazy" decoding="async"><b>ALLPOWERS</b></span>
+      <span class="equal-video-chip">▶ VIDEO</span>
+    </div>
+    <span class="equal-badge">BIS 57 %*</span>
+    <div class="equal-copy"><small>POWERSTATIONS</small><strong>Power Deal Days im Oktober</strong><span>Powerstations, Solar und Backup-Energie für Camping, Zuhause und unterwegs.</span><em>Entdecken →</em></div>
+  </a><a class="equal-card equal-cyan" data-tags="mobility travel" data-deal="1" href="/dotblue.html" aria-label="DOTBLUE entdecken">
+    <div class="equal-media"><img class="equal-photo" src="https://www.dotblue-ebike.de/wp-content/uploads/2025/11/Blaupunkt-MINNA_Pano.jpg" alt="DOTBLUE – BLAUPUNKT FALT-E-BIKES" loading="lazy" decoding="async"><div class="equal-tint"></div></div>
+    <div class="equal-top">
+      <span class="equal-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain_url=https://dotblue-ebike.de" alt="" aria-hidden="true" loading="lazy" decoding="async"><b>DOTBLUE</b></span>
+      
+    </div>
+    <span class="equal-badge">100 € NEWSLETTER*</span>
+    <div class="equal-copy"><small>BLAUPUNKT FALT-E-BIKES</small><strong>Kompakt fahren. Schnell verstauen.</strong><span>HENRI, EMMI, ENNO und MINNA für Pendeln, Camping und Reise.</span><em>Entdecken →</em></div>
+  </a><a class="equal-card equal-orange" data-tags="mobility travel" data-deal="0" href="/rameder.html" aria-label="Rameder entdecken">
+    <div class="equal-media"><img class="equal-photo" src="https://images.unsplash.com/photo-1486911278844-a81c5267e227?auto=format&fit=crop&w=1200&q=90" alt="Rameder – AUTO & TRANSPORT" loading="lazy" decoding="async"><div class="equal-tint"></div></div>
+    <div class="equal-top">
+      <span class="equal-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain_url=https://rameder.de" alt="" aria-hidden="true" loading="lazy" decoding="async"><b>Rameder</b></span>
+      
+    </div>
+    <span class="equal-badge">ROADTRIP</span>
+    <div class="equal-copy"><small>AUTO & TRANSPORT</small><strong>Mehr mitnehmen. Mehr erleben.</strong><span>Anhängerkupplung, Fahrradträger, Dachbox und Heckbox passend auswählen.</span><em>Entdecken →</em></div>
+  </a><a class="equal-card equal-green" data-tags="travel outdoor" data-deal="0" href="/camping-info.html" aria-label="camping.info entdecken">
+    <div class="equal-media"><img class="equal-photo" src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?auto=format&fit=crop&w=1200&q=90" alt="camping.info – CAMPING & REISE" loading="lazy" decoding="async"><div class="equal-tint"></div></div>
+    <div class="equal-top">
+      <span class="equal-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain_url=https://www.camping.info" alt="" aria-hidden="true" loading="lazy" decoding="async"><b>camping.info</b></span>
+    </div>
+    <span class="equal-badge">REISE</span>
+    <div class="equal-copy"><small>CAMPING & REISE</small><strong>Wo soll dein nächster Camping-Moment sein?</strong><span>Plätze nach Lage, Ausstattung und Urlaubsstil gezielt finden.</span><em>Entdecken →</em></div>
+  </a><a class="equal-card equal-green" data-tags="home career" data-deal="0" href="/desktronic.html" aria-label="Desktronic entdecken">
+    <div class="equal-media"><img class="equal-photo" src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=90" alt="Desktronic – HOME OFFICE" loading="lazy" decoding="async"><div class="equal-tint"></div></div>
+    <div class="equal-top">
+      <span class="equal-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain_url=https://desktronic.de" alt="" aria-hidden="true" loading="lazy" decoding="async"><b>Desktronic</b></span>
+      
+    </div>
+    <span class="equal-badge">ERGONOMIE</span>
+    <div class="equal-copy"><small>HOME OFFICE</small><strong>HomeOne oder HomePro?</strong><span>Höhenverstellbare Schreibtische nach Größe, Tragkraft und Setup vergleichen.</span><em>Entdecken →</em></div>
+  </a><a class="equal-card equal-blue" data-tags="career" data-deal="0" href="/delst.html" aria-label="DeLSt entdecken">
+    <div class="equal-media"><img class="equal-photo" src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=90" alt="DeLSt – WEITERBILDUNG" loading="lazy" decoding="async"><div class="equal-tint"></div></div>
+    <div class="equal-top">
+      <span class="equal-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain_url=https://delst.de" alt="" aria-hidden="true" loading="lazy" decoding="async"><b>DeLSt</b></span>
+      
+    </div>
+    <span class="equal-badge">KARRIERE</span>
+    <div class="equal-copy"><small>WEITERBILDUNG</small><strong>Der nächste Schritt kann heute starten.</strong><span>IHK, Wirtschaft, KI, Marketing, Coaching und weitere Fernlehrgänge.</span><em>Entdecken →</em></div>
+  </a><a class="equal-card equal-cyan" data-tags="career wellness" data-deal="0" href="/academy-of-sports.html" aria-label="Academy of Sports entdecken">
+    <div class="equal-media"><img class="equal-photo" src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1200&q=90" alt="Academy of Sports – SPORT & WEITERBILDUNG" loading="lazy" decoding="async"><div class="equal-tint"></div></div>
+    <div class="equal-top">
+      <span class="equal-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain_url=https://academyofsports.de" alt="" aria-hidden="true" loading="lazy" decoding="async"><b>Academy of Sports</b></span>
+    </div>
+    <span class="equal-badge">KARRIERE</span>
+    <div class="equal-copy"><small>SPORT & WEITERBILDUNG</small><strong>Dein nächster Schritt im Sportbereich.</strong><span>Fitness, Ernährung, Gesundheit und Spezialisierungen nach Ziel einordnen.</span><em>Entdecken →</em></div>
+  </a><a class="equal-card equal-blue" data-tags="career" data-deal="0" href="/ehip.html" aria-label="EHiP entdecken">
+    <div class="equal-media"><img class="equal-photo" src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=90" alt="EHiP – FERNSTUDIUM" loading="lazy" decoding="async"><div class="equal-tint"></div></div>
+    <div class="equal-top">
+      <span class="equal-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain_url=https://www.ehip.eu" alt="" aria-hidden="true" loading="lazy" decoding="async"><b>EHiP</b></span>
+    </div>
+    <span class="equal-badge">FERNSTUDIUM</span>
+    <div class="equal-copy"><small>BACHELOR · DUAL · ACADEMY</small><strong>Studieren, ohne dein Leben anzuhalten.</strong><span>Digitale Studienwege nach Abschlussziel, Fachrichtung und Alltag einordnen.</span><em>Entdecken →</em></div>
+  </a><a class="equal-card equal-green" data-tags="home tech" data-deal="0" href="/medimops.html" aria-label="medimops entdecken">
+    <div class="equal-media"><img class="equal-photo" src="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=1200&q=90" alt="medimops – SECONDHAND BÜCHER & MEDIEN" loading="lazy" decoding="async"><div class="equal-tint"></div></div>
+    <div class="equal-top">
+      <span class="equal-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain_url=https://www.medimops.de" alt="" aria-hidden="true" loading="lazy" decoding="async"><b>medimops</b></span>
+    </div>
+    <span class="equal-badge">SECONDHAND</span>
+    <div class="equal-copy"><small>BÜCHER · FILME · MUSIK · GAMES</small><strong>Mehr Inhalt fürs Geld.</strong><span>Secondhand-Medien nach Ausgabe, Zustand und echtem Nutzwert entdecken.</span><em>Entdecken →</em></div>
+  </a><a class="equal-card equal-blue" data-tags="home outdoor" data-deal="0" href="/scheppach.html" aria-label="Scheppach entdecken">
+    <div class="equal-media"><img class="equal-photo" src="https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=1200&q=90" alt="Scheppach – WERKZEUG & MASCHINEN" loading="lazy" decoding="async"><div class="equal-tint"></div></div>
+    <div class="equal-top">
+      <span class="equal-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain_url=https://shop.scheppach.com" alt="" aria-hidden="true" loading="lazy" decoding="async"><b>Scheppach</b></span>
+    </div>
+    <span class="equal-badge">WERKSTATT</span>
+    <div class="equal-copy"><small>WERKZEUG · GARTEN · MASCHINEN</small><strong>Die Maschine, die wirklich zum Projekt passt.</strong><span>Werkstatt, Garten und Brennholztechnik nach Einsatz einordnen.</span><em>Entdecken →</em></div>
+  </a><a class="equal-card equal-blue" data-tags="finance" data-deal="0" href="/ks-auxilia.html" aria-label="KS AUXILIA Rechtsschutz entdecken">
+    <div class="equal-media"><img class="equal-photo" src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1200&q=90" alt="KS AUXILIA – RECHTSSCHUTZ" loading="lazy" decoding="async"><div class="equal-tint"></div></div>
+    <div class="equal-top">
+      <span class="equal-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain_url=https://www.ks-auxilia.de" alt="" aria-hidden="true" loading="lazy" decoding="async"><b>KS/AUXILIA</b></span>
+    </div>
+    <span class="equal-badge">RECHTSSCHUTZ</span>
+    <div class="equal-copy"><small>PRIVAT · BERUF · VERKEHR · WOHNEN</small><strong>Schutz nach Lebenssituation einordnen.</strong><span>Bereiche verstehen und anschließend den offiziellen Beitrag berechnen.</span><em>Einordnen →</em></div>
+  </a><a class="equal-card equal-purple" data-tags="beauty wellness" data-deal="0" href="/braingood.html" aria-label="braingood entdecken">
+    <div class="equal-media"><img class="equal-photo" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=1200&q=90" alt="braingood – WOHLBEFINDEN" loading="lazy" decoding="async"><div class="equal-tint"></div></div>
+    <div class="equal-top">
+      <span class="equal-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain_url=https://braingood.de" alt="" aria-hidden="true" loading="lazy" decoding="async"><b>braingood</b></span>
+      
+    </div>
+    <span class="equal-badge">ROUTINE</span>
+    <div class="equal-copy"><small>WOHLBEFINDEN</small><strong>Deine Routine. Klarer gewählt.</strong><span>BioMe+, BOOST+ und Bundles nach Format und Preislogik einordnen.</span><em>Entdecken →</em></div>
+  </a><a class="equal-card equal-green" data-tags="beauty wellness" data-deal="0" href="/raibu.html" aria-label="RAIBU entdecken">
+    <div class="equal-media"><img class="equal-photo" src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1200&q=90" alt="RAIBU – SUPPLEMENTS" loading="lazy" decoding="async"><div class="equal-tint"></div></div>
+    <div class="equal-top">
+      <span class="equal-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain_url=https://raibu.de" alt="" aria-hidden="true" loading="lazy" decoding="async"><b>RAIBU</b></span>
+      
+    </div>
+    <span class="equal-badge">ENERGIE · SPORT</span>
+    <div class="equal-copy"><small>SUPPLEMENTS</small><strong>Fokus, Performance oder Balance?</strong><span>Produkte nach Bedarf und Routine statt endloser Supplement-Liste.</span><em>Entdecken →</em></div>
+  </a><a class="equal-card equal-pink" data-tags="beauty wellness" data-deal="0" href="/mediakos.html" aria-label="Mediakos entdecken">
+    <div class="equal-media"><img class="equal-photo" src="https://images.unsplash.com/photo-1550572017-edd951aa8f72?auto=format&fit=crop&w=1200&q=90" alt="Mediakos – VITAMINE · BEAUTY" loading="lazy" decoding="async"><div class="equal-tint"></div></div>
+    <div class="equal-top">
+      <span class="equal-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain_url=https://mediakos.de" alt="" aria-hidden="true" loading="lazy" decoding="async"><b>Mediakos</b></span>
+      
+    </div>
+    <span class="equal-badge">102 PRODUKTE</span>
+    <div class="equal-copy"><small>VITAMINE · BEAUTY</small><strong>Beauty & Gesundheit klarer entdecken.</strong><span>Vitamine, Kollagen, Kosmetik und Pflege in verständlichen Welten.</span><em>Entdecken →</em></div>
+  </a><a class="equal-card equal-purple" data-tags="beauty wellness tech" data-deal="0" href="/wau.html" aria-label="WAU entdecken">
+    <div class="equal-media"><img class="equal-photo" src="https://wauglobal.com/cdn/shop/files/mira.webp?v=1781767835&width=1200" alt="WAU – BEAUTY TECH" loading="lazy" decoding="async"><div class="equal-tint"></div></div>
+    <div class="equal-top">
+      <span class="equal-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain_url=https://wauglobal.com" alt="" aria-hidden="true" loading="lazy" decoding="async"><b>WAU</b></span>
+      
+    </div>
+    <span class="equal-badge">SELF CARE</span>
+    <div class="equal-copy"><small>BEAUTY TECH</small><strong>Self-Care trifft Beauty-Tech.</strong><span>Moderne Beauty-Routinen nach Anwendung und Alltag einordnen.</span><em>Entdecken →</em></div>
+  </a><a class="equal-card equal-pink" data-tags="beauty fashion" data-deal="0" href="/ophelia.html" aria-label="Ophelia Eternity entdecken">
+    <div class="equal-media"><img class="equal-photo" src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=90" alt="Ophelia Eternity – FINE JEWELRY" loading="lazy" decoding="async"><div class="equal-tint"></div></div>
+    <div class="equal-top">
+      <span class="equal-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain_url=https://opheliaeternity.com" alt="" aria-hidden="true" loading="lazy" decoding="async"><b>Ophelia Eternity</b></span>
+      
+    </div>
+    <span class="equal-badge">LOVE · JEWELRY</span>
+    <div class="equal-copy"><small>FINE JEWELRY</small><strong>Für Momente, die bleiben.</strong><span>Ringe und Schmuck nach Anlass, Farbe, Größe und Stil entdecken.</span><em>Entdecken →</em></div>
+  </a><a class="equal-card equal-blue" data-tags="fashion career travel" data-deal="0" href="/paper-sons.html" aria-label="Paper & Sons entdecken">
+    <div class="equal-media"><img class="equal-photo" src="https://www.paperandsons.de/cdn/shop/files/paperandsons_oak_kraftpapier_rucksack_mood_5984ec3c-2f10-4a61-9465-00dd42663ee6.jpg?v=1764616966&width=1200" alt="Paper & Sons – CITY & WORK" loading="lazy" decoding="async"><div class="equal-tint"></div></div>
+    <div class="equal-top">
+      <span class="equal-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain_url=https://paperandsons.de" alt="" aria-hidden="true" loading="lazy" decoding="async"><b>Paper & Sons</b></span>
+      
+    </div>
+    <span class="equal-badge">BACKPACKS</span>
+    <div class="equal-copy"><small>CITY & WORK</small><strong>Vom Office direkt in die City.</strong><span>Rucksäcke nach Stauraum, Arbeitsalltag und persönlichem Stil vergleichen.</span><em>Entdecken →</em></div>
+  </a><a class="equal-card equal-purple" data-tags="home" data-deal="0" href="/vintage-realm.html" aria-label="The Vintage Realm entdecken">
+    <div class="equal-media"><img class="equal-photo" src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=90" alt="The Vintage Realm – INTERIOR" loading="lazy" decoding="async"><div class="equal-tint"></div></div>
+    <div class="equal-top">
+      <span class="equal-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain_url=https://thevintagerealm.com" alt="" aria-hidden="true" loading="lazy" decoding="async"><b>The Vintage Realm</b></span>
+      
+    </div>
+    <span class="equal-badge">HOME</span>
+    <div class="equal-copy"><small>INTERIOR</small><strong>Räume mit Charakter.</strong><span>Möbel nach Raum, Stil und Einsatz statt nur nach Produktname entdecken.</span><em>Entdecken →</em></div>
+  </a><a class="equal-card equal-green" data-tags="home garden" data-deal="0" href="/norma24.html" aria-label="NORMA24 entdecken">
+    <div class="equal-media"><img class="equal-photo" src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=90" alt="NORMA24 – HAUS · GARTEN · DIY" loading="lazy" decoding="async"><div class="equal-tint"></div></div>
+    <div class="equal-top">
+      <span class="equal-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain_url=https://norma24.de" alt="" aria-hidden="true" loading="lazy" decoding="async"><b>NORMA24</b></span>
+      
+    </div>
+    <span class="equal-badge">ZUHAUSE</span>
+    <div class="equal-copy"><small>HAUS · GARTEN · DIY</small><strong>Mehr aus Zuhause machen.</strong><span>Haus, Garten, Freizeit und DIY nach konkretem Einsatz entdecken.</span><em>Entdecken →</em></div>
+  </a><a class="equal-card equal-green" data-tags="home garden" data-deal="1" href="/rasendoktor.html" aria-label="Rasendoktor entdecken">
+    <div class="equal-media"><img class="equal-photo" src="https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&w=1200&q=90" alt="Gartenmoment mit gepflegtem Grün" loading="lazy" decoding="async"><div class="equal-tint"></div></div>
+    <div class="equal-top">
+      <span class="equal-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain_url=https://rasendoktor.de" alt="" aria-hidden="true" loading="lazy" decoding="async"><b>Rasendoktor</b></span>
+      
+    </div>
+    <span class="equal-badge" data-deal-start="2026-10-05" data-deal-end="2026-11-08">7 % NEU*</span>
+    <div class="equal-copy"><small>RASENPFLEGE · DEAL AKTIV</small><strong>Vom Problem zum grünen Rasen.</strong><span>7 % für Neukunden ohne MBW · Code SQZMVVNC bis 08.11.</span><em>Deal & Auswahl prüfen →</em></div>
+  </a><a class="equal-card equal-gold" data-tags="fashion" data-deal="0" href="/vorteilshop.html" aria-label="Vorteilshop entdecken">
+    <div class="equal-media"><img class="equal-photo" src="https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=1200&q=90" alt="Vorteilshop – MODE, SCHUHE UND MARKEN" loading="lazy" decoding="async"><div class="equal-tint"></div></div>
+    <div class="equal-top">
+      <span class="equal-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain_url=https://vorteilshop.com" alt="" aria-hidden="true" loading="lazy" decoding="async"><b>Vorteilshop</b></span>
+      
+    </div>
+    <span class="equal-badge">MODE</span>
+    <div class="equal-copy"><small>MODE · SCHUHE · MARKEN</small><strong>Damen, Herren & Schuhe entdecken.</strong><span>Modewelten, Schuhe und Marken direkt getrennt statt im Shop-Chaos öffnen.</span><em>Entdecken →</em></div>
+  </a><a class="equal-card equal-cyan" data-tags="home fashion tech" data-deal="0" href="/lunzo.html" aria-label="LUNZO entdecken">
+    <div class="equal-media"><img class="equal-photo" src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1200&q=90" alt="LUNZO – SHOPPING" loading="lazy" decoding="async"><div class="equal-tint"></div></div>
+    <div class="equal-top">
+      <span class="equal-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain_url=https://lunzo.de" alt="" aria-hidden="true" loading="lazy" decoding="async"><b>LUNZO</b></span>
+      
+    </div>
+    <span class="equal-badge">MIX & MATCH</span>
+    <div class="equal-copy"><small>SHOPPING</small><strong>Viele Welten. Ein Einstieg.</strong><span>Breites Sortiment schneller über klare Kategorien und Nutzung entdecken.</span><em>Entdecken →</em></div>
+  </a><a class="equal-card equal-orange" data-tags="food home" data-deal="0" href="/pizza-party.html" aria-label="Pizza Party entdecken">
+    <div class="equal-media"><img class="equal-photo" src="https://images.unsplash.com/photo-1579751626657-72bc17010498?auto=format&fit=crop&w=1200&q=90" alt="Pizza Party – OUTDOOR COOKING" loading="lazy" decoding="async"><div class="equal-tint"></div></div>
+    <div class="equal-top">
+      <span class="equal-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain_url=https://pizzapartyshop.com" alt="" aria-hidden="true" loading="lazy" decoding="async"><b>Pizza Party</b></span>
+      
+    </div>
+    <span class="equal-badge">GENUSS</span>
+    <div class="equal-copy"><small>OUTDOOR COOKING</small><strong>Der Abend beginnt beim ersten Teig.</strong><span>Pizzaöfen nach Größe, Einsatz und Outdoor-Moment vergleichen.</span><em>Entdecken →</em></div>
+  </a><a class="equal-card equal-purple" data-tags="food home" data-deal="0" href="/porzellantreff.html" aria-label="Porzellantreff entdecken">
+    <div class="equal-media"><img class="equal-photo" src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=1200&q=90" alt="Porzellantreff – TISCHKULTUR & KÜCHE" loading="lazy" decoding="async"><div class="equal-tint"></div></div>
+    <div class="equal-top">
+      <span class="equal-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain_url=https://porzellantreff.de" alt="" aria-hidden="true" loading="lazy" decoding="async"><b>Porzellantreff</b></span>
+      
+    </div>
+    <span class="equal-badge">KÜCHE</span>
+    <div class="equal-copy"><small>TISCHKULTUR & KÜCHE</small><strong>Mach den Tisch zum Erlebnis.</strong><span>Geschirr, Gläser, Besteck und Kochgeschirr nach Anlass einordnen.</span><em>Entdecken →</em></div>
+  </a>
+<a class="equal-card equal-cyan" data-tags="mobility tech" data-deal="0" href="/iscooter.html" aria-label="iScooter entdecken">
+    <div class="equal-media"><img class="equal-photo" src="https://images.pexels.com/photos/7242978/pexels-photo-7242978.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200" alt="iScooter – E-Scooter" loading="lazy" decoding="async"><div class="equal-tint"></div></div>
+    <div class="equal-top"><span class="equal-logo"><b>iScooter</b></span></div>
+    <div class="equal-copy"><small>E-Scooter</small><strong>iScooter</strong><span>iScooter bietet Elektroroller. Die entscheidenden Unterschiede liegen im konkreten Modell: Gewicht, Reifen, Faltmaß und…</span><em>Auswahl ansehen →</em></div>
+  </a>
+<a class="equal-card equal-blue" data-tags="mobility tech" data-deal="0" href="/pure-electric.html" aria-label="Pure Electric entdecken">
+    <div class="equal-media"><img class="equal-photo" src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Pure Electric – E-Scooter" loading="lazy" decoding="async"><div class="equal-tint"></div></div>
+    <div class="equal-top"><span class="equal-logo"><b>Pure Electric</b></span></div>
+    <div class="equal-copy"><small>E-Scooter</small><strong>Pure Electric</strong><span>Pure Electric bietet E-Scooter. Bevor du Reichweiten vergleichst, entscheide, ob du den Roller tragen, im Zug mitnehmen oder…</span><em>Auswahl ansehen →</em></div>
+  </a>
+<a class="equal-card equal-green" data-tags="mobility outdoor" data-deal="0" href="/go-off.html" aria-label="GO-OFF entdecken">
+    <div class="equal-media"><img class="equal-photo" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="GO-OFF – Fahrradhelme" loading="lazy" decoding="async"><div class="equal-tint"></div></div>
+    <div class="equal-top"><span class="equal-logo"><b>GO-OFF</b></span></div>
+    <div class="equal-copy"><small>Fahrradhelme</small><strong>GO-OFF</strong><span>Passform, Einsatz und Pflege sind wichtiger als die Farbe. GO-OFF bietet Helme für Radfahrer; prüfe immer die Angaben zum…</span><em>Auswahl ansehen →</em></div>
+  </a>
+<a class="equal-card equal-green" data-tags="home tech outdoor" data-deal="0" href="/drbo-greenenergy.html" aria-label="DRBO Greenenergy entdecken">
+    <div class="equal-media"><img class="equal-photo" src="https://images.pexels.com/photos/356036/pexels-photo-356036.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200" alt="DRBO Greenenergy – Solar &amp; Speicher" loading="lazy" decoding="async"><div class="equal-tint"></div></div>
+    <div class="equal-top"><span class="equal-logo"><b>DRBO Greenenergy</b></span></div>
+    <div class="equal-copy"><small>Solar &amp; Speicher</small><strong>DRBO Greenenergy</strong><span>Solartechnik, Speicher und Energiesysteme nach Verbrauch, Kompatibilität und Einsatz…</span><em>Auswahl ansehen →</em></div>
+  </a>
+<a class="equal-card equal-blue" data-tags="career tech" data-deal="0" href="/lingzio.html" aria-label="Lingzio entdecken">
+    <div class="equal-media"><img class="equal-photo" src="https://images.pexels.com/photos/5428003/pexels-photo-5428003.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200" alt="Lingzio – Sprachen &amp; Online-Lernen" loading="lazy" decoding="async"><div class="equal-tint"></div></div>
+    <div class="equal-top"><span class="equal-logo"><b>Lingzio</b></span></div>
+    <div class="equal-copy"><small>Sprachen &amp; Online-Lernen</small><strong>Lingzio</strong><span>Sprachlernen mit CEFR-Lektionen, Gesprächspraxis und Aussprachetraining nach Lernziel…</span><em>Auswahl ansehen →</em></div>
+  </a>
+<a class="equal-card equal-purple" data-tags="fashion tech" data-deal="0" href="/the-magpie.html" aria-label="THE MAGPIE entdecken">
+    <div class="equal-media"><img class="equal-photo" src="https://images.pexels.com/photos/277319/pexels-photo-277319.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200" alt="THE MAGPIE – Uhren &amp; Smartwatches" loading="lazy" decoding="async"><div class="equal-tint"></div></div>
+    <div class="equal-top"><span class="equal-logo"><b>THE MAGPIE</b></span></div>
+    <div class="equal-copy"><small>Uhren &amp; Smartwatches</small><strong>THE MAGPIE</strong><span>Withings, Maserati und Ingersoll nach Smart-Funktionen, Stil und Tragegefühl…</span><em>Auswahl ansehen →</em></div>
+  </a>
+<a class="equal-card equal-pink" data-tags="fashion" data-deal="0" href="/manhenke.html" aria-label="Manhenke entdecken">
+    <div class="equal-media"><img class="equal-photo" src="https://images.pexels.com/photos/996329/pexels-photo-996329.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200" alt="Manhenke – Mode" loading="lazy" decoding="async"><div class="equal-tint"></div></div>
+    <div class="equal-top"><span class="equal-logo"><b>Manhenke</b></span></div>
+    <div class="equal-copy"><small>Mode</small><strong>Manhenke</strong><span>Manhenke führt Mode für Damen und Herren. Nutze deinen Alltag als Filter: Welche Stücke ergänzt du wirklich, und welche passen…</span><em>Auswahl ansehen →</em></div>
+  </a>
+<a class="equal-card equal-orange" data-tags="fashion" data-deal="0" href="/vingino.html" aria-label="Vingino entdecken">
+    <div class="equal-media"><img class="equal-photo" src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Vingino – Kindermode" loading="lazy" decoding="async"><div class="equal-tint"></div></div>
+    <div class="equal-top"><span class="equal-logo"><b>Vingino</b></span></div>
+    <div class="equal-copy"><small>Kindermode</small><strong>Vingino</strong><span>Vingino ist eine Kindermode-Marke mit Denim-Schwerpunkt. Beim Kauf helfen Bewegungsfreiheit, Größenangaben und Pflegeaufwand…</span><em>Auswahl ansehen →</em></div>
+  </a>
+<a class="equal-card equal-pink" data-tags="fashion" data-deal="0" href="/takko.html" aria-label="Takko Fashion entdecken">
+    <div class="equal-media"><img class="equal-photo" src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Takko Fashion – Familienmode" loading="lazy" decoding="async"><div class="equal-tint"></div></div>
+    <div class="equal-top"><span class="equal-logo"><b>Takko Fashion</b></span></div>
+    <div class="equal-copy"><small>Familienmode</small><strong>Takko Fashion</strong><span>Takko Fashion bietet Kleidung für Erwachsene und Kinder. Ein kleines, gut kombinierbares Set ist oft nützlicher als viele…</span><em>Auswahl ansehen →</em></div>
+  </a>
+<a class="equal-card equal-purple" data-tags="fashion beauty" data-deal="0" href="/heideman.html" aria-label="Heideman entdecken">
+    <div class="equal-media"><img class="equal-photo" src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Heideman – Schmuck" loading="lazy" decoding="async"><div class="equal-tint"></div></div>
+    <div class="equal-top"><span class="equal-logo"><b>Heideman</b></span></div>
+    <div class="equal-copy"><small>Schmuck</small><strong>Heideman</strong><span>Heideman führt Ohrringe, Armbänder, Ketten, Ringe und Gravurschmuck. Vergleiche zuerst die Maße und den Anlass; Pflege- und…</span><em>Auswahl ansehen →</em></div>
+  </a>
+<a class="equal-card equal-gold" data-tags="fashion tech" data-deal="0" href="/timeshop24.html" aria-label="Timeshop24 entdecken">
+    <div class="equal-media"><img class="equal-photo" src="https://images.pexels.com/photos/277319/pexels-photo-277319.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200" alt="Timeshop24 – Uhren" loading="lazy" decoding="async"><div class="equal-tint"></div></div>
+    <div class="equal-top"><span class="equal-logo"><b>Timeshop24</b></span></div>
+    <div class="equal-copy"><small>Uhren</small><strong>Timeshop24</strong><span>Timeshop24 führt Markenuhren und Zubehör. Entscheidend sind Gehäusemaß, Uhrwerk und dein Alltag. Ein größerer Rabatt macht…</span><em>Auswahl ansehen →</em></div>
+  </a>
+<a class="equal-card equal-blue" data-tags="home outdoor" data-deal="0" href="/toolchest.html" aria-label="Toolchest entdecken">
+    <div class="equal-media"><img class="equal-photo" src="https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Toolchest – Handwerkzeug" loading="lazy" decoding="async"><div class="equal-tint"></div></div>
+    <div class="equal-top"><span class="equal-logo"><b>Toolchest</b></span></div>
+    <div class="equal-copy"><small>Handwerkzeug</small><strong>Toolchest</strong><span>Toolchest ist auf Handwerkzeuge und Werkstatteinrichtung ausgerichtet. Starte mit den Arbeiten, die du wirklich vorhast, und…</span><em>Auswahl ansehen →</em></div>
+  </a>
+<a class="equal-card equal-orange" data-tags="home fashion" data-deal="0" href="/druckdichdrauf.html" aria-label="DruckDichDrauf entdecken">
+    <div class="equal-media"><img class="equal-photo" src="https://images.unsplash.com/photo-1513201099705-a9746e1e201f?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="DruckDichDrauf – Personalisierte Geschenke" loading="lazy" decoding="async"><div class="equal-tint"></div></div>
+    <div class="equal-top"><span class="equal-logo"><b>DruckDichDrauf</b></span></div>
+    <div class="equal-copy"><small>Personalisierte Geschenke</small><strong>DruckDichDrauf</strong><span>DruckDichDrauf ermöglicht personalisierte Textilien und Fotogeschenke. Kläre zuerst Bildqualität, Druckfläche und Termin;…</span><em>Auswahl ansehen →</em></div>
+  </a>
+<a class="equal-card equal-cyan" data-tags="travel" data-deal="0" href="/ameropa.html" aria-label="Ameropa entdecken">
+    <div class="equal-media"><img class="equal-photo" src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Ameropa – Bahn- &amp; Städtereisen" loading="lazy" decoding="async"><div class="equal-tint"></div></div>
+    <div class="equal-top"><span class="equal-logo"><b>Ameropa</b></span></div>
+    <div class="equal-copy"><small>Bahn- &amp; Städtereisen</small><strong>Ameropa</strong><span>Ameropa bietet Städte- und Bahnreisen sowie Kombinationen aus Hotel und Zusatzleistungen. Vergleiche den vollständigen…</span><em>Auswahl ansehen →</em></div>
+  </a>
+<a class="equal-card equal-blue" data-tags="tech career" data-deal="0" href="/magix.html" aria-label="MAGIX entdecken">
+    <div class="equal-media"><img class="equal-photo" src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="MAGIX – Kreativsoftware" loading="lazy" decoding="async"><div class="equal-tint"></div></div>
+    <div class="equal-top"><span class="equal-logo"><b>MAGIX</b></span></div>
+    <div class="equal-copy"><small>Kreativsoftware</small><strong>MAGIX</strong><span>MAGIX bietet Software für Video, Musik und Fotos. Wähle nach deinem Projekt: Videoschnitt, Fotoshow oder Musikproduktion…</span><em>Auswahl ansehen →</em></div>
+  </a>
+<a class="equal-card equal-green" data-tags="food home" data-deal="0" href="/messmer.html" aria-label="Meßmer entdecken">
+    <div class="equal-media"><img class="equal-photo" src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Meßmer – Tee" loading="lazy" decoding="async"><div class="equal-tint"></div></div>
+    <div class="equal-top"><span class="equal-logo"><b>Meßmer</b></span></div>
+    <div class="equal-copy"><small>Tee</small><strong>Meßmer</strong><span>Meßmer führt Heißtee, Kalttee und Zubehör. Vergleiche Zutaten, Zubereitung und Preis pro Portion, damit ein Vorrat wirklich zu…</span><em>Auswahl ansehen →</em></div>
+  </a>
+<a class="equal-card equal-purple" data-tags="career tech" data-deal="0" href="/linguatv.html" aria-label="LinguaTV entdecken">
+    <div class="equal-media"><img class="equal-photo" src="https://images.pexels.com/photos/5428003/pexels-photo-5428003.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200" alt="LinguaTV – Sprachkurse" loading="lazy" decoding="async"><div class="equal-tint"></div></div>
+    <div class="equal-top"><span class="equal-logo"><b>LinguaTV</b></span></div>
+    <div class="equal-copy"><small>Sprachkurse</small><strong>LinguaTV</strong><span>LinguaTV bietet digitale Sprachkurse mit Videos und Lernspielen für Browser und App. Entscheidend ist, ob Sprachniveau,…</span><em>Auswahl ansehen →</em></div>
+  </a>
+<a class="equal-card equal-green" data-tags="home beauty" data-deal="0" href="/synbiotic-shield.html" aria-label="SYNBIOTIC SHIELD entdecken">
+    <div class="equal-media"><img class="equal-photo" src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="SYNBIOTIC SHIELD – Homecare" loading="lazy" decoding="async"><div class="equal-tint"></div></div>
+    <div class="equal-top"><span class="equal-logo"><b>SYNBIOTIC SHIELD</b></span></div>
+    <div class="equal-copy"><small>Homecare</small><strong>SYNBIOTIC SHIELD</strong><span>SYNBIOTIC SHIELD bietet Homecare-Produkte für Reinigung und Geruchsthemen. Prüfe immer die konkrete Oberfläche, Dosierung und…</span><em>Auswahl ansehen →</em></div>
+  </a></div>
+  <div class="equal-note">* Aktionen, Preise und Bestände können sich ändern. Maßgeblich sind immer Preis, Bedingungen und Verfügbarkeit beim Anbieter.</div>
+</div>
+</section>
+
+
+
+<section class="live-deal-strip home-live-deal" aria-label="Aktuelle Top-Deals">
+  <div class="shell">
+    <a class="live-deal live-deal-emotion live-deal-coffee" href="/outin.html" aria-label="OutIn Kaffee Deal prüfen">
+      <div class="live-deal-visual">
+        <img class="live-deal-life" src="https://images.pexels.com/photos/1549181/pexels-photo-1549181.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Mensch genießt Kaffee unterwegs" loading="eager" decoding="async">
+        <div class="live-deal-badge">20 %<br>SPAREN</div>
+      </div>
+      <div class="live-deal-copy"><small>OUTIN · KAFFEE-SPECIAL</small><b>Espresso unterwegs – aktuell 20 % auf Mino, Nano und ausgewählte Sets.</b><span>Mino 151,99 € statt 189,99 €. 38,00 € sparen bei Mino.</span><strong>Deal & Modelle prüfen →</strong></div>
+    </a>
+    <a class="live-deal live-deal-emotion" href="/rasendoktor.html" data-deal-start="2026-10-05" data-deal-end="2026-11-08" aria-label="Rasendoktor Neukunden-Rabatt prüfen">
+      <div class="live-deal-visual">
+        <img class="live-deal-life" src="https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&w=1200&q=90" alt="Gartenmoment auf gepflegtem Grün" loading="eager" decoding="async">
+        <div class="live-deal-badge">7 %<br>NEUKUNDEN</div>
+      </div>
+      <div class="live-deal-copy"><small>RASENDOKTOR · BIS 08.11.</small><b>7 % für Neukunden – auch auf viele Geräte, ohne Mindestbestellwert.</b><span>Code SQZMVVNC. Sale und Geschenkgutscheine ausgeschlossen; nicht mit anderen Codes kombinierbar.</span><strong>Deal & Gartenwelt prüfen →</strong></div>
+    </a>
+  </div>
+</section>
+<section class="emotion-stage" aria-label="Produkte nach Gefühl entdecken">
+  <div class="shell">
+    <div class="emotion-stage-head">
+      <span>NICHT NUR VERGLEICHEN. FÜHLEN, WAS ZU DIR PASST.</span>
+      <h2>Welcher Moment fehlt dir gerade?</h2>
+      <p>Gute Produkte lösen etwas aus: Freude, Erleichterung, Lust aufs Ausprobieren oder einfach dieses „Ja, genau das.“</p>
+    </div>
+    <div class="emotion-grid">
+      <a class="emotion-hit emotion-hit-joy" href="/momox-fashion.html">
+        <img src="https://images.pexels.com/photos/4005033/pexels-photo-4005033.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Lachende Frau beim Shopping" loading="lazy" decoding="async">
+        <div class="emotion-shade"></div>
+        <div class="emotion-copy"><small>FREUDE · STYLE · BELOHNUNG</small><b>„Okay, den Look will ich.“</b><span>Fashion entdecken →</span></div>
+      </a>
+      <a class="emotion-hit emotion-hit-relief" href="/petlibro.html#kaufhilfe">
+        <img src="https://images.pexels.com/photos/6001460/pexels-photo-6001460.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Glücklicher Katzenbesitzer zuhause" loading="lazy" decoding="async">
+        <div class="emotion-shade"></div>
+        <div class="emotion-copy"><small>KAUFHILFE · ZWEI KATZEN</small><b>Reichen zwei Näpfe wirklich?</b><span>PETLIBRO: gemeinsam oder getrennt füttern →</span></div>
+      </a>
+      <a class="emotion-hit emotion-hit-curiosity" href="/outin.html">
+        <img src="https://images.pexels.com/photos/1549181/pexels-photo-1549181.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Kaffee-Moment unterwegs" loading="lazy" decoding="async">
+        <div class="emotion-shade"></div>
+        <div class="emotion-copy"><small>GENUSS · FREIHEIT · NEUGIER</small><b>„Espresso hier? Muss ich testen.“</b><span>OutIn entdecken →</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+<section class="portal-cards" id="shopcats"><div class="shell"><div class="portal-heading portal-heading-emotional"><div><span class="portal-eyebrow">SHOP NACH GEFÜHL</span><h2>Was soll dein nächster Kauf besser machen?</h2></div><a href="/produkte.html">Alle Produkte durchsuchen →</a></div><div class="portal-grid">
+<a href="/e-bikes.html"><img loading="lazy" decoding="async" src="https://images.pexels.com/photos/7242978/pexels-photo-7242978.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="Lachende Radfahrerin unterwegs in der Stadt"><div><b>E-Bikes</b><span>Fahrspaß · Gewicht · Reichweite</span><i>→</i></div></a>
+<a href="/kaffee.html"><img loading="lazy" decoding="async" src="https://images.pexels.com/photos/12903246/pexels-photo-12903246.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="Lachender Mann genießt seinen Kaffee"><div><b>Kaffee & Espresso</b><span>Genuss · Zuhause · To-go</span><i>→</i></div></a>
+<a href="/petlibro.html"><img loading="lazy" decoding="async" src="https://images.pexels.com/photos/6001460/pexels-photo-6001460.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="Mann verbringt Zeit mit seiner Katze"><div><b>Smart Pet</b><span>Mehr Nähe · Kamera · App</span><i>→</i></div></a>
+<a href="/braingood.html"><img loading="lazy" decoding="async" src="https://images.pexels.com/photos/9004785/pexels-photo-9004785.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="Lachende Frau mit Yogamatte und positiver Energie"><div><b>Wohlbefinden</b><span>Routine · Energie · Alltag</span><i>→</i></div></a>
+</div></div></section>
+<section class="deal-radar" id="deals">
+  <div class="shell">
+    <div class="deal-head">
+      <div><div class="kicker">Deal Radar · zuletzt geprüft 06.10.2026</div><h2>Was ist gerade wirklich günstiger?</h2></div>
+      <p>Nur aktuell verifizierte Aktionen. Abgelaufene Deals verschwinden automatisch – damit „Sale“ bei AuraGlobal auch wirklich Sale bedeutet.</p>
+    </div>
+    <div class="deal-grid" data-deal-grid>
+      <article class="deal-card deal-pink">
+        <div class="deal-media deal-media-emotion"><img class="deal-life" loading="lazy" decoding="async" src="https://images.pexels.com/photos/4005033/pexels-photo-4005033.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Lachende Frau verlässt ein Modegeschäft mit Einkaufstaschen"><span class="deal-badge">15 %*</span></div>
+        <div class="deal-copy"><small>MOMOX FASHION · GEPRÜFT 03.10.2026</small><h3>Second Hand ab 5,99 € und 15 % für Neukund:innen.</h3><p><strong>HEY15</strong>: 15 % für Neukund:innen ab 40 € Mindestbestellwert. Second Hand ab 5,99 €. Nicht kombinierbar, einmal pro Person und Haushalt; nicht bei PayPal Express.</p><div class="deal-actions"><a class="deal-cta" href="/momox-fashion.html">Sale zuerst entdecken →</a><a class="deal-link" href="https://www.awin1.com/cread.php?awinmid=11346&awinaffid=3076553&ued=https%3A%2F%2Fwww.momoxfashion.com%2Fde%2F" target="_blank" rel="sponsored noopener">Direkt zu momox fashion ↗</a></div><div class="adnote">Anzeige · Shop geprüft 03.10.2026 · Bestand kann wechseln</div></div>
+      </article>
+
+      <article class="deal-card deal-orange">
+        <div class="deal-media deal-media-emotion"><img class="deal-life" loading="lazy" decoding="async" src="https://images.pexels.com/photos/1549181/pexels-photo-1549181.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Kaffee-Moment unterwegs"><img class="deal-product-overlay" loading="lazy" decoding="async" src="https://de.outin.com/cdn/shop/files/0420_mino_-01.jpg?v=1776755656&width=2001" alt="OutIn Mino Espressomaschine"><span class="deal-badge">20 %</span></div>
+        <div class="deal-copy"><small>OUTIN · GEPRÜFT 03.10.2026</small><h3>Barista-Moment unterwegs – 20 % auf Mino, Nano und Sets.</h3><p>Zum Beispiel <strong>Mino 151,99 € statt 189,99 €</strong> und Nano 119,99 € statt 149,99 €. 38,00 € weniger für Mino, 30,00 € weniger für Nano.</p><div class="deal-actions"><a class="deal-cta" href="/outin.html">Portable Espresso vergleichen →</a><a class="deal-link" href="https://www.awin1.com/cread.php?awinmid=127821&awinaffid=3076553&ued=https%3A%2F%2Fde.outin.com%2Fcollections%2Fportable_espresso_machine" target="_blank" rel="sponsored noopener">Direkt zu OutIn ↗</a></div><div class="adnote">Anzeige beim Anbieter-Link</div></div>
+      </article>
+
+      <article class="deal-card deal-blue" data-deal-end="2026-10-25">
+        <div class="deal-media deal-media-emotion"><img class="deal-life" loading="lazy" decoding="async" src="https://images.pexels.com/photos/7242978/pexels-photo-7242978.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Lachende Radfahrerin im urbanen Alltag"><img class="deal-product-overlay" loading="lazy" decoding="async" src="https://www.tenways.com/cdn/shop/files/Greygreen-1_1500x.webp?v=1758781276" alt="TENWAYS CGO600 E-Bike"><span class="deal-badge">100 € + Zubehör</span></div>
+        <div class="deal-copy"><small>TENWAYS · GEPRÜFT 03.10.2026 · BIS 25.10.</small><h3>CGO600: 100 € günstiger + Rear Carrier inklusive.</h3><p>Partnerupdate vom 01.10.: <strong>1.199 € statt 1.299 €</strong>, dazu Rear Carrier im Wert von 59 €. EU-Code <strong>TENAFF30</strong> ist laut TENWAYS zusätzlich mit aktuellen Sale-Preisen kombinierbar.</p><div class="deal-actions"><a class="deal-cta" href="/tenways.html">CGO600 erst vergleichen →</a><a class="deal-link" href="https://www.awin1.com/cread.php?awinmid=72399&awinaffid=3076553&ued=https%3A%2F%2Fwww.tenways.com%2Fde%2Fproducts%2Fcgo600" target="_blank" rel="sponsored noopener">Direkt zu TENWAYS ↗</a></div><div class="adnote">Anzeige beim Anbieter-Link</div></div>
+      </article>
+
+      
+<article class="deal-card deal-blue deal-text" data-deal-start="2026-10-01" data-deal-end="2026-10-31"><div class="deal-copy"><small>NORMA24 · GEPRÜFT 03.10.2026</small><h3>Oktober-Gutscheine: bis zu 20 € sparen.</h3><p><strong>AFM_10_150_Okt26</strong>: 10 € ab 150 €. <strong>AFM_20_250_Okt26</strong>: 20 € ab 250 €. <strong>AFM_VSK_Okt26</strong>: versandkostenfrei ab 60 €. Bis 31.10.; Quelle: Partneraktion. Keine Kombinierbarkeit zugesichert.</p><div class="deal-actions"><a class="deal-cta" href="/norma24.html">Angebot & Auswahl prüfen</a></div></div></article><article class="deal-card deal-blue deal-text"><div class="deal-copy"><small>RAIBU · GEPRÜFT 03.10.2026</small><h3>5 % zusätzlich auf Wellness-Bundles.</h3><p>Code <strong>EXTRA5</strong> gilt laut Anbieterinformation zusätzlich auf reduzierte Bundles. Kaufe ein Bundle nur, wenn du seine Bestandteile tatsächlich brauchst. Kein Ablaufdatum vom Anbieter genannt.</p><div class="deal-actions"><a class="deal-cta" href="/raibu.html">Angebot & Auswahl prüfen</a></div></div></article>
+<article class="deal-card deal-green deal-text" data-deal-start="2026-10-06" data-deal-end="2026-10-12"><div class="deal-copy"><small>RASENDOKTOR · GEPRÜFT 06.10.2026 · BIS 12.10.</small><h3>14 € auf das Jahresdüngungs-Paket ESSENTIAL.</h3><p>Das Paket für die ganzjährige Rasenpflege ist laut Anbieterinformation bereits im Shop reduziert. <strong>14 € Ersparnis</strong>, solange der Vorrat reicht.</p><div class="deal-actions"><a class="deal-cta" href="/rasendoktor.html">Rasenpflege zuerst einordnen →</a><a class="deal-link" href="https://www.awin1.com/cread.php?awinmid=26999&awinaffid=3076553&campaign=&ued=https%3A%2F%2Fwww.rasendoktor.de%2Fangebote%2Fjahresduengung-essential%2F" target="_blank" rel="sponsored noopener">ESSENTIAL bei Rasendoktor ↗</a></div><div class="adnote">Anzeige · Quelle: Partneraktion vom 06.10.2026</div></div></article>
+<article class="deal-card deal-orange deal-text" data-deal-start="2026-10-05" data-deal-end="2026-11-08"><div class="deal-copy"><small>RASENDOKTOR · GEPRÜFT 06.10.2026 · BIS 08.11.</small><h3>7 % für Neukunden – ohne Mindestbestellwert.</h3><p>Code <strong>SQZMVVNC</strong> gilt laut Anbieterinformation auch auf viele Geräte. Sale und Geschenkgutscheine sind ausgeschlossen; der Code ist nicht mit anderen Codes kombinierbar.</p><div class="deal-actions"><a class="deal-cta" href="/rasendoktor.html">Gartenwelt vergleichen →</a><a class="deal-link" href="https://www.awin1.com/cread.php?awinmid=26999&awinaffid=3076553&campaign=&ued=https%3A%2F%2Fwww.rasendoktor.de" target="_blank" rel="sponsored noopener">Direkt zu Rasendoktor ↗</a></div><div class="adnote">Anzeige · Quelle: Partneraktion vom 06.10.2026</div></div></article>
+    </div>
+    
+
+
+<article class="deal-card deal-orange" data-deal-end="2026-10-19"><div class="deal-media deal-media-emotion"><img class="deal-life" loading="lazy" decoding="async" src="https://images.pexels.com/photos/996329/pexels-photo-996329.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Mode und Kleidung"><span class="deal-badge">30 %</span></div><div class="deal-copy"><small>VORTEILSHOP · GEPRÜFT 07.10.2026</small><h3>30 % Übergangsrabatt ab 35 € MBW.</h3><p>Code <strong>V51378</strong>, gültig bis 19.10.2026. Zusätzlich läuft ein wöchentlicher Top-Deal.</p><div class="deal-actions"><a class="deal-cta" href="/vorteilshop.html">Modewelt öffnen →</a><a class="deal-link" href="https://www.awin1.com/cread.php?awinmid=11352&awinaffid=3076553&clickref=ag_home_vorteilshop_oct&ued=https%3A%2F%2Fvorteilshop.com%2F%3Fwebsale8%3Dgrenzenlosdirekt" target="_blank" rel="sponsored noopener">Rabatt prüfen ↗</a></div><div class="adnote">Anzeige · bis 19.10.2026</div></div></article><div class="deal-note">Stand und Quelle werden pro Aktion geprüft. Maßgeblich sind Preis, Bedingungen und Verfügbarkeit beim Anbieter. Bekannte Start- und Enddaten werden automatisch berücksichtigt.</div>
+  </div>
+</section>
+<section class="section"><div class="shell"><div class="section-head"><div><div class="kicker">DU WEISST SCHON, WAS DU SUCHST?</div><h2>Direkt zur Kaufentscheidung.</h2></div><p>Von „E-Bike unter 2.000 €“ bis „Futterautomat für zwei Katzen“: AuraGlobal hat jetzt konkrete Kaufberatungen statt nur Markenwelten.</p></div><div class="directory-cta"><div><small>29 konkrete Suchintentionen</small><b>Nicht zur Startseite zurück. Direkt zur passenden Antwort.</b></div><a class="btn main" href="/kaufberatung.html">Alle Kaufberatungen →</a></div></div></section>
+<section class="section"><div class="shell"><div class="section-head"><div><div class="kicker">NEU BEI AURAGLOBAL</div><h2>Frisch freigeschaltete Partner.</h2></div><p>Neue Markenwelten, die du jetzt direkt auf AuraGlobal öffnen kannst.</p></div><div class="feature-grid"><a class="feature" href="/drbo-greenenergy.html" style="text-decoration:none;color:inherit"><div class="num">01</div><h3>☀️ DRBO Greenenergy</h3><p>Solar, Balkonkraftwerke und Speicher nach Einsatz und Systembedarf einordnen.</p></a><a class="feature" href="/the-magpie.html" style="text-decoration:none;color:inherit"><div class="num">02</div><h3>⌚ THE MAGPIE</h3><p>Uhren und Smartwatches von Withings, Maserati und Ingersoll entdecken.</p></a><a class="feature" href="/lingzio.html" style="text-decoration:none;color:inherit"><div class="num">03</div><h3>🗣️ Lingzio</h3><p>Sprachen online lernen – für Reise, Beruf, Studium und Alltag.</p></a></div></div></section>
+<section class="section ag-proof" id="why">
+  <div class="shell">
+    <div class="section-head">
+      <div><div class="kicker">DAS GUTE GEFÜHL VOR DEM KLICK</div><h2>Weniger Zweifel. Mehr „Ja, das ist es.“</h2></div>
+      <p>Wir machen aus Daten eine Entscheidung: Was passt zu deinem Alltag, was bringt dir wirklich etwas – und wo sparst du gerade?</p>
+    </div>
+    <div class="feature-grid">
+      <div class="feature feature-save"><div class="num">01</div><h3>😮 „So viel günstiger?“</h3><p>Rabatte und echte Ersparnis springen sofort ins Auge – ohne Kleingedrucktes zu suchen.</p></div>
+      <div class="feature feature-fit"><div class="num">02</div><h3>😍 „Genau mein Ding.“</h3><p>Wir zeigen Nutzung und Gefühl statt Datenfriedhof. So erkennst du schneller, was wirklich zu dir passt.</p></div>
+      <div class="feature feature-calm"><div class="num">03</div><h3>😌 „Jetzt bin ich sicher.“</h3><p>Du weißt vor dem Klick, warum ein Produkt interessant ist – und was du davon im Alltag hast.</p></div>
+    </div>
+    <div class="directory-cta">
+      <div><small>Alle Produktwelten auf einen Blick</small><b>Du willst direkt stöbern und vergleichen?</b></div>
+      <a class="btn main" href="/marken.html">Alle Vergleiche öffnen →</a>
+    </div>
+  </div>
+</section>
+
+<section id="how" class="section ag-how ag-how-pop">
+  <div class="shell">
+    <div class="cta-banner cta-banner-pop">
+      <div class="cta-pop-copy">
+        <div class="kicker">JETZT KOMMT DER GUTE TEIL</div>
+        <h2>Finde den Deal, bei dem du sofort denkst: <em>„Ja. Den will ich.“</em></h2>
+        <p>Aktuelle Rabatte, echte Nutzungsmomente und klare Vergleiche. Ohne Scroll-Wüste. Ohne Ratespiel.</p>
+        <div class="cta-actions">
+          <a class="btn main" href="#deals">🔥 Top-Deals ansehen</a>
+          <a class="btn secondary" href="/marken.html">Alle Markenwelten →</a>
+        </div>
+      </div>
+      <div class="cta-pop-face">
+        <img src="https://images.pexels.com/photos/5868269/pexels-photo-5868269.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Lachende Shopperin voller Vorfreude" loading="lazy" decoding="async">
+        <span>DEIN NÄCHSTER<br><strong>„YES!“</strong>-MOMENT</span>
+      </div>
+    </div>
+  </div>
+</section>
 </main>
-<footer class="ag7-footer"><div class="ag7-container ag7-footer-inner"><p>© 2026 AuraGlobal · Produktvergleiche und Kaufhilfen. Externe Shop-Links können Werbelinks sein.</p><nav class="ag7-footer-links" aria-label="Rechtliches und Informationen"><a href="/methodik.html">Methodik</a><a href="/partner.html">Für Partner</a><a href="/impressum.html">Impressum</a><a href="/datenschutz.html">Datenschutz</a><a href="/affiliate-disclosure.html">Werbehinweis</a></nav></div></footer><script src="/aura-v2.js" defer></script>
+<a class="mobile-compare-bar" href="#deals" aria-label="Zu aktuellen Deals"><span><b>Aktuelle Top-Deals</b><small>Rabatte prüfen & vergleichen</small></span><strong>Deals →</strong></a>
+
+<footer class="footer">
+  <div class="shell">
+    <div>© 2026 AuraGlobal · Unabhängige Vergleichsplattform.</div>
+    <div class="footer-links"><a href="/partner.html">Für Marken & Partner</a>
+      <a href="/methodik.html">So vergleichen wir</a>
+      <a href="/impressum.html">Impressum</a>
+      <a href="/datenschutz.html">Datenschutz</a>
+      <a href="/affiliate-disclosure.html">Werbehinweis</a>
+    </div>
+  </div>
+</footer>
+
+<script src="/aura-v2.js"></script>
+<script src="/assets/home-overview.js" defer></script>
 </body>
 </html>
