@@ -214,3 +214,16 @@ body.brand-home .ag-symbol{width:36px!important;height:36px!important;flex:none!
  body.brand-home .ag-search-first .visual-search-chips a{white-space:normal!important;min-height:44px}
  body.brand-home .ag-wordmark{font-size:13px!important;letter-spacing:.19em!important}
 }
+
+/* Product photos must stay inside their media area, never cover copy. */
+body.brand-home .ag-home-curation .ag-home-photo{
+ overflow:hidden!important;min-width:0!important;
+}
+body.brand-home .ag-home-curation .ag-home-photo img{
+ position:absolute!important;inset:40px 20px 30px!important;
+ width:calc(100% - 40px)!important;height:calc(100% - 70px)!important;
+ max-width:none!important;max-height:none!important;
+ object-fit:contain!important;display:block!important;
+}
+body.brand-home .ag-home-curation .ag-home-photo .ag-home-index,
+body.brand-home .ag-home-curation .ag-home-photo .ag-home-purpose{z-index:2!important}
