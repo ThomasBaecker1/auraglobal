@@ -562,6 +562,13 @@ document.addEventListener('DOMContentLoaded',initShoppingIntent);
 
 
 function initVercelAnalytics(){
+  // QA sessions must not inflate visitor/pageview or outbound-event reports.
+  try{
+    if(new URLSearchParams(window.location.search).get('ag_test')==='1'
+      ||sessionStorage.getItem('ag_test_mode')==='1') return;
+  }catch{
+    if(new URLSearchParams(window.location.search).get('ag_test')==='1') return;
+  }
   if(document.querySelector('script[data-auraglobal-analytics]')) return;
   window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments);};
   const script=document.createElement('script');
