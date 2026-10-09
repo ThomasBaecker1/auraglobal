@@ -20,6 +20,9 @@ const MAX_PER_MERCHANT = optionalLimit('AWIN_MAX_PER_MERCHANT');
 const CHUNK_SIZE = Math.max(100, Number(process.env.AWIN_CHUNK_SIZE || 2000));
 const BLOB_UPLOAD_CONCURRENCY = Math.max(1, Math.min(12, Number(process.env.AWIN_BLOB_UPLOAD_CONCURRENCY || 6)));
 const PREVIEW_PER_MERCHANT = Math.max(12, Number(process.env.AWIN_PREVIEW_PER_MERCHANT || 48));
+// Leave room for manifest/preview writes before the 300-second Vercel function ceiling.
+const SYNC_TIME_BUDGET_MS = Math.max(60000, Math.min(220000, Number(process.env.AWIN_SYNC_TIME_BUDGET_MS || 200000)));
+const BUYER_PRIORITY_IDS = ['72399','115541','127821','77942','67914','99887','11346','116603'];
 const OUTPUT = path.resolve('data/products.json');
 const CATALOG_DIR = path.resolve('data/catalog');
 const MANIFEST_OUTPUT = path.join(CATALOG_DIR,'index.json');
@@ -223,7 +226,7 @@ function feedScore(feed) {
 }
 
 async function fetchText(url) {
-  const res = await fetch(url, {headers:{'user-agent':'AuraGlobal-Feed-Sync/4.0'}});
+  const res = await fetch(url, {headers:{'user-agent':'AuraGlobal-Feed-Sync/4.0'},signal:AbortSignal.timeout(15000)});
   if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
   const buf = Buffer.from(await res.arrayBuffer());
   const contentType = res.headers.get('content-type') || '';
@@ -235,7 +238,7 @@ async function fetchText(url) {
 }
 
 async function openProductStream(url) {
-  const res = await fetch(url, {headers:{'user-agent':'AuraGlobal-Feed-Sync/4.0'}});
+  const res = await fetch(url, {headers:{'user-agent':'AuraGlobal-Feed-Sync/4.0'},signal:AbortSignal.timeout(45000)});
   if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
   if (!res.body) throw new Error('Feed response has no body.');
 
@@ -358,7 +361,12 @@ export async function runSync({storageMode=process.env.AWIN_STORAGE_MODE || 'fil
     candidates.sort((a,b) => feedScore(b) - feedScore(a));
     if (candidates[0]) selected.push(candidates[0]);
   }
-  selected.sort((a,b) => pick(a,['Advertiser Name']).localeCompare(pick(b,['Advertiser Name']),'de'));
+  selected.sort((a,b) => {
+    const aid=BUYER_PRIORITY_IDS.indexOf(pick(a,['Advertiser ID','Merchant ID','merchant_id']));
+    const bid=BUYER_PRIORITY_IDS.indexOf(pick(b,['Advertiser ID','Merchant ID','merchant_id']));
+    if(aid!==-1||bid!==-1)return (aid===-1?1000:aid)-(bid===-1?1000:bid);
+    return pick(a,['Advertiser Name']).localeCompare(pick(b,['Advertiser Name']),'de');
+  });
   
   const blobMode = storageMode === 'blob';
   let blobPut = null;
@@ -369,6 +377,8 @@ export async function runSync({storageMode=process.env.AWIN_STORAGE_MODE || 'fil
     await fs.mkdir(CATALOG_DIR,{recursive:true});
   }
   
+  const syncStartedAt = Date.now();
+  let truncatedForRuntime = false;
   const previewProducts = [];
   const perMerchant = new Map();
   const catalogMerchants = [];
@@ -418,6 +428,11 @@ export async function runSync({storageMode=process.env.AWIN_STORAGE_MODE || 'fil
   }
   
   for (const feed of selected) {
+    if(Date.now()-syncStartedAt >= SYNC_TIME_BUDGET_MS) {
+      truncatedForRuntime=true;
+      console.warn('Catalog sync reached bounded run-time; remaining feeds will be considered in the next scheduled sync.');
+      break;
+    }
     if (totalProducts >= MAX_PRODUCTS) break;
   
     const feedUrlRaw = pick(feed,['URL','Download URL','Feed URL']);
@@ -573,6 +588,7 @@ export async function runSync({storageMode=process.env.AWIN_STORAGE_MODE || 'fil
     joinedFeedCount: allJoinedFeeds.length,
     eligibleFeedCount: eligibleFeeds.length,
     selectedFeedCount: selected.length,
+    truncatedForRuntime,
     eligibleMerchantCount: byMerchant.size,
     merchantCount,
     productCount: totalProducts,
@@ -597,6 +613,8 @@ export async function runSync({storageMode=process.env.AWIN_STORAGE_MODE || 'fil
     products: previewProducts
   };
   
+  // A transient network failure must never overwrite a previously functioning catalog with an empty one.
+  if(totalProducts===0 || catalogMerchants.length===0) throw new Error('Refusing to publish empty Awin catalog after feed failures.');
   let manifestUrl = '/data/catalog/index.json';
   let previewUrl = '/data/products.json';
   
