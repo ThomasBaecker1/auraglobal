@@ -143,6 +143,13 @@
 
   function matchProduct(p) {
     const text = productText(p);
+    if (cfg.slug === 'e-bike-unter-2000') {
+      const name = fold(p.name);
+      // A mention of bikes in accessory descriptions is not a complete E-bike.
+      const completeBike = /\be[ -]?bike\b|\be[ -]?klapprad\b|\be[ -]?dreirad\b|\bpedelec\b|\btenways (?:cgo|ago)/.test(name);
+      const accessory = /ersatz|wechselakku|sattel|schlauch|schutzblech|tasche|bike bag|trager|garage|pumpe|endmontage|kennzeichen|pedale|lenkerhandgriff/.test(name);
+      if (!completeBike || accessory) return false;
+    }
     const include = (cfg.includeTerms || []).map(fold).filter(Boolean);
     const merchantMatch = (cfg.merchantIds || []).map(String).includes(String(p.merchantId || '')) ||
       (cfg.preferredMerchants || []).some(m=>fold(p.merchant).includes(fold(m)));
@@ -155,6 +162,29 @@
     if (cfg.minPrice && price < cfg.minPrice) return false;
 
     return cfg.requireTerm ? termMatch : (merchantMatch || termMatch);
+  }
+
+  function rankProducts(rows) {
+    const ranked = availableProducts(rows)
+      .filter(matchProduct)
+      .map(p=>({p,score:scoreProduct(p)}))
+      .filter(x=>x.score > 0)
+      .sort((a,b)=>b.score-a.score || (Number(a.p.price)||Infinity)-(Number(b.p.price)||Infinity));
+    const models = new Map();
+    for (const {p} of ranked) {
+      // TENWAYS names separate the model/edition from colour and size with commas.
+      // Preserve editions and other merchants' complete names; never merge by fuzzy text.
+      const model = String(p.merchantId) === '72399' ? norm(p.name).split(',')[0].trim() : norm(p.name);
+      const key = [p.merchantId,fold(model),p.currency || 'EUR'].join('|');
+      const existing = models.get(key);
+      if (!existing) models.set(key,{...p,displayName:model,variantCount:1});
+      else {
+        const variantCount = existing.variantCount + 1;
+        if (Number(p.price) < Number(existing.price)) models.set(key,{...p,displayName:model,variantCount});
+        else existing.variantCount = variantCount;
+      }
+    }
+    return [...models.values()].slice(0,Number(cfg.limit || 12));
   }
 
   function reason(p) {
@@ -176,9 +206,10 @@
       '<div class="intent-card-media"><img loading="lazy" decoding="async" src="'+esc(img)+'" alt="'+esc(p.name)+'"><span class="intent-card-badge">Treffer '+String(index+1).padStart(2,'0')+'</span></div>'+
       '<div class="intent-card-body">'+
       '<div class="intent-card-meta"><span>'+esc(p.merchant)+'</span><span>'+esc(p.category || 'Produkt')+'</span></div>'+
-      '<h3>'+esc(p.name)+'</h3>'+
+      '<h3>'+esc(p.displayName || p.name)+'</h3>'+
       '<p>'+esc(reason(p))+'</p>'+
-      '<div class="intent-price">'+(price ? esc(price) : '<span>Preis beim Anbieter prüfen</span>')+'</div>'+
+      (p.variantCount > 1 ? '<p>'+esc(p.variantCount+' Varianten im Katalog. Verlinkte Auswahl: '+p.name+'. Andere Größen, Farben und Preise im Shop prüfen.')+'</p>' : '')+
+      '<div class="intent-price">'+(price ? (p.variantCount > 1 ? 'Ab ' : '')+esc(price) : '<span>Preis beim Anbieter prüfen</span>')+'</div>'+
       '<div class="intent-card-actions">'+
       '<a class="intent-buy" href="'+esc(outbound)+'" target="_blank" rel="sponsored noopener" data-intent-affiliate="'+esc(p.id)+'" data-merchant="'+esc(p.merchant)+'">Angebot prüfen ↗</a>'+
       (internal ? '<a class="intent-guide-link" href="'+esc(internal)+'">AuraGlobal Guide →</a>' : '')+
@@ -236,6 +267,16 @@
       const manifest = candidateManifest && (Date.parse(candidateManifest.updatedAt) || 0) >= (Date.parse(payload.updatedAt) || 0) ? candidateManifest : null;
       const byId = new Map((Array.isArray(payload.products) ? payload.products : []).map(p=>[String(p.id),p]));
 
+      // Show the usable selection before waiting for optional full-catalog chunks.
+      function renderSelection() {
+        const ranked = rankProducts([...byId.values()]);
+        if (count) count.textContent = ranked.length ? ranked.length+' aktuelle Modelle' : 'Noch keine sicheren Treffer';
+        grid.innerHTML = ranked.length ? ranked.map(card).join('') : usefulFallback('Im aktuellen Partnerfeed ist gerade kein sicher passendes Angebot mit diesen Kriterien verfügbar.');
+        trackLinks();
+        return ranked;
+      }
+      renderSelection();
+
       if (Array.isArray(manifest?.merchants)) {
         const targetIds = new Set((cfg.merchantIds || []).map(String));
         const targetNames = (cfg.preferredMerchants || []).map(fold).filter(Boolean);
@@ -246,26 +287,23 @@
 
         const paths = [...new Set(relevant.flatMap(m=>Array.isArray(m.chunks)?m.chunks:[]))];
         for (let i=0; i<paths.length; i+=3) {
-          const chunks = await Promise.all(paths.slice(i,i+3).map(async path=>{
-            const res = await fetch(path,{cache:'no-store'});
+          const chunks = await Promise.allSettled(paths.slice(i,i+3).map(async path=>{
+            const res = await fetch(path,{cache:'no-store',signal:AbortSignal.timeout(8000)});
             if (!res.ok) return [];
             const chunk = await readCatalogChunk(res);
             return Array.isArray(chunk.products) ? chunk.products : [];
           }));
-          for (const rows of chunks) for (const product of rows) if (product?.id) byId.set(String(product.id),product);
+          for (const result of chunks) {
+            if (result.status !== 'fulfilled') continue;
+            for (const product of result.value) if (product?.id) byId.set(String(product.id),product);
+          }
+          renderSelection();
         }
       }
 
       const products = availableProducts([...byId.values()]);
-      const ranked = products
-        .filter(matchProduct)
-        .map(p=>({p,score:scoreProduct(p)}))
-        .filter(x=>x.score > 0)
-        .sort((a,b)=>b.score-a.score || (Number(a.p.price)||Number.MAX_SAFE_INTEGER)-(Number(b.p.price)||Number.MAX_SAFE_INTEGER))
-        .slice(0,Number(cfg.limit || 12))
-        .map(x=>x.p);
+      const ranked = renderSelection();
 
-      if (count) count.textContent = ranked.length ? ranked.length+' aktuelle Treffer' : 'Noch keine sicheren Treffer';
       if (meta) {
         const d = payload.updatedAt ? new Date(payload.updatedAt) : null;
         const stamp = d && !Number.isNaN(d.valueOf()) ? d.toLocaleString('de-DE',{dateStyle:'medium',timeStyle:'short'}) : 'aktuell';
