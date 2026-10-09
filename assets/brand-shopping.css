@@ -1,0 +1,62 @@
+/* AuraGlobal: precise editorial layouts for approved Awin merchant destinations.
+   Styles are customer-facing, with no fabricated review/price signals. */
+:root{--bj-night:#0e1a18;--bj-forest:#1b4134;--bj-cream:#f6f3ec;--bj-mint:#c6f1db;--bj-ink:#152b22}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body.brand-journey{background:var(--bj-night);color:#fff;margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+.brand-journey .bj-shell{width:min(1192px,calc(100% - 38px));margin-inline:auto}
+.brand-journey a{color:inherit}
+.brand-journey .bj-head{background:#0b1917;border-bottom:1px solid #294339}
+.brand-journey .bj-header{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:78px}
+.brand-journey .bj-brand{font-weight:950;text-decoration:none;font-size:21px;letter-spacing:-.07em;color:#fff}
+.brand-journey .bj-brand span{color:#b9f3d1}
+.brand-journey .bj-header nav{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.brand-journey .bj-header nav a{font-size:12px;text-decoration:none;color:#deeee4;font-weight:720}
+.brand-journey .bj-header nav a:hover{text-decoration:underline}
+.brand-journey .bj-intro{position:relative;overflow:hidden;background:#102923;min-height:520px;display:flex;align-items:center}
+.brand-journey .bj-intro:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,22,19,.96),rgba(10,27,23,.86) 43%,rgba(7,24,19,.17)),linear-gradient(0deg,rgba(7,24,19,.66),transparent 47%);pointer-events:none}
+.brand-journey .bj-hero-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.94}
+.brand-journey .bj-hero-content{position:relative;z-index:1;padding:88px 0 91px;max-width:1200px}
+.brand-journey .bj-eyebrow{display:block;font-size:11px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:#c5eed5}
+.brand-journey h1{font-size:clamp(48px,6.4vw,91px)!important;line-height:.98!important;letter-spacing:-.077em!important;max-width:790px;margin:17px 0 22px;font-weight:850}
+.brand-journey h1 em{color:#caf3d6;font-style:normal}
+.brand-journey .bj-lead{font-size:clamp(17px,1.7vw,20px);line-height:1.65;color:#e0eee5;max-width:570px;margin:0 0 27px}
+.brand-journey .bj-hero-cta{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.brand-journey .bj-hero-cta a{min-height:49px;display:inline-flex;align-items:center;justify-content:center;padding:11px 19px;border-radius:100px;font-size:13px;font-weight:880;text-decoration:none}
+.brand-journey .bj-primary{background:#c8f5d9;color:#173625!important}
+.brand-journey .bj-primary:hover{background:#e4ffea}
+.brand-journey .bj-secondary{border:1px solid rgba(230,255,237,.4);color:#fff!important}
+.brand-journey .bj-hero-note{margin:18px 0 0;font-size:11px;color:#bbd1c3}
+.brand-journey .bj-navigation{display:flex;justify-content:space-between;flex-wrap:wrap;gap:18px;padding:19px 0;color:#587666;font-size:12px;font-weight:800}
+.brand-journey .bj-cream{background:var(--bj-cream);color:var(--bj-ink)}
+.brand-journey .bj-main{padding:78px 0 87px}
+.brand-journey .bj-section-head{display:grid;grid-template-columns:1fr .65fr;gap:28px;align-items:end;margin-bottom:28px}
+.brand-journey .bj-section-head h2{font-size:clamp(38px,5vw,66px);line-height:.99;letter-spacing:-.072em;margin:9px 0 0;max-width:740px}
+.brand-journey .bj-section-head p{font-size:14px;color:#627467;line-height:1.7;margin:0}
+.brand-journey .bj-dark-eyebrow{font-size:11px;font-weight:900;letter-spacing:.14em;color:#41785b}
+.brand-journey .bj-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
+.brand-journey .bj-card{border:1px solid #e2e7dc;background:white;padding:25px;border-radius:8px;display:flex;flex-direction:column;gap:13px;min-height:280px;box-shadow:0 17px 42px rgba(27,44,33,.06)}
+.brand-journey .bj-card-index{color:#548069;font-size:10px;letter-spacing:.18em;font-weight:900}
+.brand-journey .bj-card h3{font-size:26px;line-height:1.11;letter-spacing:-.055em;margin:4px 0;color:#133c29}
+.brand-journey .bj-card p{font-size:13px;color:#637368;line-height:1.65;margin:0 0 20px}
+.brand-journey .bj-card a{display:flex;align-items:center;justify-content:space-between;gap:8px;background:#194534;color:#fff!important;border-radius:5px;font-weight:890;font-size:12px;min-height:49px;padding:13px 14px;text-decoration:none;margin-top:auto}
+.brand-journey .bj-card a:hover{background:#2c6a4f}
+.brand-journey .bj-card small{font-size:10px;color:#77867a;line-height:1.5}
+.brand-journey .bj-checklist{background:#12332a;padding:67px 0}
+.brand-journey .bj-checklist h2{font-size:clamp(31px,4vw,49px);line-height:1.05;letter-spacing:-.065em;margin:0 0 27px}
+.brand-journey .bj-tips{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.brand-journey .bj-tip{border-top:1px solid rgba(222,255,236,.33);padding-top:18px}
+.brand-journey .bj-tip b{display:block;font-size:17px;letter-spacing:-.045em}
+.brand-journey .bj-tip p{font-size:12px;line-height:1.7;color:#bcd4c3}
+.brand-journey .bj-outro{background:#f6f3ec;color:#153526;padding:68px 0}
+.brand-journey .bj-outro-box{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center}
+.brand-journey .bj-outro h2{font-size:clamp(30px,4.2vw,55px);letter-spacing:-.065em;line-height:1.06;margin:0 0 10px}
+.brand-journey .bj-outro p{font-size:14px;line-height:1.65;color:#637766;max-width:640px}
+.brand-journey .bj-outro a{display:inline-flex;text-decoration:none;padding:16px 21px;border-radius:6px;background:#1b5139;color:#fff!important;font-size:13px;font-weight:900}
+.brand-journey .bj-footer{background:#0b1915;color:#b4c8b9;padding:27px 0;font-size:12px}
+.brand-journey .bj-footer-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.brand-journey .bj-footer nav{display:flex;gap:16px;flex-wrap:wrap}
+.brand-journey .bj-footer a{color:#e2f5e7;text-decoration:none}
+.brand-journey a:focus-visible{outline:3px solid #ffe0a1;outline-offset:4px}
+@media(max-width:800px){.brand-journey .bj-section-head{grid-template-columns:1fr}.brand-journey .bj-cards{grid-template-columns:1fr}.brand-journey .bj-tips{grid-template-columns:1fr}.brand-journey .bj-card{min-height:0}.brand-journey .bj-outro-box{grid-template-columns:1fr}.brand-journey .bj-main{padding:57px 0}.brand-journey .bj-intro{min-height:470px}}
+@media(max-width:540px){.brand-journey .bj-header{min-height:69px}.brand-journey .bj-header nav{gap:9px}.brand-journey .bj-header nav a{font-size:10px}.brand-journey .bj-intro{min-height:490px}.brand-journey .bj-intro:after{background:linear-gradient(90deg,rgba(7,22,19,.91),rgba(7,22,19,.47)),linear-gradient(0deg,rgba(7,22,19,.78),transparent)}.brand-journey .bj-hero-content{padding:53px 0}.brand-journey h1{font-size:clamp(42px,11.5vw,61px)!important}.brand-journey .bj-lead{font-size:16px}.brand-journey .bj-hero-cta a{width:100%}.brand-journey .bj-section-head h2{font-size:40px}.brand-journey .bj-main{padding:50px 0}.brand-journey .bj-checklist{padding:46px 0}}
