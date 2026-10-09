@@ -4294,3 +4294,26 @@ body.product-finder .pf-hero h1{font-size:clamp(43px,10.7vw,69px)!important}
 body.directory-page .directory-hero h1{font-size:clamp(40px,10.6vw,62px)!important}
 }
 @media(prefers-reduced-motion:reduce){body :is(.vc-hero>img,.vc-cat,.choice,.feature,.pf-story,.pf-product,.pf-card,.directory-card,.portal-card,.emotion-hit,.deal-card){transition:none!important;transform:none!important}}
+
+
+/* 2026-10-09 accessibility pass – shared merchant/comparison templates.
+   Enlarges decision-relevant text without changing product grids or business logic. */
+body:not(.ag7-home) :is(a,button,input,select,summary):focus-visible{
+  outline:3px solid #f9d58e!important;outline-offset:3px!important;
+}
+body:not(.ag7-home) .adnote{font-size:11px!important;line-height:1.5!important;letter-spacing:.035em!important;padding:6px 9px!important;max-width:100%;white-space:normal!important}
+body:not(.ag7-home) .stage-card .sub{font-size:14px!important;line-height:1.55!important;color:#c5d0de!important}
+body:not(.ag7-home) .choice p{font-size:14px!important;line-height:1.6!important}
+body:not(.ag7-home) .notice{font-size:13px!important;line-height:1.6!important}
+body:not(.ag7-home) .meta span{font-size:12px!important;line-height:1.4!important}
+body:not(.ag7-home) .pill{font-size:11px!important;line-height:1.3!important}
+body:not(.ag7-home) :is(.btn,.sticky-compare a){min-height:44px;font-size:14px!important;line-height:1.4!important}
+body:not(.ag7-home) .table-wrap td{font-size:14px!important;line-height:1.55!important}
+body:not(.ag7-home) .table-wrap th{font-size:13px!important;line-height:1.5!important}
+body:not(.ag7-home) .kicker{font-size:12px!important}
+@media(max-width:620px){
+ body:not(.ag7-home) .stage-card .sub{font-size:14px!important}
+ body:not(.ag7-home) .choice p{font-size:14px!important}
+ body:not(.ag7-home) .meta span{font-size:12px!important}
+ body:not(.ag7-home) .table-wrap{max-width:100%;overflow-x:auto}
+}
