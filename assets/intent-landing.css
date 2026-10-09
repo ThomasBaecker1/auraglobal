@@ -171,3 +171,57 @@ body.intent-page .intent-related-card:hover{transform:translateY(-4px);box-shado
 body.intent-page a:focus-visible,body.intent-page button:focus-visible,body.intent-page summary:focus-visible{outline:3px solid #ffe09a!important;outline-offset:4px!important}
 @media(max-width:760px){body.intent-page:not(.ag-eb-premium) .intent-hero{min-height:0}body.intent-page:not(.ag-eb-premium) .intent-hero h1{font-size:clamp(45px,10.8vw,65px)}body.intent-page .intent-card{border-radius:12px}}
 @media(prefers-reduced-motion:reduce){body.intent-page :is(.intent-card,.intent-criterion,.intent-related-card){transition:none!important;transform:none!important}}
+
+
+/* AURA STORIES — common emotional commerce system for intent search pages. */
+body.intent-page{--story-mint:#c6f8d9;--story-peach:#ffcaab;--story-blue:#b3d8ff;--story-pink:#e8c2e8;--story-cream:#f7f5ee;--story-dark:#0a2323;color:#fff;background:#0b1a1a}
+body.intent-page .intent-shell{max-width:1260px}
+body.intent-page:not(.ag-eb-premium) .intent-hero{background:#0d2927;min-height:600px}
+body.intent-page:not(.ag-eb-premium) .intent-hero-media img{filter:saturate(1.2) contrast(1.03)!important}
+body.intent-page:not(.ag-eb-premium) .intent-hero-media:after{background:linear-gradient(90deg,rgba(8,24,24,.95) 0%,rgba(7,29,28,.71) 47%,rgba(8,25,25,.13) 94%),linear-gradient(0deg,rgba(5,17,17,.66),transparent 60%)!important}
+body.intent-page:not(.ag-eb-premium) .intent-hero-inner{padding:88px 0 67px}
+body.intent-page .intent-kicker{font-size:11px;letter-spacing:.19em!important;color:var(--story-mint)}
+body.intent-page:not(.ag-eb-premium) .intent-hero h1{font-size:clamp(54px,6.8vw,97px)!important;line-height:.94!important;letter-spacing:-.085em!important;max-width:11ch!important;text-wrap:balance}
+body.intent-page:not(.ag-eb-premium) .intent-hero h1 em{color:var(--story-mint)!important}
+body.intent-page:not(.ag-eb-premium) .intent-lead{color:#e0f1e9;font-size:clamp(16px,1.45vw,20px)!important;line-height:1.66!important;max-width:57ch!important}
+body.intent-page:not(.ag-eb-premium) .intent-primary{border-radius:10px!important;background:var(--story-mint)!important;color:#16382c!important;min-height:52px!important;padding-inline:20px!important;font-weight:900!important;box-shadow:0 11px 35px rgba(0,0,0,.22)}
+body.intent-page:not(.ag-eb-premium) .intent-secondary{border-radius:10px!important;background:rgba(7,36,31,.62)!important;min-height:52px!important;line-height:1.3}
+body.intent-page:not(.ag-eb-premium) .intent-actions{gap:10px!important}
+body.intent-page:not(.ag-eb-premium) .intent-hero-note{border:1px solid rgba(205,255,230,.34)!important;background:linear-gradient(135deg,rgba(25,70,54,.8),rgba(10,30,30,.92))!important;box-shadow:0 25px 65px rgba(0,0,0,.22)!important;border-radius:18px!important;padding:22px!important}
+body.intent-page:not(.ag-eb-premium) .intent-hero-note strong{font-size:clamp(20px,2vw,27px)!important;line-height:1.11!important}
+body.intent-page .intent-trust{background:var(--story-cream)!important;color:#1c3b2c!important}
+body.intent-page .intent-trust-grid div{border-color:#dbe5d9!important}
+body.intent-page .intent-trust small{color:#61816a!important}
+body.intent-page .intent-trust b{color:#17402c!important}
+body.intent-page .intent-trust span{color:#627b69!important}
+body.intent-page:not(.ag-eb-premium) .intent-guide{background:#fffaf3!important}
+body.intent-page:not(.ag-eb-premium) .intent-guide h2{color:#153728!important}
+body.intent-page:not(.ag-eb-premium) .intent-criterion{border-radius:17px!important;box-shadow:0 13px 45px rgba(26,51,36,.05);transition:transform .2s,box-shadow .2s;background:#fff!important}
+body.intent-page:not(.ag-eb-premium) .intent-criterion:nth-child(3n+1){border-top:4px solid #b7e9c6!important}
+body.intent-page:not(.ag-eb-premium) .intent-criterion:nth-child(3n+2){border-top:4px solid #ffc89f!important}
+body.intent-page:not(.ag-eb-premium) .intent-criterion:nth-child(3n){border-top:4px solid #b6d0f3!important}
+body.intent-page:not(.ag-eb-premium) .intent-criterion i{border-radius:12px!important;background:#143e2d!important;color:#d5f8d9!important}
+body.intent-page:not(.ag-eb-premium) .intent-products{background:radial-gradient(circle at 98% 0%,rgba(255,198,154,.10),transparent 35%),linear-gradient(135deg,#11392d,#0b2428)!important}
+body.intent-page:not(.ag-eb-premium) .intent-products h2{font-size:clamp(38px,4.8vw,67px)!important;letter-spacing:-.075em!important}
+body.intent-page:not(.ag-eb-premium) .intent-card{border-radius:17px!important;background:#eaf4ed!important;color:#183a2d!important;border:1px solid rgba(204,255,219,.14)!important;box-shadow:0 17px 50px rgba(0,0,0,.17)!important;transition:transform .2s,box-shadow .2s}
+body.intent-page:not(.ag-eb-premium) .intent-card:nth-child(4n+1){border-top:4px solid #b7e9c6!important}
+body.intent-page:not(.ag-eb-premium) .intent-card:nth-child(4n+2){border-top:4px solid #ffc89f!important}
+body.intent-page:not(.ag-eb-premium) .intent-card:nth-child(4n+3){border-top:4px solid #b7d4f9!important}
+body.intent-page:not(.ag-eb-premium) .intent-card:nth-child(4n){border-top:4px solid #e6bde9!important}
+body.intent-page:not(.ag-eb-premium) .intent-card h3{color:#173b2b!important}
+body.intent-page:not(.ag-eb-premium) .intent-card p{color:#557263!important;font-size:12px!important}
+body.intent-page:not(.ag-eb-premium) .intent-card-meta{color:#54765d!important}
+body.intent-page:not(.ag-eb-premium) .intent-price{color:#1d4b32!important}
+body.intent-page:not(.ag-eb-premium) .intent-card-actions .intent-buy{background:#164a35!important;color:#fff!important;min-height:47px;border-radius:9px!important}
+body.intent-page:not(.ag-eb-premium) .intent-card-actions .intent-guide-link{border-color:#bcd4c4!important;color:#264b36!important;border-radius:9px!important}
+body.intent-page:not(.ag-eb-premium) .intent-method{background:linear-gradient(140deg,#133f35,#132b38)!important}
+body.intent-page:not(.ag-eb-premium) .intent-faq{background:var(--story-cream)!important;color:#1d3829!important}
+body.intent-page:not(.ag-eb-premium) .intent-faq h2{color:#183b2d!important}
+body.intent-page:not(.ag-eb-premium) .intent-faq details{border-radius:13px!important;border-color:#dee5d9!important}
+body.intent-page:not(.ag-eb-premium) .intent-related{background:#102523!important}
+body.intent-page:not(.ag-eb-premium) .intent-related-card:nth-child(3n+1){border-top:3px solid var(--story-mint)!important}
+body.intent-page:not(.ag-eb-premium) .intent-related-card:nth-child(3n+2){border-top:3px solid var(--story-peach)!important}
+body.intent-page:not(.ag-eb-premium) .intent-related-card:nth-child(3n){border-top:3px solid var(--story-blue)!important}
+@media(hover:hover){body.intent-page:not(.ag-eb-premium) .intent-criterion:hover,body.intent-page:not(.ag-eb-premium) .intent-card:hover{transform:translateY(-4px);box-shadow:0 26px 60px rgba(14,44,27,.17)!important}}
+@media(max-width:760px){body.intent-page:not(.ag-eb-premium) .intent-hero{min-height:auto!important}body.intent-page:not(.ag-eb-premium) .intent-hero-inner{padding:58px 0 43px!important}body.intent-page:not(.ag-eb-premium) .intent-hero h1{font-size:clamp(44px,10.9vw,70px)!important}body.intent-page:not(.ag-eb-premium) .intent-hero-note{padding:16px!important}body.intent-page:not(.ag-eb-premium) .intent-actions a{font-size:12px}}
+@media(prefers-reduced-motion:reduce){body.intent-page :is(.intent-card,.intent-criterion){transition:none!important;transform:none!important}}
