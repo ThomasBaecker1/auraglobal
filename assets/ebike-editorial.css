@@ -156,3 +156,21 @@
  .ag-eb-premium .ag-eb-ghost{padding-left:0}
 }
 @media(prefers-reduced-motion:reduce){.ag-eb-premium *{transition:none!important;scroll-behavior:auto!important}}
+
+/* Keep the first offer within easy reach on phones without changing the edition. */
+@media(max-width:760px){
+ .ag-eb-premium .ag-eb-hero{padding:25px 0 28px!important}
+ .ag-eb-premium .ag-eb-hero-grid{gap:20px}
+ .ag-eb-premium .ag-eb-eyebrow{margin-top:16px;font-size:10px;letter-spacing:.08em}
+ .ag-eb-premium .ag-eb-editorial h1{font-size:clamp(38px,10vw,54px)!important;line-height:1!important;margin-bottom:14px!important;max-width:14ch!important}
+ .ag-eb-premium .ag-eb-editorial .ag-eb-intro{font-size:14px;line-height:1.55;margin-bottom:15px}
+ .ag-eb-premium .ag-eb-primary,.ag-eb-premium .ag-eb-ghost{min-height:44px}
+ .ag-eb-premium .ag-eb-proofline{margin-top:12px;padding-top:10px;font-size:10px;gap:6px 12px}
+ .ag-eb-premium .ag-eb-image-frame{min-height:0;height:160px;padding:22px 12px 8px}
+ .ag-eb-premium .ag-eb-image-frame img{max-height:130px;max-width:100%}
+ .ag-eb-premium .ag-eb-display-index{top:10px;left:12px;font-size:8px}
+ .ag-eb-premium .ag-eb-display-info{padding:15px}
+ .ag-eb-premium .ag-eb-display-facts{margin:10px 0 12px}
+ .ag-eb-premium .ag-eb-display-facts li{padding:6px 8px}
+ .ag-eb-premium .ag-buying-choices{padding:32px 0!important}
+}
