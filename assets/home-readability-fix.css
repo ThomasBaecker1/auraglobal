@@ -140,7 +140,7 @@ body.brand-home .ag-match-launch p{font-size:16px!important;line-height:1.65!imp
 body.brand-home .ag-home-curation .ag-home-actions a,
 body.brand-home .ag-home-discover-actions a{font-size:15px!important}
 body.brand-home .ag-home-curation .ag-home-notice,
-body.brand-home .ag-home-discover-note{font-size:13px!important;line-height:1.5!important;color:#dce7e3!important}
+body.brand-home .ag-home-discover-note{font-size:13px!important;line-height:1.5!important;color:#40574a!important}
 body.brand-home :is(a,button,input):focus-visible{outline:3px solid #ffe39f!important;outline-offset:3px!important}
 @media(max-width:1050px){
   body.brand-home .equal-wall-v6 .equal-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
@@ -163,3 +163,54 @@ body.brand-home :is(a,button,input):focus-visible{outline:3px solid #ffe39f!impo
   body.brand-home .equal-wall-v6 .equal-copy span{font-size:15px!important}
 }
 @media(prefers-reduced-motion:reduce){body.brand-home .equal-card{transform:none!important;transition:none!important}}
+
+/* Stable text rendering and content-sized cards. */
+body.brand-home .ag-search-first h1 em{
+ color:#c6f6d7!important;-webkit-text-fill-color:#c6f6d7!important;
+ background:none!important;background-clip:border-box!important;
+}
+body.brand-home .ag-search-first .visual-search-inner>div{min-width:0}
+body.brand-home .ag-search-first .visual-search-chips{
+ flex-wrap:wrap!important;overflow:visible!important;margin:14px 0 0!important;
+}
+body.brand-home .ag-search-first .mock-search input{min-width:0;width:100%;font-size:16px!important}
+body.brand-home .ag-home-curation .ag-home-copy p{color:#40574a!important}
+body.brand-home .ag-home-discover-content p{color:#40574a!important}
+body.brand-home .ag-home-curation .ag-home-copy .ag-home-notice,
+body.brand-home .ag-home-discover-note{color:#40574a!important;font-size:13px!important;line-height:1.6!important}
+body.brand-home .ag-home-price small,body.brand-home .ag-home-price s{color:#48604f!important;font-size:14px!important}
+body.brand-home .equal-wall-v6 .equal-card{
+ display:flex!important;flex-direction:column!important;
+ height:auto!important;min-height:0!important;
+ background:#0b1820!important;transition:transform .18s ease!important;
+}
+body.brand-home .equal-wall-v6 .equal-media{
+ position:relative!important;inset:auto!important;
+ height:210px!important;min-height:210px!important;flex:none!important;
+}
+body.brand-home .equal-wall-v6 .equal-copy{
+ position:relative!important;inset:auto!important;z-index:8!important;
+ margin:0!important;border:0!important;border-top:1px solid #34434b!important;
+ border-radius:0!important;background:#0b1820!important;
+ padding:22px!important;box-shadow:none!important;flex:1!important;
+ display:flex!important;flex-direction:column!important;gap:0!important;
+}
+body.brand-home .equal-wall-v6 .equal-copy em{align-self:flex-start!important;margin-top:18px!important}
+body.brand-home .equal-wall-v6 .equal-copy span{flex:1!important}
+body.brand-home .equal-wall-v6 .equal-top{max-height:none!important}
+body.brand-home .equal-wall-v6 .equal-video-chip{font-size:10px!important;padding:6px!important}
+body.brand-home .equal-wall-v6 .equal-tint{background:linear-gradient(180deg,rgba(2,5,11,.05),rgba(2,5,11,.25))!important}
+body.brand-home .equal-wall-v6 .equal-card:after{pointer-events:none!important}
+body.brand-home .ag-home-copy h3,body.brand-home .ag-home-discover-content h3{overflow-wrap:break-word}
+body.brand-home .ag-wordmark{font-size:17px!important;letter-spacing:.24em!important}
+body.brand-home .ag-symbol{width:36px!important;height:36px!important;flex:none!important}
+@media(max-width:700px){
+ body.brand-home .equal-wall-v6 .equal-grid{grid-template-columns:1fr!important}
+ body.brand-home .equal-wall-v6 .equal-card{height:auto!important;min-height:0!important}
+ body.brand-home .equal-wall-v6 .equal-copy{padding:20px!important}
+ body.brand-home .equal-wall-v6 .equal-media{height:205px!important;min-height:205px!important}
+ body.brand-home .ag-home-actions{grid-template-columns:1fr!important}
+ body.brand-home .ag-home-discover-actions a{width:100%;min-height:48px}
+ body.brand-home .ag-search-first .visual-search-chips a{white-space:normal!important;min-height:44px}
+ body.brand-home .ag-wordmark{font-size:13px!important;letter-spacing:.19em!important}
+}
