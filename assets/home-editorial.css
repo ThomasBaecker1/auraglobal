@@ -75,3 +75,26 @@ body .visual-search .ag-home-promise span:before{content:"✓";display:grid;plac
 body .visual-search .searchbox button{background:#bff4d1!important;color:#112f21!important;border:0!important;font-weight:900!important}
 body .visual-search .searchbox button:hover{background:#e2ffec!important}
 @media(max-width:760px){body .visual-search .ag-home-promise{gap:10px 14px;margin-top:22px!important;padding-top:17px}body .visual-search .ag-home-promise span{font-size:11px!important}}
+
+.ag-home-discover{background:#0e2922;color:#fff;padding:70px 0 84px}
+.ag-home-discover-shell{width:min(1270px,calc(100% - 42px));margin:auto}
+.ag-home-discover-title{display:flex;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:25px}
+.ag-home-discover-title>span{font-size:10px;font-weight:900;letter-spacing:.16em;color:#c9f2d6;width:100%}
+.ag-home-discover-title h2{font-size:clamp(32px,4.1vw,56px);letter-spacing:-.065em;line-height:1.05;margin:0;flex:1 1 420px}
+.ag-home-discover-title p{font-size:13px;line-height:1.65;color:#c2d8c8;max-width:340px;margin:0}
+.ag-home-discover-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.ag-home-discover-card{display:grid;grid-template-columns:minmax(120px,.74fr) 1fr;min-height:289px;background:#f3f2ea;color:#153329;overflow:hidden;border-radius:6px}
+.ag-home-discover-photo{position:relative;min-height:275px;overflow:hidden;background:#9fbbae}
+.ag-home-discover-photo img{width:100%;height:100%;position:absolute;inset:0;object-fit:cover}
+.ag-home-discover-content{padding:28px 25px;display:flex;flex-direction:column;min-width:0}
+.ag-home-discover-content>small{color:#48785b;letter-spacing:.13em;font-size:9px;font-weight:900}
+.ag-home-discover-content h3{font-size:clamp(24px,2.3vw,33px);line-height:1.08;letter-spacing:-.06em;margin:11px 0 9px;color:#163828}
+.ag-home-discover-content p{font-size:12px;color:#667b6b;line-height:1.65;margin:0 0 18px}
+.ag-home-discover-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto}
+.ag-home-discover-actions a{min-height:44px;padding:11px 13px;text-decoration:none;font-size:11px;font-weight:900;border-radius:4px;display:inline-flex;align-items:center;justify-content:center}
+.ag-home-discover-actions a:first-child{color:#fff;background:#23513c}
+.ag-home-discover-actions a:last-child{color:#23513c;border:1px solid #aec8b8}
+.ag-home-discover-actions a:hover{filter:brightness(.92)}
+.ag-home-discover-note{display:block;font-size:9px;color:#7c8d80;line-height:1.5;margin-top:12px}
+@media(max-width:1080px){.ag-home-discover-card{grid-template-columns:1fr}.ag-home-discover-photo{height:185px;min-height:185px}.ag-home-discover-content{padding:23px}}
+@media(max-width:670px){.ag-home-discover{padding:49px 0 53px}.ag-home-discover-grid{grid-template-columns:1fr}.ag-home-discover-photo{height:180px;min-height:180px}.ag-home-discover-title h2{font-size:37px}.ag-home-discover-title p{max-width:none}}
