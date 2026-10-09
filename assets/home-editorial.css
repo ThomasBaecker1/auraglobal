@@ -1,0 +1,69 @@
+/* Premium editorial shell: selected featured journeys, not a wall of offers. */
+body .visual-search.ag-search-first{background:radial-gradient(circle at 85% 20%,rgba(124,205,157,.14),transparent 38%),linear-gradient(128deg,#0b211e,#071411 64%,#081716)!important;border-bottom:0!important;padding-top:clamp(44px,6.7vw,94px)!important;padding-bottom:clamp(53px,7vw,95px)!important}
+body .visual-search.ag-search-first:before{opacity:.15!important}
+body .visual-search-inner{align-items:center!important;gap:clamp(24px,4vw,70px)!important}
+body .visual-search-kicker{color:#c9f4da!important;font-size:11px!important;letter-spacing:.2em!important}
+body .visual-search h1{font-size:clamp(52px,6.1vw,94px)!important;line-height:.95!important;letter-spacing:-.078em!important;max-width:750px!important;text-wrap:balance}
+body .visual-search h1 em{color:#bef2d0!important;font-style:normal!important}
+body .visual-search .ag-search-desc{color:#bbd3c8!important;max-width:430px!important;font-size:clamp(14px,1.4vw,18px)!important;line-height:1.65!important;margin-top:19px!important}
+body .visual-search .ag-market-stats{margin-top:30px!important}
+body .visual-search .ag-market-stat{border-color:rgba(196,255,219,.18)!important}
+body .visual-search .searchbox{border:1px solid rgba(175,239,197,.3)!important;box-shadow:0 19px 70px rgba(0,0,0,.23)!important}
+body .visual-search .searchbox input{font-size:clamp(14px,1.4vw,17px)!important}
+body .visual-search .hero-chips a{border-radius:100px!important;font-size:11px!important;padding:10px 13px!important}
+.ag-home-curation{background:#f5f2e9;color:#1b3729;padding:76px 0 85px}
+.ag-home-curation .ag-home-shell{width:min(1270px,calc(100% - 42px));margin:auto}
+.ag-home-curation .ag-home-eyebrow{color:#427558;font-size:11px;letter-spacing:.19em;text-transform:uppercase;font-weight:950}
+.ag-home-curation .ag-home-head{display:grid;grid-template-columns:1fr .58fr;gap:27px;align-items:end;margin:0 0 30px}
+.ag-home-curation .ag-home-head h2{font-size:clamp(40px,5.2vw,73px);letter-spacing:-.085em;line-height:.97;margin:9px 0 0;font-weight:870;max-width:750px;text-wrap:balance}
+.ag-home-curation .ag-home-head p{font-size:14px;line-height:1.7;color:#6e7e71;margin:0 0 6px}
+.ag-home-curation .ag-home-showroom{display:grid;grid-template-columns:1fr 1fr;gap:19px}
+.ag-home-curation .ag-home-item{background:#fff;border:1px solid #e6e9e1;border-radius:7px;overflow:hidden;min-width:0;box-shadow:0 22px 64px rgba(29,49,33,.05)}
+.ag-home-curation .ag-home-photo{position:relative;background:radial-gradient(circle at center,#eef3e9,#dbe7de);height:330px;display:grid;place-items:center;padding:25px 25px 15px}
+.ag-home-curation .ag-home-photo img{display:block;max-height:100%;max-width:100%;object-fit:contain;filter:drop-shadow(0 15px 22px rgba(20,50,27,.15))}
+.ag-home-curation .ag-home-photo .ag-home-index{position:absolute;left:22px;top:19px;font-size:11px;color:#487159;font-weight:900;letter-spacing:.14em}
+.ag-home-curation .ag-home-photo .ag-home-purpose{position:absolute;right:18px;bottom:16px;background:#fff;color:#2e6545;border-radius:100px;padding:8px 13px;font-size:10px;font-weight:900}
+.ag-home-curation .ag-home-copy{padding:30px 32px 32px}
+.ag-home-curation .ag-home-brand{color:#4b815d;letter-spacing:.14em;font-size:10px;font-weight:950}
+.ag-home-curation .ag-home-copy h3{font-size:clamp(27px,3.2vw,39px);line-height:1.04;letter-spacing:-.065em;margin:9px 0 12px;color:#123d29}
+.ag-home-curation .ag-home-copy p{font-size:13px;line-height:1.7;color:#637369;min-height:55px;margin:0 0 18px}
+.ag-home-curation .ag-home-price{display:flex;align-items:baseline;flex-wrap:wrap;gap:11px;padding:11px 0 18px}
+.ag-home-curation .ag-home-price strong{font-size:31px;font-weight:950;letter-spacing:-.055em;color:#143d2b}
+.ag-home-curation .ag-home-price s{font-size:16px;color:#8a9c8b}
+.ag-home-curation .ag-home-price small{font-size:10px;color:#75927a}
+.ag-home-curation .ag-home-actions{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:9px}
+.ag-home-curation .ag-home-actions a{min-height:50px;display:inline-flex;align-items:center;justify-content:center;gap:7px;text-align:center;padding:11px 14px;border-radius:4px;font-size:12px;font-weight:900;text-decoration:none}
+.ag-home-curation .ag-home-buy{background:#1c4632;color:#fff!important}
+.ag-home-curation .ag-home-buy:hover{background:#2b694b}
+.ag-home-curation .ag-home-guide{color:#27523a!important;background:#edf3e9;border:1px solid #dce5d8}
+.ag-home-curation .ag-home-notice{margin:14px 0 0;color:#79877e;font-size:10px;line-height:1.6}
+.ag-home-curation .ag-home-tail{margin-top:30px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;padding:24px 0 0;border-top:1px solid #d6dfd3}
+.ag-home-curation .ag-home-tail p{color:#6e7e71;font-size:13px;max-width:610px;line-height:1.55;margin:0}
+.ag-home-curation .ag-home-tail a{font-size:12px;font-weight:900;display:inline-flex;align-items:center;text-decoration:none;color:#1a5739;min-height:44px}
+.ag-home-curation .ag-home-tail a:hover{text-decoration:underline}
+body .ag-match-launch{background:#14372e!important;border-color:rgba(220,255,229,.18)!important;padding:32px 0!important}
+body .ag-match-launch h2{letter-spacing:-.06em!important;font-size:clamp(25px,3.4vw,45px)!important}
+body .ag-match-launch .ag-match-go{background:#d2f7dd!important;border-radius:100px!important;padding:14px 24px!important}
+@media(max-width:920px){
+ .ag-home-curation .ag-home-head{grid-template-columns:1fr}
+ .ag-home-curation .ag-home-head h2{max-width:780px}
+ .ag-home-curation .ag-home-head p{max-width:540px}
+ .ag-home-curation .ag-home-photo{height:270px}
+}
+@media(max-width:710px){
+ body .visual-search.ag-search-first{padding:49px 0!important}
+ body .visual-search h1{font-size:clamp(46px,12vw,67px)!important}
+ .ag-home-curation{padding:54px 0 61px}
+ .ag-home-curation .ag-home-showroom{grid-template-columns:1fr}
+ .ag-home-curation .ag-home-photo{height:280px}
+ .ag-home-curation .ag-home-copy{padding:23px}
+ .ag-home-curation .ag-home-copy p{min-height:0}
+ .ag-home-curation .ag-home-head h2{font-size:clamp(42px,11vw,59px)}
+}
+@media(max-width:440px){
+ .ag-home-curation .ag-home-shell{width:calc(100% - 30px)}
+ .ag-home-curation .ag-home-photo{height:232px}
+ .ag-home-curation .ag-home-actions{grid-template-columns:1fr}
+ .ag-home-curation .ag-home-tail{display:block}
+ .ag-home-curation .ag-home-tail a{margin-top:12px}
+}
