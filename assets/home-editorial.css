@@ -67,3 +67,11 @@ body .ag-match-launch .ag-match-go{background:#d2f7dd!important;border-radius:10
  .ag-home-curation .ag-home-tail{display:block}
  .ag-home-curation .ag-home-tail a{margin-top:12px}
 }
+
+/* Shopper-first proof: three plain-language benefits instead of internal marketplace counts. */
+body .visual-search .ag-home-promise{display:flex!important;flex-wrap:wrap;gap:9px 20px;margin:28px 0 0!important;padding:20px 0 0;border-top:1px solid rgba(201,255,219,.20)}
+body .visual-search .ag-home-promise span{display:inline-flex;align-items:center;gap:9px;color:#daf1e3!important;font-size:12px!important;line-height:1.5!important;font-weight:720!important;letter-spacing:-.01em!important}
+body .visual-search .ag-home-promise span:before{content:"✓";display:grid;place-items:center;width:20px;height:20px;flex:none;border-radius:50%;border:1px solid rgba(188,255,211,.36);background:rgba(197,255,220,.12);color:#b9ffd3;font-size:11px;font-weight:950}
+body .visual-search .searchbox button{background:#bff4d1!important;color:#112f21!important;border:0!important;font-weight:900!important}
+body .visual-search .searchbox button:hover{background:#e2ffec!important}
+@media(max-width:760px){body .visual-search .ag-home-promise{gap:10px 14px;margin-top:22px!important;padding-top:17px}body .visual-search .ag-home-promise span{font-size:11px!important}}
