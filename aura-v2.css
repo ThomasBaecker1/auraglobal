@@ -4100,3 +4100,115 @@ body.comparison-page .footer a{
 .live-deal-copy small,.deal-copy small,.adnote,.deal-note{font-size:.875rem!important;line-height:1.5!important}
 [hidden]{display:none!important}
 .deal-card.deal-text{grid-template-columns:1fr}
+
+
+/* ==============================================================
+   AURAGLOBAL / EMOTIONAL COMMERCE SYSTEM 2026
+   Unified visual language shared by legacy brand worlds,
+   editorial comparisons, search, checkout pathways and mobile.
+   Every visual embellishment is subordinate to legibility.
+   ============================================================== */
+:root{
+ --ag-coral:#ffad9f;--ag-butter:#ffdf94;--ag-lilac:#c5b7f7;
+ --ag-sky:#91d9ed;--ag-spring:#c1f2d3;--ag-cream:#f8f5ec;
+ --ag-forest:#14392c;--ag-ink:#162822;
+ --ag-soft-shadow:0 22px 65px rgba(18,38,33,.13);
+}
+body{--ag-local-one:var(--ag-spring);--ag-local-two:var(--ag-butter);--ag-local-pale:#e6f3e9;}
+body.brand-pet,body.brand-wau{--ag-local-one:#e6b5e8;--ag-local-two:#ffcfb1;--ag-local-pale:#f8eaf6;}
+body.brand-outin,body.brand-coffee,body.brand-nespresso{--ag-local-one:#ffc98f;--ag-local-two:#ffdba7;--ag-local-pale:#fff0db;}
+body.brand-bike,body.brand-tenways,body.brand-dotblue,body.brand-iscooter{--ag-local-one:#b9f6cb;--ag-local-two:#e4dfa0;--ag-local-pale:#e8f3e7;}
+body.brand-allpowers,body.brand-drbo,body.brand-anker,body.brand-solix{--ag-local-one:#9edcf5;--ag-local-two:#ffdf99;--ag-local-pale:#e7f4fa;}
+body.brand-fashion,body.brand-momox,body.brand-vorteil,body.brand-takko{--ag-local-one:#f4b2d1;--ag-local-two:#ffe0a9;--ag-local-pale:#fbeaf1;}
+body.brand-scheppach,body.brand-rameder,body.brand-anthbot{--ag-local-one:#f9c693;--ag-local-two:#add7ca;--ag-local-pale:#fff2e3;}
+body.vc-page{background:linear-gradient(145deg,#faf9f4 0%,#f3f7f1 50%,#f7f3ed 100%)!important;}
+/* Navigation must feel like the same brand on every product journey. */
+body .topbar{box-shadow:0 9px 35px rgba(3,17,14,.11)}
+body .topbar .navlinks a{position:relative;text-decoration:none;transition:opacity .18s ease,color .18s ease}
+body .topbar .navlinks a:after{content:"";position:absolute;left:0;bottom:-8px;width:0;height:2px;background:var(--ag-local-one);transition:width .18s ease;border-radius:2px}
+body .topbar .navlinks a:hover:after{width:100%}
+body .topbar .nav-cta{background:linear-gradient(110deg,#c5f5d5,#a9e9d3)!important;color:#153a29!important;border:1px solid transparent!important;box-shadow:0 8px 24px rgba(5,32,19,.1);font-weight:870!important}
+body .topbar .nav-cta:hover{background:#e4ffee!important;color:#153a29!important}
+/* Retain white hero text on all brands while giving each a distinct mood. */
+body.vc-page .vc-hero{min-height:clamp(390px,57vw,610px);isolation:isolate;background:#112522}
+body.vc-page .vc-hero>img{filter:saturate(1.12) contrast(1.065) brightness(.95);transform:scale(1.006);transition:transform .7s ease}
+body.vc-page .vc-hero:hover>img{transform:scale(1.028)}
+body.vc-page .vc-hero:after{background:linear-gradient(93deg,rgba(7,18,20,.89),rgba(9,24,24,.66) 43%,rgba(9,24,24,.17) 80%),linear-gradient(0deg,rgba(4,17,16,.51),transparent 53%)!important}
+body.vc-page .vc-copy h1{font-size:clamp(47px,6.75vw,96px)!important;line-height:.94!important;letter-spacing:-.077em!important;max-width:11ch!important;color:#fff!important;text-shadow:0 5px 30px rgba(0,0,0,.24)!important;text-wrap:balance}
+body.vc-page .vc-copy small{color:var(--ag-local-one)!important;font-size:11px!important;letter-spacing:.16em!important}
+body.vc-page .vc-copy p{color:#f1f8f2!important;font-size:clamp(15px,1.55vw,19px)!important;max-width:560px;line-height:1.65!important;text-shadow:0 2px 20px rgba(0,0,0,.27)}
+body.vc-page .vc-copy .btn.main,body.vc-page .vc-copy a.btn.main{background:var(--ag-local-one)!important;color:#103528!important;border:0!important;min-height:48px;font-weight:900!important;padding-inline:22px!important;box-shadow:0 12px 30px rgba(0,0,0,.2)!important;transition:transform .18s,box-shadow .18s,filter .18s}
+body.vc-page .vc-copy .btn.main:hover{transform:translateY(-2px);box-shadow:0 16px 42px rgba(0,0,0,.27)!important;filter:brightness(1.05)}
+body.vc-page .vc-copy .adnote{color:#d3e3d8!important;background:rgba(5,20,16,.4)!important;letter-spacing:.07em!important}
+/* More life in the visual category and brand comparison tiles. */
+body.vc-page .vc-cat{border-radius:16px!important;box-shadow:0 14px 35px rgba(16,35,27,.13);transition:transform .25s,box-shadow .25s;border:1px solid rgba(255,255,255,.18)}
+body.vc-page .vc-cat:hover{transform:translateY(-4px);box-shadow:0 22px 55px rgba(15,35,25,.23)}
+body.vc-page .vc-cat img{transition:transform .45s ease,filter .3s;filter:saturate(1.09)}
+body.vc-page .vc-cat:hover img{transform:scale(1.045);filter:saturate(1.17)}
+body.vc-page .vc-cat:nth-child(3n+1):after{background:linear-gradient(0deg,rgba(13,45,38,.83),rgba(9,31,26,0) 82%)}
+body.vc-page .vc-cat:nth-child(3n+2):after{background:linear-gradient(0deg,rgba(63,33,48,.83),rgba(52,20,43,0) 82%)}
+body.vc-page .vc-cat:nth-child(3n):after{background:linear-gradient(0deg,rgba(31,36,71,.83),rgba(24,35,70,0) 82%)}
+body.vc-page .vc-cat b{font-size:clamp(14px,1.5vw,19px)!important;text-shadow:0 2px 15px rgba(0,0,0,.32);letter-spacing:-.02em}
+body.vc-page .section-head h2,body.vc-page .compare-title h2{letter-spacing:-.065em!important;line-height:1.07!important;text-wrap:balance}
+body.vc-page .section-head p{line-height:1.65!important}
+body.vc-page :is(.vc-offer,.choice,.feature,.compare-card,.compare-item){border-radius:19px!important;box-shadow:var(--ag-soft-shadow);transition:transform .22s ease,box-shadow .22s ease}
+body.vc-page :is(.vc-offer,.choice,.feature,.compare-card,.compare-item):hover{transform:translateY(-3px);box-shadow:0 28px 67px rgba(16,42,31,.19)}
+body.vc-page .feature:nth-child(4n+1){border-top:3px solid var(--ag-local-one)!important}
+body.vc-page .feature:nth-child(4n+2){border-top:3px solid var(--ag-local-two)!important}
+body.vc-page .feature:nth-child(4n+3){border-top:3px solid var(--ag-lilac)!important}
+body.vc-page .feature:nth-child(4n){border-top:3px solid var(--ag-sky)!important}
+body.vc-page .kicker,body.vc-page .eyebrow{letter-spacing:.13em;font-weight:850}
+body.vc-page .btn.main:not(.vc-copy .btn.main){background:var(--ag-local-one)!important;color:#102b23!important;border-color:transparent!important;font-weight:880!important}
+body.vc-page .btn.main:hover{filter:brightness(1.045)}
+/* General premium comparison pages, without touching catalog filtering logic. */
+body.comparison-page .hero{position:relative;background:radial-gradient(ellipse at 82% 11%,rgba(127,210,181,.19),transparent 48%),radial-gradient(ellipse at 5% 83%,rgba(207,170,243,.12),transparent 39%)}
+body.comparison-page .choice:nth-child(3n+1){border-top:3px solid #a2e8c1!important}
+body.comparison-page .choice:nth-child(3n+2){border-top:3px solid #ffcc9d!important}
+body.comparison-page .choice:nth-child(3n){border-top:3px solid #bdc5ff!important}
+body.comparison-page .feature{background:linear-gradient(150deg,#13272a,#0b1821)!important}
+body.comparison-page .table-wrap{border:1px solid rgba(185,255,225,.28);box-shadow:0 24px 60px rgba(0,0,0,.15)}
+/* Merchants / deals: distinct image-driven accents without fake badges. */
+body.brand-home .equal-card{border-radius:18px!important;box-shadow:0 16px 42px rgba(0,0,0,.22)!important;transition:transform .25s,box-shadow .25s,border-color .25s!important}
+body.brand-home .equal-card:hover{transform:translateY(-4px)!important;border-color:rgba(239,255,244,.64)!important;box-shadow:0 28px 60px rgba(0,0,0,.34)!important}
+body.brand-home .equal-card .equal-photo{transition:transform .4s ease!important}
+body.brand-home .equal-card:hover .equal-photo{transform:scale(1.035)!important}
+body.brand-home .deal-radar{background:radial-gradient(circle at 11% 9%,rgba(246,156,190,.13),transparent 36%),radial-gradient(circle at 84% 64%,rgba(150,217,250,.14),transparent 39%),#0b141b!important}
+body.brand-home .deal-card{border-color:rgba(202,242,224,.21)!important;transition:transform .2s,box-shadow .2s}
+body.brand-home .deal-card:hover{transform:translateY(-3px);box-shadow:0 30px 70px rgba(0,0,0,.34)}
+body.brand-home .deal-card:nth-child(4n+2){border-top:3px solid var(--ag-coral)!important}
+body.brand-home .deal-card:nth-child(4n+3){border-top:3px solid var(--ag-sky)!important}
+body.brand-home .deal-card:nth-child(4n){border-top:3px solid var(--ag-butter)!important}
+body.brand-home .emotion-hit{transition:transform .22s ease,box-shadow .22s ease;overflow:hidden}
+body.brand-home .emotion-hit:hover{transform:translateY(-3px);box-shadow:0 20px 54px rgba(12,30,24,.16)}
+body.brand-home .portal-card,body.brand-home .portal-cards a{transition:transform .22s ease,box-shadow .22s ease}
+body.brand-home .portal-card:hover{transform:translateY(-3px)}
+/* Directory tiles should feel like tailored entry points, not a text database. */
+body.directory-page .directory-hero{background:radial-gradient(ellipse at 82% 30%,rgba(158,213,187,.27),transparent 45%),linear-gradient(122deg,#0b2923,#0f1e23)!important}
+body.directory-page .directory-hero h1{max-width:830px;font-size:clamp(47px,6vw,79px)!important;line-height:.97!important;letter-spacing:-.075em!important}
+body.directory-page .directory-hero p{font-size:clamp(15px,1.7vw,19px)!important;line-height:1.65!important}
+body.directory-page .directory{background:#f5f5ed!important}
+body.directory-page .directory-section h2{letter-spacing:-.06em!important;color:#17392b!important}
+body.directory-page .directory-card{border:1px solid #e2e6dc!important;border-radius:16px!important;background:#fff!important;box-shadow:0 10px 26px rgba(33,52,38,.045);transition:transform .22s,box-shadow .22s,border-color .22s}
+body.directory-page .directory-card:hover{transform:translateY(-4px);box-shadow:0 25px 60px rgba(32,53,39,.12);border-color:#a8cfb2!important}
+body.directory-page .directory-card:nth-child(4n+1){border-top:4px solid #95d4b1!important}
+body.directory-page .directory-card:nth-child(4n+2){border-top:4px solid #ffc49f!important}
+body.directory-page .directory-card:nth-child(4n+3){border-top:4px solid #b5c8f3!important}
+body.directory-page .directory-card:nth-child(4n){border-top:4px solid #eab5da!important}
+body.directory-page .directory-card h3{letter-spacing:-.045em!important;color:#193c2b!important}
+body.directory-page .directory-card p{line-height:1.65!important;color:#586a5e!important}
+body.directory-page .directory-card strong{color:#1a6442!important}
+/* Subtle rewards for buying decisions, not coercive animation. */
+body :is(.ag-home-buy,.ag-home-guide,.ag-os-primary,.ag-choice-buy,.intent-buy,.intent-primary,.ag-eb-primary,.ag-eb-display-buy){transition:transform .18s ease,filter .18s ease,box-shadow .18s ease}
+body :is(.ag-home-buy,.ag-os-primary,.ag-choice-buy,.intent-buy,.intent-primary,.ag-eb-primary,.ag-eb-display-buy):hover{filter:brightness(1.07);transform:translateY(-2px)}
+body :is(a,button,input,select,textarea,summary):focus-visible{outline:3px solid #ffd89e!important;outline-offset:3px!important}
+/* All sections remain comfortable on smaller devices. */
+@media(max-width:760px){
+ body.vc-page .vc-hero{min-height:480px}
+ body.vc-page .vc-copy h1{font-size:clamp(44px,9.5vw,65px)!important;max-width:12ch!important}
+ body.vc-page .vc-copy p{font-size:15px!important;line-height:1.6!important}
+ body.directory-page .directory-hero h1{font-size:clamp(41px,11vw,59px)!important}
+ body.vc-page .vc-cat{border-radius:13px!important}
+ body.vc-page :is(.choice,.feature,.vc-offer){border-radius:16px!important}
+ body.brand-home .deal-card{border-radius:18px!important}
+}
+@media(prefers-reduced-motion:reduce){body :is(.equal-card,.vc-cat,.deal-card,.choice,.feature,.portal-card,.directory-card,.vc-hero>img){transition:none!important;transform:none!important}}
