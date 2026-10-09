@@ -1,0 +1,53 @@
+name: IndexNow - notify updated AuraGlobal pages
+on:
+  push:
+    branches: [main]
+    paths:
+      - "index.html"
+      - "vorteilshop.html"
+      - "koro.html"
+      - "medimops.html"
+      - "mode.html"
+      - "portable-espressomaschine-camping.html"
+      - "feed.xml"
+      - "sitemap.xml"
+      - ".github/workflows/indexnow.yml"
+  workflow_dispatch:
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - name: Notify IndexNow when user-facing content changes
+        run: |
+          python - <<'PY'
+          import json, subprocess, urllib.request, urllib.error
+          host = "auraglobal.vercel.app"
+          key = "1f5509a2a06bc06907f86453f79e953e"
+          allowed = {"index.html", "vorteilshop.html", "koro.html", "medimops.html", "mode.html", "portable-espressomaschine-camping.html"}
+          try:
+              changed = set(subprocess.check_output(["git","diff-tree","--no-commit-id","--name-only","-r","HEAD"], text=True).splitlines())
+          except subprocess.CalledProcessError:
+              changed = set()
+          if ".github/workflows/indexnow.yml" in changed:
+              changed |= {"index.html", "vorteilshop.html", "koro.html", "medimops.html"}
+          if "sitemap.xml" in changed or "feed.xml" in changed:
+              changed |= {"vorteilshop.html", "koro.html", "medimops.html", "mode.html"}
+          paths = sorted((changed & allowed))
+          if not paths:
+              print("No buyer-facing changes to notify.")
+              raise SystemExit(0)
+          urls = ["https://" + host + ("/" if p == "index.html" else "/" + p) for p in paths]
+          payload = {"host":host, "key":key, "keyLocation":"https://" + host + "/" + key + ".txt", "urlList":urls}
+          req = urllib.request.Request("https://api.indexnow.org/indexnow", data=json.dumps(payload).encode(), headers={"Content-Type":"application/json; charset=utf-8","User-Agent":"AuraGlobal-IndexNow/1.0"}, method="POST")
+          try:
+              with urllib.request.urlopen(req, timeout=20) as response:
+                  print("IndexNow HTTP", response.status, "submitted", len(urls), "changed URLs")
+          except urllib.error.HTTPError as exc:
+              print("IndexNow HTTP", exc.code, exc.read().decode(errors="replace")[:600])
+              raise
+          PY
