@@ -258,7 +258,7 @@ function initAffiliateClickTracking(){
   document.addEventListener('click',event=>{
     const link=event.target?.closest?.('a[rel~="sponsored"]');
     if(!link)return;
-    let destination='',merchantId='';
+    let destination='',merchantId='',clickReference='';
     try{
       const url=new URL(link.href,window.location.href);
       destination=url.hostname;
@@ -266,7 +266,18 @@ function initAffiliateClickTracking(){
         &&url.searchParams.get('awinaffid')==='3076553';
       if(ownAffiliate){
         merchantId=url.searchParams.get('awinmid')||url.searchParams.get('mid')||'';
-        const ref=[refBase,clean(merchantId).slice(0,8)].filter(Boolean).join('_').slice(0,50);
+        // Keep campaign, landing and the precise product distinct in Awin's clickref report.
+        // Do not copy gclid, personal identifiers or arbitrary user search text.
+        let product=link.dataset.agOffer||link.dataset.affiliateProduct||link.dataset.intentAffiliate||link.dataset.wishBuy||'';
+        if(!product){
+          try{
+            const target=new URL(url.searchParams.get('ued')||url.href);
+            product=target.pathname.split('/').filter(Boolean).pop()||'shop';
+          }catch{product='shop'}
+        }
+        const ref=[refBase.slice(0,44),clean(merchantId).slice(0,8),clean(product).slice(0,24),clean(attribution.campaign).slice(0,16)]
+          .filter(Boolean).join('_').slice(0,100);
+        clickReference=ref;
         const current=url.searchParams.get('clickref');
         if(current&&current!==ref){
           for(let i=2;i<=6;i++){
@@ -289,7 +300,7 @@ function initAffiliateClickTracking(){
       page_path:window.location.pathname,
       traffic_source:attribution.source,
       traffic_campaign:attribution.campaign,
-      click_reference:[refBase,clean(merchantId).slice(0,8)].filter(Boolean).join('_').slice(0,50)
+      click_reference:clickReference
     };
     window.dataLayer=window.dataLayer||[];
     window.dataLayer.push(payload);
