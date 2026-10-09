@@ -119,3 +119,55 @@ body.intent-page a{color:inherit}
   .intent-grid{grid-template-columns:1fr}.intent-card p{min-height:0;font-size:13px}.intent-card h3{font-size:21px}
   .intent-product-status{align-items:flex-start;flex-direction:column}
 }
+
+
+/* Premium buying guides across high-intent organic + paid landing pages.
+   The electric-city special edition uses its own stronger scoped rules. */
+body.intent-page:not(.ag-eb-premium){--intent-accent:#c4f2d5;background:#0a201d}
+body.intent-page:not(.ag-eb-premium) .intent-hero{background:#102622;min-height:clamp(460px,72vh,740px)}
+body.intent-page:not(.ag-eb-premium) .intent-hero-media img{filter:saturate(1.15) contrast(1.07)}
+body.intent-page:not(.ag-eb-premium) .intent-hero-media:after{background:linear-gradient(91deg,rgba(5,29,25,.93),rgba(12,32,31,.74) 46%,rgba(12,34,31,.17) 87%),linear-gradient(0deg,rgba(9,25,20,.85),transparent 49%)}
+body.intent-page:not(.ag-eb-premium) .intent-hero h1{font-size:clamp(49px,6.9vw,96px);line-height:.96;letter-spacing:-.079em;max-width:12ch;text-wrap:balance}
+body.intent-page:not(.ag-eb-premium) .intent-hero h1 em{color:#c5f2d6}
+body.intent-page:not(.ag-eb-premium) .intent-lead{color:#dcece3;line-height:1.7;font-size:clamp(15px,1.5vw,19px)}
+body.intent-page:not(.ag-eb-premium) .intent-primary{background:linear-gradient(105deg,#c9f4d7,#f9e5ae)!important;color:#112e21!important;border-radius:7px;min-height:52px;box-shadow:0 11px 27px rgba(0,0,0,.18)}
+body.intent-page:not(.ag-eb-premium) .intent-secondary{background:rgba(15,47,37,.66);border-color:rgba(215,255,229,.24);border-radius:8px}
+body.intent-page .intent-hero-note{border-color:rgba(215,255,229,.34);background:rgba(16,43,34,.75)}
+body.intent-page .intent-hero-note strong{letter-spacing:-.04em}
+body.intent-page:not(.ag-eb-premium) .intent-trust{background:linear-gradient(115deg,#f5f3eb,#e8f3ea)}
+body.intent-page:not(.ag-eb-premium) .intent-trust b{color:#17452e}
+body.intent-page:not(.ag-eb-premium) .intent-guide{background:#f7f6ef;color:#163628}
+body.intent-page:not(.ag-eb-premium) .intent-guide h2{color:#1a3d29;letter-spacing:-.07em;line-height:1.04}
+body.intent-page:not(.ag-eb-premium) .intent-guide-head p{color:#5e7664}
+body.intent-page:not(.ag-eb-premium) .intent-criterion{background:#fff;border:1px solid #e4e8df;border-radius:15px;box-shadow:0 18px 43px rgba(20,49,35,.055);transition:transform .2s,box-shadow .2s}
+body.intent-page:not(.ag-eb-premium) .intent-criterion:hover{transform:translateY(-4px);box-shadow:0 24px 60px rgba(20,49,35,.13)}
+body.intent-page:not(.ag-eb-premium) .intent-criterion:nth-child(3n+1){border-top:4px solid #a1dcb6}
+body.intent-page:not(.ag-eb-premium) .intent-criterion:nth-child(3n+2){border-top:4px solid #f7c39e}
+body.intent-page:not(.ag-eb-premium) .intent-criterion:nth-child(3n){border-top:4px solid #d7b6df}
+body.intent-page:not(.ag-eb-premium) .intent-criterion i{border-radius:7px;background:#225a3f}
+body.intent-page:not(.ag-eb-premium) .intent-criterion b{color:#1e4933;letter-spacing:-.045em}
+body.intent-page:not(.ag-eb-premium) .intent-criterion p{color:#647769;line-height:1.7}
+body.intent-page:not(.ag-eb-premium) .intent-products{background:radial-gradient(circle at 8% 0%,rgba(185,240,203,.09),transparent 39%),radial-gradient(circle at 90% 89%,rgba(213,171,230,.1),transparent 34%),#0e2624}
+body.intent-page .intent-products-head h2{letter-spacing:-.071em!important;line-height:1.04!important}
+body.intent-page .intent-card{background:#f9faf6;border-radius:15px;overflow:hidden;border:1px solid #dfe7db;box-shadow:0 17px 47px rgba(0,0,0,.16);transition:transform .2s,box-shadow .2s}
+body.intent-page .intent-card:hover{transform:translateY(-3px);box-shadow:0 24px 57px rgba(0,0,0,.23)}
+body.intent-page .intent-card:nth-child(4n+1){border-top:3px solid #a6e7bb}
+body.intent-page .intent-card:nth-child(4n+2){border-top:3px solid #ffd0a9}
+body.intent-page .intent-card:nth-child(4n+3){border-top:3px solid #b9d2f6}
+body.intent-page .intent-card:nth-child(4n){border-top:3px solid #e1b6df}
+body.intent-page .intent-card h3{color:#213b29;letter-spacing:-.05em}
+body.intent-page .intent-card p{color:#52685b;font-size:12px;line-height:1.6}
+body.intent-page .intent-card-meta{color:#477658}
+body.intent-page .intent-price{color:#163e29}
+body.intent-page .intent-card-actions .intent-buy{background:#1e573a;color:#fff;border-radius:7px;min-height:46px}
+body.intent-page .intent-card-actions .intent-buy:hover{background:#32794f}
+body.intent-page .intent-card-actions .intent-guide-link{color:#2a6140;border-color:#cad8cb}
+body.intent-page:not(.ag-eb-premium) .intent-faq{background:#f5f5ed;color:#1a3a2a}
+body.intent-page:not(.ag-eb-premium) .intent-faq h2{color:#1b412c;letter-spacing:-.07em}
+body.intent-page:not(.ag-eb-premium) .intent-faq details{border-radius:12px;background:#fff;border-color:#dae5dc}
+body.intent-page:not(.ag-eb-premium) .intent-faq details[open]{border-color:#8cceb0;box-shadow:0 14px 34px rgba(31,62,44,.07)}
+body.intent-page .intent-related-card{border-radius:15px;transition:transform .2s,box-shadow .2s;box-shadow:0 11px 29px rgba(0,0,0,.12)}
+body.intent-page .intent-related-card:hover{transform:translateY(-4px);box-shadow:0 21px 50px rgba(0,0,0,.22)}
+body.intent-page a:focus-visible,body.intent-page button:focus-visible,body.intent-page summary:focus-visible{outline:3px solid #ffe09a!important;outline-offset:4px!important}
+@media(max-width:760px){body.intent-page:not(.ag-eb-premium) .intent-hero{min-height:0}body.intent-page:not(.ag-eb-premium) .intent-hero h1{font-size:clamp(45px,10.8vw,65px)}body.intent-page .intent-card{border-radius:12px}}
+@media(prefers-reduced-motion:reduce){body.intent-page :is(.intent-card,.intent-criterion,.intent-related-card){transition:none!important;transform:none!important}}
