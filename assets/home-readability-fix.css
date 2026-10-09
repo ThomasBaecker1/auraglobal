@@ -1,0 +1,48 @@
+/* AuraGlobal: original visual identity preserved; text legibility repair, 2026-10-09.
+   Applies only to the restored homepage. No logo, images, color scheme or copy replaced. */
+body.brand-home .equal-wall-v6 .equal-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:13px!important}
+body.brand-home .equal-wall-v6 .equal-card{height:300px!important;min-height:300px!important;border-radius:18px!important}
+body.brand-home .equal-wall-v6 .equal-copy{left:14px!important;right:14px!important;bottom:14px!important}
+body.brand-home .equal-wall-v6 .equal-copy small{font-size:11px!important;line-height:1.35!important;letter-spacing:.06em!important}
+body.brand-home .equal-wall-v6 .equal-copy strong{font-size:19px!important;line-height:1.14!important;min-height:0!important;margin-top:5px!important;letter-spacing:-.025em!important;overflow-wrap:anywhere}
+body.brand-home .equal-wall-v6 .equal-copy span{font-size:13px!important;line-height:1.5!important;min-height:0!important;margin-top:7px!important;color:#f2f7fa!important;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+body.brand-home .equal-wall-v6 .equal-copy em{font-size:12px!important;line-height:1.3!important;min-height:35px;align-items:center;padding:7px 11px!important;margin-top:10px}
+body.brand-home .equal-wall-v6 .equal-logo{height:37px!important;max-width:83%!important;padding:6px 9px!important}
+body.brand-home .equal-wall-v6 .equal-logo b{font-size:12px!important;line-height:1.2!important}
+body.brand-home .equal-wall-v6 .equal-logo img{height:23px!important;width:23px!important}
+body.brand-home .equal-wall-v6 .equal-badge{font-size:11px!important;line-height:1.2!important;padding:7px 9px!important;top:53px!important}
+body.brand-home .equal-wall-v6 .equal-video-chip{font-size:10px!important}
+body.brand-home .equal-wall-v6 .equal-tint{background:linear-gradient(180deg,rgba(2,4,8,.05) 5%,rgba(2,4,8,.23) 32%,rgba(2,4,8,.96) 100%)!important}
+body.brand-home .equal-head>div>span{font-size:12px!important}
+body.brand-home .equal-head p,body.brand-home .ag-wall-title p{font-size:14px!important;line-height:1.6!important;color:#dfecf3!important}
+body.brand-home .equal-note{font-size:12px!important;line-height:1.55!important;color:#cad5df!important}
+body.brand-home .ag-wall-feedback{font-size:13px!important;color:#dee8f0!important}
+body.brand-home .ag-wall-title small{font-size:12px!important}
+body.brand-home .shop-chip{font-size:13px!important;min-height:42px;line-height:1.3!important}
+body.brand-home .ag-home-curation .ag-home-copy p,
+body.brand-home .ag-home-discover-content p{font-size:14px!important;line-height:1.65!important}
+body.brand-home .ag-home-curation .ag-home-actions a,
+body.brand-home .ag-home-discover-actions a{font-size:13px!important}
+body.brand-home .ag-home-curation .ag-home-notice,
+body.brand-home .ag-home-discover-note{font-size:11px!important;line-height:1.5!important}
+body.brand-home :is(a,button,input):focus-visible{outline:3px solid #fbd68a!important;outline-offset:3px!important}
+@media(max-width:1150px){body.brand-home .equal-wall-v6 .equal-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}}
+@media(max-width:760px){
+ body.brand-home .equal-wall-v6 .equal-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:9px!important}
+ body.brand-home .equal-wall-v6 .equal-card{height:285px!important;min-height:285px!important}
+ body.brand-home .equal-wall-v6 .equal-copy{left:10px!important;right:10px!important;bottom:11px!important}
+ body.brand-home .equal-wall-v6 .equal-copy strong{font-size:16px!important;line-height:1.2!important}
+ body.brand-home .equal-wall-v6 .equal-copy span{font-size:12px!important;line-height:1.4!important;-webkit-line-clamp:3}
+ body.brand-home .equal-wall-v6 .equal-copy small{font-size:10px!important}
+ body.brand-home .equal-wall-v6 .equal-logo{height:33px!important;max-width:87%!important;padding:5px 7px!important}
+ body.brand-home .equal-wall-v6 .equal-logo b{font-size:11px!important}
+ body.brand-home .equal-wall-v6 .equal-badge{font-size:10px!important;top:49px!important}
+ body.brand-home .equal-wall-v6 .equal-copy em{font-size:11px!important;min-height:34px}
+}
+@media(max-width:360px){
+ body.brand-home .equal-wall-v6 .equal-grid{grid-template-columns:1fr!important}
+ body.brand-home .equal-wall-v6 .equal-card{height:270px!important;min-height:270px!important}
+ body.brand-home .equal-wall-v6 .equal-copy strong{font-size:18px!important}
+ body.brand-home .equal-wall-v6 .equal-copy span{font-size:13px!important}
+}
+@media(prefers-reduced-motion:reduce){body.brand-home .equal-card{transform:none!important;transition:none!important}}
