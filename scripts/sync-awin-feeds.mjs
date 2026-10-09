@@ -184,16 +184,41 @@ function trackingUrl(raw, merchantId, productId) {
   if (!/^https?:\/\//i.test(value)) return '';
   const ref = `ag_feed_${slug(merchantId)}_${slug(productId)}`.slice(0,90);
 
-  if (/awin1\.com\/cread\.php|clickref=/i.test(value)) {
-    if (/([?&])clickref=/i.test(value)) return value;
-    return value + (value.includes('?') ? '&' : '?') + 'clickref=' + encodeURIComponent(ref);
+  // Awin CSVs can include cread, awclick, and product-specific pclick links.
+  // Preserve each format; do not nest a pclick URL inside a new cread redirect.
+  let target;
+  try { target = new URL(value); } catch { return ''; }
+  const awinHost = ['www.awin1.com','awin1.com'].includes(target.hostname.toLowerCase());
+  const mode = target.pathname.toLowerCase().match(/\/(cread|awclick|pclick)\.php$/)?.[1];
+
+  if (awinHost && mode) {
+    if (mode === 'pclick') {
+      target.searchParams.set('a',String(PUBLISHER_ID));
+      target.searchParams.set('m',String(merchantId));
+    } else if (mode === 'awclick') {
+      target.searchParams.set('mid',String(merchantId));
+      target.searchParams.set('awinaffid',String(PUBLISHER_ID));
+    } else {
+      target.searchParams.set('awinmid',String(merchantId));
+      target.searchParams.set('awinaffid',String(PUBLISHER_ID));
+    }
+    if (!target.searchParams.get('clickref')) target.searchParams.set('clickref',ref);
+    const deep = target.searchParams.get('ued');
+    if (deep !== null) {
+      target.searchParams.delete('ued');
+      target.searchParams.set('ued',deep);
+    }
+    target.protocol = 'https:';
+    return target.toString();
   }
 
+  // Unknown Awin URL formats must not masquerade as advertiser destinations.
+  if (awinHost) return '';
   const params = new URLSearchParams({
-    awinmid: String(merchantId),
-    awinaffid: String(PUBLISHER_ID),
-    clickref: ref,
-    ued: value
+    awinmid:String(merchantId),
+    awinaffid:String(PUBLISHER_ID),
+    clickref:ref,
+    ued:value
   });
   return 'https://www.awin1.com/cread.php?' + params.toString();
 }
