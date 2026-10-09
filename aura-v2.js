@@ -262,13 +262,14 @@ function initAffiliateClickTracking(){
     try{
       const url=new URL(link.href,window.location.href);
       destination=url.hostname;
+      const publisher=url.searchParams.get('awinaffid')||url.searchParams.get('a')||url.searchParams.get('id')||url.searchParams.get('r');
       const ownAffiliate=(url.hostname==='www.awin1.com'||url.hostname==='awin1.com')
-        &&url.searchParams.get('awinaffid')==='3076553';
+        &&publisher==='3076553';
       if(ownAffiliate){
-        merchantId=url.searchParams.get('awinmid')||url.searchParams.get('mid')||'';
+        merchantId=url.searchParams.get('awinmid')||url.searchParams.get('mid')||url.searchParams.get('m')||url.searchParams.get('v')||'';
         // Keep campaign, landing and the precise product distinct in Awin's clickref report.
         // Do not copy gclid, personal identifiers or arbitrary user search text.
-        let product=link.dataset.agOffer||link.dataset.affiliateProduct||link.dataset.intentAffiliate||link.dataset.wishBuy||'';
+        let product=link.dataset.agOffer||link.dataset.affiliateProduct||link.dataset.intentAffiliate||link.dataset.wishBuy||url.searchParams.get('p')||'';
         if(!product){
           try{
             const target=new URL(url.searchParams.get('ued')||url.href);
