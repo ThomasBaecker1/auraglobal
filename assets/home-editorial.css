@@ -98,3 +98,58 @@ body .visual-search .searchbox button:hover{background:#e2ffec!important}
 .ag-home-discover-note{display:block;font-size:9px;color:#7c8d80;line-height:1.5;margin-top:12px}
 @media(max-width:1080px){.ag-home-discover-card{grid-template-columns:1fr}.ag-home-discover-photo{height:185px;min-height:185px}.ag-home-discover-content{padding:23px}}
 @media(max-width:670px){.ag-home-discover{padding:49px 0 53px}.ag-home-discover-grid{grid-template-columns:1fr}.ag-home-discover-photo{height:180px;min-height:180px}.ag-home-discover-title h2{font-size:37px}.ag-home-discover-title p{max-width:none}}
+
+
+/* AU RAGLOBAL / visual rhythm across the entire front page */
+body.brand-home .visual-search.ag-search-first{background:radial-gradient(ellipse 42% 84% at 93% 13%,rgba(173,213,242,.21),transparent 78%),radial-gradient(ellipse 42% 73% at 18% 94%,rgba(147,233,166,.17),transparent 79%),radial-gradient(ellipse 35% 62% at 60% 59%,rgba(255,188,159,.105),transparent 82%),linear-gradient(120deg,#0b2a24,#122329 58%,#0c1d28)!important}
+body.brand-home .visual-search-kicker{color:#dfebc7!important;letter-spacing:.15em!important}
+body.brand-home .visual-search h1{letter-spacing:-.083em!important;line-height:.96!important}
+body.brand-home .visual-search h1 em{background:linear-gradient(105deg,#bff4d4 20%,#f1e6a8 62%,#f8c7bf);color:transparent!important;-webkit-background-clip:text;background-clip:text}
+body.brand-home .visual-search .ag-home-promise{border-top-color:rgba(220,250,221,.25)!important}
+body.brand-home .visual-search .searchbox{background:rgba(14,38,34,.75)!important;border-color:rgba(222,255,233,.34)!important}
+body.brand-home .visual-search .hero-chips a{background:rgba(226,255,231,.075)!important;border-color:rgba(233,255,240,.18)!important;color:#edfaf1!important;transition:background .18s ease,border-color .18s ease}
+body.brand-home .visual-search .hero-chips a:nth-child(4n+2):hover{background:rgba(246,185,205,.23)!important;border-color:#f6c7d9!important}
+body.brand-home .visual-search .hero-chips a:nth-child(4n+3):hover{background:rgba(171,203,247,.22)!important;border-color:#bcdaf5!important}
+body.brand-home .visual-search .hero-chips a:nth-child(4n+4):hover{background:rgba(243,223,162,.2)!important;border-color:#fae5ae!important}
+body.brand-home .ag-match-launch{background:linear-gradient(110deg,#19382d,#1b3939 42%,#32304b)!important;border-color:rgba(249,237,210,.21)!important}
+body.brand-home .ag-match-launch .ag-match-eyebrow{color:#e4d2f6!important}
+body.brand-home .ag-match-launch .ag-match-go{background:linear-gradient(110deg,#c7f2d7,#ead2f4)!important;color:#1b2e29!important}
+body.brand-home .ag-home-curation{background:linear-gradient(160deg,#f8f4e9,#eff6eb 53%,#faf5ed)!important}
+body.brand-home .ag-home-curation .ag-home-head h2{color:#1c3a2b!important}
+body.brand-home .ag-home-curation .ag-home-head p{color:#587263!important}
+body.brand-home .ag-home-item{border-radius:13px!important;box-shadow:0 22px 70px rgba(14,43,27,.09)!important;transition:transform .24s,box-shadow .24s}
+body.brand-home .ag-home-item:hover{transform:translateY(-4px);box-shadow:0 34px 84px rgba(14,43,27,.18)!important}
+body.brand-home .ag-home-item:nth-child(1) .ag-home-photo{background:radial-gradient(circle at 56% 42%,#f4f8e9 5%,#dbead7 68%,#bad3c2 110%)!important}
+body.brand-home .ag-home-item:nth-child(2) .ag-home-photo{background:radial-gradient(circle at 56% 42%,#fff2e4 5%,#f1ded1 67%,#e9c5bf 110%)!important}
+body.brand-home .ag-home-item:nth-child(2) .ag-home-purpose{color:#7a514c!important}
+body.brand-home .ag-home-photo img{transition:transform .45s ease,filter .45s ease}
+body.brand-home .ag-home-item:hover .ag-home-photo img{transform:scale(1.035);filter:drop-shadow(0 22px 27px rgba(20,50,27,.17))}
+body.brand-home .ag-home-buy{background:linear-gradient(115deg,#184934,#235c46)!important;color:#fff!important;transition:transform .18s,filter .18s}
+body.brand-home .ag-home-buy:hover{filter:brightness(1.15);transform:translateY(-2px)}
+body.brand-home .ag-home-item:nth-child(2) .ag-home-buy{background:linear-gradient(115deg,#4b3534,#775046)!important}
+body.brand-home .ag-home-curation .ag-home-tail a{color:#235e40!important}
+body.brand-home .ag-home-discover{background:radial-gradient(circle at 11% 87%,rgba(253,187,144,.1),transparent 40%),radial-gradient(circle at 89% 12%,rgba(157,207,243,.13),transparent 43%),linear-gradient(130deg,#112e29,#142b30)!important}
+body.brand-home .ag-home-discover-title h2{color:#fff!important;letter-spacing:-.07em!important}
+body.brand-home .ag-home-discover-card{border-radius:13px!important;box-shadow:0 20px 64px rgba(0,0,0,.15);transition:transform .24s ease,box-shadow .24s}
+body.brand-home .ag-home-discover-card:hover{transform:translateY(-4px);box-shadow:0 29px 84px rgba(0,0,0,.26)}
+body.brand-home .ag-home-food{background:#fff0e2!important}
+body.brand-home .ag-home-food .ag-home-discover-content h3{color:#603b2d!important}
+body.brand-home .ag-home-food .ag-home-discover-actions a:first-child{background:#754632!important}
+body.brand-home .ag-home-energy{background:#e9f4f8!important}
+body.brand-home .ag-home-energy .ag-home-discover-content h3{color:#20435c!important}
+body.brand-home .ag-home-energy .ag-home-discover-actions a:first-child{background:#24536c!important}
+body.brand-home .ag-home-discover-photo img{filter:saturate(1.1);transition:transform .45s}
+body.brand-home .ag-home-discover-card:hover .ag-home-discover-photo img{transform:scale(1.045)}
+body.brand-home .shop-intent{border-color:rgba(220,244,230,.27)!important}
+body.brand-home .shop-chip{transition:transform .18s,background .18s,border-color .18s}
+body.brand-home .shop-chip:hover{transform:translateY(-2px)}
+body.brand-home .home-live-deal{background:radial-gradient(ellipse at 86% 3%,rgba(255,220,150,.12),transparent 45%),linear-gradient(115deg,#183a2c,#213638)!important}
+body.brand-home .deal-radar h2,body.brand-home .emotion-stage h2,body.brand-home .portal-cards h2{letter-spacing:-.06em!important;text-wrap:balance}
+body.brand-home :is(.ag-home-buy,.ag-home-guide,.ag-home-discover-actions a,.ag-match-go,.shop-chip):focus-visible{outline:3px solid #ffe7ad!important;outline-offset:3px!important}
+@media(max-width:710px){
+ body.brand-home .visual-search h1{font-size:clamp(46px,11vw,69px)!important}
+ body.brand-home .ag-home-item{border-radius:11px!important}
+ body.brand-home .ag-home-discover-card{border-radius:11px!important}
+ body.brand-home .ag-home-curation .ag-home-head h2{font-size:clamp(39px,10vw,60px)!important}
+}
+@media(prefers-reduced-motion:reduce){body.brand-home :is(.ag-home-item,.ag-home-discover-card,.ag-home-discover-photo img,.ag-home-photo img,.shop-chip){transition:none!important;transform:none!important}}
