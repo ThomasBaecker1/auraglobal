@@ -126,3 +126,14 @@
 .ag-choice-item>small{font-size:10px;line-height:1.5;color:#b4cabe;margin-top:13px}
 .ag-choice-footnote{font-size:10px;line-height:1.6;color:#b2c8bb;margin-top:16px}
 @media(max-width:760px){.ag-choices-grid{grid-template-columns:1fr}.ag-choices-head{display:block}.ag-choices-head p{max-width:none}.ag-choice-item{padding:19px}}
+
+.ag-early-disclosure{display:block;margin-top:12px;color:#ccd8d0;font-size:11px;line-height:1.5}
+@media(max-width:760px){
+ .ag-espresso-shopping .intent-hero-inner{padding:28px 0 26px}
+ .ag-espresso-shopping .intent-hero h1{font-size:clamp(34px,9vw,46px);line-height:1.08}
+ .ag-espresso-shopping .intent-lead{font-size:14px;line-height:1.55}
+ .ag-espresso-shopping .intent-actions{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+ .ag-espresso-shopping .intent-actions .intent-primary{min-height:48px;padding:12px 9px;text-align:center;font-size:12px}
+ .ag-espresso-shopping .intent-actions .intent-secondary{grid-column:1/-1}
+ .ag-espresso-shopping .intent-hero-note{padding:16px}
+}
