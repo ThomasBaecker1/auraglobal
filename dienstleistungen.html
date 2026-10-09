@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="de"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dienstleistungen entdecken – Versicherung, Lernen & Reisen | AuraGlobal</title>
+<meta name="description" content="Finde passende Dienstleistungen: Rechtsschutz, berufliche Weiterbildung, Sprachkurse, Urlaub und Städtereisen. Mit Fotos, echten Partnern und direkter Kaufberatung.">
+<meta name="robots" content="index,follow"><meta name="theme-color" content="#091620">
+<link rel="canonical" href="https://auraglobal.vercel.app/dienstleistungen.html"><link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website"><meta property="og:title" content="Dienstleistungen entdecken | AuraGlobal"><meta property="og:description" content="Versicherung, Weiterbildung und Reisen: visuell entdecken und gezielt vergleichen.">
+<link rel="stylesheet" href="/aura-v2.css">
+<style>
+:root{color-scheme:dark}*{box-sizing:border-box}html{scroll-behavior:smooth}body.service-landing{margin:0;color:#fff;background:#08121c;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{text-decoration:none;color:inherit}
+.service-wrap{max-width:1280px;padding:0 24px;margin:0 auto}
+.service-nav{position:sticky;z-index:50;top:0;background:rgba(6,15,24,.93);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,.11)}
+.service-nav-inner{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.service-brand-main{display:flex;align-items:center;gap:10px;color:#fff;letter-spacing:.14em;line-height:.92;font-size:21px;font-weight:900}
+.service-brand-main .symbol{font-size:43px;line-height:1;color:#98f4c4}
+.service-brand-main small{display:block;font-size:12px;letter-spacing:.23em;color:#91f1b9;margin-top:6px}
+.service-nav-links{display:flex;align-items:center;gap:18px;font-size:14px;font-weight:700;color:#d0e3e0}
+.service-nav-links a:last-child{background:#b7f1d1;padding:11px 15px;border-radius:10px;color:#052018;font-weight:850}
+.service-hero{padding:67px 0 69px;background:radial-gradient(circle at 84% 18%,rgba(113,230,181,.15),transparent 35%),radial-gradient(circle at 8% 88%,rgba(69,112,220,.18),transparent 37%),linear-gradient(120deg,#071e25,#081620)}
+.service-hero-grid{display:grid;grid-template-columns:1.04fr .96fr;align-items:center;gap:48px}
+.service-eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:13px;font-weight:850;letter-spacing:.16em;color:#94f3bf}
+.service-eyebrow:before{content:"";width:8px;height:8px;background:#90f2bd;border-radius:50%}
+.service-hero h1{font-size:clamp(47px,5.6vw,79px);line-height:.99;letter-spacing:-.065em;max-width:12ch;margin:18px 0 22px;color:#fff}
+.service-hero h1 em{font-style:normal;color:#a2f4ca}
+.service-lead{font-size:19px;line-height:1.65;color:#d4e5e3;max-width:570px;margin:0}
+.service-trust{display:flex;flex-wrap:wrap;gap:10px;margin-top:27px}
+.service-trust span{display:inline-flex;padding:10px 13px;border:1px solid rgba(189,242,221,.27);background:rgba(255,255,255,.05);border-radius:9px;font-size:13px;color:#e2f2eb;font-weight:650}
+.service-hero-image{height:440px;position:relative;border-radius:28px;overflow:hidden;box-shadow:0 30px 70px rgba(0,0,0,.36)}
+.service-hero-image img{height:100%;width:100%;object-fit:cover}
+.service-hero-image:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(4,11,19,.65))}
+.service-hero-label{position:absolute;z-index:2;left:25px;bottom:24px;font-size:22px;font-weight:850;letter-spacing:-.03em}
+.service-hero-label small{display:block;font-size:12px;font-weight:750;letter-spacing:.13em;color:#aef5cf;margin-bottom:7px}
+.service-section{padding:70px 0 90px}
+.service-section-head{display:flex;justify-content:space-between;align-items:end;gap:25px;margin-bottom:29px}
+.service-section-head small{font-size:13px;font-weight:850;letter-spacing:.13em;color:#a2f7ce}
+.service-section-head h2{font-size:clamp(33px,3.5vw,48px);line-height:1.08;letter-spacing:-.05em;margin:10px 0 0;color:white}
+.service-section-head p{color:#c9d7db;font-size:16px;line-height:1.6;max-width:380px;margin:0}
+.service-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.service-card{display:flex;flex-direction:column;border-radius:22px;overflow:hidden;min-width:0;background:#15232e;border:1px solid rgba(255,255,255,.13);box-shadow:0 18px 42px rgba(0,0,0,.15);transition:transform .2s,border-color .2s;color:white}
+.service-card:hover{transform:translateY(-4px);border-color:rgba(172,251,208,.55)}
+.service-media{height:235px;position:relative;overflow:hidden;background:#142932}
+.service-media img{width:100%;height:100%;object-fit:cover;filter:saturate(1.17);transition:transform .4s}
+.service-card:hover .service-media img{transform:scale(1.05)}
+.service-media:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(3,9,17,.26),transparent 50%,rgba(3,9,17,.48))}
+.service-counter{position:absolute;top:17px;right:17px;z-index:2;border:1px solid rgba(255,255,255,.3);background:rgba(7,13,20,.75);padding:7px 10px;border-radius:7px;font-size:12px;font-weight:850}
+.service-brand{position:absolute;z-index:2;left:17px;bottom:18px;background:#fff;border-radius:10px;color:#10262d;padding:10px 14px;max-width:90%;font-size:17px;font-weight:900;letter-spacing:-.015em}
+.service-copy{display:flex;flex-direction:column;flex:1;padding:23px 23px 25px}
+.service-type{font-size:12px;letter-spacing:.11em;text-transform:uppercase;font-weight:850;color:#a5efd0}
+.service-copy h3{font-size:25px;line-height:1.17;letter-spacing:-.045em;color:#fff;margin:10px 0}
+.service-copy p{font-size:16px;line-height:1.6;color:#d4dfe2;margin:0 0 22px}
+.service-cta{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding:13px 15px;background:#b8f3d3;color:#0a261e;border-radius:10px;font-size:14px;font-weight:850;gap:8px}
+.s-blue .service-cta{background:#a8cefb}.s-orange .service-cta{background:#ffd18e}.s-purple .service-cta{background:#d7bcff}.s-pink .service-cta{background:#ffbfd5}.s-gold .service-cta{background:#ffe29d}
+.service-note{margin-top:26px;color:#bdcdd1;font-size:13px;line-height:1.65;max-width:850px}
+.service-footer{border-top:1px solid rgba(255,255,255,.1);padding:25px 0 35px;color:#c2d3d7;font-size:13px}
+.service-footer-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.service-footer a{text-decoration:underline;text-underline-offset:4px}
+:focus-visible{outline:3px solid #ffe5a5;outline-offset:4px}
+@media(max-width:1020px){.service-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.service-hero-grid{gap:24px}.service-hero-image{height:370px}}
+@media(max-width:700px){.service-wrap{padding:0 16px}.service-nav-inner{height:68px}.service-nav-links{gap:10px}.service-nav-links a:first-child{display:none}.service-brand-main{font-size:17px}.service-brand-main .symbol{font-size:34px}.service-brand-main small{font-size:10px}.service-nav-links a:last-child{font-size:12px;padding:9px 11px}.service-hero{padding:38px 0 46px}.service-hero-grid{grid-template-columns:1fr;gap:25px}.service-hero h1{font-size:clamp(45px,10vw,64px);margin:15px 0}.service-lead{font-size:17px;line-height:1.6}.service-trust{gap:7px;margin-top:19px}.service-trust span{font-size:12px;padding:8px 10px}.service-hero-image{height:280px;border-radius:20px}.service-section{padding:42px 0 55px}.service-section-head{display:block}.service-section-head h2{font-size:34px}.service-section-head p{margin-top:10px;font-size:15px}.service-grid{grid-template-columns:1fr;gap:16px}.service-media{height:250px}.service-copy{padding:21px}.service-copy h3{font-size:26px}.service-copy p{font-size:16px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+</style>
+</head><body class="service-landing">
+<a href="#dienstleister" style="position:absolute;left:-100vw;top:0;z-index:100;background:#b8f3d3;color:#0e211a;padding:12px" onfocus="this.style.left='12px'" onblur="this.style.left='-100vw'">Zur Dienstleistungsauswahl springen</a>
+<header class="service-nav"><div class="service-wrap service-nav-inner">
+<a class="service-brand-main" href="/" aria-label="AuraGlobal Startseite"><span class="symbol" aria-hidden="true">◢</span><span>AURA<small>GLOBAL</small></span></a>
+<nav class="service-nav-links" aria-label="Navigation"><a href="/marken.html">Alle Marken</a><a href="/">← Startseite</a></nav>
+</div></header>
+<main><section class="service-hero"><div class="service-wrap service-hero-grid">
+<div><span class="service-eyebrow">AURAGLOBAL / DIENSTLEISTUNGEN</span><h1>Gute Services. <em>Gute Entscheidungen.</em></h1>
+<p class="service-lead">Manchmal kaufst du kein Produkt, sondern Möglichkeiten: Sicherheit, Wissen, Freizeit. Entdecke passende Anbieter visuell und finde den nächsten sinnvollen Schritt.</p>
+<div class="service-trust"><span>6 passende Anbieter</span><span>Mit Fotos & Orientierung</span><span>Direkt zur Kaufhilfe</span></div>
+</div><div class="service-hero-image"><img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1300&q=85" alt="Menschen bei der Zusammenarbeit" fetchpriority="high"><span class="service-hero-label"><small>DEIN NÄCHSTER SCHRITT</small>Finde, was dein Leben weiterbringt.</span></div>
+</div></section>
+<section class="service-section" id="dienstleister"><div class="service-wrap">
+<div class="service-section-head"><div><small>ANBIETER & VERGLEICHE</small><h2>Was möchtest du erreichen?</h2></div><p>Wähle eine Dienstleistung, schau dir das Angebot an und prüfe die Konditionen beim jeweiligen Anbieter.</p></div>
+<div class="service-grid"><a class="service-card s-mint" href="/ks-auxilia.html" aria-label="KS/AUXILIA – Rechtsschutz Kaufhilfe öffnen">
+  <div class="service-media"><img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&amp;fit=crop&amp;w=1100&amp;q=85" alt="Dokumente und Arbeitsutensilien auf einem Schreibtisch" loading="eager" decoding="async"><span class="service-counter">01 / 06</span><span class="service-brand">KS/AUXILIA</span></div>
+  <div class="service-copy"><span class="service-type">Rechtsschutz</span><h3>Rechtsschutz, der zu deinem Alltag passt.</h3><p>Privat, Beruf, Verkehr oder Wohnen? Finde heraus, welche Bausteine sinnvoll sind und nutze den Beitragsrechner.</p><span class="service-cta">Beitragsrechner ansehen <span aria-hidden="true">↗</span></span></div>
+</a>
+<a class="service-card s-blue" href="/delst.html" aria-label="DELST – Weiterbildung Kaufhilfe öffnen">
+  <div class="service-media"><img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&amp;fit=crop&amp;w=1100&amp;q=85" alt="Menschen lernen und arbeiten gemeinsam" loading="eager" decoding="async"><span class="service-counter">02 / 06</span><span class="service-brand">DELST</span></div>
+  <div class="service-copy"><span class="service-type">Weiterbildung</span><h3>Dein nächster beruflicher Schritt.</h3><p>IHK-Weiterbildungen und Fernlehrgänge entdecken – nach Ziel, Zeit und Lernformat vergleichen.</p><span class="service-cta">Weiterbildung entdecken <span aria-hidden="true">↗</span></span></div>
+</a>
+<a class="service-card s-orange" href="/academy-of-sports.html" aria-label="Academy of Sports – Sport &amp; Karriere Kaufhilfe öffnen">
+  <div class="service-media"><img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&amp;fit=crop&amp;w=1100&amp;q=85" alt="Geräte im Fitnessstudio" loading="lazy" decoding="async"><span class="service-counter">03 / 06</span><span class="service-brand">Academy of Sports</span></div>
+  <div class="service-copy"><span class="service-type">Sport &amp; Karriere</span><h3>Aus Leidenschaft kann mehr werden.</h3><p>Fitness, Gesundheit oder Training? Berufliche Qualifizierungen passend zu deinem Schwerpunkt finden.</p><span class="service-cta">Lehrgänge vergleichen <span aria-hidden="true">↗</span></span></div>
+</a>
+<a class="service-card s-purple" href="/linguatv.html" aria-label="LinguaTV – Sprachen lernen Kaufhilfe öffnen">
+  <div class="service-media"><img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&amp;fit=crop&amp;w=1100&amp;q=85" alt="Menschen am Laptop in einer Lernsituation" loading="lazy" decoding="async"><span class="service-counter">04 / 06</span><span class="service-brand">LinguaTV</span></div>
+  <div class="service-copy"><span class="service-type">Sprachen lernen</span><h3>Sprachen, die neue Türen öffnen.</h3><p>Online-Sprachkurse nach Lernziel und Alltag auswählen. Vergleiche Format und Zugang vor dem Kauf.</p><span class="service-cta">Sprachkurs entdecken <span aria-hidden="true">↗</span></span></div>
+</a>
+<a class="service-card s-pink" href="/reisenaktuell.html" aria-label="ReisenAKTUELL.COM – Urlaub buchen Kaufhilfe öffnen">
+  <div class="service-media"><img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&amp;fit=crop&amp;w=1100&amp;q=85" alt="Schöne Landschaft als Inspiration für Urlaub" loading="lazy" decoding="async"><span class="service-counter">05 / 06</span><span class="service-brand">ReisenAKTUELL.COM</span></div>
+  <div class="service-copy"><span class="service-type">Urlaub buchen</span><h3>Raus aus dem Alltag. Rein ins Erlebnis.</h3><p>Kurzurlaub, Wellness und Auszeiten nach Leistungen, Reisedatum und Gesamtpreis vergleichen.</p><span class="service-cta">Reisen entdecken <span aria-hidden="true">↗</span></span></div>
+</a>
+<a class="service-card s-gold" href="/ameropa.html" aria-label="Ameropa – Bahn &amp; Städtereisen Kaufhilfe öffnen">
+  <div class="service-media"><img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&amp;fit=crop&amp;w=1100&amp;q=85" alt="Reisekarte, Kamera und Reiseutensilien" loading="lazy" decoding="async"><span class="service-counter">06 / 06</span><span class="service-brand">Ameropa</span></div>
+  <div class="service-copy"><span class="service-type">Bahn &amp; Städtereisen</span><h3>Mehr erleben, entspannter reisen.</h3><p>Städtereisen und Reisepakete im Hinblick auf Anreise, Unterkunft und enthaltene Leistungen prüfen.</p><span class="service-cta">Reisepakete ansehen <span aria-hidden="true">↗</span></span></div>
+</a></div>
+<p class="service-note">Werbehinweis: Die Anbieterlinks auf unseren Kaufhilfeseiten können Affiliate-Links enthalten. Kommt über diese ein Kauf oder Abschluss zustande, kann AuraGlobal eine Provision erhalten. Konditionen, Preise und Verfügbarkeit direkt beim Anbieter prüfen. Bilder illustrieren die jeweiligen Themen und sind keine Nachweise für konkrete Leistungen.</p>
+</div></section></main>
+<footer class="service-footer"><div class="service-wrap service-footer-inner"><span>© 2026 AuraGlobal · Vergleichen statt raten.</span><span><a href="/impressum.html">Impressum</a> · <a href="/datenschutz.html">Datenschutz</a> · <a href="/affiliate-disclosure.html">Werbehinweis</a></span></div></footer>
+</body></html>
