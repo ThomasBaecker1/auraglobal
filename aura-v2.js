@@ -282,7 +282,7 @@ function initAffiliateClickTracking(){
         if(current&&current!==ref){
           for(let i=2;i<=6;i++){
             const key='clickref'+i;
-            if([...url.searchParams.values()].includes(current.slice(0,50)))break;
+            if([...url.searchParams.entries()].some(([key,value])=>/^clickref[2-6]$/.test(key)&&value===current.slice(0,50)))break;
             if(!url.searchParams.has(key)){url.searchParams.set(key,current.slice(0,50));break}
           }
         }
