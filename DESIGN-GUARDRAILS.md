@@ -54,3 +54,10 @@ Every merchant page must answer:
 - Remove expired offers promptly.
 - Do not invent discount percentages.
 - Prefer specific useful claims: "20% off", "€200 off", "4 sleeves free from 20" over vague "sale".
+
+## Permanent visual requirement — Thomas, 10.10.2026
+- Keep photos and manufacturer/product videos prominent on the homepage in every conversion pass.
+- Place the video inspiration rail immediately after the hero; do not bury it behind a long stack of offers or quizzes.
+- On mobile, offer photos must be a full-width visual stage, never a narrow thumbnail strip.
+- Keep purchase routes alongside strong visuals. Take inspiration from leading companies' product presentation principles while preserving AuraGlobal branding, truthful claims and original assets.
+- Verify real video embeds and images remain in published markup after reordering; do not rely solely on JavaScript relocation or autoplay.
