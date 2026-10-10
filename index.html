@@ -127,7 +127,7 @@ radial-gradient(circle at 96% 0%,rgba(31,225,151,.13),transparent 25rem),
 <link rel="stylesheet" href="/assets/home-overview.css">
 <link rel="stylesheet" href="/assets/home-readability-fix.css?v=20261009f">
 <link rel="stylesheet" href="/assets/home-shorts-2026.css?v=20261009d">
-<script src="/assets/home-shorts-2026.js?v=20261009d" defer></script>
+
 <style>
 /* Conversion shortcut after the real video stories. Keeps images, shorts, original Aura branding. */
 body.brand-home .ag-fast-buy{padding:43px 0 53px;background:radial-gradient(circle at 4% 6%,rgba(242,153,99,.11),transparent 39%),radial-gradient(circle at 94% 91%,rgba(99,225,180,.10),transparent 37%),#0b1922;color:#fff}
@@ -201,6 +201,87 @@ body.brand-home .ag-fast-buy-body>span strong{font-size:inherit;line-height:inhe
  body.brand-home .ag-fast-buy-body b{min-height:44px;padding:10px;font-size:13px}
 }
 </style>
+<style>
+/* Visual-first AuraGlobal: keep full-bleed brand imagery and portrait motion, with readable copy. */
+body.brand-home .ag-shorts{padding:48px 0 52px;background:radial-gradient(circle at 15% 10%,rgba(46,222,151,.16),transparent 42%),radial-gradient(circle at 90% 75%,rgba(97,140,250,.14),transparent 50%),#081118;color:#fff;overflow:hidden}
+body.brand-home .ag-shorts-wrap{max-width:1330px;margin:auto;padding:0 24px}
+body.brand-home .ag-shorts-head{display:flex;align-items:end;justify-content:space-between;gap:18px;margin-bottom:23px}
+body.brand-home .ag-shorts-eyebrow{font-size:12px;letter-spacing:.16em;font-weight:800;color:#87edb7}
+body.brand-home .ag-shorts-head h2{margin:10px 0 0;color:#fff!important;font-size:clamp(31px,4.6vw,56px)!important;line-height:1.04;letter-spacing:-.055em;max-width:620px}
+body.brand-home .ag-shorts-head h2 em{color:#8cf3bd;font-style:normal}
+body.brand-home .ag-shorts-head p{font-size:16px;line-height:1.55;max-width:310px;color:#cbdad9;margin:0}
+body.brand-home .ag-shorts-list{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:17px}
+body.brand-home .ag-short-card{display:flex;flex-direction:column;min-width:0;overflow:hidden;border:1px solid rgba(255,255,255,.23);border-radius:23px;background:#142029;color:#fff!important;box-shadow:0 15px 45px rgba(0,0,0,.28);transition:transform .22s,border-color .22s;text-decoration:none}
+body.brand-home .ag-short-card:hover{transform:translateY(-4px);border-color:#aef5d0}
+body.brand-home .ag-short-stage{position:relative;display:block;width:100%;aspect-ratio:4/5;overflow:hidden;background:#131b28;isolation:isolate}
+body.brand-home .ag-short-poster{display:block;width:100%;height:100%;object-fit:cover;position:absolute;inset:0;z-index:1}
+body.brand-home .ag-short-player{position:absolute;inset:0;z-index:2;overflow:hidden;pointer-events:none}
+body.brand-home .ag-short-player .equal-video{position:absolute!important;inset:0!important;display:block!important;opacity:1!important;background:transparent!important;pointer-events:none!important;overflow:hidden!important}
+body.brand-home .ag-short-player .equal-video iframe{position:absolute!important;left:50%!important;top:50%!important;width:auto!important;min-width:100%!important;max-width:none!important;height:112%!important;min-height:100%!important;aspect-ratio:16/9!important;transform:translate(-50%,-50%)!important;border:none!important;pointer-events:none!important}
+body.brand-home .ag-short-shade{position:absolute;z-index:3;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(1,5,9,.26),transparent 24%,transparent 65%,rgba(1,5,9,.44))}
+body.brand-home .ag-short-tag{position:absolute;z-index:4;top:13px;left:13px;display:inline-flex;align-items:center;gap:6px;padding:8px 10px;border-radius:999px;background:rgba(7,13,20,.89);font-size:12px;font-weight:750;color:#fff}
+body.brand-home .ag-short-tag:before{content:"";width:7px;height:7px;flex:none;border-radius:50%;background:#ff4d71;box-shadow:0 0 12px rgba(255,77,113,.5)}
+body.brand-home .ag-short-play{position:absolute;z-index:4;right:13px;bottom:13px;padding:8px 10px;border-radius:9px;background:rgba(2,10,16,.83);font-size:13px;font-weight:800;color:white}
+body.brand-home .ag-short-copy{display:flex;flex-direction:column;gap:7px;padding:17px 17px 20px;min-height:126px;background:#152630}
+body.brand-home .ag-short-copy small{font-size:12px;color:#aef4cd;letter-spacing:.08em;font-weight:750}
+body.brand-home .ag-short-copy strong{font-size:21px;line-height:1.2;letter-spacing:-.025em;color:#fff!important}
+body.brand-home .ag-short-copy span{margin-top:auto;font-size:14px;color:#d9ebe2;font-weight:750}
+body.brand-home .ag-shorts-footer{font-size:12px;line-height:1.5;margin-top:16px;color:#bed0d0}
+@media(max-width:920px){body.brand-home .ag-shorts-list{grid-template-columns:repeat(2,minmax(0,1fr))}body.brand-home .ag-short-stage{aspect-ratio:5/4}}
+@media(max-width:700px){
+ body.brand-home .ag-shorts{padding:30px 0 34px}
+ body.brand-home .ag-shorts-wrap{padding:0 16px}
+ body.brand-home .ag-shorts-head{display:block;margin-bottom:17px}
+ body.brand-home .ag-shorts-head h2{font-size:34px!important;max-width:16ch}
+ body.brand-home .ag-shorts-head p{max-width:100%;margin-top:10px;font-size:15px}
+ body.brand-home .ag-shorts-list{display:flex!important;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-left:4px;padding:2px 0 12px;scrollbar-width:thin;-webkit-overflow-scrolling:touch}
+ body.brand-home .ag-short-card{flex:0 0 min(70vw,270px);scroll-snap-align:start}
+ body.brand-home .ag-short-stage{aspect-ratio:4/5}
+ body.brand-home .ag-short-copy{min-height:120px;padding:14px}
+ body.brand-home .ag-short-copy strong{font-size:19px}
+ body.brand-home .ag-short-copy span{font-size:13px}
+}
+/* Marketplace: image is a real visual stage, not a 125-pixel strip. Copy is separate and contrast-safe. */
+body.brand-home .equal-wall-v6 .equal-grid{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:16px!important}
+body.brand-home .equal-wall-v6 .equal-card{display:flex!important;flex-direction:column!important;height:auto!important;min-height:0!important;overflow:hidden!important;border-radius:19px!important;border:1px solid rgba(255,255,255,.24)!important;background:#131f2b!important}
+body.brand-home .equal-wall-v6 .equal-media{position:relative!important;inset:auto!important;height:240px!important;min-height:240px!important;width:100%!important;flex:none!important;overflow:hidden!important}
+body.brand-home .equal-wall-v6 .equal-photo,
+body.brand-home .equal-wall-v6 .equal-fallback{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;object-fit:cover!important;opacity:1!important}
+body.brand-home .equal-wall-v6 .equal-tint{background:linear-gradient(180deg,rgba(4,8,12,.12) 0%,transparent 60%,rgba(4,8,12,.23) 100%)!important}
+body.brand-home .equal-wall-v6 .equal-top{top:13px!important;left:13px!important;right:13px!important}
+body.brand-home .equal-wall-v6 .equal-copy{position:relative!important;inset:auto!important;bottom:auto!important;left:auto!important;right:auto!important;z-index:5!important;display:flex!important;flex-direction:column!important;flex:1!important;padding:18px!important;background:#12212a!important;border:none!important;border-radius:0!important;box-shadow:none!important;backdrop-filter:none!important;text-shadow:none!important}
+body.brand-home .equal-wall-v6 .equal-copy small{font-size:12px!important;line-height:1.4!important;letter-spacing:.05em!important;color:#97f0c5!important}
+body.brand-home .equal-wall-v6 .equal-copy strong{font-size:22px!important;line-height:1.17!important;min-height:0!important;color:#fff!important}
+body.brand-home .equal-wall-v6 .equal-copy span{font-size:15px!important;line-height:1.48!important;margin-top:9px!important;color:#e6eef0!important;overflow:visible!important;-webkit-line-clamp:unset!important;display:block!important;opacity:1!important}
+body.brand-home .equal-wall-v6 .equal-copy em{align-self:flex-start!important;margin-top:auto!important;padding:12px 14px!important;min-height:45px!important;font-size:14px!important;line-height:1.35!important;background:#bdf5d7!important;color:#0b2119!important}
+body.brand-home .equal-wall-v6 .equal-logo{min-height:40px!important;max-width:90%!important;padding:8px 12px!important}
+body.brand-home .equal-wall-v6 .equal-logo b{font-size:14px!important;line-height:1.25!important;white-space:normal!important}
+body.brand-home .equal-wall-v6 .equal-video-chip{display:inline-flex!important;font-size:12px!important;line-height:1.3!important}
+body.brand-home .equal-wall-v6 .equal-badge{font-size:12px!important;line-height:1.3!important;top:62px!important;right:13px!important}
+body.brand-home .equal-wall-v6 .equal-card:focus-visible{outline:3px solid #bdf5d7!important;outline-offset:3px!important}
+@media(max-width:700px){
+ body.brand-home .equal-wall-v6 .equal-grid{grid-template-columns:1fr!important;gap:14px!important}
+ body.brand-home .equal-wall-v6 .equal-media{height:255px!important;min-height:255px!important;position:relative!important}
+ body.brand-home .equal-wall-v6 .equal-copy{position:relative!important;inset:auto!important;padding:18px!important}
+ body.brand-home .equal-wall-v6 .equal-copy strong{font-size:23px!important}
+ body.brand-home .equal-wall-v6 .equal-copy span{font-size:16px!important}
+ body.brand-home .equal-wall-v6 .equal-copy em{font-size:14px!important;margin-top:15px!important}
+ body.brand-home .equal-wall-v6 .equal-top{left:13px!important;right:13px!important;top:13px!important}
+ body.brand-home .equal-wall-v6 .equal-logo{min-height:40px!important;max-width:92%!important}
+ body.brand-home .equal-wall-v6 .equal-logo b{font-size:14px!important}
+ body.brand-home .equal-wall-v6 .equal-badge{top:62px!important;font-size:12px!important;right:13px!important}
+ body.brand-home .equal-wall-v6 .equal-video-chip{display:inline-flex!important}
+}
+
+/* Preserve full-size photos through every mobile conversion pass. */
+@media(max-width:680px){
+ body.brand-home .ag-fast-buy-card{display:flex!important;flex-direction:column;grid-template-columns:none}
+ body.brand-home .ag-fast-buy-photo{height:210px;min-height:210px;width:100%}
+ body.brand-home .ag-fast-buy-brand{left:12px;top:12px;max-width:none;padding:8px 11px;font-size:13px}
+ body.brand-home .ag-fast-buy-body{padding:18px}
+}
+@media(prefers-reduced-motion:reduce){body.brand-home .ag-short-player{display:none}}
+</style>
 </head>
 <body class="vc-page brand-home">
 <header class="topbar mock-nav"><div class="shell nav"><a class="brand ag-brand approved-logo" href="/" aria-label="AuraGlobal"><svg class="ag-symbol" viewBox="0 0 100 92" aria-hidden="true"><defs><linearGradient id="auraA" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#eafff5"/><stop offset=".48" stop-color="#8ce8b9"/><stop offset="1" stop-color="#45c98e"/></linearGradient></defs><path fill="url(#auraA)" d="M8 88 48 4 92 88H75L48 31 24 81Z"/><path fill="url(#auraA)" d="M17 78C34 59 53 53 77 66L72 74C52 63 36 66 17 78Z"/></svg><span class="ag-wordmark"><span class="aura">AURA</span><span class="global">GLOBAL</span></span></a><nav class="navlinks"><a href="#shopcats">Kategorien</a><a href="#deals">Deals</a><a href="/produkte.html">Produktfinder</a><a href="/match.html">AuraMatch</a><a href="/merkliste.html">♡ Merkliste</a><a href="/marken.html">Alle Vergleiche</a></nav><div class="nav-icons"><a href="#search" aria-label="Suchen">⌕</a><a href="#deals" aria-label="Aktuelle Deals">％</a><a class="nav-cta" href="/produkte.html">Produktfinder →</a></div></div></header>
@@ -237,6 +318,44 @@ body.brand-home .ag-fast-buy-body>span strong{font-size:inherit;line-height:inhe
     </div>
   </div>
 </section>
+<section class="ag-shorts" aria-labelledby="ag-shorts-title">
+  <div class="ag-shorts-wrap">
+    <div class="ag-shorts-head"><div><span class="ag-shorts-eyebrow">AURA STORIES · ENTDECKEN & ERLEBEN</span><h2 id="ag-shorts-title">Erst erleben. <em>Dann entscheiden.</em></h2></div><p>Kurze Video-Einblicke, starke Marken und ein direkter Weg zur passenden Kaufhilfe.</p></div>
+    <div class="ag-shorts-list" aria-label="Video-Inspiration – auf dem Handy seitlich wischen"><a class="ag-short-card" data-home-video-source="/nespresso.html" href="/nespresso.html" aria-label="NESPRESSO: Kaffeemaschinen vergleichen">
+    <div class="ag-short-stage">
+      <img class="ag-short-poster" src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&amp;fit=crop&amp;w=1200&amp;q=90" alt="Frisch zubereiteter Kaffee" loading="lazy" decoding="async">
+      <div class="ag-short-player"><div class="equal-video" aria-hidden="true"><iframe src="https://www.youtube-nocookie.com/embed/pqFrYeVVQtI?autoplay=1&mute=1&controls=0&loop=1&playlist=pqFrYeVVQtI&modestbranding=1&playsinline=1&rel=0" title="NESPRESSO Video" loading="lazy" allow="autoplay; encrypted-media" tabindex="-1"></iframe></div></div><span class="ag-short-shade" aria-hidden="true"></span>
+      <span class="ag-short-tag">VIDEO · INSPIRATION</span><span class="ag-short-play" aria-hidden="true">▶ Stumm</span>
+    </div>
+    <div class="ag-short-copy"><small>NESPRESSO</small><strong>Dein Kaffeemoment.</strong><span>Kaffeemaschinen vergleichen ↗</span></div>
+  </a>
+<a class="ag-short-card" data-home-video-source="/petlibro.html" href="/petlibro.html" aria-label="PETLIBRO: Futterautomaten entdecken">
+    <div class="ag-short-stage">
+      <img class="ag-short-poster" src="https://de.petlibro.com/cdn/shop/files/preview_images/8c5bd0c66441434eab65f47f077cee95.thumbnail.0000000000_2400x.jpg?v=1726048145" alt="Smart-Pet-Produkt von PETLIBRO" loading="lazy" decoding="async">
+      <div class="ag-short-player"><div class="equal-video" aria-hidden="true"><iframe src="https://www.youtube-nocookie.com/embed/46bmq1MXRZ0?autoplay=1&mute=1&controls=0&loop=1&playlist=46bmq1MXRZ0&modestbranding=1&playsinline=1&rel=0" title="PETLIBRO Video" loading="lazy" allow="autoplay; encrypted-media" tabindex="-1"></iframe></div></div><span class="ag-short-shade" aria-hidden="true"></span>
+      <span class="ag-short-tag">VIDEO · INSPIRATION</span><span class="ag-short-play" aria-hidden="true">▶ Stumm</span>
+    </div>
+    <div class="ag-short-copy"><small>PETLIBRO</small><strong>Smartes Leben mit Haustier.</strong><span>Futterautomaten entdecken ↗</span></div>
+  </a>
+<a class="ag-short-card" data-home-video-source="/anthbot.html" href="/anthbot.html" aria-label="ANTHBOT: Mähroboter entdecken">
+    <div class="ag-short-stage">
+      <img class="ag-short-poster" src="https://de.anthbot.com/cdn/shop/files/Mask_group_131e8dab-62f5-4254-b348-b32c931a42f7.jpg?v=1778470296&amp;width=1200" alt="Rasenroboter-Produkt von ANTHBOT" loading="lazy" decoding="async">
+      <div class="ag-short-player"><div class="equal-video" aria-hidden="true"><iframe src="https://www.youtube-nocookie.com/embed/PQdq3glWPS8?autoplay=1&mute=1&controls=0&loop=1&playlist=PQdq3glWPS8&modestbranding=1&playsinline=1&rel=0" title="ANTHBOT Video" loading="lazy" allow="autoplay; encrypted-media" tabindex="-1"></iframe></div></div><span class="ag-short-shade" aria-hidden="true"></span>
+      <span class="ag-short-tag">VIDEO · INSPIRATION</span><span class="ag-short-play" aria-hidden="true">▶ Stumm</span>
+    </div>
+    <div class="ag-short-copy"><small>ANTHBOT</small><strong>Mehr Freizeit im Garten.</strong><span>Mähroboter entdecken ↗</span></div>
+  </a>
+<a class="ag-short-card" data-home-video-source="/allpowers.html" href="/allpowers.html" aria-label="ALLPOWERS: Powerstations entdecken">
+    <div class="ag-short-stage">
+      <img class="ag-short-poster" src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&amp;fit=crop&amp;w=1200&amp;q=90" alt="Solarpanels im Freien" loading="lazy" decoding="async">
+      <div class="ag-short-player"><div class="equal-video" aria-hidden="true"><iframe src="https://www.youtube-nocookie.com/embed/0FccK_tinzo?autoplay=1&mute=1&controls=0&loop=1&playlist=0FccK_tinzo&modestbranding=1&playsinline=1&rel=0" title="ALLPOWERS Video" loading="lazy" allow="autoplay; encrypted-media" tabindex="-1"></iframe></div></div><span class="ag-short-shade" aria-hidden="true"></span>
+      <span class="ag-short-tag">VIDEO · INSPIRATION</span><span class="ag-short-play" aria-hidden="true">▶ Stumm</span>
+    </div>
+    <div class="ag-short-copy"><small>ALLPOWERS</small><strong>Energie, wo du bist.</strong><span>Powerstations entdecken ↗</span></div>
+  </a></div>
+    <p class="ag-shorts-footer">Videos der jeweiligen Anbieter bzw. Videoplattform. Stummes Autoplay kann je nach Browser, Verbindung und Datenschutzeinstellung eingeschränkt sein.</p>
+  </div>
+</section>
 <section class="ag-fast-buy" id="direktangebote" aria-labelledby="ag-fast-buy-title">
 <div class="ag-fast-buy-inner">
  <div class="ag-fast-buy-heading"><div><span class="ag-fast-buy-kicker">FÜR DEINEN ALLTAG · DIREKT ZUM SHOP</span><h2 id="ag-fast-buy-title">Kleine Wünsche. <em>Große Freude.</em></h2><p>Jacken für kühle Tage, neue Lieblingssnacks oder dein nächstes Buch: Wähle deinen Einkauf und öffne direkt den passenden Shop.</p></div><a class="ag-fast-buy-all" href="/produkte.html">Weitere Produktwelten <span aria-hidden="true">↗</span></a></div>
@@ -269,44 +388,7 @@ body.brand-home .ag-fast-buy-body>span strong{font-size:inherit;line-height:inhe
  <a class="ag-match-go" href="/match.html">AuraMatch starten <span aria-hidden="true">↗</span></a>
  </div>
 </section>
-<section class="ag-shorts" aria-labelledby="ag-shorts-title">
-  <div class="ag-shorts-wrap">
-    <div class="ag-shorts-head"><div><span class="ag-shorts-eyebrow">AURA STORIES · ENTDECKEN & ERLEBEN</span><h2>Erst erleben. <em>Dann entscheiden.</em></h2></div><p>Kurze Video-Einblicke, starke Marken und ein direkter Weg zur passenden Kaufhilfe.</p></div>
-    <div class="ag-shorts-list" aria-label="Video-Inspiration – auf dem Handy seitlich wischen"><a class="ag-short-card" data-home-video-source="/nespresso.html" href="/nespresso.html" aria-label="NESPRESSO: Kaffeemaschinen vergleichen">
-    <div class="ag-short-stage">
-      <img class="ag-short-poster" src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&amp;fit=crop&amp;w=1200&amp;q=90" alt="Frisch zubereiteter Kaffee" loading="lazy" decoding="async">
-      <div class="ag-short-player" aria-hidden="true"></div><span class="ag-short-shade" aria-hidden="true"></span>
-      <span class="ag-short-tag">VIDEO · INSPIRATION</span><span class="ag-short-play" aria-hidden="true">▶ Stumm</span>
-    </div>
-    <div class="ag-short-copy"><small>NESPRESSO</small><strong>Dein Kaffeemoment.</strong><span>Kaffeemaschinen vergleichen ↗</span></div>
-  </a>
-<a class="ag-short-card" data-home-video-source="/petlibro.html" href="/petlibro.html" aria-label="PETLIBRO: Futterautomaten entdecken">
-    <div class="ag-short-stage">
-      <img class="ag-short-poster" src="https://de.petlibro.com/cdn/shop/files/preview_images/8c5bd0c66441434eab65f47f077cee95.thumbnail.0000000000_2400x.jpg?v=1726048145" alt="Smart-Pet-Produkt von PETLIBRO" loading="lazy" decoding="async">
-      <div class="ag-short-player" aria-hidden="true"></div><span class="ag-short-shade" aria-hidden="true"></span>
-      <span class="ag-short-tag">VIDEO · INSPIRATION</span><span class="ag-short-play" aria-hidden="true">▶ Stumm</span>
-    </div>
-    <div class="ag-short-copy"><small>PETLIBRO</small><strong>Smartes Leben mit Haustier.</strong><span>Futterautomaten entdecken ↗</span></div>
-  </a>
-<a class="ag-short-card" data-home-video-source="/anthbot.html" href="/anthbot.html" aria-label="ANTHBOT: Mähroboter entdecken">
-    <div class="ag-short-stage">
-      <img class="ag-short-poster" src="https://de.anthbot.com/cdn/shop/files/Mask_group_131e8dab-62f5-4254-b348-b32c931a42f7.jpg?v=1778470296&amp;width=1200" alt="Rasenroboter-Produkt von ANTHBOT" loading="lazy" decoding="async">
-      <div class="ag-short-player" aria-hidden="true"></div><span class="ag-short-shade" aria-hidden="true"></span>
-      <span class="ag-short-tag">VIDEO · INSPIRATION</span><span class="ag-short-play" aria-hidden="true">▶ Stumm</span>
-    </div>
-    <div class="ag-short-copy"><small>ANTHBOT</small><strong>Mehr Freizeit im Garten.</strong><span>Mähroboter entdecken ↗</span></div>
-  </a>
-<a class="ag-short-card" data-home-video-source="/allpowers.html" href="/allpowers.html" aria-label="ALLPOWERS: Powerstations entdecken">
-    <div class="ag-short-stage">
-      <img class="ag-short-poster" src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&amp;fit=crop&amp;w=1200&amp;q=90" alt="Solarpanels im Freien" loading="lazy" decoding="async">
-      <div class="ag-short-player" aria-hidden="true"></div><span class="ag-short-shade" aria-hidden="true"></span>
-      <span class="ag-short-tag">VIDEO · INSPIRATION</span><span class="ag-short-play" aria-hidden="true">▶ Stumm</span>
-    </div>
-    <div class="ag-short-copy"><small>ALLPOWERS</small><strong>Energie, wo du bist.</strong><span>Powerstations entdecken ↗</span></div>
-  </a></div>
-    <p class="ag-shorts-footer">Videos der jeweiligen Anbieter bzw. Videoplattform. Stummes Autoplay kann je nach Browser, Verbindung und Datenschutzeinstellung eingeschränkt sein.</p>
-  </div>
-</section>
+
 
 <section class="ag-home-curation" aria-label="AuraGlobal kuratierte E-Bike-Angebote">
  <div class="ag-home-shell">
@@ -423,7 +505,7 @@ body.brand-home .ag-fast-buy-body>span strong{font-size:inherit;line-height:inhe
     <span class="equal-badge">15 % NEUKUNDEN*</span>
     <div class="equal-copy"><small>SECONDHAND FASHION</small><strong>Second Hand ab 5,99 €</strong><span>Mit HEY15 sparen Neukund:innen 15 % ab 40 € Mindestbestellwert.</span><em>Entdecken →</em></div>
   </a><a class="equal-card equal-gold" data-tags="food coffee" data-deal="1" href="/nespresso.html" aria-label="NESPRESSO entdecken">
-    <div class="equal-media"><img class="equal-fallback" src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1200&q=90" alt="NESPRESSO – KAFFEE & GENUSS" loading="lazy" decoding="async"><div class="equal-video" aria-hidden="true"><iframe src="https://www.youtube-nocookie.com/embed/pqFrYeVVQtI?autoplay=1&mute=1&controls=0&loop=1&playlist=pqFrYeVVQtI&modestbranding=1&playsinline=1&rel=0" title="NESPRESSO Video" loading="lazy" allow="autoplay; encrypted-media" tabindex="-1"></iframe></div><div class="equal-tint"></div></div>
+    <div class="equal-media"><img class="equal-fallback" src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1200&q=90" alt="NESPRESSO – KAFFEE & GENUSS" loading="lazy" decoding="async"><div class="equal-tint"></div></div>
     <div class="equal-top">
       <span class="equal-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain_url=https://nespresso.com" alt="" aria-hidden="true" loading="lazy" decoding="async"><b>NESPRESSO</b></span>
       <span class="equal-video-chip">▶ VIDEO</span>
@@ -439,7 +521,7 @@ body.brand-home .ag-fast-buy-body>span strong{font-size:inherit;line-height:inhe
     <span class="equal-badge">APPLE DEAL*</span>
     <div class="equal-copy"><small>APPLE · TECH · OUTLET</small><strong>Apple Watch Ultra 2 stark reduziert</strong><span>Aktuell 499 € statt 899 € · dazu iPhone, Zubehör, Notebooks und Outlet.</span><em>Entdecken →</em></div>
   </a><a class="equal-card equal-green" data-tags="pet home" data-deal="1" href="/petlibro.html" aria-label="PETLIBRO entdecken">
-    <div class="equal-media"><img class="equal-fallback" src="https://de.petlibro.com/cdn/shop/files/preview_images/8c5bd0c66441434eab65f47f077cee95.thumbnail.0000000000_2400x.jpg?v=1726048145" alt="PETLIBRO – SMART PET" loading="lazy" decoding="async"><div class="equal-video" aria-hidden="true"><iframe src="https://www.youtube-nocookie.com/embed/46bmq1MXRZ0?autoplay=1&mute=1&controls=0&loop=1&playlist=46bmq1MXRZ0&modestbranding=1&playsinline=1&rel=0" title="PETLIBRO Video" loading="lazy" allow="autoplay; encrypted-media" tabindex="-1"></iframe></div><div class="equal-tint"></div></div>
+    <div class="equal-media"><img class="equal-fallback" src="https://de.petlibro.com/cdn/shop/files/preview_images/8c5bd0c66441434eab65f47f077cee95.thumbnail.0000000000_2400x.jpg?v=1726048145" alt="PETLIBRO – SMART PET" loading="lazy" decoding="async"><div class="equal-tint"></div></div>
     <div class="equal-top">
       <span class="equal-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain_url=https://de.petlibro.com" alt="" aria-hidden="true" loading="lazy" decoding="async"><b>PETLIBRO</b></span>
       <span class="equal-video-chip">▶ VIDEO</span>
@@ -462,7 +544,7 @@ body.brand-home .ag-fast-buy-body>span strong{font-size:inherit;line-height:inhe
     <span class="equal-badge">20 %*</span>
     <div class="equal-copy"><small>ESPRESSO TO-GO</small><strong>Mino 151,99 € statt 189,99 €</strong><span>Nano 119,99 € statt 149,99 € · 20 % auf Maschinen und ausgewählte Sets.</span><em>Entdecken →</em></div>
   </a><a class="equal-card equal-green" data-tags="home garden tech" data-deal="1" href="/anthbot.html" aria-label="ANTHBOT entdecken">
-    <div class="equal-media"><img class="equal-fallback" src="https://de.anthbot.com/cdn/shop/files/Mask_group_131e8dab-62f5-4254-b348-b32c931a42f7.jpg?v=1778470296&width=1200" alt="ANTHBOT – MÄHROBOTER" loading="lazy" decoding="async"><div class="equal-video" aria-hidden="true"><iframe src="https://www.youtube-nocookie.com/embed/PQdq3glWPS8?autoplay=1&mute=1&controls=0&loop=1&playlist=PQdq3glWPS8&modestbranding=1&playsinline=1&rel=0" title="ANTHBOT Video" loading="lazy" allow="autoplay; encrypted-media" tabindex="-1"></iframe></div><div class="equal-tint"></div></div>
+    <div class="equal-media"><img class="equal-fallback" src="https://de.anthbot.com/cdn/shop/files/Mask_group_131e8dab-62f5-4254-b348-b32c931a42f7.jpg?v=1778470296&width=1200" alt="ANTHBOT – MÄHROBOTER" loading="lazy" decoding="async"><div class="equal-tint"></div></div>
     <div class="equal-top">
       <span class="equal-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain_url=https://de.anthbot.com" alt="" aria-hidden="true" loading="lazy" decoding="async"><b>ANTHBOT</b></span>
       <span class="equal-video-chip">▶ VIDEO</span>
@@ -470,7 +552,7 @@ body.brand-home .ag-fast-buy-body>span strong{font-size:inherit;line-height:inhe
     <span class="equal-badge">HERBSTSALE*</span>
     <div class="equal-copy"><small>MÄHROBOTER</small><strong>M5 599 € statt 749 €</strong><span>M9 ab 649 € statt 849 € · smarter Rasen ohne Begrenzungskabel.</span><em>Entdecken →</em></div>
   </a><a class="equal-card equal-orange" data-tags="home outdoor tech" data-deal="1" href="/allpowers.html" aria-label="ALLPOWERS entdecken">
-    <div class="equal-media"><img class="equal-fallback" src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1200&q=90" alt="ALLPOWERS – POWERSTATIONS" loading="lazy" decoding="async"><div class="equal-video" aria-hidden="true"><iframe src="https://www.youtube-nocookie.com/embed/0FccK_tinzo?autoplay=1&mute=1&controls=0&loop=1&playlist=0FccK_tinzo&modestbranding=1&playsinline=1&rel=0" title="ALLPOWERS Video" loading="lazy" allow="autoplay; encrypted-media" tabindex="-1"></iframe></div><div class="equal-tint"></div></div>
+    <div class="equal-media"><img class="equal-fallback" src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1200&q=90" alt="ALLPOWERS – POWERSTATIONS" loading="lazy" decoding="async"><div class="equal-tint"></div></div>
     <div class="equal-top">
       <span class="equal-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain_url=https://iallpowers.de" alt="" aria-hidden="true" loading="lazy" decoding="async"><b>ALLPOWERS</b></span>
       <span class="equal-video-chip">▶ VIDEO</span>
