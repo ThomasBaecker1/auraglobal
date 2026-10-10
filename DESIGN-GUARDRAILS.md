@@ -64,3 +64,6 @@ Every merchant page must answer:
 
 ## Emotional presentation — Thomas, 10.10.2026
 Emotion is the highest-priority presentation principle: vivid everyday moments, strong relevant imagery and video, inviting copy and clear purchase paths. Keep facts accurate and terms readable. Do not display "Stumm" badges or autoplay implementation explanations on customer-facing video cards.
+
+## Audible stories — clarification from Thomas, 10.10.2026
+Removing the Stumm label alone is insufficient: videos must offer audible playback to stimulate both eyes and ears. Preserve prominent sound activation and usable player controls. Browser restrictions may require a user gesture for sound; do not promise automatic audible playback on first visit. Only one clip plays with sound at a time.
