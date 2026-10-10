@@ -282,7 +282,17 @@ body.brand-home .equal-wall-v6 .equal-card:focus-visible{outline:3px solid #bdf5
 }
 @media(prefers-reduced-motion:reduce){body.brand-home .ag-short-player{display:none}}
 </style>
-</head>
+<style>
+body.brand-home .ag-short-player,body.brand-home .ag-short-player .equal-video,body.brand-home .ag-short-player .equal-video iframe{pointer-events:auto!important}
+body.brand-home .ag-short-stage{aspect-ratio:16/9!important;min-height:200px}
+body.brand-home .ag-short-player .equal-video iframe{inset:0!important;left:0!important;top:0!important;width:100%!important;height:100%!important;min-height:200px!important;transform:none!important;aspect-ratio:auto!important}
+body.brand-home .ag-short-tag{pointer-events:none}
+body.brand-home .ag-sound-toggle{min-height:46px;padding:12px;border:0;border-radius:10px;background:#bcf5d6;color:#102a20;font:inherit;font-weight:800;cursor:pointer}
+body.brand-home .ag-sound-toggle[aria-pressed="true"]{background:#fff0c4;color:#31220b}
+body.brand-home .ag-sound-toggle:focus-visible,body.brand-home .ag-short-shop:focus-visible{outline:3px solid #fff0c4;outline-offset:3px}
+body.brand-home .ag-short-shop{padding:8px 0;color:#d9ebe2;font-size:14px;font-weight:750;text-decoration:none}
+@media(prefers-reduced-motion:reduce){body.brand-home .ag-short-card.ag-sound-active .ag-short-player{display:block}}
+</style></head>
 <body class="vc-page brand-home">
 <header class="topbar mock-nav"><div class="shell nav"><a class="brand ag-brand approved-logo" href="/" aria-label="AuraGlobal"><svg class="ag-symbol" viewBox="0 0 100 92" aria-hidden="true"><defs><linearGradient id="auraA" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#eafff5"/><stop offset=".48" stop-color="#8ce8b9"/><stop offset="1" stop-color="#45c98e"/></linearGradient></defs><path fill="url(#auraA)" d="M8 88 48 4 92 88H75L48 31 24 81Z"/><path fill="url(#auraA)" d="M17 78C34 59 53 53 77 66L72 74C52 63 36 66 17 78Z"/></svg><span class="ag-wordmark"><span class="aura">AURA</span><span class="global">GLOBAL</span></span></a><nav class="navlinks"><a href="#shopcats">Kategorien</a><a href="#deals">Deals</a><a href="/produkte.html">Produktfinder</a><a href="/match.html">AuraMatch</a><a href="/merkliste.html">♡ Merkliste</a><a href="/marken.html">Alle Vergleiche</a></nav><div class="nav-icons"><a href="#search" aria-label="Suchen">⌕</a><a href="#deals" aria-label="Aktuelle Deals">％</a><a class="nav-cta" href="/produkte.html">Produktfinder →</a></div></div></header>
 <main>
@@ -321,38 +331,34 @@ body.brand-home .equal-wall-v6 .equal-card:focus-visible{outline:3px solid #bdf5
 <section class="ag-shorts" aria-labelledby="ag-shorts-title">
   <div class="ag-shorts-wrap">
     <div class="ag-shorts-head"><div><span class="ag-shorts-eyebrow">AURA STORIES · ENTDECKEN & ERLEBEN</span><h2 id="ag-shorts-title">Dein Moment. <em>Dein nächstes Lieblingsstück.</em></h2></div><p>Der erste Kaffee am Morgen. Ein entspannter Tag mit deinem Tier. Mehr Zeit draußen. Entdecke, was deinen Alltag schöner macht.</p></div>
-    <div class="ag-shorts-list" aria-label="Video-Inspiration – auf dem Handy seitlich wischen"><a class="ag-short-card" data-home-video-source="/nespresso.html" href="/nespresso.html" aria-label="NESPRESSO: Kaffeemaschinen vergleichen">
+    <div class="ag-shorts-list" aria-label="Video-Inspiration – auf dem Handy seitlich wischen"><article class="ag-short-card" data-home-video-source="/nespresso.html"  aria-label="NESPRESSO: Kaffeemaschinen vergleichen">
     <div class="ag-short-stage">
       <img class="ag-short-poster" src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&amp;fit=crop&amp;w=1200&amp;q=90" alt="Frisch zubereiteter Kaffee" loading="lazy" decoding="async">
-      <div class="ag-short-player"><div class="equal-video" aria-hidden="true"><iframe src="https://www.youtube-nocookie.com/embed/pqFrYeVVQtI?autoplay=1&mute=1&controls=0&loop=1&playlist=pqFrYeVVQtI&modestbranding=1&playsinline=1&rel=0" title="NESPRESSO Video" loading="lazy" allow="autoplay; encrypted-media" tabindex="-1"></iframe></div></div><span class="ag-short-shade" aria-hidden="true"></span>
+      <div class="ag-short-player"><div class="equal-video"><iframe id="ag-sound-player-1" src="https://www.youtube-nocookie.com/embed/pqFrYeVVQtI?autoplay=1&amp;mute=1&amp;controls=1&amp;loop=1&amp;playlist=pqFrYeVVQtI&amp;modestbranding=1&amp;playsinline=1&amp;rel=0&amp;enablejsapi=1&amp;origin=https%3A%2F%2Fauraglobal.vercel.app" title="NESPRESSO Video" loading="lazy" allow="autoplay; encrypted-media" tabindex="0"></iframe></div></div><span class="ag-short-shade" aria-hidden="true"></span>
       <span class="ag-short-tag">VIDEO · INSPIRATION</span>
     </div>
-    <div class="ag-short-copy"><small>NESPRESSO</small><strong>Dein Kaffeemoment.</strong><span>Kaffeemaschinen vergleichen ↗</span></div>
-  </a>
-<a class="ag-short-card" data-home-video-source="/petlibro.html" href="/petlibro.html" aria-label="PETLIBRO: Futterautomaten entdecken">
+    <div class="ag-short-copy"><small>NESPRESSO</small><strong>Dein Kaffeemoment.</strong><button class="ag-sound-toggle" type="button" aria-pressed="false">▶ Mit Ton erleben</button><a class="ag-short-shop" href="/nespresso.html">Kaffeemaschinen vergleichen ↗</a></div></article>
+<article class="ag-short-card" data-home-video-source="/petlibro.html"  aria-label="PETLIBRO: Futterautomaten entdecken">
     <div class="ag-short-stage">
       <img class="ag-short-poster" src="https://de.petlibro.com/cdn/shop/files/preview_images/8c5bd0c66441434eab65f47f077cee95.thumbnail.0000000000_2400x.jpg?v=1726048145" alt="Smart-Pet-Produkt von PETLIBRO" loading="lazy" decoding="async">
-      <div class="ag-short-player"><div class="equal-video" aria-hidden="true"><iframe src="https://www.youtube-nocookie.com/embed/46bmq1MXRZ0?autoplay=1&mute=1&controls=0&loop=1&playlist=46bmq1MXRZ0&modestbranding=1&playsinline=1&rel=0" title="PETLIBRO Video" loading="lazy" allow="autoplay; encrypted-media" tabindex="-1"></iframe></div></div><span class="ag-short-shade" aria-hidden="true"></span>
+      <div class="ag-short-player"><div class="equal-video"><iframe id="ag-sound-player-2" src="https://www.youtube-nocookie.com/embed/46bmq1MXRZ0?autoplay=1&amp;mute=1&amp;controls=1&amp;loop=1&amp;playlist=46bmq1MXRZ0&amp;modestbranding=1&amp;playsinline=1&amp;rel=0&amp;enablejsapi=1&amp;origin=https%3A%2F%2Fauraglobal.vercel.app" title="PETLIBRO Video" loading="lazy" allow="autoplay; encrypted-media" tabindex="0"></iframe></div></div><span class="ag-short-shade" aria-hidden="true"></span>
       <span class="ag-short-tag">VIDEO · INSPIRATION</span>
     </div>
-    <div class="ag-short-copy"><small>PETLIBRO</small><strong>Smartes Leben mit Haustier.</strong><span>Futterautomaten entdecken ↗</span></div>
-  </a>
-<a class="ag-short-card" data-home-video-source="/anthbot.html" href="/anthbot.html" aria-label="ANTHBOT: Mähroboter entdecken">
+    <div class="ag-short-copy"><small>PETLIBRO</small><strong>Smartes Leben mit Haustier.</strong><button class="ag-sound-toggle" type="button" aria-pressed="false">▶ Mit Ton erleben</button><a class="ag-short-shop" href="/petlibro.html">Futterautomaten entdecken ↗</a></div></article>
+<article class="ag-short-card" data-home-video-source="/anthbot.html"  aria-label="ANTHBOT: Mähroboter entdecken">
     <div class="ag-short-stage">
       <img class="ag-short-poster" src="https://de.anthbot.com/cdn/shop/files/Mask_group_131e8dab-62f5-4254-b348-b32c931a42f7.jpg?v=1778470296&amp;width=1200" alt="Rasenroboter-Produkt von ANTHBOT" loading="lazy" decoding="async">
-      <div class="ag-short-player"><div class="equal-video" aria-hidden="true"><iframe src="https://www.youtube-nocookie.com/embed/PQdq3glWPS8?autoplay=1&mute=1&controls=0&loop=1&playlist=PQdq3glWPS8&modestbranding=1&playsinline=1&rel=0" title="ANTHBOT Video" loading="lazy" allow="autoplay; encrypted-media" tabindex="-1"></iframe></div></div><span class="ag-short-shade" aria-hidden="true"></span>
+      <div class="ag-short-player"><div class="equal-video"><iframe id="ag-sound-player-3" src="https://www.youtube-nocookie.com/embed/PQdq3glWPS8?autoplay=1&amp;mute=1&amp;controls=1&amp;loop=1&amp;playlist=PQdq3glWPS8&amp;modestbranding=1&amp;playsinline=1&amp;rel=0&amp;enablejsapi=1&amp;origin=https%3A%2F%2Fauraglobal.vercel.app" title="ANTHBOT Video" loading="lazy" allow="autoplay; encrypted-media" tabindex="0"></iframe></div></div><span class="ag-short-shade" aria-hidden="true"></span>
       <span class="ag-short-tag">VIDEO · INSPIRATION</span>
     </div>
-    <div class="ag-short-copy"><small>ANTHBOT</small><strong>Mehr Freizeit im Garten.</strong><span>Mähroboter entdecken ↗</span></div>
-  </a>
-<a class="ag-short-card" data-home-video-source="/allpowers.html" href="/allpowers.html" aria-label="ALLPOWERS: Powerstations entdecken">
+    <div class="ag-short-copy"><small>ANTHBOT</small><strong>Mehr Freizeit im Garten.</strong><button class="ag-sound-toggle" type="button" aria-pressed="false">▶ Mit Ton erleben</button><a class="ag-short-shop" href="/anthbot.html">Mähroboter entdecken ↗</a></div></article>
+<article class="ag-short-card" data-home-video-source="/allpowers.html"  aria-label="ALLPOWERS: Powerstations entdecken">
     <div class="ag-short-stage">
       <img class="ag-short-poster" src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&amp;fit=crop&amp;w=1200&amp;q=90" alt="Solarpanels im Freien" loading="lazy" decoding="async">
-      <div class="ag-short-player"><div class="equal-video" aria-hidden="true"><iframe src="https://www.youtube-nocookie.com/embed/0FccK_tinzo?autoplay=1&mute=1&controls=0&loop=1&playlist=0FccK_tinzo&modestbranding=1&playsinline=1&rel=0" title="ALLPOWERS Video" loading="lazy" allow="autoplay; encrypted-media" tabindex="-1"></iframe></div></div><span class="ag-short-shade" aria-hidden="true"></span>
+      <div class="ag-short-player"><div class="equal-video"><iframe id="ag-sound-player-4" src="https://www.youtube-nocookie.com/embed/0FccK_tinzo?autoplay=1&amp;mute=1&amp;controls=1&amp;loop=1&amp;playlist=0FccK_tinzo&amp;modestbranding=1&amp;playsinline=1&amp;rel=0&amp;enablejsapi=1&amp;origin=https%3A%2F%2Fauraglobal.vercel.app" title="ALLPOWERS Video" loading="lazy" allow="autoplay; encrypted-media" tabindex="0"></iframe></div></div><span class="ag-short-shade" aria-hidden="true"></span>
       <span class="ag-short-tag">VIDEO · INSPIRATION</span>
     </div>
-    <div class="ag-short-copy"><small>ALLPOWERS</small><strong>Energie, wo du bist.</strong><span>Powerstations entdecken ↗</span></div>
-  </a></div>
+    <div class="ag-short-copy"><small>ALLPOWERS</small><strong>Energie, wo du bist.</strong><button class="ag-sound-toggle" type="button" aria-pressed="false">▶ Mit Ton erleben</button><a class="ag-short-shop" href="/allpowers.html">Powerstations entdecken ↗</a></div></article></div>
     <p class="ag-shorts-footer">Videoquellen: jeweilige Anbieter und Videoplattform.</p>
   </div>
 </section>
@@ -973,5 +979,30 @@ body.brand-home .equal-wall-v6 .equal-card:focus-visible{outline:3px solid #bdf5
 
 <script src="/aura-v2.js"></script>
 <script src="/assets/home-overview.js" defer></script>
-</body>
+<script id="ag-story-sound">
+(()=>{
+ const cards=[...document.querySelectorAll('.ag-short-card')];
+ const entries=cards.map(card=>({card,frame:card.querySelector('iframe'),button:card.querySelector('.ag-sound-toggle'),player:null,ready:false,pending:false}));
+ let active=null;
+ function reset(e){e.pending=false;e.button.setAttribute('aria-pressed','false');e.button.textContent='▶ Mit Ton erleben';e.card.classList.remove('ag-sound-active');}
+ function quietOthers(chosen){entries.forEach(e=>{if(e===chosen)return;if(e.player&&e.ready){e.player.mute();e.player.pauseVideo();}reset(e);});}
+ function play(e){quietOthers(e);active=e;e.pending=true;e.card.classList.add('ag-sound-active');if(e.player&&e.ready){e.player.unMute();e.player.setVolume(75);e.player.playVideo();}else{e.button.textContent='▶ Im Video starten';}}
+ entries.forEach(e=>e.button.addEventListener('click',()=>{
+  if(e===active&&e.player&&e.ready&&!e.player.isMuted()){e.player.mute();reset(e);active=null;return;}play(e);
+ }));
+ const previous=window.onYouTubeIframeAPIReady;
+ window.onYouTubeIframeAPIReady=()=>{
+  if(typeof previous==='function')previous();
+  entries.forEach(e=>{e.player=new YT.Player(e.frame.id,{events:{
+   onReady:()=>{e.ready=true;if(e.pending&&active===e)play(e);},
+   onStateChange:ev=>{if(ev.data===YT.PlayerState.PLAYING&&!e.player.isMuted()){quietOthers(e);active=e;e.card.classList.add('ag-sound-active');e.button.setAttribute('aria-pressed','true');e.button.textContent='♫ Ton ausschalten';}},
+   onAutoplayBlocked:()=>{if(active===e)e.button.textContent='▶ Im Video starten';},
+   onError:()=>{e.button.textContent='Video erneut öffnen';e.pending=false;}
+  }});});
+ };
+ if(window.YT&&window.YT.Player)window.onYouTubeIframeAPIReady();
+ else{const tag=document.createElement('script');tag.src='https://www.youtube.com/iframe_api';tag.async=true;document.head.appendChild(tag);}
+ document.addEventListener('visibilitychange',()=>{if(document.hidden){entries.forEach(e=>{if(e.player&&e.ready){e.player.mute();e.player.pauseVideo();}reset(e);});active=null;}});
+})();
+</script></body>
 </html>
