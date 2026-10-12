@@ -20,6 +20,12 @@ for(const link of urls){
  const full=path.join(ROOT,filename);
  if(!fs.existsSync(full)){errors.push('Sitemap target missing: '+filename);continue;}
  const html=fs.readFileSync(full,'utf8');
+ // Sitemap pages must never carry a robots noindex directive.
+ // Check only HTML <head> so visible body text mentioning "noindex" is not a false positive.
+ const head=html.split(/<\\/head\\s*>/i)[0];
+ const robotsMeta=[...head.matchAll(/<meta\\b[^>]*>/gi)].map(m=>m[0]).filter(tag=>/\\bname\\s*=\\s*["']robots["']/i.test(tag));
+ if(robotsMeta.some(tag=>/\\bnoindex\\b/i.test(tag))) errors.push('Noindex robots meta on sitemap page: '+filename);
+ if(robotsMeta.length>1) warnings.push('Multiple robots meta tags: '+filename);
  const title=html.match(/<title[^>]*>([\s\S]*?)<\/title>/i)?.[1]?.trim() || '';
  const desc=html.match(/<meta\s+name=["']description["']\s+content=["']([^"']*)/i)?.[1] || '';
  const canon=html.match(/<link\s+rel=["']canonical["']\s+href=["']([^"']+)/i)?.[1]||'';
