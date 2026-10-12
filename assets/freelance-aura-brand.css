@@ -160,3 +160,217 @@ body.studio-page footer a:hover{color:#baffda}
   body.studio-page .section{padding:57px 0}
   body.studio-page .service,body.studio-page .sample{padding:23px}
 }
+
+
+/* v3 — exact homepage shell, real homepage navigation and imagery.
+   This overrides old standalone Studio header styles and brings the rest of
+   the pages into the AuraGlobal homepage layout vocabulary. */
+body.studio-page{--ag-local-one:#5ef0b2;background:#070a10!important;color:#f7f9fc!important;padding-bottom:0!important}
+body.studio-page :is(h1,h2,h3,p){overflow-wrap:break-word}
+body.studio-page .wrap,body.studio-page .shell{max-width:1240px!important;width:auto;margin:0 auto!important;padding-left:22px!important;padding-right:22px!important}
+body.studio-page .topbar.mock-nav{
+  position:sticky!important;top:0!important;left:auto!important;right:auto!important;
+  z-index:120!important;min-height:0!important;
+  border:0!important;border-bottom:1px solid rgba(255,255,255,.13)!important;
+  background:rgba(7,10,16,.97)!important;
+  backdrop-filter:blur(18px)!important;-webkit-backdrop-filter:blur(18px)!important;
+}
+body.studio-page .topbar.mock-nav .nav{
+  height:68px!important;min-height:68px!important;
+  display:flex!important;align-items:center!important;gap:20px!important;
+  margin:0 auto!important;padding:0 22px!important;max-width:1280px!important;
+}
+body.studio-page .topbar.mock-nav .brand.ag-brand.approved-logo{
+  flex:none!important;display:inline-flex!important;align-items:center!important;
+  gap:11px!important;margin:0!important;letter-spacing:normal!important;
+  text-decoration:none!important;
+}
+body.studio-page .topbar.mock-nav .approved-logo .ag-symbol{
+  display:block!important;width:31px!important;height:29px!important;flex:none!important;
+}
+body.studio-page .topbar.mock-nav .approved-logo .ag-wordmark{
+  display:inline-flex!important;align-items:center!important;
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif!important;
+  font-size:14px!important;font-weight:300!important;
+  letter-spacing:.42em!important;line-height:1!important;white-space:nowrap!important;
+}
+body.studio-page .topbar.mock-nav .approved-logo .aura{font-size:inherit!important;color:#a9ebca!important}
+body.studio-page .topbar.mock-nav .approved-logo .global{
+  margin-left:.42em!important;font-size:inherit!important;color:#f1f5f3!important;
+}
+body.studio-page .topbar.mock-nav .navlinks{
+  display:flex!important;flex-wrap:nowrap!important;align-items:center!important;
+  gap:clamp(9px,1.55vw,25px)!important;margin:0 0 0 auto!important;
+}
+body.studio-page .topbar.mock-nav .navlinks a{
+  color:#d7e2e9!important;opacity:1!important;font-size:clamp(11px,.95vw,13px)!important;
+  font-weight:700!important;white-space:nowrap!important;letter-spacing:0!important;
+}
+body.studio-page .topbar.mock-nav .nav-icons{
+  display:flex!important;align-items:center!important;gap:11px!important;flex:none!important;
+}
+body.studio-page .topbar.mock-nav .nav-icons>a:not(.nav-cta){
+  color:#e6f2ec!important;font-size:23px!important;text-decoration:none!important;
+}
+body.studio-page .topbar.mock-nav .nav-cta{
+  display:inline-flex!important;align-items:center!important;
+  padding:11px 15px!important;min-height:40px!important;border:1px solid transparent!important;
+  background:linear-gradient(110deg,#c5f5d5,#a9e9d3)!important;
+  color:#153a29!important;font-size:12px!important;font-weight:870!important;
+  border-radius:13px!important;text-decoration:none!important;white-space:nowrap!important;
+  box-shadow:0 8px 24px rgba(5,32,19,.1)!important;
+}
+body.studio-page main{display:block!important;overflow:hidden}
+body.studio-page .hero{
+  display:grid!important;grid-template-columns:minmax(0,1.05fr) minmax(310px,.95fr)!important;
+  gap:clamp(30px,4.2vw,67px)!important;
+  align-items:center!important;
+  min-height:0!important;
+  margin:0 auto!important;
+  padding:clamp(46px,6vw,82px) 22px clamp(48px,5.7vw,80px)!important;
+  background:transparent!important;
+}
+body.studio-page .hero:after{display:none!important}
+body.studio-page .hero>div{min-width:0}
+body.studio-page .hero h1{
+  margin:18px 0 20px!important;max-width:14ch!important;
+  font-size:clamp(45px,5.45vw,76px)!important;letter-spacing:-.06em!important;
+  line-height:.99!important;text-wrap:balance!important;color:#fff!important;
+}
+body.studio-page .hero h1 em{color:#a9f7cd!important;-webkit-text-fill-color:#a9f7cd!important}
+body.studio-page .hero .eyebrow{color:#a3f7c9!important;margin:0}
+body.studio-page .studio-lang{
+  display:inline-block;color:#c9e6e0!important;text-decoration:underline!important;
+  text-underline-offset:4px;font-weight:800;font-size:12px;margin:9px 0 0 12px;
+}
+body.studio-page .hero p.intro{
+  color:#cdd9e2!important;font-size:clamp(16px,1.5vw,18px)!important;
+  line-height:1.68!important;max-width:600px!important;
+}
+body.studio-page .hero .hero-actions{gap:12px!important;margin-top:25px!important}
+body.studio-page .hero .btn-primary,body.studio-page .big-cta .btn-primary{
+  color:#112b1d!important;background:#b6ffcf!important;
+  box-shadow:0 12px 29px rgba(74,216,158,.2)!important;
+}
+body.studio-page .hero .btn-secondary,body.studio-page .big-cta .btn-secondary{
+  color:#edf8f1!important;background:rgba(255,255,255,.06)!important;
+  border:1px solid rgba(255,255,255,.24)!important;
+}
+body.studio-page .hero .visual{
+  padding:11px!important;border-radius:23px!important;
+  background:linear-gradient(145deg,#19312f,#101826,#0d151e)!important;
+}
+body.studio-page .hero .browser{border-radius:17px!important}
+body.studio-page .hero .browser-body{min-height:310px}
+body.studio-page .hero .tiles span{
+  min-height:104px!important;border-radius:11px!important;font-size:13px!important;
+  text-shadow:0 2px 9px #000!important;
+}
+body.studio-page .strip{background:#0d141e!important;padding:21px 0!important}
+body.studio-page .strip-inner{color:#d2dde5!important}
+body.studio-page .section{background:#070a10!important;padding:clamp(55px,6.4vw,83px) 22px!important}
+body.studio-page .section h2{color:#fff!important}
+body.studio-page .section-label{color:#a0edbe!important;letter-spacing:.14em!important}
+body.studio-page .section-lead{color:#cfdae4!important}
+body.studio-page .services{gap:18px!important}
+body.studio-page .service{
+  padding:clamp(22px,2.3vw,31px)!important;border-radius:22px!important;
+  border:1px solid rgba(255,255,255,.18)!important;
+  background:linear-gradient(145deg,#152332,#0a1019)!important;
+}
+body.studio-page .service:nth-child(1){border-top:4px solid #b2f0ca!important}
+body.studio-page .service:nth-child(2){border-top:4px solid #aecfff!important}
+body.studio-page .service:nth-child(3){border-top:4px solid #f4bddd!important}
+body.studio-page .service:nth-child(4){border-top:4px solid #f8cca0!important}
+body.studio-page .service h3{font-size:clamp(21px,2.3vw,26px)!important}
+body.studio-page .service .num{color:#b3ffd9!important}
+body.studio-page .service .price{color:#ffe1b8!important}
+body.studio-page .service p,body.studio-page .service li{color:#d3dce4!important;font-size:14px!important;line-height:1.66!important}
+body.studio-page .sample-grid{gap:16px!important}
+body.studio-page .sample{
+  position:relative!important;isolation:isolate!important;overflow:hidden!important;
+  min-height:355px!important;justify-content:flex-end!important;
+  border-radius:23px!important;
+  padding:22px!important;
+  background-color:#111f2d!important;
+  background-size:cover!important;background-position:center!important;
+  border:1px solid rgba(255,255,255,.25)!important;
+  box-shadow:0 16px 47px rgba(0,0,0,.25)!important;
+}
+body.studio-page .sample:nth-child(1){
+  background-image:linear-gradient(180deg,rgba(1,5,11,.10) 0%,rgba(4,10,16,.36) 39%,rgba(2,8,13,.97) 85%),url("https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=900&q=82")!important
+}
+body.studio-page .sample:nth-child(2){
+  background-image:linear-gradient(180deg,rgba(1,5,11,.06) 0%,rgba(4,10,16,.37) 40%,rgba(2,8,13,.97) 87%),url("https://www.dotblue-ebike.de/wp-content/uploads/2025/11/Blaupunkt-MINNA_Pano.jpg")!important
+}
+body.studio-page .sample:nth-child(3){
+  background-image:linear-gradient(180deg,rgba(1,5,11,.06) 0%,rgba(4,10,16,.39) 39%,rgba(2,8,13,.97) 86%),url("https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=900&q=82")!important
+}
+body.studio-page .sample .tag{
+  font-size:10px!important;font-weight:950!important;letter-spacing:.14em!important;
+  color:#baffd8!important;text-shadow:0 2px 7px #000!important;
+}
+body.studio-page .sample h3{
+  margin:12px 0 8px!important;font-size:clamp(23px,2.5vw,29px)!important;
+  letter-spacing:-.035em!important;color:#fff!important;
+}
+body.studio-page .sample p{color:#e0e9ee!important;font-size:14px!important;line-height:1.56!important;margin:0 0 12px!important}
+body.studio-page .sample .open{color:#bbffda!important;font-size:13px!important}
+body.studio-page .steps{gap:16px!important}
+body.studio-page .step{
+  background:#131d2a!important;border:1px solid rgba(255,255,255,.13)!important;
+  border-top:3px solid rgba(160,244,198,.86)!important;
+  border-radius:19px!important;padding:24px!important
+}
+body.studio-page .step p{color:#d2dde5!important}
+body.studio-page #contact,body.studio-page #kontakt{
+  padding:20px 22px 66px!important;margin:0 auto!important;background:#070a10!important;
+}
+body.studio-page .big-cta{
+  background:radial-gradient(circle at 0 100%,rgba(137,182,245,.19),transparent 40%),
+    radial-gradient(circle at 100% 0,rgba(94,240,178,.22),transparent 38%),#10202a!important;
+  border-radius:25px!important;
+}
+body.studio-page :is(#contact,#kontakt) .de{color:#cdd8df!important}
+body.studio-page footer.footer{
+  background:#070a10!important;border-top:1px solid rgba(255,255,255,.12)!important;
+  margin-top:0!important;padding:28px 0 36px!important;color:#b9c4d0!important;
+}
+body.studio-page footer.footer>.shell{
+  display:flex!important;flex-wrap:wrap!important;align-items:center!important;
+  justify-content:space-between!important;gap:15px 25px!important;
+}
+body.studio-page footer.footer .footer-links{display:flex!important;flex-wrap:wrap!important;gap:12px 19px!important}
+body.studio-page footer.footer .footer-links a{
+  font-size:12px!important;color:#d7e2e9!important;text-decoration:none!important
+}
+body.studio-page footer.footer .footer-links a:hover{color:#baffdb!important}
+@media(max-width:1110px){
+ body.studio-page .topbar.mock-nav .navlinks{display:none!important}
+ body.studio-page .topbar.mock-nav .nav-icons{margin-left:auto!important}
+}
+@media(max-width:740px){
+ body.studio-page .wrap,body.studio-page .shell{padding-left:17px!important;padding-right:17px!important}
+ body.studio-page .topbar.mock-nav{min-height:0!important}
+ body.studio-page .topbar.mock-nav .nav{height:62px!important;min-height:62px!important;padding:0 17px!important}
+ body.studio-page .topbar.mock-nav .approved-logo .ag-symbol{width:29px!important;height:27px!important}
+ body.studio-page .topbar.mock-nav .approved-logo .ag-wordmark{font-size:12px!important;letter-spacing:.38em!important}
+ body.studio-page .topbar.mock-nav .nav-icons>a:not(.nav-cta){display:none!important}
+ body.studio-page .topbar.mock-nav .nav-cta{display:inline-flex!important;min-height:36px!important;padding:9px 12px!important;font-size:11px!important}
+ body.studio-page .hero{grid-template-columns:1fr!important;gap:23px!important;padding:37px 17px 54px!important}
+ body.studio-page .hero h1{font-size:clamp(42px,10.5vw,63px)!important;max-width:15ch!important;line-height:1!important}
+ body.studio-page .hero .intro{font-size:16px!important}
+ body.studio-page .studio-lang{display:block;margin:11px 0 0}
+ body.studio-page .hero .visual{max-width:100%;min-width:0}
+ body.studio-page .hero .browser-body{min-height:260px;padding:21px!important}
+ body.studio-page .section{padding:56px 17px!important}
+ body.studio-page .services{grid-template-columns:1fr!important}
+ body.studio-page .sample-grid{grid-template-columns:1fr!important}
+ body.studio-page .sample{min-height:335px!important}
+ body.studio-page .steps{grid-template-columns:1fr!important}
+ body.studio-page #contact,body.studio-page #kontakt{padding-left:17px!important;padding-right:17px!important}
+ body.studio-page footer.footer>.shell{align-items:flex-start!important}
+}
+@media(prefers-reduced-motion:reduce){
+ body.studio-page .service,body.studio-page .sample{transition:none!important}
+}
