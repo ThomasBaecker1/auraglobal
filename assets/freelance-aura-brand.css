@@ -1,0 +1,162 @@
+/* AuraGlobal Digital Studio — unified visual identity, Oct 2026.
+   Uses the same SVG logo, dark navy, mint and blue hierarchy as AuraGlobal.
+   Scoped to .studio-page to leave product/affiliate pages untouched. */
+:root{color-scheme:dark}
+body.studio-page{
+  --bg:#05070c;--surface:#0e1522;--line:rgba(255,255,255,.12);
+  --muted:#aeb9c9;--mint:#5ef0b2;--cream:#ffe0b7;
+  margin:0;color:#f7f8fb;
+  background:
+    radial-gradient(circle at 13% 2%,rgba(94,240,178,.13),transparent 34rem),
+    radial-gradient(circle at 90% 15%,rgba(126,166,255,.13),transparent 35rem),
+    #05070c;
+}
+body.studio-page .studio-header{
+  position:sticky;top:0;z-index:90;
+  border-bottom:1px solid rgba(255,255,255,.12);
+  background:rgba(5,7,12,.94);
+  -webkit-backdrop-filter:blur(19px);backdrop-filter:blur(19px);
+}
+body.studio-page .studio-header-inner{
+  width:min(100%,1280px);margin:0 auto;padding:13px 23px;
+  display:flex;align-items:center;gap:20px;min-height:72px;
+}
+body.studio-page .studio-logo{
+  flex:none;display:inline-flex;align-items:center;gap:11px;
+  text-decoration:none;white-space:nowrap;
+}
+body.studio-page .studio-logo .ag-symbol{
+  display:block;width:31px;height:29px;flex:none;
+  filter:drop-shadow(0 0 2px rgba(91,230,166,.18));
+}
+body.studio-page .studio-logo .ag-wordmark{
+  display:inline-flex;align-items:center;white-space:nowrap;
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-weight:300;font-size:14px;letter-spacing:.42em;line-height:1;
+}
+body.studio-page .studio-logo .aura{color:#a9ebca}
+body.studio-page .studio-logo .global{color:#f1f5f3;margin-left:.42em}
+body.studio-page .studio-identity{
+  border-left:1px solid rgba(255,255,255,.18);padding-left:15px;
+  color:#a6b8c4;font-size:10px;letter-spacing:.16em;font-weight:850;
+  white-space:nowrap;
+}
+body.studio-page .studio-nav{
+  margin-left:auto;display:flex;align-items:center;justify-content:flex-end;
+  flex-wrap:wrap;gap:7px 18px;
+}
+body.studio-page .studio-nav a{
+  text-decoration:none;font-size:12px;line-height:1.25;
+  font-weight:700;color:#c7d4df;white-space:nowrap;
+}
+body.studio-page .studio-nav a:hover{color:#fff}
+body.studio-page .studio-nav .studio-cta{
+  background:#b6ffcf;color:#071b15!important;border-radius:12px;
+  padding:11px 13px;font-weight:900;box-shadow:0 5px 23px rgba(94,240,178,.11);
+}
+body.studio-page a:focus-visible{outline:3px solid #5ef0b2;outline-offset:4px}
+body.studio-page .wrap{max-width:1240px}
+body.studio-page .hero{position:relative;padding-top:76px;padding-bottom:72px;gap:clamp(22px,4vw,64px)}
+body.studio-page .hero:before{
+  content:"";position:absolute;pointer-events:none;z-index:-1;
+  left:-10%;right:-10%;top:3%;height:75%;
+  background:radial-gradient(ellipse at 50% 40%,rgba(94,240,178,.035),transparent 60%);
+}
+body.studio-page h1,body.studio-page h2,body.studio-page h3{color:#fff}
+body.studio-page h1{font-weight:950}
+body.studio-page h1 em{color:#a9f7cd}
+body.studio-page .eyebrow{
+  color:#b1ffd5;border-color:rgba(94,240,178,.29);
+  background:rgba(94,240,178,.065);
+}
+body.studio-page .intro{color:#d4dee8;font-size:clamp(16px,1.5vw,19px)}
+body.studio-page .btn{border-radius:13px}
+body.studio-page .btn-primary{
+  background:#b6ffcf;color:#0c2019!important;
+  box-shadow:0 10px 28px rgba(79,226,165,.14)
+}
+body.studio-page .btn-secondary{
+  background:rgba(255,255,255,.045);
+  border-color:rgba(255,255,255,.22);color:#f3f7fa
+}
+body.studio-page .micro{color:#abb9c8}
+body.studio-page .visual{
+  border:1px solid rgba(255,255,255,.20);
+  border-radius:24px;
+  background:linear-gradient(135deg,#182332 0%,#0a111b 60%,#123128);
+  box-shadow:0 28px 80px rgba(0,0,0,.40);
+}
+body.studio-page .browser{background:#0b121d;border:1px solid rgba(255,255,255,.14)}
+body.studio-page .browser-head{background:#121e2c}
+body.studio-page .browser-body{
+  background:
+    radial-gradient(circle at 100% 0%,rgba(126,166,255,.13),transparent 54%),
+    radial-gradient(circle at 10% 90%,rgba(94,240,178,.12),transparent 58%),#0b131e;
+}
+body.studio-page .mini-label{color:#adffd0}
+body.studio-page .mini-title{color:#fff}
+body.studio-page .mini-title b{color:#b6ffcf}
+body.studio-page .mini-copy{max-width:315px;color:#d1deec}
+body.studio-page .tiles{gap:9px}
+body.studio-page .tiles span{
+  position:relative;isolation:isolate;overflow:hidden;
+  color:#fff;text-shadow:0 2px 9px rgba(0,0,0,.9);
+  border:1px solid rgba(255,255,255,.18);
+  background-position:center;background-size:cover;
+  box-shadow:inset 0 -34px 42px rgba(2,6,11,.45)
+}
+body.studio-page .tiles span:nth-child(1){background-image:linear-gradient(180deg,transparent,rgba(2,7,13,.86)),url("https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=450&q=75")}
+body.studio-page .tiles span:nth-child(2){background-image:linear-gradient(180deg,transparent,rgba(2,7,13,.86)),url("https://www.dotblue-ebike.de/wp-content/uploads/2025/11/Blaupunkt-MINNA_Pano.jpg")}
+body.studio-page .tiles span:nth-child(3){background-image:linear-gradient(180deg,transparent,rgba(2,7,13,.86)),url("https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=450&q=75")}
+body.studio-page .visual-foot{color:#bbcbd8}
+body.studio-page .visual-foot b{color:#baffd6}
+body.studio-page .strip{
+  background:rgba(13,21,32,.78);
+  border-color:rgba(255,255,255,.11)
+}
+body.studio-page .strip-inner{color:#cad5df}
+body.studio-page .section-label{color:#a5ffce}
+body.studio-page .section-lead{color:#cbd7e2}
+body.studio-page .service,body.studio-page .sample{
+  background:linear-gradient(140deg,rgba(21,34,51,.97),rgba(11,18,29,.98));
+  border:1px solid rgba(255,255,255,.15);
+  box-shadow:0 14px 38px rgba(0,0,0,.16);
+}
+body.studio-page .service:nth-child(2),body.studio-page .sample:nth-child(2){background:linear-gradient(140deg,rgba(27,35,59,.97),rgba(12,18,31,.98))}
+body.studio-page .service:nth-child(3),body.studio-page .sample:nth-child(3){background:linear-gradient(140deg,rgba(20,43,44,.97),rgba(11,18,29,.98))}
+body.studio-page .service p,body.studio-page .service li,body.studio-page .sample p{color:#d0dce8}
+body.studio-page .service .num,body.studio-page .sample .tag{color:#a1ffd0}
+body.studio-page .service .price{color:#ffe0b7}
+body.studio-page .sample:hover,body.studio-page .service:hover{border-color:rgba(94,240,178,.52)}
+body.studio-page .note{
+  border-color:#5ef0b2;background:rgba(94,240,178,.055);color:#cfdae4;
+}
+body.studio-page .step{background:rgba(15,24,38,.85)}
+body.studio-page .big-cta{
+  border-color:rgba(94,240,178,.28);
+  background:radial-gradient(circle at 100% 0,rgba(94,240,178,.15),transparent 47%),radial-gradient(circle at 0 100%,rgba(126,166,255,.12),transparent 50%),#0f1929;
+}
+body.studio-page .big-cta p{color:#d7e0e9}
+body.studio-page footer{border-color:rgba(255,255,255,.13);color:#aab9cb}
+body.studio-page footer a:hover{color:#baffda}
+@media(max-width:1060px){
+  body.studio-page .studio-header-inner{flex-wrap:wrap;row-gap:12px}
+  body.studio-page .studio-nav{margin-left:0;flex-basis:100%;justify-content:flex-start;gap:9px 19px}
+}
+@media(max-width:680px){
+  body.studio-page .studio-header-inner{padding:12px 17px 11px;min-height:0;gap:8px 12px}
+  body.studio-page .studio-logo .ag-symbol{width:29px;height:27px}
+  body.studio-page .studio-logo .ag-wordmark{font-size:12px;letter-spacing:.38em}
+  body.studio-page .studio-logo .global{margin-left:.38em}
+  body.studio-page .studio-identity{font-size:9px;padding-left:9px;letter-spacing:.10em}
+  body.studio-page .studio-nav{display:flex;flex-wrap:nowrap;overflow-x:auto;gap:17px;padding:4px 0 3px;scrollbar-width:none}
+  body.studio-page .studio-nav::-webkit-scrollbar{display:none}
+  body.studio-page .studio-nav a{font-size:11px;flex:none}
+  body.studio-page .studio-nav .studio-cta{padding:8px 10px}
+  body.studio-page .hero{padding:43px 0 48px}
+  body.studio-page h1{font-size:clamp(41px,10.5vw,60px);line-height:1.02}
+  body.studio-page .visual{width:100%;max-width:100%}
+  body.studio-page .tiles span{min-height:95px}
+  body.studio-page .section{padding:57px 0}
+  body.studio-page .service,body.studio-page .sample{padding:23px}
+}
