@@ -1,0 +1,35 @@
+/* AuraGlobal — exact original homepage symbol and wordmark in legacy pages.
+   Use with the SAME .ag-symbol and .ag-wordmark DOM from index.html. */
+a.ag-brand.approved-logo{
+ display:inline-flex!important;align-items:center!important;gap:11px!important;
+ flex:0 0 auto!important;width:max-content!important;max-width:100%!important;
+ text-decoration:none!important;white-space:nowrap!important;
+ color:#eaf7ef!important;background:transparent!important;
+ font-family:"Helvetica Neue",Helvetica,Arial,sans-serif!important;
+ font-weight:300!important;letter-spacing:normal!important;
+}
+a.ag-brand.approved-logo .ag-symbol{
+ display:block!important;flex:0 0 31px!important;width:31px!important;height:29px!important;
+ overflow:visible!important;filter:drop-shadow(0 0 2px rgba(91,230,166,.18))!important;
+}
+a.ag-brand.approved-logo .ag-wordmark{
+ display:inline-flex!important;align-items:center!important;white-space:nowrap!important;
+ font-family:"Helvetica Neue",Helvetica,Arial,sans-serif!important;
+ font-size:14px!important;font-weight:300!important;line-height:1!important;
+ letter-spacing:.42em!important;color:#fff!important;
+}
+a.ag-brand.approved-logo .ag-wordmark .aura{
+ color:#a9ebca!important;font-size:inherit!important;font-weight:300!important;
+ font-style:normal!important;line-height:1!important;letter-spacing:inherit!important;
+}
+a.ag-brand.approved-logo .ag-wordmark .global{
+ color:#f1f5f3!important;font-size:inherit!important;font-weight:300!important;
+ font-style:normal!important;margin-left:.42em!important;line-height:1!important;
+ letter-spacing:inherit!important;
+}
+@media(max-width:620px){
+ a.ag-brand.approved-logo{gap:9px!important}
+ a.ag-brand.approved-logo .ag-symbol{width:29px!important;height:27px!important;flex-basis:29px!important}
+ a.ag-brand.approved-logo .ag-wordmark{font-size:12px!important;letter-spacing:.38em!important}
+ a.ag-brand.approved-logo .ag-wordmark .global{margin-left:.38em!important}
+}
