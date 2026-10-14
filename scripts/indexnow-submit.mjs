@@ -1,12 +1,12 @@
 // IndexNow is a notification to participating search engines, not a ranking service.
-// Public proof-of-control key lives at /004486d0105b79b717136db4dc5cd0cb.txt.
+// Public proof-of-control key lives at /1f5509a2a06bc06907f86453f79e953e.txt.
 // Never submit noindex, private, or external URLs. Only notify changed public HTML pages.
 import { execFileSync } from 'node:child_process';
 import { readFileSync, existsSync } from 'node:fs';
 
 const host = 'auraglobal.vercel.app';
 const origin = 'https://' + host;
-const key = '004486d0105b79b717136db4dc5cd0cb';
+const key = '1f5509a2a06bc06907f86453f79e953e';
 const keyLocation = origin + '/' + key + '.txt';
 const initial = ['','go-off.html','synbiotic-shield.html','e-bike-pendelrechner.html','e-bike-unter-2000.html','futterautomat-katze.html','kaufberatung.html','clouvou.html','prophete.html','krankenkasseninfo.html'];
 
