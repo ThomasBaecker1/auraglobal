@@ -7,3 +7,26 @@ body.partner-check .pc-card h2,
 body.partner-check .pc-bottom h2{color:#f7f9fc}
 body.partner-check .pc-check li{color:#e4ecf5}
 body.partner-check .pc-content .section-head .kicker{color:#a2f0ce}
+
+
+/* High-intent comparison: responsive real product cards, accessible contrast. */
+body.partner-check .agp-model-section{padding:58px 0 65px;background:linear-gradient(145deg,#0d1927,#0a1f20);color:#f5fff9;border-block:1px solid rgba(173,235,199,.16)}
+body.partner-check .agp-modeltop{display:flex;justify-content:space-between;align-items:flex-end;gap:18px;flex-wrap:wrap;margin-bottom:25px}
+body.partner-check .agp-modeltop>div{max-width:760px}
+body.partner-check .agp-modeltop small{color:#a8ffda;font-weight:850;letter-spacing:.11em}
+body.partner-check .agp-modeltop h2{font-size:clamp(27px,4vw,46px);line-height:1.14;letter-spacing:-.038em;color:#fff;margin:10px 0}
+body.partner-check .agp-modeltop p{color:#d9e9e6;line-height:1.65}
+body.partner-check .agp-modeltop>a{color:#b1f7cc;text-underline-offset:4px}
+body.partner-check .agp-productgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}
+body.partner-check .agp-productcard{border:1px solid #527067;border-radius:21px;padding:25px;background:linear-gradient(160deg,#183e39,#102b32);display:flex;flex-direction:column}
+body.partner-check .agp-productbadge{font-size:11px;letter-spacing:.12em;font-weight:900;color:#9af4bc}
+body.partner-check .agp-productcard h3{font-size:clamp(24px,2.3vw,31px);color:#fff;margin:14px 0 8px;letter-spacing:-.025em}
+body.partner-check .agp-productcard p{color:#e3ede8;line-height:1.6}
+body.partner-check .agp-productsize{font-size:13px}
+body.partner-check .agp-productfoot{margin-top:auto;padding-top:14px;display:grid;gap:14px}
+body.partner-check .agp-productfoot span{color:#e2f5e6;font-size:13px}
+body.partner-check .agp-productfoot>a{display:inline-flex;justify-content:center;align-items:center;text-align:center;min-height:49px;border-radius:12px;background:#ceffdb;color:#103427;font-weight:850;padding:12px 16px;text-decoration:none}
+body.partner-check .agp-productfoot>a:hover{background:#fff}
+body.partner-check .agp-modelnote{font-size:12px;line-height:1.7;color:#c5dcd3;margin-top:22px}
+body.partner-check .agp-productfoot>a:focus-visible{outline:3px solid white;outline-offset:3px}
+@media(max-width:850px){body.partner-check .agp-productgrid{grid-template-columns:1fr}}
