@@ -1,0 +1,313 @@
+{
+  "version": 5,
+  "updatedAt": "2026-10-05T13:11:35.160Z",
+  "source": "awin-product-feed-fallback",
+  "catalogStatus": "preview-fallback",
+  "merchantCount": 26,
+  "productCount": 2255,
+  "previewCount": 2255,
+  "joinedFeedCount": null,
+  "eligibleFeedCount": null,
+  "selectedFeedCount": null,
+  "truncatedForRuntime": true,
+  "categories": [
+    "Appliance Spares",
+    "Auto & Zubehör",
+    "Beauty & Pflege",
+    "E-Bikes & Mobilität",
+    "Energie & Outdoor",
+    "Fashion & Accessoires",
+    "Gaming",
+    "Garten",
+    "Gesundheit & Wohlbefinden",
+    "Haushalt & Wohnen",
+    "Home Office",
+    "Kaffee & Genuss",
+    "Lebensmittel & Genuss",
+    "Lernen & Weiterbildung",
+    "Schmuck",
+    "Smart Pet",
+    "Weitere Produkte",
+    "Werkstatt & Garten"
+  ],
+  "merchants": [
+    {
+      "merchantId": "67914",
+      "merchant": "ALLPOWERS DE",
+      "productCount": 48,
+      "categories": [
+        "Energie & Outdoor"
+      ],
+      "chunks": [],
+      "internalUrl": "/allpowers.html"
+    },
+    {
+      "merchantId": "125144",
+      "merchant": "ANTHBOT DE",
+      "productCount": 40,
+      "categories": [
+        "Garten"
+      ],
+      "chunks": [],
+      "internalUrl": "/anthbot.html"
+    },
+    {
+      "merchantId": "127589",
+      "merchant": "braingood",
+      "productCount": 5,
+      "categories": [
+        "Gesundheit & Wohlbefinden",
+        "Weitere Produkte"
+      ],
+      "chunks": [],
+      "internalUrl": "/braingood.html"
+    },
+    {
+      "merchantId": "119967",
+      "merchant": "DeLSt DE",
+      "productCount": 48,
+      "categories": [
+        "Lernen & Weiterbildung",
+        "Smart Pet",
+        "Home Office"
+      ],
+      "chunks": [],
+      "internalUrl": "/delst.html"
+    },
+    {
+      "merchantId": "99887",
+      "merchant": "Desktronic DE",
+      "productCount": 48,
+      "categories": [
+        "Home Office"
+      ],
+      "chunks": [],
+      "internalUrl": "/desktronic.html"
+    },
+    {
+      "merchantId": "115541",
+      "merchant": "DOTBLUE eBIKE DE",
+      "productCount": 38,
+      "categories": [
+        "E-Bikes & Mobilität"
+      ],
+      "chunks": [],
+      "internalUrl": "/dotblue.html"
+    },
+    {
+      "merchantId": "114336",
+      "merchant": "House-of-Sneakers DE",
+      "productCount": 48,
+      "categories": [
+        "Fashion & Accessoires"
+      ],
+      "chunks": [],
+      "internalUrl": "/house-of-sneakers.html"
+    },
+    {
+      "merchantId": "81425",
+      "merchant": "Mediakos DE",
+      "productCount": 48,
+      "categories": [
+        "Beauty & Pflege",
+        "Smart Pet"
+      ],
+      "chunks": [],
+      "internalUrl": "/mediakos.html"
+    },
+    {
+      "merchantId": "11346",
+      "merchant": "momox fashion DE",
+      "productCount": 48,
+      "categories": [
+        "Fashion & Accessoires"
+      ],
+      "chunks": [],
+      "internalUrl": "/momox-fashion.html"
+    },
+    {
+      "merchantId": "13633",
+      "merchant": "Nespresso DE",
+      "productCount": 48,
+      "categories": [
+        "Kaffee & Genuss"
+      ],
+      "chunks": [],
+      "internalUrl": "/nespresso.html"
+    },
+    {
+      "merchantId": "30917",
+      "merchant": "Norma24 DE",
+      "productCount": 48,
+      "categories": [
+        "Werkstatt & Garten",
+        "Lebensmittel & Genuss",
+        "Haushalt & Wohnen",
+        "Smart Pet"
+      ],
+      "chunks": [],
+      "internalUrl": "/norma24.html"
+    },
+    {
+      "merchantId": "128211",
+      "merchant": "Ophelia Eternity Jewelry",
+      "productCount": 48,
+      "categories": [
+        "Schmuck",
+        "Smart Pet"
+      ],
+      "chunks": [],
+      "internalUrl": "/ophelia.html"
+    },
+    {
+      "merchantId": "127821",
+      "merchant": "Outin Germany",
+      "productCount": 29,
+      "categories": [
+        "Kaffee & Genuss"
+      ],
+      "chunks": [],
+      "internalUrl": "/outin.html"
+    },
+    {
+      "merchantId": "24089",
+      "merchant": "Paper & Sons DE",
+      "productCount": 5,
+      "categories": [
+        "Fashion & Accessoires"
+      ],
+      "chunks": [],
+      "internalUrl": "/paper-sons.html"
+    },
+    {
+      "merchantId": "77942",
+      "merchant": "Petlibro DE Affiliate Program",
+      "productCount": 48,
+      "categories": [
+        "Smart Pet"
+      ],
+      "chunks": [],
+      "internalUrl": "/petlibro.html"
+    },
+    {
+      "merchantId": "11429",
+      "merchant": "Porzellantreff DE",
+      "productCount": 48,
+      "categories": [
+        "Haushalt & Wohnen",
+        "Kaffee & Genuss",
+        "Schmuck"
+      ],
+      "chunks": [],
+      "internalUrl": "/porzellantreff.html"
+    },
+    {
+      "merchantId": "114194",
+      "merchant": "Raibu DE",
+      "productCount": 48,
+      "categories": [
+        "Gesundheit & Wohlbefinden"
+      ],
+      "chunks": [],
+      "internalUrl": "/raibu.html"
+    },
+    {
+      "merchantId": "14188",
+      "merchant": "Rameder DE/AT",
+      "productCount": 48,
+      "categories": [
+        "E-Bikes & Mobilität",
+        "Auto & Zubehör"
+      ],
+      "chunks": [],
+      "internalUrl": "/rameder.html"
+    },
+    {
+      "merchantId": "26999",
+      "merchant": "Rasendoktor DE",
+      "productCount": 48,
+      "categories": [
+        "Garten"
+      ],
+      "chunks": [],
+      "internalUrl": "/rasendoktor.html"
+    },
+    {
+      "merchantId": "124784",
+      "merchant": "Rochas Divine Mart (US)",
+      "productCount": 48,
+      "categories": [
+        "Weitere Produkte",
+        "Fashion & Accessoires",
+        "Haushalt & Wohnen",
+        "Gaming",
+        "Schmuck"
+      ],
+      "chunks": [],
+      "internalUrl": ""
+    },
+    {
+      "merchantId": "18306",
+      "merchant": "scheppach DE",
+      "productCount": 1195,
+      "categories": [
+        "Werkstatt & Garten"
+      ],
+      "chunks": [],
+      "internalUrl": "/scheppach.html"
+    },
+    {
+      "merchantId": "16937",
+      "merchant": "shifter DE",
+      "productCount": 48,
+      "categories": [
+        "Gaming",
+        "Schmuck"
+      ],
+      "chunks": [],
+      "internalUrl": "/shifter.html"
+    },
+    {
+      "merchantId": "72399",
+      "merchant": "Tenways - EU",
+      "productCount": 48,
+      "categories": [
+        "E-Bikes & Mobilität"
+      ],
+      "chunks": [],
+      "internalUrl": "/tenways.html"
+    },
+    {
+      "merchantId": "123708",
+      "merchant": "The Vintage Realm",
+      "productCount": 48,
+      "categories": [
+        "Haushalt & Wohnen"
+      ],
+      "chunks": [],
+      "internalUrl": "/vintage-realm.html"
+    },
+    {
+      "merchantId": "11352",
+      "merchant": "Vorteilshop DE",
+      "productCount": 48,
+      "categories": [
+        "Haushalt & Wohnen",
+        "Fashion & Accessoires"
+      ],
+      "chunks": [],
+      "internalUrl": "/vorteilshop.html"
+    },
+    {
+      "merchantId": "124878",
+      "merchant": "WAU",
+      "productCount": 31,
+      "categories": [
+        "Beauty & Pflege",
+        "Appliance Spares"
+      ],
+      "chunks": [],
+      "internalUrl": "/wau.html"
+    }
+  ]
+}
