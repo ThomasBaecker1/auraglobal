@@ -16,12 +16,12 @@ function optionalLimit(name) {
 }
 
 const MAX_PRODUCTS = optionalLimit('AWIN_MAX_PRODUCTS');
-const MAX_PER_MERCHANT = optionalLimit('AWIN_MAX_PER_MERCHANT');
+const MAX_PER_MERCHANT = Math.min(optionalLimit('AWIN_MAX_PER_MERCHANT'), 350);
 const CHUNK_SIZE = Math.max(100, Number(process.env.AWIN_CHUNK_SIZE || 2000));
 const BLOB_UPLOAD_CONCURRENCY = Math.max(1, Math.min(12, Number(process.env.AWIN_BLOB_UPLOAD_CONCURRENCY || 6)));
 const PREVIEW_PER_MERCHANT = Math.max(12, Number(process.env.AWIN_PREVIEW_PER_MERCHANT || 48));
 // Leave room for manifest/preview writes before the 300-second Vercel function ceiling.
-const SYNC_TIME_BUDGET_MS = Math.max(60000, Math.min(220000, Number(process.env.AWIN_SYNC_TIME_BUDGET_MS || 200000)));
+const SYNC_TIME_BUDGET_MS = Math.max(60000, Math.min(220000, Number(process.env.AWIN_SYNC_TIME_BUDGET_MS || 115000)));
 const BUYER_PRIORITY_IDS = ['72399','115541','127821','77942','67914','99887','11346','116603'];
 const OUTPUT = path.resolve('data/products.json');
 const CATALOG_DIR = path.resolve('data/catalog');
