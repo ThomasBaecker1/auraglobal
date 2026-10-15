@@ -202,7 +202,7 @@
     const total = Number(payload.productCount) || state.products.length;
     const shops = Number(payload.merchantCount) || (payload.merchants?.length || 0);
     if (els.partnerCount && shops > 0) els.partnerCount.textContent = shops.toLocaleString('de-DE');
-    els.meta.textContent = 'Awin-Vollkatalog · Datenstand '+stamp+' · '+shops.toLocaleString('de-DE')+' Shops · '+total.toLocaleString('de-DE')+' Produkte · lädt bedarfsgerecht';
+    els.meta.textContent = payload.catalogStatus === 'preview-fallback' || payload.truncatedForRuntime ? 'Awin-Produktübersicht · Datenstand '+stamp+' · '+shops.toLocaleString('de-DE')+' Shops · '+total.toLocaleString('de-DE')+' Produkte · Preise und Verfügbarkeit im Shop prüfen' : 'Awin-Vollkatalog · Datenstand '+stamp+' · '+shops.toLocaleString('de-DE')+' Shops · '+total.toLocaleString('de-DE')+' Produkte · lädt bedarfsgerecht';
   }
 
   function slugRef(v,max=28) {
