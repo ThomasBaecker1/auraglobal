@@ -19,6 +19,7 @@ function initAffiliateTestMode(){
     if(label)label.textContent='Awin-Weiterleitung verhindert – dieser Test erhöht keine Affiliate-Klickzahl.';
   };
   document.addEventListener('click',intercept,true);
+  document.addEventListener('auxclick',intercept,true);
   document.addEventListener('DOMContentLoaded',()=>{
     if(document.getElementById('ag-qa-banner'))return;
     const banner=document.createElement('div');
