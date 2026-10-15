@@ -20,7 +20,9 @@ function validateAffiliate(raw,where){
   if(u.protocol!=='https:' || !['www.awin1.com','awin1.com'].includes(u.hostname)){
     errors.push(where+': affiliate destination is not HTTPS Awin');return false;
   }
-  if(u.searchParams.get('awinaffid')!=='3076553'){
+  // Awin deep links use awinaffid; original awclick shop links use id.
+  const publisher=u.searchParams.get('awinaffid') || (u.pathname==='/awclick.php' ? u.searchParams.get('id') : null);
+  if(publisher!=='3076553'){
     errors.push(where+': missing or different publisher id');return false;
   }
   if(!u.searchParams.get('awinmid')&&!u.searchParams.get('mid')){

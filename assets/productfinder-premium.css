@@ -72,3 +72,13 @@ body.product-finder .pf-close-grid h2{letter-spacing:-.07em!important}
 body.product-finder :is(button,input,select,a):focus-visible{outline:3px solid #ffe2a3!important;outline-offset:3px!important}
 @media(max-width:760px){body.product-finder .pf-hero{min-height:0;padding:0}body.product-finder .pf-hero-copy h1{font-size:clamp(45px,10.6vw,67px)!important;line-height:.97!important}body.product-finder .pf-chapter{padding-block:49px!important}body.product-finder .pf-story{border-radius:12px!important}body.product-finder .pf-card{border-radius:12px!important}body.product-finder .pf-story-copy b{font-size:clamp(22px,6vw,29px)!important}}
 @media(prefers-reduced-motion:reduce){body.product-finder :is(.pf-story,.pf-desire,.pf-card,.pf-intent-link){transform:none!important;transition:none!important}}
+/* Purchase details must remain readable at phone size, without browser zoom. */
+body.product-finder :is(.pf-topline,.pf-note,.pf-price del){font-size:12px;line-height:1.5;color:#52616c}
+body.product-finder .pf-topline{flex-wrap:wrap;letter-spacing:.035em}
+body.product-finder :is(.pf-sale,.pf-guide){font-size:12px;letter-spacing:.025em}
+body.product-finder :is(.pf-band-item small,.pf-intent-link small){font-size:12px;line-height:1.5;color:#526453;opacity:1}
+body.product-finder :is(.pf-story-copy small,.pf-video-meta small,.ag-rec-copy small){font-size:12px;line-height:1.5;letter-spacing:.055em}
+body.product-finder .ag-rec-copy small{color:#b5c6d3}
+body.product-finder :is(.pf-controls input,.pf-controls select,.ag-assistant-form input){font-size:16px}
+body.product-finder :is(.pf-detail,.pf-feature-actions a){min-height:44px;display:inline-flex;align-items:center;justify-content:center}
+body.product-finder .pf-price{flex-wrap:wrap}
