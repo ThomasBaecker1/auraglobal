@@ -4294,3 +4294,136 @@ body.product-finder .pf-hero h1{font-size:clamp(43px,10.7vw,69px)!important}
 body.directory-page .directory-hero h1{font-size:clamp(40px,10.6vw,62px)!important}
 }
 @media(prefers-reduced-motion:reduce){body :is(.vc-hero>img,.vc-cat,.choice,.feature,.pf-story,.pf-product,.pf-card,.directory-card,.portal-card,.emotion-hit,.deal-card){transition:none!important;transform:none!important}}
+
+
+
+/* AuraGlobal readability pass 2026-10-15: mobile-first legibility and dark/light contrast */
+:root { --ag-readable-light: #f5fff9; --ag-readable-muted: #d6e7e1; --ag-readable-dark: #152b23; }
+
+/* Headings: correct the former ultra-tight vertical rhythm; preserve display scale. */
+html body.brand-home :is(.visual-search h1,.ag-fast-buy-heading h2,.ag-shorts-head h2,.equal-head h1,.equal-head h2,.section-head h2) {
+  line-height: 1.09 !important; text-wrap: balance;
+}
+html body.brand-home :is(.ag-fast-buy-body strong,.ag-short-copy strong,.equal-wall-v6 .equal-copy strong,.deal-copy h3) {
+  line-height: 1.24 !important; overflow-wrap: break-word;
+}
+
+/* Gold search surface uses DARK ink, including hints and placeholder labels. */
+html body.brand-home .visual-search { color: #171710 !important; }
+html body.brand-home .visual-search h1,
+html body.brand-home .visual-search h1 em { color: #171710 !important; -webkit-text-fill-color: #171710 !important; }
+html body.brand-home .visual-search-kicker { color:#4f3800 !important; font-size:12px !important; line-height:1.45 !important; }
+html body.brand-home .ag-search-desc { color:#302c19 !important; font-size:16px !important; line-height:1.55 !important; }
+html body.brand-home .visual-search :is(.ag-home-promise,.ag-home-promise span) { font-size:13px !important; line-height:1.45 !important; }
+html body.brand-home .visual-search .mock-search input { font-size:16px !important; }
+html body.brand-home .visual-search-chips a { font-size:13px !important; line-height:1.4 !important; }
+
+/* Editorial video rail and marketplace: dark backgrounds need bright copy. */
+html body.brand-home .ag-shorts-head p { color:#e3f2ef !important; }
+html body.brand-home .ag-short-copy { background:#142730 !important; }
+html body.brand-home .ag-short-copy small { font-size:13px !important; color:#b6ffda !important; }
+html body.brand-home .ag-short-copy strong { font-size:clamp(20px,2.1vw,24px) !important; color:#fff !important; -webkit-text-fill-color:#fff !important; }
+html body.brand-home .ag-short-copy span { font-size:15px !important; line-height:1.5 !important; color:#e0f1ee !important; }
+html body.brand-home .ag-shorts-footer { font-size:13px !important; line-height:1.6 !important; color:#d6e6e7 !important; }
+
+html body.brand-home .equal-wall-v6 .equal-card { background:#14232e !important; }
+html body.brand-home .equal-wall-v6 .equal-copy { background:#10232e !important; }
+html body.brand-home .equal-wall-v6 .equal-copy small { font-size:13px !important; line-height:1.5 !important; color:#adf6d5 !important; }
+html body.brand-home .equal-wall-v6 .equal-copy strong { font-size:clamp(20px,2.1vw,25px) !important; line-height:1.22 !important; color:#fff !important; -webkit-text-fill-color:#fff !important; }
+html body.brand-home .equal-wall-v6 .equal-copy span { display:block !important; font-size:15px !important; line-height:1.6 !important; color:#e4f0f3 !important; -webkit-text-fill-color:#e4f0f3 !important; opacity:1 !important; }
+html body.brand-home .equal-wall-v6 .equal-copy em { font-size:14px !important; line-height:1.4 !important; color:#102820 !important; -webkit-text-fill-color:#102820 !important; }
+html body.brand-home .equal-wall-v6 .equal-logo b { font-size:12px !important; line-height:1.2 !important; color:#14202a !important; }
+html body.brand-home .equal-wall-v6 .equal-badge { font-size:12px !important; line-height:1.35 !important; }
+
+/* Prominent direct offers: keep photo-led cards with separately readable copy. */
+html body.brand-home .ag-fast-buy-body small { font-size:13px !important; line-height:1.45 !important; letter-spacing:.045em !important; }
+html body.brand-home .ag-fast-buy-body strong { font-size:clamp(21px,2.3vw,26px) !important; color:#fff !important; -webkit-text-fill-color:#fff !important; }
+html body.brand-home .ag-fast-buy-body > span { font-size:15px !important; line-height:1.6 !important; color:#ecf4f2 !important; opacity:1 !important; }
+html body.brand-home .ag-fast-buy-body b { font-size:15px !important; line-height:1.4 !important; }
+html body.brand-home .ag-fast-buy-disclosure { font-size:13px !important; line-height:1.65 !important; color:#e0e9e9 !important; }
+
+/* Earlier compression passes used 7–11px text in general-purpose cards. */
+html body.brand-home .rail .card-body h3 { font-size:17px !important; line-height:1.3 !important; }
+html body.brand-home .rail .card-body p { display:block !important; font-size:13px !important; line-height:1.55 !important; }
+html body.brand-home .rail .card-cta { font-size:13px !important; }
+html body.brand-home .world-copy small { font-size:12px !important; line-height:1.5 !important; color:#d9f0e8 !important; }
+html body.brand-home .world-copy h3 { font-size:clamp(19px,2.5vw,29px) !important; line-height:1.16 !important; color:#fff !important; }
+html body.brand-home .universe-card-copy small { font-size:12px !important; line-height:1.45 !important; }
+html body.brand-home .universe-card-copy h3 { font-size:19px !important; line-height:1.25 !important; }
+html body.brand-home .universe-pills span { font-size:12px !important; }
+html body.brand-home .emotion-card .copy small { font-size:12px !important; line-height:1.4 !important; }
+html body.brand-home .emotion-card .copy h3 { font-size:clamp(20px,2.3vw,29px) !important; line-height:1.2 !important; }
+html body.brand-home .video-copy small,
+html body.brand-home .spotlight-copy small { font-size:12px !important; line-height:1.45 !important; }
+html body.brand-home .video-copy b,
+html body.brand-home .spotlight-copy h2 { font-size:21px !important; line-height:1.2 !important; color:#fff !important; }
+html body.brand-home .feature h3 { font-size:20px !important; line-height:1.26 !important; }
+html body.brand-home .feature p { font-size:14px !important; line-height:1.6 !important; }
+html body.brand-home .choice b { font-size:16px !important; line-height:1.4 !important; }
+html body.brand-home .choice p { font-size:14px !important; line-height:1.6 !important; }
+html body.brand-home .trustitem b { font-size:14px !important; line-height:1.4 !important; }
+html body.brand-home .trustitem span { font-size:13px !important; line-height:1.5 !important; }
+html body.brand-home .feed-copy h3 { font-size:clamp(23px,3vw,35px) !important; line-height:1.16 !important; }
+html body.brand-home .feed-copy p { font-size:14px !important; line-height:1.55 !important; }
+html body.brand-home .inline-link { font-size:14px !important; }
+html body.brand-home .cta-banner p { font-size:15px !important; line-height:1.65 !important; }
+html body.brand-home .deal-copy small { font-size:12px !important; line-height:1.45 !important; }
+html body.brand-home .deal-copy h3 { font-size:clamp(20px,2.2vw,26px) !important; line-height:1.2 !important; }
+html body.brand-home .deal-copy p { font-size:14px !important; line-height:1.6 !important; }
+html body.brand-home :is(.deal-note,.adnote) { font-size:12px !important; line-height:1.5 !important; }
+html body.brand-home :is(.deal-cta,.deal-link,.btn,.ag-home-buy) { font-size:14px !important; line-height:1.4 !important; }
+
+/* Picture labels only: strengthen the DARK caption overlay, not the image. */
+html body.brand-home :is(.world,.emotion-card,.visual-tile,.gallery-item) {
+  isolation:isolate;
+}
+html body.brand-home .world::after,
+html body.brand-home .gallery-item::after {
+  background:linear-gradient(180deg,rgba(3,10,13,0) 22%,rgba(3,10,13,.92) 100%) !important;
+}
+html body.brand-home .emotion-card::after {
+  background:linear-gradient(180deg,rgba(3,10,13,.01) 25%,rgba(3,10,13,.94) 100%) !important;
+}
+html body.brand-home :is(.world-copy,.gallery-copy,.emotion-card .copy) {
+  text-shadow:0 2px 12px rgba(0,0,0,.78) !important;
+}
+
+/* Merchant hero text on dark imagery; no blanket color override for cream product cards. */
+html body.vc-page:not(.brand-home) .vc-copy small { font-size:13px !important; line-height:1.5 !important; }
+html body.vc-page:not(.brand-home) .vc-copy p { font-size:clamp(16px,1.6vw,19px) !important; line-height:1.65 !important; color:#ecf8f4 !important; }
+html body.vc-page:not(.brand-home) .vc-copy h1 { line-height:1.05 !important; color:#fff !important; -webkit-text-fill-color:#fff !important; }
+html body.vc-page:not(.brand-home) .vc-copy .btn.main { font-size:15px !important; line-height:1.45 !important; }
+html body.vc-page:not(.brand-home) :is(.choice p,.feature p) { font-size:max(14px,1em) !important; line-height:1.65 !important; }
+
+/* Affiliate disclosure, footer and control text remain legible on dark shell. */
+html body .topbar .navlinks a { font-size:14px !important; color:#f1fff8 !important; }
+html body.vc-page .topbar .approved-logo .ag-wordmark .global { color:#f5fffa !important; -webkit-text-fill-color:#f5fffa !important; }
+html body.brand-home .footer,
+html body.brand-home .footer .shell,
+html body.brand-home .footer-links a { font-size:13px !important; line-height:1.65 !important; }
+html body :is(a,button,input,select,textarea):focus-visible { outline:3px solid #ffe7a4 !important; outline-offset:3px !important; }
+
+@media(max-width:760px) {
+ html body.brand-home .visual-search h1 { font-size:clamp(32px,8.2vw,46px) !important; line-height:1.12 !important; }
+ html body.brand-home .visual-search-kicker { font-size:12px !important; }
+ html body.brand-home .ag-search-desc { font-size:15px !important; }
+ html body.brand-home .visual-search-chips a { font-size:13px !important; }
+ html body.brand-home .equal-wall-v6 .equal-copy { padding:17px !important; }
+ html body.brand-home .equal-wall-v6 .equal-copy strong { font-size:21px !important; }
+ html body.brand-home .equal-wall-v6 .equal-copy span { font-size:15px !important; }
+ html body.brand-home .equal-wall-v6 .equal-logo b { font-size:12px !important; }
+ html body.brand-home .ag-fast-buy-body { padding:17px !important; }
+ html body.brand-home .ag-fast-buy-body strong { font-size:22px !important; }
+ html body.brand-home .ag-fast-buy-body > span { font-size:15px !important; }
+ html body.brand-home .ag-short-copy strong { font-size:21px !important; }
+ html body.brand-home .ag-short-copy span { font-size:14px !important; }
+ html body.brand-home .world-copy h3 { font-size:22px !important; }
+ html body.brand-home .rail .card-body { padding:13px !important; }
+ html body.brand-home .rail .card-body h3 { font-size:17px !important; }
+ html body.brand-home .rail .card-body p { font-size:13px !important; }
+ html body.brand-home .trustitem span { font-size:13px !important; }
+ html body.brand-home .choice p { font-size:14px !important; }
+ html body.brand-home .ag-shorts-head h2 { line-height:1.14 !important; }
+ html body.vc-page:not(.brand-home) .vc-copy h1 { line-height:1.08 !important; }
+}
+
