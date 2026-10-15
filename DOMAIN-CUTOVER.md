@@ -4,20 +4,20 @@ This branch prepares AuraGlobal.net as the canonical domain. **Do not merge whil
 
 As inspected on 2026-10-15:
 - Vercel project: `auraglobal` (`prj_ceFCbUS4as4qLUwFOWpVxlwEharR`)
-- Both `auraglobal.net` and `www.auraglobal.net` are already attached and verified in Vercel, but third-party DNS points to Squarespace parking.
-- Vercel's **current live** project settings redirect apex `auraglobal.net` -> `www.auraglobal.net` with 308. To use the requested apex as canonical, reverse this.
-- Nameservers: `ns-cloud-c1..c4.googledomains.com` (managed externally, likely via Squarespace Domains). Not writable from the Vercel integration.
+- Both `auraglobal.net` and `www.auraglobal.net` are attached and verified in Vercel, but third-party DNS points to Squarespace parking. Live requests still return the Squarespace placeholder.
+- Vercel's current project-domain setting redirects apex `auraglobal.net` -> `www.auraglobal.net` with 308. Reverse this after confirming the external DNS cutover, then set `www.auraglobal.net` -> `auraglobal.net` with 308.
+- Nameservers: `ns-cloud-c1..c4.googledomains.com` (managed externally, likely via Squarespace Domains). They are not writable from the Vercel integration.
+- Vercel's domain-config API currently reports `misconfigured: true`; it recommends apex A record `76.76.21.21` and `www` CNAME `cname.vercel-dns.com.`. Re-check these values in Vercel immediately before editing.
 
 ## Required DNS edits at the authoritative DNS host (external)
 Retain unrelated MX, TXT, CAA, SPF, DKIM and other mail/verification records. Change **website routing records only**, removing conflicting Squarespace parking A/CNAME entries.
 
 | Host | Type | Target |
 | --- | --- | --- |
-| @ | A | 216.198.79.1 |
-| @ | A | 64.29.17.1 |
-| www | CNAME | f11f0f0e6b4f07b4.vercel-dns-017.com |
+| @ | A | 76.76.21.21 |
+| www | CNAME | cname.vercel-dns.com |
 
-These were Vercel's rank-1 recommended DNS values for the project as of 2026-10-15; re-check in Vercel before editing in case the recommendations change.
+Do not add an apex CNAME. If Vercel presents different current values in its domain configuration during the cutover, follow those live values and update this checklist.
 
 After propagation verify Vercel domain configurations report `misconfigured: false`, both hosts respond with the correct AuraGlobal HTML (not Squarespace), valid TLS, and a deep-link route like `/eonon.html` works.
 
@@ -25,7 +25,7 @@ After propagation verify Vercel domain configurations report `misconfigured: fal
 1. Remove existing apex `auraglobal.net` -> `www.auraglobal.net` redirect.
 2. Set `auraglobal.net` to serve the production deployment directly.
 3. Redirect `www.auraglobal.net` -> `auraglobal.net` using 308.
-4. Ensure `auraglobal.vercel.app` still remains attached until this PR is merged.
+4. Ensure `auraglobal.vercel.app` remains attached until this PR is merged and verified.
 
 ## Cutover
 - After DNS and domain settings are verified, merge this PR and deploy its `main` commit to production.
