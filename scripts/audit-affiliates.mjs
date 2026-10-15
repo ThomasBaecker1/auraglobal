@@ -37,7 +37,7 @@ const pages=[...manifest.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m=>m[1]);
 if(!pages.length)errors.push('No sitemap URLs');
 for(const link of pages){
   let u;try{u=new URL(link)}catch{errors.push('Malformed sitemap URL '+link);continue}
-  if(u.hostname!=='auraglobal.vercel.app'){errors.push('Wrong sitemap hostname '+link);continue}
+  if(u.hostname!=='auraglobal.net'){errors.push('Wrong sitemap hostname '+link);continue}
   const local=u.pathname==='/'?'index.html':decodeURIComponent(u.pathname).replace(/^\//,'');
   if(local.includes('..')||!exists(local)){errors.push('Sitemap path missing '+local);continue}
   counts.pages++;
