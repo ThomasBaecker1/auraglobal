@@ -21,7 +21,12 @@ export default async function handler(req,res) {
     return res.redirect(307,url.toString());
   } catch {
     res.setHeader('Cache-Control','no-store');
+    // Keep the public product finder working even when the Vercel Blob store
+    // is private/unreachable. The checked-in manifest represents the same
+    // dated fallback snapshot as /data/products.json (not a live full feed).
+    // Redirects are deliberately no-store so a recovered Blob is used next time.
     if (file === 'preview') return res.redirect(307,'/data/products.json');
-    return res.status(503).json({error:'Full catalog temporarily unavailable; use product selection'});
+    res.setHeader('X-AuraGlobal-Catalog-Mode','static-fallback');
+    return res.redirect(307,'/data/catalog/index.json');
   }
 }
