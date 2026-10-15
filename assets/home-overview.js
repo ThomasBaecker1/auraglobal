@@ -25,7 +25,7 @@ async function fetchJson(url) {
 async function expandCatalog(){
   let manifest;
   try{manifest=await fetchJson('/api/catalog?file=manifest')}
-  catch{return}
+  catch{try{manifest=await fetchJson('/data/catalog/index.json')}catch{return}}
   if(!Array.isArray(manifest?.merchants))return;
   // Awin feed merchants are not the same as public brand-directory cards.
   // Count only merchants with a real product feed in the joined-program manifest.
