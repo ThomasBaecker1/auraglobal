@@ -30,3 +30,5 @@ body.partner-check .agp-productfoot>a:hover{background:#fff}
 body.partner-check .agp-modelnote{font-size:12px;line-height:1.7;color:#c5dcd3;margin-top:22px}
 body.partner-check .agp-productfoot>a:focus-visible{outline:3px solid white;outline-offset:3px}
 @media(max-width:850px){body.partner-check .agp-productgrid{grid-template-columns:1fr}}
+
+.pc-code-status{display:inline-flex;align-items:center;gap:.4rem;flex-wrap:wrap;margin:0 0 1.1rem;padding:.72rem 1rem;border:1px solid rgba(140,232,185,.52);border-radius:12px;background:rgba(140,232,185,.1);color:inherit;font-size:clamp(.92rem,1.7vw,1rem);line-height:1.5}.pc-code-status a{color:inherit;font-weight:800;text-underline-offset:3px}.pc-code-status strong{font-weight:800}
