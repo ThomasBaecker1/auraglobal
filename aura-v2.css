@@ -4430,3 +4430,43 @@ html body :is(a,button,input,select,textarea):focus-visible { outline:3px solid 
 
 /* Readability cleanup: keep home-page controls and helper copy comfortably legible. */
 html body.brand-home main :is(.hero-chips a,.shop-chip,.shop-compare-link,.category-scroll span,.portal-grid span){font-size:13px!important;line-height:1.4!important}html body.brand-home main :is(.hero-chips a,.shop-chip,.shop-compare-link){min-height:40px!important}html body.brand-home main :is(.mobile-compare-bar b,.mobile-compare-bar small,.mobile-compare-bar strong){font-size:13px!important;line-height:1.4!important}html body.brand-home main :is(.source-note,.affiliate-footer-note,.hero-sale-note,.deal-note,.adnote,.search-helper,.notice){font-size:13px!important;line-height:1.55!important}html body.brand-home main :is(.kicker,.pill,.brand-proof-label,.rail-toolbar,.quick-label,.shop-intent-label,.deal-copy small,.directory-cta small){font-size:12px!important;line-height:1.45!important}html body.brand-home main :is(.card-cta,.deal-cta,.deal-link,.inline-link,.btn){font-size:14px!important;line-height:1.45!important}html body.brand-home .footer,html body.brand-home .footer .shell,html body.brand-home .footer-links a{font-size:14px!important;line-height:1.65!important}@media(max-width:760px){html body.brand-home main :is(.hero-chips a,.shop-chip,.shop-compare-link){font-size:13px!important;padding:9px 11px!important}html body.brand-home main :is(.mobile-compare-bar b,.mobile-compare-bar small,.mobile-compare-bar strong){font-size:13px!important}html body.brand-home main :is(.source-note,.affiliate-footer-note,.hero-sale-note,.deal-note,.adnote,.search-helper,.notice){font-size:13px!important;line-height:1.55!important}}
+
+
+/* Readability pass — Oct 16, 2026 */
+html body {
+  -webkit-font-smoothing: auto;
+  font-kerning: normal;
+  text-rendering: optimizeLegibility;
+}
+html body.brand-home main :is(
+  .hero p,.ag-search-desc,.card-body p,.rail .card-body p,.deal-copy p,
+  .world-copy p,.gallery-copy p,.equal-copy span,.ag-fast-buy-body > span,
+  .ag-short-copy span,.choice p
+) {
+  font-size: max(15px, 1rem) !important;
+  line-height: 1.62 !important;
+  color: #dce5ef !important;
+}
+html body.brand-home main :is(.rail .card-body h3,.deal-copy h3,.world-copy h3) {
+  line-height: 1.22 !important;
+  text-wrap: balance;
+}
+html body.brand-home main :is(.primary,.card-cta,.deal-cta,.deal-link,.ag-home-buy,.searchbox button) {
+  min-height: 46px;
+  font-size: 15px !important;
+  line-height: 1.4 !important;
+}
+@media(max-width:760px) {
+  html body.brand-home main :is(
+    .hero p,.ag-search-desc,.card-body p,.rail .card-body p,.deal-copy p,
+    .world-copy p,.gallery-copy p,.equal-copy span,.ag-fast-buy-body > span,
+    .ag-short-copy span,.choice p
+  ) {
+    font-size: max(15px, 1rem) !important;
+    line-height: 1.65 !important;
+  }
+  html body.brand-home main :is(.primary,.card-cta,.deal-cta,.deal-link,.ag-home-buy,.searchbox button) {
+    min-height: 48px;
+    width: 100%;
+  }
+}
