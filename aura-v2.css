@@ -4310,8 +4310,15 @@ html body.brand-home :is(.ag-fast-buy-body strong,.ag-short-copy strong,.equal-w
 
 /* Gold search surface uses DARK ink, including hints and placeholder labels. */
 html body.brand-home .visual-search { color: #171710 !important; }
-html body.brand-home .visual-search h1,
-html body.brand-home .visual-search h1 em { color: #171710 !important; -webkit-text-fill-color: #171710 !important; }
+html body.brand-home .visual-search h1 {
+  color:#f7fbf9 !important;
+  -webkit-text-fill-color:#f7fbf9 !important;
+  text-shadow:0 2px 24px rgba(0,0,0,.24) !important;
+}
+html body.brand-home .visual-search h1 em {
+  color:#b9f5d6 !important;
+  -webkit-text-fill-color:#b9f5d6 !important;
+}
 html body.brand-home .visual-search-kicker { color:#4f3800 !important; font-size:12px !important; line-height:1.45 !important; }
 html body.brand-home .ag-search-desc { color:#302c19 !important; font-size:16px !important; line-height:1.55 !important; }
 html body.brand-home .visual-search :is(.ag-home-promise,.ag-home-promise span) { font-size:13px !important; line-height:1.45 !important; }
