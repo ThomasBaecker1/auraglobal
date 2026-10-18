@@ -9,5 +9,29 @@
       "path": "/api/sync-awin",
       "schedule": "17 4 * * *"
     }
+  ],
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "auraglobal.vercel.app"
+        }
+      ],
+      "destination": "https://www.auraglobal.net/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "auraglobal-auraglobal.vercel.app"
+        }
+      ],
+      "destination": "https://www.auraglobal.net/:path*",
+      "permanent": true
+    }
   ]
 }
