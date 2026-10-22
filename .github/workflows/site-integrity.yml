@@ -1,0 +1,27 @@
+name: AuraGlobal all-page buyer journey health
+on:
+  push:
+    branches: [main]
+    paths:
+      - "*.html"
+      - "sitemap.xml"
+      - "scripts/audit-site-health.mjs"
+      - ".github/workflows/site-integrity.yml"
+  schedule:
+    - cron: "13 6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  static-health:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Validate all HTML links, fragment anchors, assets and offer expiry
+        run: node scripts/audit-site-health.mjs
