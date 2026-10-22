@@ -87,5 +87,62 @@ else{
  }
  try{new Function(read('assets/aura-match.js'))}catch(e){errors.push('AuraMatch JS syntax: '+e.message)}
 }
+
+// Site-wide link and conversion-path audit: all top-level published HTML files.
+// The daily CI report now covers the full site, not just the sitemap subset.
+const siteHtml=fs.readdirSync(root).filter(name=>/\.html$/i.test(name));
+const auditDate=new Date().toISOString().slice(0,10);
+counts.siteHtmlPages=siteHtml.length;
+counts.siteLinksChecked=0;
+counts.siteAffiliateLinks=0;
+counts.siteBrokenLocalRefs=0;
+counts.siteBrokenFragments=0;
+counts.siteExpiredDealMarkers=0;
+counts.sitePagesMissingFromSitemap=0;
+const sitemapLocal=new Set(pages.map(u=>{
+  try{const x=new URL(u);return x.pathname==='/'?'index.html':decodeURIComponent(x.pathname).replace(/^\//,'')}
+  catch{return ''}
+}));
+for(const file of siteHtml){
+  const html=read(file);
+  if(file!=='404.html'&&!sitemapLocal.has(file)){
+    counts.sitePagesMissingFromSitemap++;
+    warnings.push('Not in sitemap: '+file);
+  }
+  const ids=new Set([...html.matchAll(/\bid\s*=\s*(["'])(.*?)\1/gi)].map(x=>x[2]));
+  const references=[...html.matchAll(/<(?:a|img|link|script|source)\b[^>]*>/gi)].map(x=>x[0]);
+  const seenIssues=new Set();
+  for(const tag of references){
+    const href=parseAttr(tag,'href')||parseAttr(tag,'src');
+    if(!href)continue;
+    counts.siteLinksChecked++;
+    const u=href.replace(/&amp;/gi,'&');
+    if(/(?:awin1\.com|tidd\.ly)/i.test(u))counts.siteAffiliateLinks++;
+    if(u.startsWith('/')&&!u.startsWith('//')){
+      const loc=u.split(/[?#]/)[0].replace(/^\//,'')||'index.html';
+      let decoded=loc;try{decoded=decodeURIComponent(loc)}catch{}
+      if(!exists(decoded)&&!seenIssues.has('l:'+decoded)){
+        seenIssues.add('l:'+decoded);
+        counts.siteBrokenLocalRefs++;
+        warnings.push(file+': local destination missing '+decoded);
+      }
+    }
+    if(u.startsWith('#')&&u.length>1){
+      const id=u.substring(1);
+      if(!ids.has(id)&&!seenIssues.has('f:'+id)){
+        seenIssues.add('f:'+id);
+        counts.siteBrokenFragments++;
+        warnings.push(file+': fragment anchor missing #'+id);
+      }
+    }
+  }
+  for(const d of html.matchAll(/data-deal-end\s*=\s*(["'])(\d{4}-\d{2}-\d{2})\1/gi)){
+    if(d[2]<auditDate){
+      counts.siteExpiredDealMarkers++;
+      warnings.push(file+': expired offer marker '+d[2]+' (confirm whether hidden or stale)');
+    }
+  }
+}
+
 console.log(JSON.stringify({checkedAt:new Date().toISOString(),...counts,errorCount:errors.length,warningCount:warnings.length,errors,warnings:warnings.slice(0,30)},null,2));
 if(errors.length)process.exitCode=1;
