@@ -9,5 +9,17 @@
       "path": "/api/sync-awin",
       "schedule": "17 4 * * *"
     }
+  ],
+  "redirects": [
+    {
+      "source": "/freelance",
+      "destination": "/freelance.html",
+      "permanent": true
+    },
+    {
+      "source": "/freelance/",
+      "destination": "/freelance.html",
+      "permanent": true
+    }
   ]
 }
