@@ -45,6 +45,8 @@ function initAffiliateTestMode(){
 initAffiliateTestMode();
 
 const catalog=[
+  {title:"Hairlust Haarpflege",type:"Kaufberatung",href:"/hairlust.html",tags:"hairlust haare shampoo haarpflege grow perfect scalp delight kopfhaut peeling"},
+  {title:"Kastner & Öhler Winterjacken",type:"Kaufberatung",href:"/kastner-oehler.html",tags:"kastner öhler mode winterjacken steppjacke parka fashion damen herren"},
   {title:"House of Sneakers",type:"Vergleich",href:"/house-of-sneakers.html",tags:"house of sneakers sneaker nike adidas jordan campus schuhe streetwear"},
   {title:'Alle Marken & Vergleiche',type:'Übersicht',href:'/marken.html',tags:'alle marken partner vergleiche übersicht katalog kategorien'},
   {title:'E-Bikes',type:'Kategorie',href:'/e-bikes.html',tags:'ebike e-bike fahrrad bike city mobilität'},
