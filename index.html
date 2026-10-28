@@ -315,7 +315,52 @@ html body.brand-home .ag-revenue-card[hidden]{display:none!important}
 html body.brand-home .ag-revenue-card:focus-visible{outline:3px solid #ffecb7!important;outline-offset:3px}
 html body.brand-home .ag-revenue-disclose{font-size:12px!important;color:#cdded6!important;margin:12px 0 0!important}
 @media(max-width:700px){html body.brand-home .ag-search-first .visual-search-kicker{font-size:13px!important}html body.brand-home .ag-category-head span{font-size:12px!important}html body.brand-home .ag-revenue-grid{grid-template-columns:1fr}html body.brand-home .ag-revenue-strip{padding:25px 15px}html body.brand-home .ag-revenue-card{padding:19px}html body.brand-home .ag-search-first .ag-category-grid a{padding:10px!important}}
-</style></head>
+</style>
+
+<style id="ag-mobile-search-repair-20261028">
+/* Targeted repair: older generic mobile CTA CSS made the homepage search button 100% wide. */
+@media (max-width:760px) {
+  html body.brand-home main .ag-search-first .visual-search-tools {
+    width:100%;min-width:0;position:relative;box-sizing:border-box;
+  }
+  html body.brand-home main .ag-search-first #search.searchbox {
+    display:flex!important;flex-flow:row nowrap!important;align-items:center!important;
+    gap:7px!important;width:100%!important;min-width:0!important;min-height:60px!important;
+    padding:6px!important;margin:12px 0 0!important;box-sizing:border-box!important;
+    border:1px solid #9ebeb0!important;border-radius:15px!important;
+    background:#f5fff9!important;box-shadow:0 12px 30px rgba(0,0,0,.24)!important;
+  }
+  html body.brand-home main .ag-search-first #search.searchbox input[data-search] {
+    display:block!important;flex:1 1 0%!important;width:0!important;min-width:0!important;
+    height:46px!important;min-height:46px!important;max-width:none!important;
+    padding:0 10px!important;border:0!important;border-radius:9px!important;
+    background:transparent!important;color:#133726!important;-webkit-text-fill-color:#133726!important;
+    font-size:16px!important;line-height:1.35!important;box-sizing:border-box!important;
+    box-shadow:none!important;
+  }
+  html body.brand-home main .ag-search-first #search.searchbox input[data-search]::placeholder {
+    color:#586e61!important;-webkit-text-fill-color:#586e61!important;opacity:1!important;
+  }
+  html body.brand-home main .ag-search-first #search.searchbox button {
+    display:inline-flex!important;flex:0 0 83px!important;align-items:center!important;justify-content:center!important;
+    width:83px!important;min-width:83px!important;max-width:83px!important;
+    height:46px!important;min-height:46px!important;padding:0 8px!important;margin:0!important;
+    background:#14583c!important;color:#fff!important;-webkit-text-fill-color:#fff!important;
+    font-size:14px!important;font-weight:850!important;line-height:1!important;
+    border:0!important;border-radius:10px!important;box-shadow:none!important;
+    box-sizing:border-box!important;white-space:nowrap!important;
+  }
+  html body.brand-home main .ag-search-first #search.searchbox:focus-within{
+    outline:2px solid #c7f9dd!important;outline-offset:3px!important;
+  }
+  html body.brand-home main .ag-search-first #search-results{
+    position:relative!important;inset:auto!important;left:auto!important;right:auto!important;
+    top:auto!important;width:100%!important;max-height:320px!important;overflow-y:auto!important;
+    margin:8px 0 0!important;box-sizing:border-box!important;z-index:50!important;
+  }
+}
+</style>
+</head>
 <body class="vc-page brand-home">
 <header class="topbar mock-nav"><div class="shell nav"><a class="brand ag-brand approved-logo" href="/" aria-label="AuraGlobal"><svg class="ag-symbol" viewBox="0 0 100 92" aria-hidden="true"><defs><linearGradient id="auraA" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#eafff5"/><stop offset=".48" stop-color="#8ce8b9"/><stop offset="1" stop-color="#45c98e"/></linearGradient></defs><path fill="url(#auraA)" d="M8 88 48 4 92 88H75L48 31 24 81Z"/><path fill="url(#auraA)" d="M17 78C34 59 53 53 77 66L72 74C52 63 36 66 17 78Z"/></svg><span class="ag-wordmark"><span class="aura">AURA</span><span class="global">GLOBAL</span></span></a><nav class="navlinks"><a href="#shopcats">Kategorien</a><a href="#deals">Deals</a><a href="/produkte.html">Produktfinder</a><a href="/match.html">AuraMatch</a><a href="/dienstleistungen.html">Für Unternehmen</a><a href="/marken.html">Alle Vergleiche</a></nav><div class="nav-icons"><a href="#search" aria-label="Suchen">⌕</a><a href="#deals" aria-label="Aktuelle Deals">％</a><a class="nav-cta" href="/produkte.html">Produktfinder →</a></div></div></header>
 <main>
@@ -331,8 +376,8 @@ html body.brand-home .ag-revenue-disclose{font-size:12px!important;color:#cdded6
     </div>
     <div class="visual-search-tools">
       <div id="search" class="searchbox mock-search" role="search">
-        <input data-search aria-label="Wunschprodukt suchen" aria-expanded="false" aria-controls="search-results" autocomplete="off" spellcheck="false" placeholder="Was suchst du? z. B. E-Bike oder Kaffeemaschine">
-        <button type="button" aria-label="Suche starten">→</button>
+        <input data-search aria-label="Wunschprodukt suchen" aria-expanded="false" aria-controls="search-results" autocomplete="off" spellcheck="false" placeholder="Produkt oder Marke suchen …">
+        <button type="button" aria-label="Suche starten">Suchen</button>
       </div>
       <div id="search-results" class="search-results" data-results aria-live="polite" aria-label="Suchvorschläge"></div>
       <div class="ag-category-head"><span>DEINE WELT ENTDECKEN</span><a href="/produkte.html">Produkte entdecken →</a></div>
