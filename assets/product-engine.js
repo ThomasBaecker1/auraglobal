@@ -11,6 +11,7 @@
     visible: 24,
     attribution: {},
     manifest: null,
+    feedStale: false,
     loadedChunks: new Set(),
     loadingChunks: false,
     searchTimer: null
@@ -116,13 +117,18 @@
     });
   }
 
+  // A feed older than seven days is useful for product discovery, but not for price claims.
+  function withoutStalePrices(rows) {
+    return state.feedStale ? rows.map(p=>({...p,price:null,oldPrice:null})) : rows;
+  }
+
   function mergeProducts(rows) {
     const byId = new Map(state.products.map(p=>[String(p.id),p]));
     for (const product of Array.isArray(rows) ? rows : []) {
       if (!product || !product.id) continue;
       byId.set(String(product.id),product);
     }
-    state.products = availableProducts([...byId.values()]);
+    state.products = withoutStalePrices(availableProducts([...byId.values()]));
   }
 
   function manifestMerchant(name) {
@@ -202,6 +208,10 @@
     const total = Number(payload.productCount) || state.products.length;
     const shops = Number(payload.merchantCount) || (payload.merchants?.length || 0);
     if (els.partnerCount && shops > 0) els.partnerCount.textContent = shops.toLocaleString('de-DE');
+    if (state.feedStale) {
+      els.meta.textContent = 'Awin-Katalog · letzter Datenstand '+stamp+' · '+shops.toLocaleString('de-DE')+' Shops · '+total.toLocaleString('de-DE')+' Einträge · veraltete Preise ausgeblendet, Verfügbarkeit beim Anbieter prüfen';
+      return;
+    }
     els.meta.textContent = payload.catalogStatus === 'preview-fallback' || payload.truncatedForRuntime ? 'Awin-Produktübersicht · Datenstand '+stamp+' · '+shops.toLocaleString('de-DE')+' Shops · '+total.toLocaleString('de-DE')+' Produkte · Preise und Verfügbarkeit im Shop prüfen' : 'Awin-Vollkatalog · Datenstand '+stamp+' · '+shops.toLocaleString('de-DE')+' Shops · '+total.toLocaleString('de-DE')+' Produkte · lädt bedarfsgerecht';
   }
 
@@ -764,7 +774,9 @@
       ]);
       if (!previewRes.ok) throw new Error('Produktdaten nicht erreichbar');
       const payload = await previewRes.json();
-      state.products = availableProducts(payload.products);
+      const feedTime = Date.parse(payload.updatedAt || '');
+      state.feedStale = !Number.isFinite(feedTime) || Date.now() - feedTime > 7 * 24 * 60 * 60 * 1000;
+      state.products = withoutStalePrices(availableProducts(payload.products));
       if(!state.products.length){useFallbackCatalog('feed_empty');return;}
 
       if (manifestRes?.ok) {
@@ -799,7 +811,7 @@
         const d = payload.updatedAt ? new Date(payload.updatedAt) : null;
         const stamp = d && !Number.isNaN(d.valueOf()) ? d.toLocaleString('de-DE',{dateStyle:'medium',timeStyle:'short'}) : 'wird aufgebaut';
         if (els.partnerCount) els.partnerCount.textContent = merchants.length.toLocaleString('de-DE');
-        els.meta.textContent = 'Produktauswahl · Stand '+stamp+' · '+merchants.length+' Shops · '+state.products.length.toLocaleString('de-DE')+' Einträge';
+        els.meta.textContent = 'Produktauswahl · Stand '+stamp+' · '+merchants.length+' Shops · '+state.products.length.toLocaleString('de-DE')+' Einträge'+(state.feedStale?' · veraltete Preise ausgeblendet, Verfügbarkeit im Shop prüfen':'');
       }
 
       if (state.merchant !== 'all') await loadNextCatalogChunks(2);
