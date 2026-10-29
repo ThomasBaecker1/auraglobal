@@ -27,6 +27,9 @@ async function expandCatalog(){
   try{manifest=await fetchJson('/api/catalog?file=manifest')}
   catch{try{manifest=await fetchJson('/data/catalog/index.json')}catch{return}}
   if(!Array.isArray(manifest?.merchants))return;
+  // Preview fallback is an old sample catalog, not a current Awin feed. Do not
+  // advertise its product counts or append its merchant cards as live offers.
+  if(manifest.catalogStatus==='preview-fallback'||manifest.source==='awin-product-feed-fallback')return;
   // Awin feed merchants are not the same as public brand-directory cards.
   // Count only merchants with a real product feed in the joined-program manifest.
   const feedMerchants=Array.isArray(manifest.merchants)
