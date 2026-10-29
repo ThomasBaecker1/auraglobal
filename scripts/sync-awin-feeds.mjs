@@ -661,7 +661,7 @@ export async function runSync({storageMode=process.env.AWIN_STORAGE_MODE || 'fil
         : /fetch failed|network|socket|ECONN|ENOTFOUND|EAI_AGAIN/i.test(message) ? 'NETWORK'
         : /csv|parse|header/i.test(message) ? 'PARSE'
         : 'OTHER';
-      return String(advertiserId).replace(/\\D/g,'').slice(0,8) + ':' + type;
+      return String(advertiserId).replace(/\D/g,'').slice(0,8) + ':' + type;
     });
     throw new Error('Refusing to publish empty Awin catalog after feed failures. '
       + 'Failed feeds: ' + failures.length + '/' + selected.length
