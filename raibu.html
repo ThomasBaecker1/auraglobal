@@ -56,7 +56,7 @@ linear-gradient(135deg,#07100a,#11180d 52%,#16150d)}
 <a class="nav-cta" href="#bedarf">Einordnen →</a>
 </div></header>
 
-<main><section class="live-deal-strip" ><div class="shell"><div class="live-deal"><div class="live-deal-copy"><small>ANGEBOT · GEPRÜFT 03.10.2026 · QUELLE: AWIN-PARTNERAKTION</small><b>RAIBU: 5 % Extra-Rabatt auf Bundles mit EXTRA5.</b><span>Laut Awin-Partneraktion zusätzlich zu reduzierten Bundle-Preisen. Kein Ablaufdatum genannt. Endpreis im Checkout prüfen.</span></div><a href="https://www.awin1.com/cread.php?awinmid=114194&awinaffid=3076553&ued=https%3A%2F%2Fwww.raibu.de%2Fcollections%2Fwellness-bundle" target="_blank" rel="sponsored noopener">Angebot beim Anbieter prüfen</a></div><div class="adnote">Anzeige</div></div></section>
+<main><div id="ag-raibu-november-offer" aria-live="polite"></div>
 <section class="raibu-hero"><div class="shell raibu-hero-grid">
 <div><span class="eyebrow"><i></i> RAIBU · AURAGLOBAL</span>
 <h1>Nicht 70 Produkte. Vier Fragen.</h1>
@@ -105,5 +105,17 @@ linear-gradient(135deg,#07100a,#11180d 52%,#16150d)}
 </main>
 
 <footer class="footer"><div class="shell"><div>© 2026 AuraGlobal · Unabhängige Vergleichsplattform.</div><div class="footer-links"><a href="/methodik.html">So vergleichen wir</a><a href="/impressum.html">Impressum</a><a href="/datenschutz.html">Datenschutz</a><a href="/affiliate-disclosure.html">Werbehinweis</a></div></div></footer>
+<script>
+/* RAIBU DE (114194), publisher 3076553. Official Awin partner newsletter 29.10.2026:
+   November subscriptions to five named bestsellers, 30% on follow-up deliveries.
+   Display only in November; do not infer duration of recurring discount. */
+(()=>{
+ let local;
+ try{local=new Intl.DateTimeFormat('sv-SE',{timeZone:'Europe/Berlin',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).format(new Date())}catch{return}
+ if(local<'2026-11-01 00:00'||local>'2026-11-30 23:59')return;
+ const root=document.getElementById('ag-raibu-november-offer');if(!root)return;
+ root.innerHTML='<section class="live-deal-strip" aria-label="RAIBU November-Abonnementaktion"><div class="shell"><div class="live-deal"><div class="live-deal-copy"><small>ANZEIGE · RAIBU-PARTNERAKTION · 01.–30.11.2026</small><b>30 % Rabatt auf Nachlieferungen bei ausgewählten Abos</b><span>Laut RAIBU-Awin-Mitteilung vom 29.10.: Wer im November Inositol, Probiotic, Shilajit Resin, Magnesium Bisglycinat oder D-Mannose Cranberry abonniert, erhält 30 % Rabatt auf Nachlieferungen. Kein Gutscheincode nötig. Bitte im Shop prüfen: Preis der ersten Lieferung, Laufzeit der Rabattkondition, Kündigungsbedingungen und tatsächlicher Endpreis. Kein Gesundheitsversprechen.</span></div><a href="https://www.awin1.com/cread.php?awinmid=114194&amp;awinaffid=3076553&amp;clickref=ag_raibu_nov_abo_2026&amp;ued=https%3A%2F%2Fwww.raibu.de%2Fcollections%2Fall" target="_blank" rel="sponsored noopener">Abo-Bedingungen im Shop prüfen ↗</a></div><div class="adnote">Anzeige · Affiliate-Link</div></div></section>';
+})();
+</script>
 <script src="/aura-v2.js"></script>
 </body></html>
