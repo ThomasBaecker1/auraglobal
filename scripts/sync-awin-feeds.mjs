@@ -648,7 +648,26 @@ export async function runSync({storageMode=process.env.AWIN_STORAGE_MODE || 'fil
   };
   
   // A transient network failure must never overwrite a previously functioning catalog with an empty one.
-  if(totalProducts===0 || catalogMerchants.length===0) throw new Error('Refusing to publish empty Awin catalog after feed failures.');
+  if(totalProducts===0 || catalogMerchants.length===0) {
+    // Keep the previous catalog intact, but include non-sensitive failure categories
+    // in the thrown error. Vercel Hobby runtime logs expire quickly; the error
+    // group should still reveal whether the feeds failed with HTTP, gzip, or CSV issues.
+    const failureTypes = failures.slice(0, 12).map(({advertiserId,error}) => {
+      const message = String(error || '');
+      const http = message.match(/^(4\\d\\d|5\\d\\d)\\b/);
+      const type = http ? 'HTTP_' + http[1]
+        : /incorrect header check|invalid distance|unexpected end of file|gzip|zlib/i.test(message) ? 'GZIP'
+        : /abort|timeout|timed out/i.test(message) ? 'TIMEOUT'
+        : /fetch failed|network|socket|ECONN|ENOTFOUND|EAI_AGAIN/i.test(message) ? 'NETWORK'
+        : /csv|parse|header/i.test(message) ? 'PARSE'
+        : 'OTHER';
+      return String(advertiserId).replace(/\\D/g,'').slice(0,8) + ':' + type;
+    });
+    throw new Error('Refusing to publish empty Awin catalog after feed failures. '
+      + 'Failed feeds: ' + failures.length + '/' + selected.length
+      + '; first categories: ' + (failureTypes.join(',') || 'none')
+      + '; products: ' + totalProducts + '.');
+  }
   let manifestUrl = '/data/catalog/index.json';
   let previewUrl = '/data/products.json';
   
