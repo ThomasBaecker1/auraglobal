@@ -654,7 +654,7 @@ export async function runSync({storageMode=process.env.AWIN_STORAGE_MODE || 'fil
     // group should still reveal whether the feeds failed with HTTP, gzip, or CSV issues.
     const failureTypes = failures.slice(0, 12).map(({advertiserId,error}) => {
       const message = String(error || '');
-      const http = message.match(/^(4\\d\\d|5\\d\\d)\\b/);
+      const http = message.match(/^(4\d\d|5\d\d)\b/);
       const type = http ? 'HTTP_' + http[1]
         : /incorrect header check|invalid distance|unexpected end of file|gzip|zlib/i.test(message) ? 'GZIP'
         : /abort|timeout|timed out/i.test(message) ? 'TIMEOUT'
