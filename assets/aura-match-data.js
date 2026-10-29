@@ -1,7 +1,7 @@
 /* Curated, verified Awin destinations from existing AuraGlobal partner pages.
    No stock or price claims. Add merchants only after program approval. */
 window.AURA_MATCH_DATA={
-  updatedAt:"2026-10-08",
+  updatedAt:"2026-10-29",
   categories:[
     {id:"bike",label:"E-Bikes",icon:"🚲",lead:"Für Stadt, Pendeln, Bahn und Alltag",question:"Was ist dir beim E-Bike am wichtigsten?",intent:[
       {id:"city",label:"Leicht durch die Stadt",explain:"Wenig Gewicht, einfaches Handling"},
@@ -35,7 +35,7 @@ window.AURA_MATCH_DATA={
     ],guide:"/second-hand-markenmode.html"}
   ],
   offers:[
-    {id:"cgo600",category:"bike",title:"TENWAYS CGO600",merchant:"TENWAYS",badge:"City & Riemenantrieb",tags:["city","commute"],notes:["Carbon-Riemenantrieb","Akku fest integriert – Ladeplatz vorher prüfen"],reason:"Wenn dir geringes Gewicht und weniger klassische Kettenpflege wichtig sind.",photo:"https://www.tenways.com/cdn/shop/files/Greygreen-1_1500x.webp?v=1758781276",href:"https://www.awin1.com/cread.php?awinmid=72399&awinaffid=3076553&ued=https%3A%2F%2Fwww.tenways.com%2Fde%2Fproducts%2Fcgo600",guide:"/tenways.html"},
+    {id:"cgo600",category:"bike",title:"TENWAYS CGO600",merchant:"TENWAYS",badge:"City & Riemenantrieb",tags:["city","commute"],notes:["Riemenantrieb: MICHELIN (New Edition), Gates (Classic)","Akku fest integriert – Ladeplatz vorher prüfen"],reason:"Wenn dir geringes Gewicht und weniger klassische Kettenpflege wichtig sind.",photo:"https://www.tenways.com/cdn/shop/files/Greygreen-1_1500x.webp?v=1758781276",href:"https://www.awin1.com/cread.php?awinmid=72399&awinaffid=3076553&ued=https%3A%2F%2Fwww.tenways.com%2Fde%2Fproducts%2Fcgo600",guide:"/tenways.html"},
     {id:"cgo600pro",category:"bike",title:"TENWAYS CGO600 Pro",merchant:"TENWAYS",badge:"Pendeln & Akku entnehmen",tags:["commute","charge"],notes:["Herausnehmbarer Akku","Ausstattung je nach Variante prüfen"],reason:"Wenn du täglich pendelst und den Akku zum Laden herausnehmen möchtest.",photo:"https://www.tenways.com/cdn/shop/files/willow_mist-1_1500x.webp?v=1775096126",href:"https://www.awin1.com/cread.php?awinmid=72399&awinaffid=3076553&ued=https%3A%2F%2Fwww.tenways.com%2Fde%2Fproducts%2Fcgo600-pro",guide:"/tenways.html"},
     {id:"henri",category:"bike",title:"Blaupunkt HENRI",merchant:"DOTBLUE",badge:"Falt-E-Bike",tags:["fold","commute"],notes:["Faltbares E-Bike","Faltmaße und Gewicht vor Kauf prüfen"],reason:"Wenn kompakte Aufbewahrung oder Kombination mit anderen Verkehrsmitteln zählt.",href:"https://www.awin1.com/cread.php?awinmid=115541&awinaffid=3076553&ued=https%3A%2F%2Fwww.dotblue-ebike.de%2Fproduct%2Fblaupunkt-henri-falt-e-bike-leichtes-e-klapprad-fuer-pendler%2F",guide:"/dotblue.html"},
     {id:"emmi",category:"bike",title:"Blaupunkt EMMI",merchant:"DOTBLUE",badge:"Tiefeinstieg & Falten",tags:["fold","city"],notes:["Faltbares Tiefeinstiegskonzept","Rahmenhöhe und Fahrkomfort prüfen"],reason:"Wenn leichteres Auf- und Absteigen wichtiger ist als Sportlichkeit.",href:"https://www.awin1.com/cread.php?awinmid=115541&awinaffid=3076553&ued=https%3A%2F%2Fwww.dotblue-ebike.de%2Fproduct%2Fblaupunkt-emmi-e-klapprad-mit-tiefem-einstieg-falt-e-bike%2F",guide:"/dotblue.html"},
