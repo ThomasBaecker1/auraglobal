@@ -267,10 +267,32 @@ async function openProductStream(url) {
   if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
   if (!res.body) throw new Error('Feed response has no body.');
 
-  const contentType = res.headers.get('content-type') || '';
-  const gzip = /gzip/i.test(contentType) || /\.gz(?:$|\?)/i.test(url) || url.includes('/compression/gzip/');
+  // Node fetch may transparently decompress Content-Encoding: gzip while the
+  // Awin download URL still contains /compression/gzip/. Trust the bytes, not
+  // the URL or response headers, or already-decoded CSV is gunzipped twice.
   const source = Readable.fromWeb(res.body);
-  return gzip ? source.pipe(createGunzip()) : source;
+  const iterator = source[Symbol.asyncIterator]();
+  const head = [];
+  let headBytes = 0;
+  while (headBytes < 2) {
+    const next = await iterator.next();
+    if (next.done) break;
+    const bytes = Buffer.from(next.value);
+    head.push(bytes);
+    headBytes += bytes.length;
+  }
+  if (!headBytes) throw new Error('Feed response body is empty.');
+  const prefix = Buffer.concat(head);
+  const replay = Readable.from((async function* () {
+    yield prefix;
+    for (;;) {
+      const next = await iterator.next();
+      if (next.done) break;
+      yield next.value;
+    }
+  })());
+  const isGzip = prefix.length >= 2 && prefix[0] === 0x1f && prefix[1] === 0x8b;
+  return isGzip ? replay.pipe(createGunzip()) : replay;
 }
 
 async function* csvRowsFromStream(stream) {
