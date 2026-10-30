@@ -512,7 +512,7 @@
     }
     if (intent.cheap && Number.isFinite(price) && price > 0) reasons.push('hat einen konkreten Preis im Feed');
     if (norm(p.internalUrl)) reasons.push('hat bereits einen AuraGlobal-Vergleich');
-    if (urlOk(p.image)) reasons.push('liefert vollständige Produktdaten');
+    if (urlOk(p.image)) reasons.push('hat ein Produktbild im Katalog');
     if (!reasons.length) reasons.push('passt sprachlich am stärksten zu deiner Anfrage');
     const lead = rank === 0 ? 'Stärkster Match' : rank === 1 ? 'Alternative' : 'Weitere passende Option';
     return lead+': '+reasons.slice(0,2).join(' und ')+'.';
@@ -521,12 +521,12 @@
   function assistantCard(p,intent,index) {
     const price = money(p.price,p.currency);
     const img = urlOk(p.image) ? p.image : '/favicon.svg';
-    const outbound = urlOk(p.url) ? p.url : '#';
+    const outbound = urlOk(p.url) ? attributedUrl(p.url,p) : '#';
     const internal = norm(p.internalUrl);
     return '<article class="ag-rec">'+
       '<div class="ag-rec-rank">0'+(index+1)+'</div>'+
       '<div class="ag-rec-img"><img loading="lazy" decoding="async" src="'+esc(img)+'" alt="'+esc(p.name)+'"></div>'+
-      '<div class="ag-rec-copy"><small>'+esc(p.merchant)+' · '+esc(p.category || 'Produkt')+'</small>'+
+      '<div class="ag-rec-copy"><small>Anzeige · '+esc(p.merchant)+' · '+esc(p.category || 'Produkt')+'</small>'+
       '<h3>'+esc(p.name)+'</h3>'+
       '<p>'+esc(recommendationReason(p,intent,index))+'</p>'+
       '<div class="ag-rec-bottom">'+
@@ -555,13 +555,13 @@
     if (!ranked.length) {
       els.assistantOutput.innerHTML =
         '<div class="ag-answer-head"><span>AuraGlobal Beta</span><h3>Dafür habe ich im aktuellen Katalog noch keinen starken Treffer.</h3>'+
-        '<p>Das ist genau die Art Anfrage, die AuraGlobal langfristig lösen soll. Der Awin-Katalog wird laufend aus allen freigeschalteten Partnerfeeds erweitert; weitere Kategorien kommen automatisch hinzu.</p></div>'+
+        '<p>Für diese Anfrage liegen derzeit keine ausreichend passenden Katalogtreffer vor. Neue Produkte werden erst nach erfolgreicher Aktualisierung der Partnerdaten ergänzt.</p></div>'+
         '<button class="ag-show-catalog" type="button" data-assistant-catalog>Gesamten Katalog ansehen →</button>';
     } else {
       els.assistantOutput.innerHTML =
         '<div class="ag-answer-head"><span>AuraGlobal Beta'+esc(budgetText)+'</span>'+
         '<h3>Das sind aktuell die stärksten Matches zu „'+esc(intent.query)+'“.</h3>'+
-        '<p>Die Beta gewichtet Suchbegriffe, Kategorie, Budget, verfügbare Produktdaten und vorhandene AuraGlobal-Guides. Sie ist noch keine vollständige KI-Beratung.</p></div>'+
+        '<p>Die Beta gewichtet Suchbegriffe, Kategorie, Budget, verfügbare Produktdaten und vorhandene AuraGlobal-Guides. Sie ist noch keine vollständige KI-Beratung.'+(state.feedStale?' Die Produktdaten sind älter als sieben Tage: Preise werden ausgeblendet, Verfügbarkeit bitte beim Anbieter prüfen.':'')+'</p></div>'+
         '<div class="ag-rec-grid">'+ranked.map((x,i)=>assistantCard(x.p,intent,i)).join('')+'</div>'+
         '<button class="ag-show-catalog" type="button" data-assistant-catalog>Alle passenden Produkte im Katalog →</button>';
     }
