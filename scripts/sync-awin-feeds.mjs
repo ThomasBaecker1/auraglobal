@@ -620,13 +620,20 @@ export async function runSync({storageMode=process.env.AWIN_STORAGE_MODE || 'fil
   
       console.log(`Synced ${advertiserName}: ${count} products in ${orderedChunkPaths.length} chunks (feed ${feedId || 'n/a'}, declared ${declaredProducts ?? 'n/a'})`);
     } catch (err) {
+      const message = String(err?.message || err);
+      // Storage suspension is a global blocker, not a merchant feed failure.
+      // Stop after the first failed upload instead of downloading every feed.
+      // Preserve the previously published catalog until storage is restored.
+      if (blobMode && /Vercel Blob:\s*This store has been suspended/i.test(message)) {
+        throw new Error('Awin catalog sync blocked: Vercel Blob store suspended. Existing catalog fallback retained.');
+      }
       failures.push({
         advertiserId,
         advertiserName,
         feedId,
-        error:String(err?.message || err)
+        error:message
       });
-      console.warn(`Feed failed for ${advertiserName}: ${err?.message || err}`);
+      console.warn(`Feed failed for ${advertiserName}: ${message}`);
     }
   }
   
