@@ -392,7 +392,11 @@ export async function runSync({storageMode=process.env.AWIN_STORAGE_MODE || 'fil
   // Every joined Awin merchant is eligible. INTERNAL_GUIDES is only used to add
   // AuraGlobal editorial guide links when we already have one; it must never
   // limit which merchants or products enter the catalog.
-  const eligibleFeeds = allJoinedFeeds.filter(feed => pick(feed,['Advertiser ID','Merchant ID','merchant_id']) !== '68034');
+  const allowedIds = new Set((process.env.AWIN_ALLOWED_MERCHANT_IDS || '').split(',').map(id => id.trim()).filter(id => /^\d+$/.test(id)));
+  const eligibleFeeds = allJoinedFeeds.filter(feed => {
+    const id = pick(feed,['Advertiser ID','Merchant ID','merchant_id']);
+    return id !== '68034' && (!allowedIds.size || allowedIds.has(id));
+  });
   
   const byMerchant = new Map();
   for (const feed of eligibleFeeds) {
