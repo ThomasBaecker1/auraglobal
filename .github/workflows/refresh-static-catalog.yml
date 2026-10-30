@@ -1,0 +1,35 @@
+name: Refresh approved Awin catalog through free Vercel builds
+
+on:
+  schedule:
+    # Daily after the existing Awin cron; no Awin credentials are stored in GitHub.
+    - cron: "37 6 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/refresh-static-catalog.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  request-build:
+    if: github.repository == 'ThomasBaecker1/auraglobal'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: true
+      - name: Commit refresh marker to trigger the connected Vercel build
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          date -u +"%Y-%m-%dT%H:%M:%SZ" > .catalog-refresh
+          git add .catalog-refresh
+          git commit -m "chore: request daily Awin static catalog refresh"
+          git push origin HEAD:main
