@@ -37,6 +37,17 @@ function getListUrl() {
 }
 
 const INTERNAL_GUIDES = {
+  '51793':'/ecoflow.html',
+  '45487':'/meaco.html',
+  '117937':'/torro.html',
+  '116585':'/canvasi.html',
+  '130797':'/persen.html',
+  '98661':'/cronjager.html',
+
+  '128645':'/sirui.html',
+  '111672':'/clouvou.html',
+  '60777':'/prophete.html',
+  '116069':'/wietholt.html',
   '18306':'/scheppach.html',
   '24089':'/paper-sons.html',
   '123708':'/vintage-realm.html',
