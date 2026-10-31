@@ -45,6 +45,13 @@ function initAffiliateTestMode(){
 initAffiliateTestMode();
 
 const catalog=[
+  {"title": "EcoFlow", "type": "Kaufhilfe", "href": "/ecoflow.html", "tags": "ecoflow powerstation solar camping wohnmobil energie akku strom"},
+  {"title": "Meaco", "type": "Kaufhilfe", "href": "/meaco.html", "tags": "meaco luftentfeuchter ventilator luftreiniger raumklima feuchtigkeit"},
+  {"title": "TORRO", "type": "Kaufhilfe", "href": "/torro.html", "tags": "torro handyhuellen handyhüllen leder smartphone iphone samsung google pixel ipad"},
+  {"title": "Canvasi", "type": "Kaufhilfe", "href": "/canvasi.html", "tags": "canvasi leinwand keilrahmen schattenfugenrahmen kunst malen kreativbedarf"},
+  {"title": "PERSEN smart Creator", "type": "Kaufhilfe", "href": "/persen.html", "tags": "persen smart creator unterricht lehrer schule arbeitsblatt arbeitsblätter ki lernen"},
+  {"title": "Cronjager", "type": "Kaufhilfe", "href": "/cronjager.html", "tags": "cronjager mode sport technik wohnen garten haushalt shopping"},
+
   {title:"Hairlust Haarpflege",type:"Kaufberatung",href:"/hairlust.html",tags:"hairlust haare shampoo haarpflege grow perfect scalp delight kopfhaut peeling"},
   {title:"Kastner & Öhler Winterjacken",type:"Kaufberatung",href:"/kastner-oehler.html",tags:"kastner öhler mode winterjacken steppjacke parka fashion damen herren"},
   {title:"House of Sneakers",type:"Vergleich",href:"/house-of-sneakers.html",tags:"house of sneakers sneaker nike adidas jordan campus schuhe streetwear"},
@@ -602,3 +609,27 @@ function initVercelAnalytics(){
   document.head.appendChild(script);
 }
 document.addEventListener('DOMContentLoaded',initVercelAnalytics);
+
+function initMobileNavigation(){
+  const nav=document.querySelector('.topbar .nav');
+  if(!nav || nav.querySelector('.ag-mobile-menu'))return;
+  const menu=document.createElement('details');
+  menu.className='ag-mobile-menu';
+  const summary=document.createElement('summary');
+  summary.textContent='Menü';
+  summary.setAttribute('aria-label','Navigation öffnen');
+  const links=document.createElement('nav');
+  links.setAttribute('aria-label','Mobile Hauptnavigation');
+  for(const [label,href] of [['Startseite','/'],['Alle Marken','/marken.html'],['Kaufberatung','/kaufberatung.html'],['Produktfinder','/produkte.html'],['AuraMatch','/match.html']]){
+    const a=document.createElement('a');a.textContent=label;a.href=href;
+    if(location.pathname===href)a.setAttribute('aria-current','page');
+    a.addEventListener('click',()=>{menu.open=false});
+    links.appendChild(a);
+  }
+  menu.append(summary,links);nav.appendChild(menu);
+  menu.addEventListener('toggle',()=>{summary.setAttribute('aria-label',menu.open?'Navigation schließen':'Navigation öffnen')});
+  menu.addEventListener('keydown',event=>{if(event.key==='Escape'&&menu.open){menu.open=false;summary.focus()}});
+  document.addEventListener('click',event=>{if(menu.open&&!menu.contains(event.target))menu.open=false});
+  window.matchMedia('(min-width:901px)').addEventListener('change',event=>{if(event.matches)menu.open=false});
+}
+document.addEventListener('DOMContentLoaded',initMobileNavigation);

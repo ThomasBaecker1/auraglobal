@@ -4477,3 +4477,14 @@ html body.brand-home main :is(.primary,.card-cta,.deal-cta,.deal-link,.ag-home-b
     width: 100%;
   }
 }
+/* Accessible mobile navigation replaces previously hidden header links. */
+.topbar .ag-mobile-menu{display:none;position:relative;margin-left:auto;color:#e5f8eb}
+.topbar .ag-mobile-menu>summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:12px;min-height:44px;padding:8px 15px;border:1px solid #8fb8a14f;border-radius:12px;background:#15271e;font-size:13px;font-weight:750;color:#e5f8eb;user-select:none}
+.topbar .ag-mobile-menu>summary::-webkit-details-marker{display:none}
+.topbar .ag-mobile-menu>summary:after{content:"+";font-size:21px;font-weight:400;line-height:1}
+.topbar .ag-mobile-menu[open]>summary:after{content:"×"}
+.topbar .ag-mobile-menu>nav{position:absolute;top:calc(100% + 12px);right:0;z-index:120;width:min(290px,calc(100vw - 32px));padding:8px;border:1px solid #6d9b7b66;border-radius:16px;background:#0e2018;box-shadow:0 18px 55px #0005;display:grid;gap:3px}
+.topbar .ag-mobile-menu>nav>a{display:flex;align-items:center;min-height:48px;padding:11px 15px;border-radius:9px;color:#e5f8eb;font-size:15px;text-decoration:none}
+.topbar .ag-mobile-menu>nav>a:hover,.topbar .ag-mobile-menu>nav>a[aria-current="page"]{background:#244532;color:#d6ffe3}
+.topbar .ag-mobile-menu :is(a,summary):focus-visible{outline:3px solid #dfb477;outline-offset:3px}
+@media(max-width:900px){.topbar .ag-mobile-menu{display:block!important}.topbar .navlinks,.topbar .nav>.nav-cta,.topbar .nav-icons{display:none!important}}
