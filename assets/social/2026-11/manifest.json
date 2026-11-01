@@ -1,0 +1,254 @@
+[
+  {
+    "slug": "ecoflow",
+    "brand": "EcoFlow",
+    "title": "Strom unterwegs. Was brauchst du wirklich?",
+    "tips": [
+      [
+        "Kapazität",
+        "Wie lange sollen deine Geräte laufen?"
+      ],
+      [
+        "Leistung",
+        "Welche Geräte laufen gleichzeitig?"
+      ],
+      [
+        "Ladealltag",
+        "Gewicht und Lademöglichkeiten mitplanen."
+      ]
+    ],
+    "path": "assets/social/2026-11/ecoflow.png",
+    "bytes": 76794
+  },
+  {
+    "slug": "meaco",
+    "brand": "Meaco",
+    "title": "Luftentfeuchter: 3 Fragen vor dem Kauf.",
+    "tips": [
+      [
+        "Raum",
+        "Größe und Temperatur berücksichtigen."
+      ],
+      [
+        "Alltag",
+        "Aufstellort und Geräusch einplanen."
+      ],
+      [
+        "Kosten",
+        "Leistung und laufende Kosten prüfen."
+      ]
+    ],
+    "path": "assets/social/2026-11/meaco.png",
+    "bytes": 70097
+  },
+  {
+    "slug": "torro",
+    "brand": "TORRO",
+    "title": "Neue Hülle? Erst das genaue Modell prüfen.",
+    "tips": [
+      [
+        "Gerät",
+        "Modell und Generation genau abgleichen."
+      ],
+      [
+        "Laden",
+        "Hülle und Ladezubehör zusammen prüfen."
+      ],
+      [
+        "Nutzung",
+        "Kartenfächer, Standfunktion und Material."
+      ]
+    ],
+    "path": "assets/social/2026-11/torro.png",
+    "bytes": 68247
+  },
+  {
+    "slug": "canvasi",
+    "brand": "Canvasi",
+    "title": "Vom Bild zur passenden Rahmenwahl.",
+    "tips": [
+      [
+        "Format",
+        "Das tatsächliche Bildmaß nehmen."
+      ],
+      [
+        "Tiefe",
+        "Rahmenprofil und Bildtiefe abgleichen."
+      ],
+      [
+        "Projekt",
+        "Maltechnik und Untergrund mitdenken."
+      ]
+    ],
+    "path": "assets/social/2026-11/canvasi.png",
+    "bytes": 68531
+  },
+  {
+    "slug": "persen",
+    "brand": "PERSEN smart Creator",
+    "title": "Digitale Hilfe für deinen Unterricht?",
+    "tips": [
+      [
+        "Funktion",
+        "Passt das Werkzeug zu deiner Aufgabe?"
+      ],
+      [
+        "Material",
+        "Ausgangsmaterial und Anpassung prüfen."
+      ],
+      [
+        "Nutzung",
+        "Preis und Nutzungsrechte abgleichen."
+      ]
+    ],
+    "path": "assets/social/2026-11/persen.png",
+    "bytes": 67666
+  },
+  {
+    "slug": "cronjager",
+    "brand": "Cronjager",
+    "title": "Bewusster shoppen. Klarer wählen.",
+    "tips": [
+      [
+        "Bedarf",
+        "Erst Einsatz und passende Variante klären."
+      ],
+      [
+        "Preis",
+        "Lieferung und Zubehör mitrechnen."
+      ],
+      [
+        "Bestellung",
+        "Rückgabe und Lieferbedingungen lesen."
+      ]
+    ],
+    "path": "assets/social/2026-11/cronjager.png",
+    "bytes": 68451
+  },
+  {
+    "slug": "porzellantreff",
+    "brand": "Porzellantreff",
+    "title": "Geschirr wählen: Was passt auf deinen Tisch?",
+    "tips": [
+      [
+        "Alltag",
+        "Größe und Anzahl der Teile planen."
+      ],
+      [
+        "Material",
+        "Pflegehinweise des Artikels beachten."
+      ],
+      [
+        "Set",
+        "Lieferumfang und Nachkauf prüfen."
+      ]
+    ],
+    "path": "assets/social/2026-11/porzellantreff.png",
+    "bytes": 71489
+  },
+  {
+    "slug": "rasendoktor",
+    "brand": "Rasendoktor",
+    "title": "Gartenprodukte: Bedarf vor Warenkorb.",
+    "tips": [
+      [
+        "Projekt",
+        "Fläche und eigentliche Aufgabe klären."
+      ],
+      [
+        "Menge",
+        "Packungsgröße mit deinem Bedarf prüfen."
+      ],
+      [
+        "Auswahl",
+        "Anwendung und Gesamtkosten vergleichen."
+      ]
+    ],
+    "path": "assets/social/2026-11/rasendoktor.png",
+    "bytes": 79144
+  },
+  {
+    "slug": "linguatv",
+    "brand": "LinguaTV",
+    "title": "Sprachen lernen: Welches Format passt zu dir?",
+    "tips": [
+      [
+        "Ziel",
+        "Niveau und Lernziel festlegen."
+      ],
+      [
+        "Alltag",
+        "Zeitbedarf und Lernformat abgleichen."
+      ],
+      [
+        "Buchung",
+        "Zugang, Laufzeit und Preis prüfen."
+      ]
+    ],
+    "path": "assets/social/2026-11/linguatv.png",
+    "bytes": 71972
+  },
+  {
+    "slug": "magix",
+    "brand": "MAGIX",
+    "title": "Kreativsoftware: Erst dein Projekt klären.",
+    "tips": [
+      [
+        "Aufgabe",
+        "Video, Audio oder Fotos bearbeiten?"
+      ],
+      [
+        "Gerät",
+        "Systemanforderungen vor dem Kauf lesen."
+      ],
+      [
+        "Lizenz",
+        "Version, Laufzeit und Folgekosten prüfen."
+      ]
+    ],
+    "path": "assets/social/2026-11/magix.png",
+    "bytes": 72849
+  },
+  {
+    "slug": "pizza-party",
+    "brand": "Pizza Party",
+    "title": "Pizzaofen kaufen? 3 Punkte vorher klären.",
+    "tips": [
+      [
+        "Platz",
+        "Aufstellung und Abstände prüfen."
+      ],
+      [
+        "Betrieb",
+        "Brennstoff und Bedienung abgleichen."
+      ],
+      [
+        "Budget",
+        "Zubehör und Lieferung mitrechnen."
+      ]
+    ],
+    "path": "assets/social/2026-11/pizza-party.png",
+    "bytes": 68400
+  },
+  {
+    "slug": "moebel-inhofer",
+    "brand": "Möbel Inhofer",
+    "title": "Möbel auswählen: Erst messen. Dann verlieben.",
+    "tips": [
+      [
+        "Raum",
+        "Stellmaß und Bewegungsfläche planen."
+      ],
+      [
+        "Transport",
+        "Türen, Treppen und Zugang mitmessen."
+      ],
+      [
+        "Bestellung",
+        "Lieferung und Montage prüfen."
+      ]
+    ],
+    "path": "assets/social/2026-11/moebel-inhofer.png",
+    "bytes": 72658
+  }
+]
