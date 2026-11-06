@@ -1,0 +1,48 @@
+/* AuraGlobal — cinematic product moments, built from existing still images. */
+body.brand-home .ag-video-moments{
+  position:relative;overflow:hidden;padding:54px 0 60px!important;
+  background:radial-gradient(ellipse at 8% 14%,rgba(113,224,160,.16),transparent 33%),
+    radial-gradient(ellipse at 93% 82%,rgba(207,172,121,.12),transparent 34%),#081611!important;
+}
+body.brand-home .ag-video-moments>.shell{position:relative;z-index:1}
+body.brand-home .ag-moments-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:24px}
+body.brand-home .ag-moments-head h2{font-size:clamp(30px,4vw,48px)!important;line-height:1.02!important;letter-spacing:-.055em!important;margin:9px 0 10px!important}
+body.brand-home .ag-moments-head p{max-width:540px}
+body.brand-home .ag-moments-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
+body.brand-home .ag-moment{border:1px solid rgba(229,255,237,.13)!important;border-radius:21px!important;background:rgba(255,255,255,.045)!important;box-shadow:0 18px 48px rgba(0,0,0,.2);transition:transform .28s ease,border-color .28s ease}
+@media(hover:hover){body.brand-home .ag-moment:hover{transform:translateY(-4px);border-color:rgba(173,255,204,.38)!important}}
+body.brand-home .ag-moment-frame{height:clamp(270px,31vw,370px)!important;background:#102219!important}
+body.brand-home .ag-moment-frame button{overflow:hidden!important}
+body.brand-home .ag-moment-frame button>img,body.brand-home .ag-poster-frame>img{height:100%!important;width:100%!important;object-fit:cover!important;filter:saturate(.94) brightness(.78)!important}
+body.brand-home .ag-moment-frame button small{left:12px!important;bottom:12px!important;padding:7px 9px!important;border-radius:999px!important;background:rgba(5,20,12,.7)!important;font-size:9px!important;letter-spacing:.04em!important}
+body.brand-home .ag-moment-frame button .ag-video-play{width:52px!important;height:52px!important}
+body.brand-home .ag-poster-frame{position:relative;overflow:hidden}
+body.brand-home .ag-poster-frame>img{position:absolute;inset:0;transition:transform 8s cubic-bezier(.2,.6,.2,1)!important}
+body.brand-home .ag-poster-frame:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(0deg,rgba(3,15,9,.62),transparent 55%),linear-gradient(125deg,rgba(199,255,212,.12),transparent 43%)}
+body.brand-home .ag-poster-tag{position:absolute;z-index:2;top:13px;left:13px;border:1px solid rgba(255,255,255,.3);border-radius:999px;background:rgba(4,20,12,.7);padding:7px 9px;color:#eafff0;font-size:9px;font-weight:900;letter-spacing:.06em;backdrop-filter:blur(10px)}
+body.brand-home .ag-poster-glint{position:absolute;z-index:1;inset:-55% auto -55% -65%;width:42%;transform:rotate(20deg);background:linear-gradient(90deg,transparent,rgba(255,255,255,.24),transparent);animation:ag-poster-glint 7s ease-in-out infinite;pointer-events:none}
+@keyframes ag-poster-glint{0%,60%{left:-65%}100%{left:135%}}
+body.brand-home .ag-moment-copy{min-height:111px;padding:15px 16px 17px!important}
+body.brand-home .ag-moment-copy>span{font-size:9px!important;letter-spacing:.11em!important;color:#a9edc0!important;font-weight:900!important}
+body.brand-home .ag-moment-copy strong{display:block;font-size:19px!important;line-height:1.1!important;letter-spacing:-.025em!important;color:#fff!important;margin:7px 0 10px!important}
+body.brand-home .ag-moment-copy>a{color:#c8f7d5!important;font-size:12px!important;font-weight:850!important}
+body.brand-home .ag-moments-head>a{color:#c9f6d4!important}
+body.brand-home .ag-search-first{background-image:radial-gradient(ellipse at 78% 8%,rgba(104,220,149,.12),transparent 27%),radial-gradient(circle at 12% 100%,rgba(80,120,162,.10),transparent 38%)}
+@media(max-width:767px){
+  body.brand-home .ag-video-moments{padding:32px 0 38px!important}
+  body.brand-home .ag-moments-head{display:block!important;margin:0 16px 16px!important}
+  body.brand-home .ag-moments-head h2{font-size:30px!important}
+  body.brand-home .ag-moments-head p{font-size:11px!important;line-height:1.45!important}
+  body.brand-home .ag-moments-head>a{display:inline-flex;margin-top:8px}
+  body.brand-home .ag-moments-grid{display:flex!important;overflow-x:auto!important;gap:11px!important;padding:0 16px 10px!important;scroll-snap-type:x mandatory!important;scrollbar-width:none!important;overscroll-behavior-x:contain}
+  body.brand-home .ag-moments-grid::-webkit-scrollbar{display:none}
+  body.brand-home .ag-moment{flex:0 0 min(77vw,310px)!important;min-width:0!important;scroll-snap-align:start!important;border-radius:19px!important}
+  body.brand-home .ag-moment-frame{height:300px!important}
+  body.brand-home .ag-moment-copy{min-height:106px;padding:13px 14px 15px!important}
+  body.brand-home .ag-moment-copy strong{font-size:18px!important}
+}
+@media(max-width:380px){body.brand-home .ag-moment{flex-basis:80vw!important}body.brand-home .ag-moment-frame{height:275px!important}}
+@media(prefers-reduced-motion:reduce){
+  body.brand-home .ag-moment,body.brand-home .ag-moment-frame button>img,body.brand-home .ag-poster-frame>img{transition:none!important}
+  body.brand-home .ag-poster-glint{animation:none!important;display:none!important}
+}

@@ -4488,3 +4488,17 @@ html body.brand-home main :is(.primary,.card-cta,.deal-cta,.deal-link,.ag-home-b
 .topbar .ag-mobile-menu>nav>a:hover,.topbar .ag-mobile-menu>nav>a[aria-current="page"]{background:#244532;color:#d6ffe3}
 .topbar .ag-mobile-menu :is(a,summary):focus-visible{outline:3px solid #dfb477;outline-offset:3px}
 @media(max-width:900px){.topbar .ag-mobile-menu{display:block!important}.topbar .navlinks,.topbar .nav>.nav-cta,.topbar .nav-icons{display:none!important}}
+
+
+/* AuraGlobal premium mark: shared by home, finder and editorial pages. */
+a.ag-brand.approved-logo{transition:transform .24s ease,filter .24s ease!important}
+a.ag-brand.approved-logo .ag-symbol{filter:drop-shadow(0 0 4px rgba(134,245,190,.24))!important}
+a.ag-brand.approved-logo .ag-symbol linearGradient stop:first-child{stop-color:#f3fff7!important}
+a.ag-brand.approved-logo .ag-symbol linearGradient stop:nth-child(2){stop-color:#9cf0c0!important}
+a.ag-brand.approved-logo .ag-symbol linearGradient stop:last-child{stop-color:#43bd86!important}
+a.ag-brand.approved-logo .ag-wordmark{font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;font-size:13px!important;font-weight:650!important;letter-spacing:.28em!important}
+a.ag-brand.approved-logo .ag-wordmark .aura{color:#bdffd2!important;font-weight:650!important}
+a.ag-brand.approved-logo .ag-wordmark .global{color:#f7fbf8!important;margin-left:.28em!important}
+@media(hover:hover){a.ag-brand.approved-logo:hover{transform:translateY(-1px);filter:drop-shadow(0 5px 13px rgba(102,238,164,.13))}}
+@media(max-width:620px){a.ag-brand.approved-logo .ag-wordmark{font-size:11px!important;letter-spacing:.25em!important}a.ag-brand.approved-logo .ag-wordmark .global{margin-left:.25em!important}}
+@media(prefers-reduced-motion:reduce){a.ag-brand.approved-logo{transition:none!important}}

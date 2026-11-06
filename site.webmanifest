@@ -1,0 +1,22 @@
+{
+  "name": "AuraGlobal",
+  "short_name": "AuraGlobal",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#07120d",
+  "theme_color": "#07120d",
+  "icons": [
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/auraglobal-mark.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

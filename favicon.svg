@@ -1,1 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="16" fill="#05070c"/><circle cx="18" cy="18" r="6" fill="#5ef0b2"/><path d="M16 46 32 14l16 32h-8l-3.7-8H27.7L24 46h-8Zm14.6-15h2.8L32 27.9 30.6 31Z" fill="#f7f8fb"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+<title id="title">AuraGlobal</title>
+<defs><linearGradient id="a" x1="8" y1="4" x2="54" y2="60" gradientUnits="userSpaceOnUse"><stop stop-color="#eefff4"/><stop offset=".5" stop-color="#9cf0c0"/><stop offset="1" stop-color="#43bd86"/></linearGradient><radialGradient id="b" cx="0" cy="0" r="1" gradientTransform="matrix(47 0 0 44 32 13)" gradientUnits="userSpaceOnUse"><stop stop-color="#173426"/><stop offset="1" stop-color="#07120d"/></radialGradient></defs>
+<rect width="64" height="64" rx="17" fill="url(#b)"/>
+<path d="M10 51 29.1 13.6c1.2-2.3 4.5-2.3 5.7 0L54 51h-9.4L32 25.7 19.1 51H10Z" fill="url(#a)"/>
+<path d="M16 44.4c8.7-8.2 19.4-10.8 32.4-5.1" fill="none" stroke="#f4fff7" stroke-linecap="round" stroke-width="2.4" opacity=".88"/>
+</svg>
