@@ -502,6 +502,134 @@ body.brand-home .section.ag-proof{padding-top:30px!important;padding-bottom:32px
  html body.brand-home .ag-mood-card img{transition:none!important}
 }
 </style>
+
+<style id="ag-mobile-first-emotion-v1">
+.ag-mob-discovery{display:none}
+@media(max-width:760px){
+  html{scroll-padding-top:58px}
+  body.brand-home .topbar{position:sticky!important;top:0!important;z-index:90!important;background:#0c2119!important;border-bottom:1px solid rgba(186,255,213,.16)!important;backdrop-filter:blur(18px)}
+  body.brand-home .topbar .nav{height:56px!important;min-height:56px!important;display:flex!important;justify-content:space-between!important;align-items:center!important}
+  body.brand-home .topbar .navlinks{display:none!important}
+  body.brand-home .topbar .nav-cta{display:none!important}
+  body.brand-home .topbar .nav-icons{display:flex!important;align-items:center!important;gap:8px!important}
+  body.brand-home .topbar .nav-icons>a:not(.nav-cta){display:inline-flex!important;align-items:center!important;justify-content:center!important;min-width:38px!important;min-height:36px!important;border:1px solid rgba(198,255,223,.24)!important;border-radius:12px!important;background:rgba(255,255,255,.07)!important;color:#e9fff1!important;font-size:20px!important;text-decoration:none!important}
+  body.brand-home .topbar .brand{transform:scale(.94);transform-origin:left center}
+  body.brand-home section.ag-search-first{
+    min-height:0!important;
+    padding:20px 0 18px!important;
+    background:radial-gradient(ellipse at 92% 4%,rgba(80,199,126,.21) 0,transparent 50%),linear-gradient(145deg,#0b2117,#113527 74%,#164631)!important;
+    border-bottom:0!important;
+    color:#fff!important;
+    overflow:visible!important;
+  }
+  body.brand-home section.ag-search-first .visual-search-inner{display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:10px!important}
+  body.brand-home section.ag-search-first .visual-search-inner>div{min-width:0!important;width:100%!important}
+  body.brand-home section.ag-search-first .visual-search-kicker{color:#90edb1!important;font-size:10px!important;letter-spacing:.095em!important;line-height:1.35!important}
+  body.brand-home section.ag-search-first .visual-search-inner h1{
+    font-size:clamp(34px,9.15vw,42px)!important;
+    line-height:1.015!important;letter-spacing:-.06em!important;
+    color:#fafffa!important;max-width:380px!important;
+    margin:7px 0 4px!important;text-shadow:none!important;
+  }
+  body.brand-home section.ag-search-first .visual-search-inner h1 em{color:#b4fbd0!important;-webkit-text-fill-color:#b4fbd0!important;font-style:normal}
+  body.brand-home section.ag-search-first .ag-search-desc{display:none!important}
+  body.brand-home section.ag-search-first .ag-home-easy-path,
+  body.brand-home section.ag-search-first .ag-home-direct-shortcut,
+  body.brand-home section.ag-search-first .ag-category-head,
+  body.brand-home section.ag-search-first .visual-search-chips{display:none!important}
+  body.brand-home section.ag-search-first .visual-search-tools{display:block!important}
+  body.brand-home section.ag-search-first #search.searchbox.mock-search{
+    min-height:53px!important;height:53px!important;display:flex!important;align-items:center!important;
+    padding:4px 4px 4px 9px!important;border:2px solid #d1f9df!important;
+    border-radius:14px!important;background:#fff!important;
+    box-shadow:0 6px 28px rgba(0,0,0,.18)!important;
+  }
+  body.brand-home section.ag-search-first #search.searchbox input[data-search]{
+    min-width:0!important;flex:1!important;color:#163525!important;-webkit-text-fill-color:#163525!important;
+    font:600 16px/1.25 system-ui,sans-serif!important;padding:0 8px!important;height:42px!important;
+    background:#fff!important;border:0!important;outline:0!important;
+  }
+  body.brand-home section.ag-search-first #search.searchbox input[data-search]::placeholder{color:#6d8072!important;-webkit-text-fill-color:#6d8072!important;opacity:1!important}
+  body.brand-home section.ag-search-first #search.searchbox button{
+    display:flex!important;align-items:center!important;justify-content:center!important;height:42px!important;min-width:80px!important;
+    padding:0 13px!important;background:#1b7047!important;color:#fff!important;
+    border:0!important;border-radius:10px!important;font-size:13px!important;font-weight:900!important;
+  }
+  body.brand-home section.ag-search-first #search-results{
+    position:relative!important;z-index:25!important;max-height:min(42vh,320px)!important;
+    overflow-y:auto!important;box-shadow:0 12px 25px rgba(0,0,0,.2)!important;
+  }
+  body.brand-home section.ag-search-first .ag-top-quick-searches{
+    display:flex!important;flex-wrap:nowrap!important;overflow-x:auto!important;
+    white-space:nowrap!important;scrollbar-width:none!important;gap:6px!important;
+    padding:3px 0 5px!important;margin:6px 0 0!important;
+    font-size:11px!important;color:#addcbd!important;
+  }
+  body.brand-home section.ag-search-first .ag-top-quick-searches::-webkit-scrollbar{display:none}
+  body.brand-home section.ag-search-first .ag-top-quick-searches button,
+  body.brand-home section.ag-search-first .ag-top-quick-searches a{
+    flex:0 0 auto!important;border:1px solid rgba(179,252,208,.27)!important;
+    background:rgba(244,255,249,.075)!important;color:#e4fae9!important;
+    font-size:11px!important;border-radius:99px!important;padding:7px 11px!important;min-height:31px!important;
+  }
+  body.brand-home .ag-mob-discovery{display:block!important;width:100%!important;margin-top:8px!important}
+  body.brand-home .ag-mob-discovery-head{display:flex;align-items:center;justify-content:space-between;padding:0 1px 10px;color:#b9edcc;font-size:10px;font-weight:950;letter-spacing:.08em}
+  body.brand-home .ag-mob-discovery-head>span{display:flex;align-items:center;gap:7px}
+  body.brand-home .ag-mob-discovery-head i{display:inline-block;width:7px;height:7px;border-radius:100%;background:#80f2b3;box-shadow:0 0 0 4px #80f2b31c;animation:ag-emotion-dot 2.5s ease-in-out infinite}
+  body.brand-home .ag-mob-discovery-head small{font-size:10px;font-weight:700;color:#91bba0;letter-spacing:0}
+  body.brand-home .ag-mob-story-rail{
+    display:flex!important;gap:10px!important;overflow-x:auto!important;
+    overscroll-behavior-x:contain!important;scroll-snap-type:x mandatory!important;
+    scroll-padding-inline:0!important;scrollbar-width:none!important;
+    margin:0 -15px!important;padding:0 15px 6px!important;
+  }
+  body.brand-home .ag-mob-story-rail::-webkit-scrollbar{display:none}
+  body.brand-home .ag-mob-story{
+    flex:0 0 min(78vw,305px)!important;display:block!important;position:relative!important;
+    height:148px!important;min-width:0!important;overflow:hidden!important;
+    border:1px solid rgba(255,255,255,.23)!important;border-radius:17px!important;
+    background:#172a21!important;scroll-snap-align:start!important;
+    text-decoration:none!important;color:#fff!important;isolation:isolate!important;
+  }
+  body.brand-home .ag-mob-story>img{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;object-fit:cover!important;filter:saturate(1.05) brightness(.82)!important}
+  body.brand-home .ag-mob-story-shade{position:absolute!important;inset:0!important;background:linear-gradient(90deg,#06120cf0 0%,#06120c99 52%,transparent 100%),linear-gradient(0deg,#06120c7d,transparent 50%)!important}
+  body.brand-home .ag-mob-story-copy{position:absolute!important;z-index:2!important;left:14px!important;right:20px!important;bottom:14px!important;display:grid!important;gap:4px!important;text-align:left!important}
+  body.brand-home .ag-mob-story-copy small{font-size:9px!important;font-weight:900!important;letter-spacing:.065em!important;color:#b2ffce!important}
+  body.brand-home .ag-mob-story-copy strong{font-size:19px!important;line-height:1.08!important;letter-spacing:-.025em!important;color:#fff!important;max-width:205px!important}
+  body.brand-home .ag-mob-story-copy>span{font-size:10px!important;line-height:1.3!important;color:#e3f9e9!important;max-width:215px!important}
+  body.brand-home .ag-mob-story-arrow{position:absolute!important;right:12px!important;bottom:12px!important;z-index:3!important;display:grid!important;place-items:center!important;width:29px!important;height:29px!important;border-radius:50%!important;background:#edfff0!important;color:#19452f!important;font-size:20px!important}
+  body.brand-home .ag-mob-story-status{position:absolute!important;top:11px!important;right:11px!important;z-index:3!important;border-radius:99px!important;background:#fffef5!important;color:#1d5333!important;padding:5px 8px!important;font-size:9px!important;font-weight:950!important}
+  body.brand-home .ag-hot-deals{padding:19px 0 17px!important}
+  body.brand-home .ag-hot-head{margin-bottom:9px!important}
+  body.brand-home .ag-hot-head h2{font-size:26px!important;margin:3px 0 5px!important}
+  body.brand-home .ag-hot-head p{display:none!important}
+  body.brand-home .ag-hot-head>a{margin-top:1px!important;font-size:11px!important}
+  body.brand-home .ag-hot-eyebrow{font-size:9px!important;letter-spacing:.06em!important}
+  body.brand-home .ag-hot-card{flex-basis:min(255px,72vw)!important;min-height:0!important;border-radius:15px!important}
+  body.brand-home .ag-hot-photo{height:110px!important}
+  body.brand-home .ag-hot-body{padding:12px!important;gap:7px!important}
+  body.brand-home .ag-hot-card h3{font-size:17px!important;line-height:1.15!important}
+  body.brand-home .ag-hot-card p{font-size:11px!important;line-height:1.35!important}
+  body.brand-home .ag-hot-brand{font-size:10px!important}
+  body.brand-home .ag-hot-brand b{font-size:10px!important;text-align:right!important}
+  body.brand-home .ag-hot-note{margin-top:2px!important}
+  body.brand-home .ag-video-moments{padding:22px 0 25px!important}
+  body.brand-home .ag-moments-head h2{font-size:28px!important}
+  body.brand-home .ag-moments-grid{display:flex!important;overflow-x:auto!important;scroll-snap-type:x mandatory!important;gap:10px!important;scrollbar-width:none!important}
+  body.brand-home .ag-moment{flex:0 0 min(285px,80vw)!important;scroll-snap-align:start!important}
+  body.brand-home .ag-moment-frame{height:160px!important}
+  body.brand-home .ag-moment-copy strong{font-size:17px!important}
+  body.brand-home .mobile-compare-bar{display:none!important}
+  body.brand-home{padding-bottom:0!important}
+}
+@media(max-width:360px){
+  body.brand-home section.ag-search-first .visual-search-inner h1{font-size:32px!important}
+  body.brand-home section.ag-search-first .ag-top-quick-searches{gap:4px!important}
+  body.brand-home .ag-mob-story{height:138px!important}
+}
+@keyframes ag-emotion-dot{0%,100%{opacity:1;box-shadow:0 0 0 3px #80f2b31c}50%{opacity:.65;box-shadow:0 0 0 6px #80f2b312}}
+@media(prefers-reduced-motion:reduce){body.brand-home .ag-mob-discovery-head i{animation:none!important}}
+</style>
 </head>
 <body class="vc-page brand-home">
 <header class="topbar mock-nav"><div class="shell nav"><a class="brand ag-brand approved-logo" href="/" aria-label="AuraGlobal"><svg class="ag-symbol" viewBox="0 0 100 92" aria-hidden="true"><defs><linearGradient id="auraA" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#eafff5"/><stop offset=".48" stop-color="#8ce8b9"/><stop offset="1" stop-color="#45c98e"/></linearGradient></defs><path fill="url(#auraA)" d="M8 88 48 4 92 88H75L48 31 24 81Z"/><path fill="url(#auraA)" d="M17 78C34 59 53 53 77 66L72 74C52 63 36 66 17 78Z"/></svg><span class="ag-wordmark"><span class="aura">AURA</span><span class="global">GLOBAL</span></span></a><nav class="navlinks"><a href="#shopcats">Kategorien</a><a href="#deals">Deals</a><a href="/produkte.html">Produktfinder</a><a href="/match.html">AuraMatch</a><a href="/dienstleistungen.html">Für Unternehmen</a><a href="/marken.html">Alle Vergleiche</a></nav><div class="nav-icons"><a href="#search" aria-label="Suchen">⌕</a><a href="#deals" aria-label="Aktuelle Deals">％</a><a class="nav-cta" href="/produkte.html">Produktfinder →</a></div></div></header>
@@ -517,7 +645,7 @@ body.brand-home .section.ag-proof{padding-top:30px!important;padding-bottom:32px
     </div>
     <div class="visual-search-tools">
       <div id="search" class="searchbox mock-search" role="search">
-        <input data-search aria-label="Wunschprodukt suchen" aria-expanded="false" aria-controls="search-results" autocomplete="off" spellcheck="false" placeholder="Produkt oder Marke suchen …">
+        <input data-search aria-label="Wunschprodukt suchen" aria-expanded="false" aria-controls="search-results" autocomplete="off" spellcheck="false" placeholder="iPhone, Sneaker, Kaffee …">
         <button type="button" aria-label="Suche starten">Suchen</button>
       </div>
       <div id="search-results" class="search-results" data-results aria-live="polite" aria-label="Suchvorschläge"></div>
@@ -546,6 +674,14 @@ body.brand-home .section.ag-proof{padding-top:30px!important;padding-bottom:32px
           </a>
         </div>
         <div class="ag-mobile-discovery-note">Anzeige · Rabatte auf ausgewählte Produkte. Endpreis im Shop prüfen.</div>
+      </div>
+      <div class="ag-mob-discovery" aria-label="Inspirierende Produkte und aktuelle Deals">
+        <div class="ag-mob-discovery-head"><span><i aria-hidden="true"></i> ENTDECKE DEINEN MOMENT</span><small>Wischen <span aria-hidden="true">→</span></small></div>
+        <div class="ag-mob-story-rail" aria-label="Angebote und Kaufideen horizontal durchblättern">
+          <a class="ag-mob-story" href="/petlibro.html" data-hot-deal data-start="2026-11-04" data-end="2026-11-19" aria-label="Katze mit Besitzer – PETLIBRO Kaufberatung"><img src="https://images.pexels.com/photos/6001460/pexels-photo-6001460.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="Katze mit Besitzer – PETLIBRO Kaufberatung" loading="eager" decoding="async"><span class="ag-mob-story-shade" aria-hidden="true"></span><span class="ag-mob-story-copy"><small>SMART PET · BIS 19.11.</small><strong>Mehr Zeit für deinen Lieblingsvierbeiner.</strong><span>Bis zu 50 % auf ausgewählte Produkte</span></span><span class="ag-mob-story-arrow" aria-hidden="true">↗</span><span class="ag-mob-story-status" data-deal-status>Aktion läuft</span></a>
+          <a class="ag-mob-story" href="/tenways.html" data-hot-deal data-start="2026-11-01" data-end="2026-11-30" aria-label="Radfahrerin in der Stadt – TENWAYS Kaufberatung"><img src="https://images.pexels.com/photos/7242978/pexels-photo-7242978.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="Radfahrerin in der Stadt – TENWAYS Kaufberatung" loading="eager" decoding="async"><span class="ag-mob-story-shade" aria-hidden="true"></span><span class="ag-mob-story-copy"><small>E-BIKE · BIS 30.11.</small><strong>Raus. Losfahren. Freiheit spüren.</strong><span>Bis zu 500 € auf ausgewählte Modelle</span></span><span class="ag-mob-story-arrow" aria-hidden="true">↗</span><span class="ag-mob-story-status" data-deal-status>Aktion läuft</span></a>
+          <a class="ag-mob-story" href="/desktronic.html" data-hot-deal data-start="2026-10-28" data-end="2026-12-07" aria-label="Modernes Büro – Desktronic Kaufberatung"><img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&amp;fit=crop&amp;w=800&amp;q=78" alt="Modernes Büro – Desktronic Kaufberatung" loading="eager" decoding="async"><span class="ag-mob-story-shade" aria-hidden="true"></span><span class="ag-mob-story-copy"><small>HOME OFFICE · BIS 07.12.</small><strong>Ein Platz, an dem Ideen wachsen.</strong><span>Bis zu 50 % auf ausgewählte Möbel</span></span><span class="ag-mob-story-arrow" aria-hidden="true">↗</span><span class="ag-mob-story-status" data-deal-status>Aktion läuft</span></a>
+        </div>
       </div>
       <div class="ag-category-head"><span>DEINE WELT ENTDECKEN</span><a href="/produkte.html">Produkte entdecken →</a></div>
       <nav class="hero-chips visual-search-chips ag-category-grid" aria-label="Die zehn Produkt- und Servicekategorien">
