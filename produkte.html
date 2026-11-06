@@ -393,6 +393,67 @@ body.product-finder .ag-partner-catalog{padding:14px!important;margin-top:26px!i
 }
 </style>
 
+
+<style id="ag-simple-shop-ui">
+/* Focused product-first shopping experience: no giant editorial sections before results. */
+body.product-finder{background:#f6f8f7;color:#13271e}
+body.product-finder .topbar{background:#0c1713;color:#fff}
+body.product-finder .navlinks{gap:14px}
+.ag-visually-hidden{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.ag-shop-hero{background:linear-gradient(135deg,#0b1b15 0%,#113426 63%,#174c36 100%);color:#fff;padding:60px 0 40px}
+.ag-shop-overline{font-size:11px;letter-spacing:.16em;font-weight:900;color:#9df7c2}
+.ag-shop-hero h1{font-size:clamp(40px,6vw,70px);letter-spacing:-.06em;line-height:1.06;margin:13px 0 10px}
+.ag-shop-hero h1 em{color:#a6ffca;font-style:normal}
+.ag-shop-hero p{max-width:670px;color:#e0efe6;line-height:1.5;font-size:clamp(14px,1.5vw,18px);margin:0 0 23px}
+.ag-shop-search{display:flex;gap:8px;max-width:900px;background:#fff;border-radius:16px;padding:7px;border:2px solid rgba(165,255,207,.36);box-shadow:0 16px 45px rgba(0,0,0,.15)}
+.ag-shop-search:focus-within{border-color:#96ffba}
+.ag-shop-search input{flex:1;min-width:0;color:#142e20;background:#fff;border:0;outline:0;padding:0 16px;font-size:17px;height:50px;font-family:inherit}
+.ag-shop-search button{border:0;border-radius:10px;background:#173f2b;color:#fff;font-weight:900;font-size:15px;padding:0 24px;cursor:pointer}
+.ag-shop-search button:hover{background:#236344}
+.ag-shop-quick{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:15px}
+.ag-shop-quick span{font-size:12px;color:#cde9d7}
+.ag-shop-quick button{font-size:12px;color:#fff;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.24);padding:8px 12px;border-radius:999px;cursor:pointer}
+.ag-shop-quick button:hover{background:rgba(255,255,255,.2)}
+.ag-shop-subtext{font-size:11px;color:#bedfc9;margin-top:18px}
+body.product-finder .pf-catalog.ag-main-catalog{padding:32px 0 65px;background:#f6f8f7;color:#13251b;scroll-margin-top:78px}
+.ag-catalog-top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:18px}
+.ag-catalog-top h2{font-size:clamp(27px,4vw,39px);margin:0 0 4px;line-height:1.1;letter-spacing:-.035em}
+.ag-catalog-top p{margin:0;color:#607268;font-size:13px}
+.ag-catalog-top a{white-space:nowrap;color:#205c3f!important;font-size:13px;font-weight:800}
+body.product-finder .pf-controls{margin-bottom:18px;gap:8px}
+body.product-finder .pf-controls input,body.product-finder .pf-controls select{background:#fff;color:#172f21;border:1px solid #d0ded4;border-radius:10px;min-height:44px;font-size:13px}
+.ag-catalog-content{display:flex;flex-direction:column;gap:20px}
+.ag-catalog-content .ag-results-wrap{order:0}
+.ag-catalog-content .ag-partner-catalog{order:1;margin:0;padding:21px}
+.ag-main-catalog[data-has-search="true"] .ag-catalog-content .ag-partner-catalog{order:0}
+.ag-main-catalog[data-has-search="true"] .ag-catalog-content .ag-results-wrap{order:1}
+.ag-partner-heading h3{font-size:clamp(23px,3vw,31px)}
+.ag-partner-heading p{font-size:12px}
+.ag-partner-item p{min-height:0}
+.ag-results-wrap .pf-status{margin:4px 0 16px}
+.ag-results-wrap .pf-grid{margin-top:0}
+.ag-results-wrap .pf-card{box-shadow:0 4px 18px rgba(15,36,20,.06)}
+.ag-partner-more[hidden],.ag-partner-empty[hidden],.pf-more[hidden],.pf-empty[hidden]{display:none!important}
+.ag-shop-footnote{background:#edf3ee;padding:23px 0;color:#405e4a;font-size:12px;line-height:1.6}
+.ag-shop-footnote .pf-shell{display:flex;justify-content:space-between;gap:18px;align-items:center}
+.ag-shop-footnote p{max-width:720px;margin:0}
+.ag-shop-footnote div div{display:flex;flex-wrap:wrap;gap:14px}
+.ag-shop-footnote a{color:#245b3e!important}
+@media(max-width:730px){
+ .ag-shop-hero{padding:31px 0 25px}
+ .ag-shop-hero h1{font-size:42px}
+ .ag-shop-hero p{font-size:14px;margin-bottom:16px}
+ .ag-shop-search{padding:5px;border-radius:12px}
+ .ag-shop-search input{font-size:15px;padding:0 9px;height:46px}
+ .ag-shop-search button{font-size:13px;padding:0 13px}
+ body.product-finder .pf-catalog.ag-main-catalog{padding:20px 0 48px}
+ .ag-catalog-top{align-items:flex-start}
+ .ag-catalog-top a{font-size:11px}
+ .ag-shop-footnote .pf-shell{display:block}
+ .ag-shop-footnote div div{margin-top:10px}
+ body.product-finder .navlinks{display:none}
+}
+</style>
 </head>
 <body class="product-finder">
 <header class="topbar mock-nav"><div class="shell nav">
@@ -402,53 +463,77 @@ body.product-finder .ag-partner-catalog{padding:14px!important;margin-top:26px!i
 </div></header>
 
 <main>
-<section class="pf-catalog" id="katalog">
+<section class="ag-shop-hero" aria-label="AuraGlobal Produktsuche">
   <div class="pf-shell">
-    <div class="pf-catalog-head reveal">
-      <div><div class="pf-kicker">AURAGLOBAL · EINFACH EINKAUFEN</div><h2>Finde dein Produkt.</h2></div>
-      <p>Suche direkt nach iPhone, Sneakern, E-Bikes oder einer Marke. Passende Angebote erscheinen sofort darunter.</p>
+    <div class="ag-shop-overline">AURAGLOBAL · EINFACH FINDEN</div>
+    <h1>Was suchst du <em>heute?</em></h1>
+    <p>Produkt eingeben, Angebote vergleichen und direkt zum passenden Partnershop. Ohne endloses Scrollen.</p>
+    <form class="ag-shop-search" data-hero-search-form role="search">
+      <label class="ag-visually-hidden" for="ag-shop-search-input">Produkt oder Marke suchen</label>
+      <input id="ag-shop-search-input" type="search" data-hero-search placeholder="z. B. iPhone, Sneaker, Espresso, E-Bike …" autocomplete="off" enterkeyhint="search">
+      <button type="submit">Suchen <span aria-hidden="true">→</span></button>
+    </form>
+    <div class="ag-shop-quick" aria-label="Beliebte Suchen">
+      <span>Beliebt:</span>
+      <button type="button" data-quick-search="iPhone">iPhone</button>
+      <button type="button" data-quick-search="Sneaker">Sneaker</button>
+      <button type="button" data-quick-search="Espresso">Espresso</button>
+      <button type="button" data-quick-search="E-Bike">E-Bikes</button>
+      <button type="button" data-quick-search="Haustier">Haustiere</button>
+    </div>
+    <div class="ag-shop-subtext">80 verlinkte Awin-Partnerprogramme · Produktdaten aus verfügbaren Awin-Feeds · Angebotspreise immer beim Shop prüfen</div>
+  </div>
+</section>
+<section class="pf-catalog ag-main-catalog" id="katalog" aria-label="Suchergebnisse und Partner">
+  <div class="pf-shell">
+    <div class="ag-catalog-top">
+      <div><h2>Produkte &amp; Shops</h2><p>Passende Treffer stehen hier direkt. Suche nach Produkten oder durchsuche alle Partner.</p></div>
+      <a href="/marken.html">Alle Marken →</a>
     </div>
     <div class="pf-controls" aria-label="Produktfilter">
-      <input type="search" data-product-query placeholder="Was suchst du? z. B. iPhone, Sneaker, E-Bike …" autocomplete="off">
-      <select data-product-merchant aria-label="Shop"><option>Alle Shops</option></select>
-      <select data-product-category aria-label="Kategorie"><option>Alle Kategorien</option></select>
+      <input type="search" data-product-query placeholder="Produktnamen oder Marken suchen …" autocomplete="off" aria-label="Produkte suchen">
+      <select data-product-merchant aria-label="Shop"><option value="all">Alle Feed-Shops</option></select>
+      <select data-product-category aria-label="Kategorie"><option value="all">Alle Produktkategorien</option></select>
       <select data-product-sort aria-label="Sortierung">
-        <option value="relevance">Empfohlen</option>
+        <option value="relevance">Relevanteste zuerst</option>
         <option value="price-asc">Preis aufsteigend</option>
         <option value="price-desc">Preis absteigend</option>
         <option value="merchant">Shop A–Z</option>
       </select>
     </div>
-<div class="ag-simple-search-ideas" aria-label="Beliebte Produktsuchen"><span>Beliebt:</span><button type="button" data-quick-search="iPhone">iPhone</button><button type="button" data-quick-search="Sneaker">Sneaker</button><button type="button" data-quick-search="E-Bike">E-Bike</button><button type="button" data-quick-search="Kaffeemaschine">Kaffeemaschine</button></div>
-    <div class="pf-status"><strong data-product-count>Produkte werden geladen …</strong><span data-feed-meta>Partnerdaten werden geladen …</span></div>
-    
-
-
-    <div class="pf-grid" data-product-grid></div>
-    <div class="pf-empty" data-product-empty hidden><b>Nichts Passendes gefunden.</b><span>Suche allgemeiner oder geh zurück zu den Produktwelten oben.</span></div>
-    <button class="pf-more" type="button" data-product-more hidden>Weitere Produkte laden</button>
-    <section class="ag-partner-catalog" data-partner-catalog aria-label="Alle Affiliate-Partner im Produktfinder">
-      <div class="ag-partner-heading">
-        <div>
-          <small>ALLE PARTNER · AUCH OHNE PRODUKTFEED</small>
-          <h3>80 Partner &amp; Marken entdecken</h3>
-          <p>Auch bei Marken ohne Produktfeed kannst du hier eine Kaufberatung öffnen und zum passenden Partnershop gelangen.</p>
+    <div class="ag-catalog-content">
+      <section class="ag-partner-catalog" data-partner-catalog aria-label="Partnershops auch ohne Produktfeed">
+        <div class="ag-partner-heading"><div>
+          <small>ALLE PARTNER · MIT ODER OHNE PRODUKTFEED</small>
+          <h3>Passende Partnershops finden</h3>
+          <p>Auch Shops ohne automatischen Produktfeed sind hier auffindbar. In diesen Fällen führt die Kaufberatung zum verlinkten Anbieter, ohne erfundene Preise.</p>
+        </div></div>
+        <div class="ag-partner-controls">
+          <input type="search" data-partner-search placeholder="Shop, Marke oder Produktwelt …" aria-label="Partnershops suchen" disabled>
+          <select data-partner-category aria-label="Partnerkategorie" disabled><option value="all">Alle Partnerkategorien</option></select>
         </div>
+        <div class="ag-partner-status" data-partner-status aria-live="polite">Partnerprogramme werden geladen …</div>
+        <div class="ag-partner-grid" data-partner-grid></div>
+        <p class="ag-partner-empty" data-partner-empty hidden>Keine passenden Partner. Versuche einen allgemeineren Suchbegriff.</p>
+        <button type="button" class="ag-partner-more" data-partner-more aria-expanded="false" hidden>Alle Partnerprogramme anzeigen</button>
+        <div class="ag-partner-disclosure">Anzeige · Beim Kauf über Partnerlinks können wir eine Provision erhalten. Preise, Versandgebiete und Lieferbarkeit im Shop prüfen.</div>
+        <noscript><a href="/marken.html">Alle Partner öffnen →</a></noscript>
+      </section>
+      <div class="ag-results-wrap">
+        <div class="pf-status"><strong data-product-count>Produkte werden geladen …</strong><span data-feed-meta>Live-Produktdaten werden geladen …</span></div>
+        <div class="pf-grid" data-product-grid></div>
+        <div class="pf-empty" data-product-empty hidden><b>Keine Produkte in den verfügbaren Feeds gefunden.</b><span>Prüfe die passenden Partnershops in dieser Ansicht oder suche allgemeiner.</span></div>
+        <button class="pf-more" type="button" data-product-more hidden>Mehr Produkte anzeigen</button>
       </div>
-      <div class="ag-partner-controls">
-        <input type="search" data-partner-search placeholder="Marke, Shop oder Produktwelt suchen …" aria-label="Partner und Shops durchsuchen" disabled>
-        <select data-partner-category aria-label="Partnerkategorie" disabled><option value="all">Alle Partnerkategorien</option></select>
-      </div>
-      <div class="ag-partner-status" data-partner-status aria-live="polite">Partnerprogramme werden geladen …</div>
-      <div class="ag-partner-grid" data-partner-grid></div>
-      <p class="ag-partner-empty" data-partner-empty hidden>Keine passende Marke gefunden. Versuche eine andere Suchanfrage.</p>
-      <button type="button" class="ag-partner-more" data-partner-more aria-expanded="false" hidden>Weitere Partner anzeigen</button>
-      <div class="ag-partner-disclosure">Anzeige · Beim Klick auf Partnerlinks und anschließendem Kauf können wir eine Provision erhalten. Aktuelle Preise, Lieferregionen und Verfügbarkeit im Shop prüfen. Nur bei den Händlern mit Produktfeed werden einzelne Produktpreise automatisch importiert.</div>
-      <noscript><a href="/marken.html">Alle Partner und Vergleichsseiten öffnen →</a></noscript>
-    </section>
+    </div>
   </div>
 </section>
-<div class="ag-simple-footer-links"><a href="/marken.html">Alle Marken ansehen →</a><a href="/kaufberatung.html">Kaufberatung öffnen →</a><a href="/affiliate-disclosure.html">So funktionieren unsere Partnerlinks</a></div>
+<section class="ag-shop-footnote">
+  <div class="pf-shell">
+    <p><strong>So funktioniert AuraGlobal:</strong> Wir zeigen dir echte Awin-Produktdaten, soweit der Händler einen Feed bereitstellt. Partner ohne Feed sind über Shop- und Kaufberatungsseiten erreichbar. Eine angezeigte Partnerschaft ersetzt keine Bestätigung der Provisionsfähigkeit einer konkreten Bestellung.</p>
+    <div><a href="/affiliate-disclosure.html">Werbehinweis</a><a href="/methodik.html">Unsere Methodik</a><a href="/match.html">Kaufberatung</a></div>
+  </div>
+</section>
 </main>
 
 <footer class="footer"><div class="shell">
