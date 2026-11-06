@@ -20,7 +20,7 @@ if (!process.env.AWIN_DATAFEED_API_KEY && !process.env.AWIN_DATAFEED_LIST_URL) {
   await fs.copyFile(previewPath, path.join(backupDir, 'products.json'));
   try {
     const { runSync } = await import('./sync-awin-feeds.mjs');
-    const result = await runSync({ storageMode: 'filesystem', merchantAllowlist: null });
+    const result = await runSync({ storageMode: 'blob', merchantAllowlist: null });
     const expectedMerchants = Number(result.eligibleMerchantCount) || result.merchantCount;
     const minimumMerchants = Math.max(2, Math.ceil(expectedMerchants * 0.9));
     const minimumProducts = Math.max(500, Math.floor((previous.productCount || 0) * 0.5));
