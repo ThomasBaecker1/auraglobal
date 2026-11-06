@@ -221,3 +221,5 @@
     border-radius:50%!important;background:rgba(255,255,255,.9)!important;color:#15402b!important;font-size:16px!important
   }
 }
+
+@media(max-width:767px){body.brand-home .mobile-compare-bar{display:none!important}}
