@@ -14,11 +14,14 @@ export default async function handler(req,res) {
   }
 
   try {
-    const result = await runSync({storageMode:'blob'});
+    const result = await runSync({storageMode:'blob',merchantAllowlist:null});
     return res.status(200).json({
       ok:true,
       updatedAt:result.updatedAt,
       merchantCount:result.merchantCount,
+      eligibleFeedCount:result.eligibleFeedCount,
+      eligibleMerchantCount:result.eligibleMerchantCount,
+      selectedFeedCount:result.selectedFeedCount,
       productCount:result.productCount,
       previewCount:result.previewCount,
       failureCount:Array.isArray(result.failures)?result.failures.length:0

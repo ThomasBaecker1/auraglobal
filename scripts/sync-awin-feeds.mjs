@@ -394,7 +394,7 @@ export function encodeCatalogChunk(payload) {
   return gzipSync(Buffer.from(payload, 'utf8'), {level: 5});
 }
 
-export async function runSync({storageMode=process.env.AWIN_STORAGE_MODE || 'filesystem'}={}) {
+export async function runSync({storageMode=process.env.AWIN_STORAGE_MODE || 'filesystem',merchantAllowlist=process.env.AWIN_ALLOWED_MERCHANT_IDS}={}) {
   const listUrl = getListUrl();
   const listText = await fetchText(listUrl);
   const allJoinedFeeds = records(listText).filter(joined);
@@ -403,7 +403,7 @@ export async function runSync({storageMode=process.env.AWIN_STORAGE_MODE || 'fil
   // Every joined Awin merchant is eligible. INTERNAL_GUIDES is only used to add
   // AuraGlobal editorial guide links when we already have one; it must never
   // limit which merchants or products enter the catalog.
-  const allowedIds = new Set((process.env.AWIN_ALLOWED_MERCHANT_IDS || '').split(',').map(id => id.trim()).filter(id => /^\d+$/.test(id)));
+  const allowedIds = new Set((merchantAllowlist || '').split(',').map(id => id.trim()).filter(id => /^\d+$/.test(id)));
   const eligibleFeeds = allJoinedFeeds.filter(feed => {
     const id = pick(feed,['Advertiser ID','Merchant ID','merchant_id']);
     return id !== '68034' && (!allowedIds.size || allowedIds.has(id));
@@ -669,6 +669,9 @@ export async function runSync({storageMode=process.env.AWIN_STORAGE_MODE || 'fil
     truncatedForRuntime,
     eligibleMerchantCount: byMerchant.size,
     merchantCount,
+    eligibleFeedCount: eligibleFeeds.length,
+    eligibleMerchantCount: byMerchant.size,
+    selectedFeedCount: selected.length,
     productCount: totalProducts,
     previewCount: previewProducts.length,
     chunkSize: CHUNK_SIZE,
