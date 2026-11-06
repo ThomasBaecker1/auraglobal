@@ -46,3 +46,128 @@ body.brand-home .ag-search-first{background-image:radial-gradient(ellipse at 78%
   body.brand-home .ag-moment,body.brand-home .ag-moment-frame button>img,body.brand-home .ag-poster-frame>img{transition:none!important}
   body.brand-home .ag-poster-glint{animation:none!important;display:none!important}
 }
+
+/*
+ * Mobile density guard · 2026-11-06
+ * Restore compact, content-rich first-screen shopping experience after the
+ * cinematic gallery refresh. Scoped to the homepage only: no Awin or search logic.
+ */
+@media (max-width: 767px) {
+  html body.brand-home .topbar .nav {
+    min-height: 52px !important;
+    height: 52px !important;
+  }
+  html body.brand-home .topbar .ag-brand.approved-logo::before {
+    flex-basis: 34px !important;
+    width: 34px !important;
+    height: 34px !important;
+  }
+  html body.brand-home main section.ag-search-first.visual-search {
+    padding-top: 12px !important;
+    padding-bottom: 13px !important;
+    min-height: 0 !important;
+  }
+  html body.brand-home main section.ag-search-first .visual-search-inner {
+    gap: 0 !important;
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+  html body.brand-home main section.ag-search-first .visual-search-kicker {
+    margin: 0 0 4px !important;
+    font-size: 9px !important;
+  }
+  html body.brand-home main section.ag-search-first h1 {
+    margin: 0 0 5px !important;
+    font-size: clamp(29px, 7.8vw, 34px) !important;
+    line-height: 1.03 !important;
+  }
+  /* The compact mobile version intentionally prioritizes search and offers. */
+  html body.brand-home main section.ag-search-first .ag-search-desc,
+  html body.brand-home main section.ag-search-first .ag-home-easy-path,
+  html body.brand-home main section.ag-search-first .ag-home-direct-shortcut {
+    display: none !important;
+  }
+  html body.brand-home main section.ag-search-first #search.searchbox {
+    height: 48px !important;
+    min-height: 48px !important;
+    margin: 3px 0 0 !important;
+    padding: 3px !important;
+  }
+  html body.brand-home main section.ag-search-first #search.searchbox input[data-search],
+  html body.brand-home main section.ag-search-first #search.searchbox button {
+    height: 40px !important;
+    min-height: 40px !important;
+  }
+  html body.brand-home main section.ag-search-first #search.searchbox button {
+    width: 75px !important;
+    min-width: 75px !important;
+    flex-basis: 75px !important;
+  }
+  html body.brand-home main section.ag-search-first .ag-top-quick-searches {
+    margin-top: 6px !important;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+  html body.brand-home main section.ag-search-first .ag-top-quick-searches button,
+  html body.brand-home main section.ag-search-first .ag-top-quick-searches a {
+    padding: 5px 9px !important;
+    min-height: 27px !important;
+  }
+  html body.brand-home main section.ag-search-first .ag-mob-discovery {
+    margin-top: 9px !important;
+  }
+  html body.brand-home main section.ag-search-first .ag-mob-discovery-head {
+    margin-bottom: 5px !important;
+    padding-bottom: 0 !important;
+  }
+  html body.brand-home main section.ag-search-first .ag-mob-story {
+    height: 126px !important;
+    min-height: 126px !important;
+    max-height: 126px !important;
+    flex-basis: min(235px, 67vw) !important;
+    width: min(235px, 67vw) !important;
+  }
+  html body.brand-home main section.ag-search-first .ag-mob-story-copy {
+    bottom: 9px !important;
+    left: 11px !important;
+    right: 9px !important;
+  }
+  html body.brand-home main section.ag-search-first .ag-mob-story-copy strong {
+    font-size: 14px !important;
+    line-height: 1.1 !important;
+  }
+  html body.brand-home main .ag-hot-deals {
+    padding-top: 15px !important;
+    padding-bottom: 15px !important;
+  }
+  html body.brand-home main .ag-hot-card {
+    flex-basis: min(225px, 64vw) !important;
+  }
+  html body.brand-home main .ag-hot-photo { height: 98px !important; }
+  html body.brand-home main .ag-hot-body { padding: 10px !important; }
+  html body.brand-home main .ag-video-moments {
+    padding: 18px 0 23px !important;
+  }
+  html body.brand-home main .ag-moments-head {
+    margin: 0 16px 10px !important;
+  }
+  html body.brand-home main .ag-moments-head h2 {
+    font-size: 25px !important;
+    margin: 4px 0 !important;
+  }
+  html body.brand-home main .ag-moments-head p { display: none !important; }
+  html body.brand-home main .ag-moments-grid { gap: 10px !important; }
+  html body.brand-home main .ag-moment {
+    flex-basis: min(245px, 68vw) !important;
+  }
+  html body.brand-home main .ag-moment-frame {
+    height: 150px !important;
+  }
+  html body.brand-home main .ag-moment-copy {
+    min-height: 0 !important;
+    padding: 11px 12px !important;
+  }
+  html body.brand-home main .ag-moment-copy strong {
+    font-size: 16px !important;
+  }
+}
