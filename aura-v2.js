@@ -154,8 +154,8 @@ function initSearch(){
     window.dataLayer=window.dataLayer||[];
     window.dataLayer.push({event:'site_search',search_term:query,search_results:hits.length,page_path:window.location.pathname});
     if(typeof window.gtag==='function') window.gtag('event','search',{search_term:query});
-    if(hits.length) window.location.href=hits[0].href;
-    else window.location.href='/produkte.html?q='+encodeURIComponent(query);
+    // Enter searches the full live catalog rather than jumping to the first editorial guide.
+    window.location.href='/produkte.html?q='+encodeURIComponent(query);
   }
 
   input.addEventListener('input',e=>render(e.target.value));
