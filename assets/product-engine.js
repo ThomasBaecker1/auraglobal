@@ -299,6 +299,13 @@
       rows.sort((a,b) => norm(a.merchant).localeCompare(norm(b.merchant),'de'));
     } else {
       rows.sort((a,b) => {
+        if (q) {
+          const matchPriority = p => { const title = fold(p.name); const brand = fold(p.brand); const seller = fold(p.merchant);
+            return (title === q ? 100 : title.startsWith(q) ? 75 : title.includes(q) ? 50 : 0)
+              + (brand.includes(q) ? 25 : 0) + (seller.includes(q) ? 12 : 0); };
+          const difference = matchPriority(b) - matchPriority(a);
+          if (difference) return difference;
+        }
         const aGuide = norm(a.internalUrl) ? 1 : 0;
         const bGuide = norm(b.internalUrl) ? 1 : 0;
         const aImage = urlOk(a.image) ? 1 : 0;
