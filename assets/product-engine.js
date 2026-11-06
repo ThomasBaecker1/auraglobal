@@ -435,6 +435,7 @@
     if (els.heroQuery) els.heroQuery.value = state.query;
     apply();
     scheduleSearchChunks();
+    document.dispatchEvent(new CustomEvent('ag:catalog-search',{detail:{query:state.query}}));
     if (scroll && els.catalog) els.catalog.scrollIntoView({behavior:'smooth',block:'start'});
   }
 
