@@ -44,11 +44,19 @@
       const external = item.external;
       const rel = external ? ' target="_blank" rel="sponsored noopener noreferrer"' : '';
       const label = external ? 'Zum britischen Partnershop ↗' : 'Kaufberatung &amp; Shopzugang →';
+      // Exact SHIFTER category link already present in the published, verified guide.
+      // This is a shop-category route, not a claim that a specific iPhone is in stock.
+      const smartphoneRoute = 'https://www.awin1.com/cread.php?awinmid=16937&awinaffid=3076553&ued=https%3A%2F%2Fwww.shifter.shop%2Fsmartphone%2F%3Futm_source%3Dawin%26utm_medium%3Daffiliate%26utm_campaign%3Dallgemein%26utm_content%3Dtextlink%26sPartner%3Dawin';
+      const directPhone = /iphone|smartphone/.test(q) && item.name === 'SHIFTER'
+        ? '<a class="ag-partner-shop-link" href="'+esc(smartphoneRoute)+'" target="_blank" rel="sponsored noopener noreferrer">Smartphones direkt im Shop prüfen ↗</a>'
+        : '';
+
       return '<article class="ag-partner-item">'
         + '<div class="ag-partner-kind">'+esc(item.groupLabel)+(external ? ' · UK' : '')+'</div>'
         + '<h3>'+esc(item.name)+'</h3>'
         + '<p>'+esc(item.description)+'</p>'
         + '<a href="'+esc(item.href)+'"'+rel+'>'+label+'</a>'
+        + directPhone
         + '</article>';
     }).join('');
     const totals = entries.length;
