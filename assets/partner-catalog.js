@@ -95,6 +95,7 @@
 
   input.addEventListener('input', () => { expanded = false; render(); });
   mainInput?.addEventListener('input', () => { input.value = mainInput.value; category.value = 'all'; expanded = false; if(entries.length)render(); });
+  document.addEventListener('ag:catalog-search', event => { input.value = event.detail?.query || ''; category.value = 'all'; expanded = false; if (entries.length) render(); });
   document.addEventListener('ag:product-search', event => {
     const query = clean(event.detail?.query);
     if (input.value !== query) input.value = query;
