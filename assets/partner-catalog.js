@@ -36,7 +36,9 @@
     const terms = q.split(/\s+/).filter(Boolean);
     const selected = category.value;
     const filtered = entries.filter(item => (selected === 'all' || item.group === selected)
-      && terms.every(term => item.search.includes(term)));
+      && terms.every(term => item.search.includes(term)
+        || (term === 'iphone' && /\b(smartphone|handy|mobiltelefon|apple)\b/.test(item.search))
+        || (term === 'laptop' && /\b(notebook|computer)\b/.test(item.search))));
     const visible = expanded || terms.length || selected !== 'all' ? filtered : filtered.slice(0, 8);
     grid.innerHTML = visible.map(item => {
       const external = item.external;
@@ -82,7 +84,7 @@
         + options.map(([id,label])=>'<option value="'+esc(id)+'">'+esc(label)+'</option>').join('');
       input.disabled = false;
       category.disabled = false;
-      if (mainInput?.value.trim()) input.value = mainInput.value;
+      input.value = mainInput?.value.trim() || new URLSearchParams(location.search).get('q') || '';
       render();
     } catch (error) {
       status.textContent = 'Partnerübersicht vorübergehend nicht geladen.';
@@ -93,6 +95,13 @@
 
   input.addEventListener('input', () => { expanded = false; render(); });
   mainInput?.addEventListener('input', () => { input.value = mainInput.value; category.value = 'all'; expanded = false; if(entries.length)render(); });
+  document.addEventListener('ag:product-search', event => {
+    const query = clean(event.detail?.query);
+    if (input.value !== query) input.value = query;
+    category.value = 'all';
+    expanded = false;
+    if (entries.length) render();
+  });
   category.addEventListener('change', () => { expanded = false; render(); });
   more.addEventListener('click', () => { expanded = true; render(); });
   init();
