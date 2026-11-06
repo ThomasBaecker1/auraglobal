@@ -587,7 +587,7 @@
     return '<article class="ag-rec">'+
       '<div class="ag-rec-rank">0'+(index+1)+'</div>'+
       '<div class="ag-rec-img"><img loading="lazy" decoding="async" src="'+esc(img)+'" alt="'+esc(p.name)+'"></div>'+
-      '<div class="ag-rec-copy"><small>Anzeige · '+esc(p.merchant)+' · '+esc(p.category || 'Produkt')+'</small>'+
+      '<div class="ag-rec-copy"><small>Anzeige · '+esc(p.merchant)+' · '+esc(categoryLabel(p.category))+'</small>'+
       '<h3>'+esc(p.name)+'</h3>'+
       '<p>'+esc(recommendationReason(p,intent,index))+'</p>'+
       '<div class="ag-rec-bottom">'+
