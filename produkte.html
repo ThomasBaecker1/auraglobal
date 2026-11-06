@@ -490,6 +490,7 @@ body.product-finder .pf-controls input,body.product-finder .pf-controls select{b
   body.product-finder .ag-partner-item p{font-size:11px!important;line-height:1.35!important}
 }
 </style>
+<link rel="stylesheet" href="/assets/mobile-first-2026.css">
 </head>
 <body class="product-finder">
 <header class="topbar mock-nav"><div class="shell nav">
@@ -526,7 +527,8 @@ body.product-finder .pf-controls input,body.product-finder .pf-controls select{b
       <div><h2>Produkte &amp; Shops</h2><p>Passende Treffer stehen hier direkt. Suche nach Produkten oder durchsuche alle Partner.</p></div>
       <a href="/marken.html">Alle Marken →</a>
     </div>
-    <div class="pf-controls" aria-label="Produktfilter">
+    <button type="button" class="ag-mobile-filter-toggle" data-mobile-filter-toggle aria-expanded="false" aria-controls="ag-filter-controls"><span data-filter-label>Filter &amp; Sortierung</span><span aria-hidden="true">⚙</span></button>
+    <div id="ag-filter-controls" class="pf-controls" aria-label="Produktfilter">
       <input type="search" data-product-query placeholder="Produktnamen oder Marken suchen …" autocomplete="off" aria-label="Produkte suchen">
       <select data-product-merchant aria-label="Shop"><option value="all">Alle Feed-Shops</option></select>
       <select data-product-category aria-label="Kategorie"><option value="all">Alle Produktkategorien</option></select>
@@ -593,5 +595,12 @@ body.product-finder .pf-controls input,body.product-finder .pf-controls select{b
   items.forEach(x=>io.observe(x));
 })();
 </script>
+<nav class="ag-mobile-dock" aria-label="Schnellnavigation">
+  <a href="/"><span aria-hidden="true">⌂</span>Start</a>
+  <a href="#katalog" aria-current="page"><span aria-hidden="true">⌕</span>Produkte</a>
+  <a href="/#deals"><span aria-hidden="true">％</span>Deals</a>
+  <a href="/marken.html"><span aria-hidden="true">◈</span>Marken</a>
+</nav>
+<script src="/assets/mobile-first-2026.js" defer></script>
 </body>
 </html>
