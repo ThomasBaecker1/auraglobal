@@ -384,6 +384,57 @@ body.brand-home .section.ag-proof{padding-top:30px!important;padding-bottom:32px
  body.brand-home .ag-top-quick-searches{margin-bottom:8px}
 }
 </style>
+
+<style id="ag-hot-deal-experience">
+.ag-hot-deals{background:#f4f7f4;color:#13241a;padding:44px 0 30px}
+.ag-hot-head,.ag-moments-head{display:flex;justify-content:space-between;gap:18px;align-items:flex-end;margin-bottom:18px}
+.ag-hot-eyebrow{display:flex;gap:8px;align-items:center;font-size:11px;font-weight:950;letter-spacing:.13em;color:#24714e}
+.ag-hot-dot{width:7px;height:7px;border-radius:50%;background:#39be78;box-shadow:0 0 0 5px rgba(57,190,120,.14)}
+.ag-hot-head h2,.ag-moments-head h2{font-size:clamp(31px,4.2vw,50px);letter-spacing:-.06em;line-height:1.1;margin:9px 0 9px}
+.ag-hot-head h2 em{font-style:normal;color:#227a50}.ag-hot-head p{font-size:13px;line-height:1.5;color:#5d6e64;margin:0;max-width:700px}
+.ag-hot-head>a,.ag-moments-head>a{font-size:12px;white-space:nowrap;color:#195d40!important;font-weight:900;text-decoration:none}
+.ag-hot-track{display:flex;gap:13px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;padding:2px 2px 15px;scrollbar-width:thin}
+.ag-hot-card{scroll-snap-align:start;flex:0 0 min(310px,78vw);background:white;border:1px solid #dfe9e0;box-shadow:0 5px 16px rgba(9,35,21,.05);border-radius:17px;overflow:hidden;text-decoration:none!important;display:flex;flex-direction:column;min-height:360px;transition:transform .25s,box-shadow .25s;color:#152c1e!important}
+.ag-hot-card:hover{transform:translateY(-3px);box-shadow:0 14px 28px rgba(9,35,21,.12)}
+.ag-hot-photo{height:145px;overflow:hidden;background:#dcece1}.ag-hot-photo img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.ag-hot-card:hover .ag-hot-photo img{transform:scale(1.045)}
+.ag-hot-body{padding:15px 16px 17px;display:flex;flex:1;flex-direction:column;gap:9px}
+.ag-hot-meta{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.ag-hot-meta small{font-size:9px;color:#55705b;font-weight:900;letter-spacing:.05em}
+.ag-hot-pill{display:inline-block;background:#e4f8e9;color:#14663d;font-size:10px;font-weight:950;padding:5px 8px;border-radius:999px}
+.ag-hot-card.is-upcoming .ag-hot-pill{background:#f4e9ff;color:#6d3e9f}
+.ag-hot-card h3{font-size:19px;line-height:1.2;letter-spacing:-.025em;margin:0;color:#142c1d}
+.ag-hot-card p{font-size:12px;color:#5a6e60;line-height:1.5;margin:0;flex:1}
+.ag-hot-brand{font-size:10px;color:#688674;font-weight:900;display:flex;align-items:center;justify-content:space-between;gap:5px}
+.ag-hot-brand b{font-size:11px;color:#186442;font-weight:950}
+.ag-hot-note{font-size:10px;color:#6f8174;margin-top:8px;line-height:1.5}
+.ag-video-moments{background:linear-gradient(130deg,#0d1d18,#163d2b);color:#fff;padding:39px 0 45px}
+.ag-moments-head span{font-size:11px;color:#a0f5c3;font-weight:950;letter-spacing:.1em}
+.ag-moments-head h2 em{color:#a7eccc;font-style:normal}
+.ag-moments-head p{font-size:13px;color:#c9dfd1;margin:0;line-height:1.5}
+.ag-moments-head>a{color:#bbf7d0!important}
+.ag-moments-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.ag-moment{overflow:hidden;border:1px solid rgba(255,255,255,.16);border-radius:18px;background:rgba(255,255,255,.06)}
+.ag-moment-frame{height:220px;position:relative;background:#14221b}
+.ag-moment-frame button{height:100%;width:100%;padding:0;border:0;display:block;cursor:pointer;position:relative;color:#fff;background:#101915}
+.ag-moment-frame button>img{height:100%;width:100%;object-fit:cover;filter:brightness(.7);transition:transform .4s}
+.ag-moment-frame button:hover>img{transform:scale(1.035)}
+.ag-video-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(255,255,255,.92);color:#183a29;width:54px;height:54px;display:grid;place-items:center;border-radius:50%;font-size:18px;box-shadow:0 12px 28px #0005}
+.ag-moment-frame button small{position:absolute;bottom:13px;left:14px;font-size:10px;letter-spacing:.04em;font-weight:850}
+.ag-moment-copy{display:grid;gap:6px;padding:14px 17px 17px}
+.ag-moment-copy>span{font-size:10px;color:#a9dfbf;font-weight:950;letter-spacing:.07em}
+.ag-moment-copy strong{font-size:20px;letter-spacing:-.025em}.ag-moment-copy>a{font-size:12px;color:#d7ffe5!important;font-weight:850;text-decoration:none}
+@media(max-width:650px){
+ .ag-hot-deals{padding:24px 0}
+ .ag-hot-head,.ag-moments-head{display:block}
+ .ag-hot-head h2,.ag-moments-head h2{font-size:32px}
+ .ag-hot-head>a,.ag-moments-head>a{display:inline-block;margin-top:10px}
+ .ag-hot-card{flex-basis:min(285px,82vw)}
+ .ag-moments-grid{grid-template-columns:1fr}
+ .ag-moment-frame{height:180px}
+ .ag-video-moments{padding:26px 0 31px}
+}
+@media(prefers-reduced-motion:reduce){.ag-hot-card,.ag-hot-photo img,.ag-moment-frame button>img{transition:none}}
+</style>
 </head>
 <body class="vc-page brand-home">
 <header class="topbar mock-nav"><div class="shell nav"><a class="brand ag-brand approved-logo" href="/" aria-label="AuraGlobal"><svg class="ag-symbol" viewBox="0 0 100 92" aria-hidden="true"><defs><linearGradient id="auraA" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#eafff5"/><stop offset=".48" stop-color="#8ce8b9"/><stop offset="1" stop-color="#45c98e"/></linearGradient></defs><path fill="url(#auraA)" d="M8 88 48 4 92 88H75L48 31 24 81Z"/><path fill="url(#auraA)" d="M17 78C34 59 53 53 77 66L72 74C52 63 36 66 17 78Z"/></svg><span class="ag-wordmark"><span class="aura">AURA</span><span class="global">GLOBAL</span></span></a><nav class="navlinks"><a href="#shopcats">Kategorien</a><a href="#deals">Deals</a><a href="/produkte.html">Produktfinder</a><a href="/match.html">AuraMatch</a><a href="/dienstleistungen.html">Für Unternehmen</a><a href="/marken.html">Alle Vergleiche</a></nav><div class="nav-icons"><a href="#search" aria-label="Suchen">⌕</a><a href="#deals" aria-label="Aktuelle Deals">％</a><a class="nav-cta" href="/produkte.html">Produktfinder →</a></div></div></header>
@@ -417,6 +468,35 @@ body.brand-home .section.ag-proof{padding-top:30px!important;padding-bottom:32px
         <a href="/marken.html#lernen"><span class="ag-category-icon" aria-hidden="true">✧</span>Lernen &amp; Karriere</a>
         <a href="/dienstleistungen.html"><span class="ag-category-icon" aria-hidden="true">✓</span>Dienstleistungen</a>
       </nav>
+    </div>
+  </div>
+</section>
+
+
+<section class="ag-hot-deals" aria-label="Aktuelle und bevorstehende Affiliate-Partneraktionen">
+  <div class="shell">
+    <div class="ag-hot-head"><div><span class="ag-hot-eyebrow"><span class="ag-hot-dot" aria-hidden="true"></span> BLACK FRIDAY 2026 · PARTNER-UPDATE 06.11.</span><h2>Diese Woche lohnt sich <em>ein Blick.</em></h2><p>Echte Aktionszeiträume statt künstlicher Countdown-Tricks. Finde Angebote, die zu deinem nächsten Kauf passen.</p></div><a href="#deals">Alle geprüften Angebote →</a></div>
+    <div class="ag-hot-track" aria-label="Aktuelle Angebote – horizontal scrollen"><a class="ag-hot-card ag-hot-mint" data-hot-deal data-start="2026-11-01" data-end="2026-11-30" href="https://www.awin1.com/cread.php?awinmid=72399&amp;awinaffid=3076553&amp;clickref=ag_2026bf_tenways&amp;ued=https%3A%2F%2Fwww.tenways.com%2Fpages%2Fe-bike-deals" target="_blank" rel="sponsored noopener noreferrer"><div class="ag-hot-photo"><img loading="lazy" decoding="async" src="https://www.tenways.com/cdn/shop/files/Greygreen-1_1500x.webp?v=1758781276" alt="TENWAYS E-Bike – Produktabbildung"></div><div class="ag-hot-body"><div class="ag-hot-meta"><span class="ag-hot-pill" data-deal-status>Aktion läuft</span><small>E-BIKE · BLACK FRIDAY</small></div><h3>Bis zu 500 € auf ausgewählte E-Bikes</h3><p>CGO600 New Edition laut Partnerangebot 200 € reduziert. Zusätzlich AURA30: 30 € ab 999 €.</p><span class="ag-hot-brand">TENWAYS<b>Deal im Partnershop prüfen ↗</b></span></div></a>
+<a class="ag-hot-card ag-hot-pink" data-hot-deal data-start="2026-11-04" data-end="2026-11-19" href="https://www.awin1.com/cread.php?awinmid=77942&amp;awinaffid=3076553&amp;clickref=ag_2026bf_petlibro&amp;ued=https%3A%2F%2Fde.petlibro.com%2Fpages%2Fblack-friday" target="_blank" rel="sponsored noopener noreferrer"><div class="ag-hot-photo"><img loading="lazy" decoding="async" src="https://images.pexels.com/photos/6001460/pexels-photo-6001460.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=900" alt="Symbolbild – Mensch mit Katze"></div><div class="ag-hot-body"><div class="ag-hot-meta"><span class="ag-hot-pill" data-deal-status>Aktion läuft</span><small>SMART PET · EARLY DEALS</small></div><h3>Bis zu 50 % auf ausgewählte Smart-Pet-Produkte</h3><p>Early-Black-Friday bis 19.11. – Bundle- und Einzelprodukt-Rabatte unterscheiden sich.</p><span class="ag-hot-brand">PETLIBRO<b>Deal im Partnershop prüfen ↗</b></span></div></a>
+<a class="ag-hot-card ag-hot-blue" data-hot-deal data-start="2026-10-28" data-end="2026-12-07" href="https://www.awin1.com/cread.php?awinmid=99887&amp;awinaffid=3076553&amp;clickref=ag_2026bf_desktronic&amp;ued=https%3A%2F%2Fdesktronic.de%2Fcollections%2Fshop" target="_blank" rel="sponsored noopener noreferrer"><div class="ag-hot-photo"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Symbolbild – moderner Arbeitsplatz"></div><div class="ag-hot-body"><div class="ag-hot-meta"><span class="ag-hot-pill" data-deal-status>Aktion läuft</span><small>HOME OFFICE · BLACK FRIDAY</small></div><h3>Bis zu 50 % auf ausgewählte Büromöbel</h3><p>Schreibtische und ergonomische Stühle – Aktion laut Partner bis zum 7. Dezember.</p><span class="ag-hot-brand">DESKTRONIC<b>Deal im Partnershop prüfen ↗</b></span></div></a>
+<a class="ag-hot-card ag-hot-violet" data-hot-deal data-start="2026-11-09" data-end="2026-11-18" href="https://www.awin1.com/cread.php?awinmid=128039&amp;awinaffid=3076553&amp;clickref=ag_2026bf_ugreen&amp;ued=https%3A%2F%2Fai-de.ugreen.com%2Fpages%2Fugreen-nas-black-friday-deals" target="_blank" rel="sponsored noopener noreferrer"><div class="ag-hot-photo"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Symbolbild – Computer- und Servertechnik"></div><div class="ag-hot-body"><div class="ag-hot-meta"><span class="ag-hot-pill" data-deal-status>Bald verfügbar</span><small>TECH · NAS BLACK FRIDAY</small></div><h3>Ab 9.11.: Bis zu 26 % auf ausgewählte NAS-Bundles</h3><p>Frühaktion vom 9. bis 18. November. Nur teilnehmende NAS-Angebote.</p><span class="ag-hot-brand">UGREEN<b>Deal im Partnershop prüfen ↗</b></span></div></a>
+<a class="ag-hot-card ag-hot-orange" data-hot-deal data-start="2026-11-07" data-end="2026-11-11" href="https://www.awin1.com/cread.php?awinmid=127821&amp;awinaffid=3076553&amp;clickref=ag_2026bf_outin&amp;ued=https%3A%2F%2Fde.outin.com%2F" target="_blank" rel="sponsored noopener noreferrer"><div class="ag-hot-photo"><img loading="lazy" decoding="async" src="https://images.pexels.com/photos/1549181/pexels-photo-1549181.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=900" alt="Symbolbild – frisch zubereiteter Kaffee"></div><div class="ag-hot-body"><div class="ag-hot-meta"><span class="ag-hot-pill" data-deal-status>Bald verfügbar</span><small>KAFFEE · 11.11.-AKTION</small></div><h3>7.–11.11.: 20 % auf die Kruve Gift Box</h3><p>Laut OutIn-Partnerinformation für den europäischen Onlineshop; Preis im Checkout prüfen.</p><span class="ag-hot-brand">OUTIN<b>Deal im Partnershop prüfen ↗</b></span></div></a>
+<a class="ag-hot-card ag-hot-purple" data-hot-deal data-start="2026-11-09" href="https://www.awin1.com/cread.php?awinmid=128645&amp;awinaffid=3076553&amp;clickref=ag_2026bf_sirui&amp;ued=https%3A%2F%2Fsiruishop.de%2Fpages%2Fexklusive-angebote" target="_blank" rel="sponsored noopener noreferrer"><div class="ag-hot-photo"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Symbolbild – Kamera mit Objektiv"></div><div class="ag-hot-body"><div class="ag-hot-meta"><span class="ag-hot-pill" data-deal-status>Bald verfügbar</span><small>FOTO & VIDEO · WARM-UP</small></div><h3>Ab 9.11.: SIRUI Black-Friday-Warm-up</h3><p>Bis zu 78 % auf ausgewählte Fotoprodukte laut Partnernewsletter; Ende nicht angegeben.</p><span class="ag-hot-brand">SIRUI<b>Deal im Partnershop prüfen ↗</b></span></div></a></div>
+    <div class="ag-hot-note">Anzeige · <span data-hot-deal-count>6</span> Partneraktionen und Ankündigungen · Angaben aus offiziellen Awin-Partnerinformationen. Preise, Kombinierbarkeit und Verfügbarkeit im Shop prüfen. Abgelaufene Aktionen werden ausgeblendet.</div>
+  </div>
+</section>
+<section class="ag-video-moments" aria-label="Produktmomente und Markenvideos">
+  <div class="shell">
+    <div class="ag-moments-head"><div><span>MEHR ALS NUR PRODUKTBILDER</span><h2>Erst erleben. <em>Dann entscheiden.</em></h2><p>Ein Kaffee, den du überall mitnehmen kannst. Kleine Momente, die im Alltag bleiben.</p></div><a href="/produkte.html">Produkte entdecken →</a></div>
+    <div class="ag-moments-grid">
+      <article class="ag-moment ag-moment-coffee">
+        <div class="ag-moment-frame"><button type="button" data-official-video="3MBubfxQH2M" data-video-title="OutIn Nano – offizielles Produktvideo" aria-label="Offizielles OutIn Anwendungsvideo starten"><img loading="lazy" src="https://images.pexels.com/photos/1549181/pexels-photo-1549181.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=900" alt="Symbolbild: Kaffee draußen genießen"><span class="ag-video-play">▶</span><small>▶ OFFIZIELLES MARKENVIDEO · KLICK ZUM STARTEN</small></button></div>
+        <div class="ag-moment-copy"><span>KAFFEE, WO DU WILLST</span><strong>Deine Espressopause. Überall.</strong><a href="/outin.html">OutIn ansehen ↗</a></div>
+      </article>
+      <article class="ag-moment ag-moment-ritual">
+        <div class="ag-moment-frame"><button type="button" data-official-video="pqFrYeVVQtI" data-video-title="Nespresso – Markenvideo" aria-label="Nespresso Markenvideo starten"><img loading="lazy" src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Symbolbild: Kaffee am Morgen"><span class="ag-video-play">▶</span><small>▶ MARKENVIDEO · KLICK ZUM STARTEN</small></button></div>
+        <div class="ag-moment-copy"><span>DEIN MOMENT AM MORGEN</span><strong>Mach deine Pause besonders.</strong><a href="/nespresso.html">Kaffeewelt entdecken ↗</a></div>
+      </article>
     </div>
   </div>
 </section>
@@ -590,5 +670,6 @@ body.brand-home .section.ag-proof{padding-top:30px!important;padding-bottom:32px
 
 <script src="/aura-v2.js"></script>
 <script src="/assets/home-overview.js" defer></script>
+<script src="/assets/auraglobal-deal-experience.js" defer></script>
 </body>
 </html>
