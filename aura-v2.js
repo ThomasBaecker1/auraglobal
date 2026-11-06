@@ -134,7 +134,7 @@ function initSearch(){
       closeResults();
       return hits;
     }
-    const productFinderHref='/produkte.html?q='+encodeURIComponent(q.trim());
+    const productFinderHref='/produkte.html?q='+encodeURIComponent(q.trim())+'#katalog';
     out.innerHTML=hits.length
       ?hits.map(x=>`<a class="result" href="${x.href}"><span><b>${x.title}</b><small>${x.type}</small></span><i aria-hidden="true">→</i></a>`).join('')
       :`<a class="result" href="${productFinderHref}"><span><b>Im Produktfinder suchen</b><small>Produkte & Partnerwelten nach „${q.replace(/[<>&"]/g,'')}“ durchsuchen</small></span><i aria-hidden="true">→</i></a>`;
@@ -155,7 +155,7 @@ function initSearch(){
     window.dataLayer.push({event:'site_search',search_term:query,search_results:hits.length,page_path:window.location.pathname});
     if(typeof window.gtag==='function') window.gtag('event','search',{search_term:query});
     // Enter searches the full live catalog rather than jumping to the first editorial guide.
-    window.location.href='/produkte.html?q='+encodeURIComponent(query);
+    window.location.href='/produkte.html?q='+encodeURIComponent(query)+'#katalog';
   }
 
   input.addEventListener('input',e=>render(e.target.value));
