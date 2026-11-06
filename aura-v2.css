@@ -4515,3 +4515,74 @@ a.ag-brand.approved-logo .ag-wordmark .global{color:#f7fbf8!important;margin-lef
 @keyframes ag-wordmark-glint{0%,70%,100%{background-position:0% 50%}82%{background-position:100% 50%}}
 @media(max-width:620px){.approved-logo{gap:8px!important}.approved-logo::before{flex-basis:38px;width:38px;height:38px;border-radius:12px}.approved-logo .ag-wordmark .aura{font-size:15px!important}.approved-logo .ag-wordmark .global{font-size:6.5px!important;letter-spacing:.45em!important}}
 @media(prefers-reduced-motion:reduce){.approved-logo::before,.approved-logo .ag-wordmark .aura{animation:none!important;transition:none!important}}
+
+
+/* AuraGlobal signature typography · selected direction 03 */
+a.approved-logo::before {
+  content: "";
+  display: block;
+  flex: 0 0 44px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: url("/assets/auraglobal-mark.svg?mark=signature-3") center / contain no-repeat;
+  filter: drop-shadow(0 0 9px rgba(90, 220, 171, .24));
+  animation: ag-world-aura 6s ease-in-out infinite;
+  transition: transform .28s ease, filter .28s ease;
+}
+a.approved-logo:hover::before {
+  transform: scale(1.055);
+  filter: drop-shadow(0 0 14px rgba(90, 220, 171, .48));
+}
+a.approved-logo .ag-wordmark {
+  align-items: flex-start !important;
+  gap: 2px !important;
+  font-family: ui-serif, Georgia, "Times New Roman", serif !important;
+  font-size: 17px !important;
+  font-weight: 700 !important;
+  line-height: .95 !important;
+  letter-spacing: 0 !important;
+}
+a.approved-logo .ag-wordmark .aura {
+  font-family: ui-serif, Georgia, "Times New Roman", serif !important;
+  font-size: 18px !important;
+  font-style: italic !important;
+  font-weight: 750 !important;
+  letter-spacing: .035em !important;
+  color: transparent !important;
+  background: linear-gradient(105deg, #f5fff8 4%, #b7f3d0 56%, #f5fff8 92%) !important;
+  background-size: 220% 100% !important;
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+  animation: ag-signature-type-glint 8s ease-in-out infinite !important;
+}
+a.approved-logo .ag-wordmark .global {
+  display: block !important;
+  margin: 0 !important;
+  padding: 2px 0 0 .38em !important;
+  border: 0 !important;
+  color: #c5d9d0 !important;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif !important;
+  font-size: 7px !important;
+  font-weight: 750 !important;
+  line-height: 1 !important;
+  letter-spacing: .42em !important;
+}
+@keyframes ag-world-aura {
+  0%, 100% { filter: drop-shadow(0 0 6px rgba(90, 220, 171, .18)); transform: translateY(0); }
+  50% { filter: drop-shadow(0 0 11px rgba(90, 220, 171, .38)); transform: translateY(-1px); }
+}
+@keyframes ag-signature-type-glint {
+  0%, 72%, 100% { background-position: 0% 50%; }
+  84% { background-position: 100% 50%; }
+}
+@media (max-width: 620px) {
+  a.approved-logo { gap: 8px !important; }
+  a.approved-logo::before { flex-basis: 39px; width: 39px; height: 39px; }
+  a.approved-logo .ag-wordmark .aura { font-size: 16px !important; }
+  a.approved-logo .ag-wordmark .global { font-size: 6px !important; letter-spacing: .39em !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  a.approved-logo::before,
+  a.approved-logo .ag-wordmark .aura { animation: none !important; transition: none !important; }
+}
