@@ -3,6 +3,7 @@
   const root = document.querySelector('[data-partner-catalog]');
   if (!root) return;
   const input = root.querySelector('[data-partner-search]');
+  const mainInput = document.querySelector('[data-product-query]');
   const category = root.querySelector('[data-partner-category]');
   const status = root.querySelector('[data-partner-status]');
   const grid = root.querySelector('[data-partner-grid]');
@@ -36,7 +37,7 @@
     const selected = category.value;
     const filtered = entries.filter(item => (selected === 'all' || item.group === selected)
       && terms.every(term => item.search.includes(term)));
-    const visible = expanded || terms.length || selected !== 'all' ? filtered : filtered.slice(0, 12);
+    const visible = expanded || terms.length || selected !== 'all' ? filtered : filtered.slice(0, 8);
     grid.innerHTML = visible.map(item => {
       const external = item.external;
       const rel = external ? ' target="_blank" rel="sponsored noopener noreferrer"' : '';
@@ -52,7 +53,7 @@
     status.textContent = totals+' verlinkte Awin-Partnerprogramme · '+filtered.length+' passende Marken'
       + (filtered.length !== visible.length ? ' · '+visible.length+' angezeigt' : '');
     empty.hidden = filtered.length > 0;
-    more.hidden = expanded || filtered.length <= 12 || terms.length > 0 || selected !== 'all';
+    more.hidden = expanded || filtered.length <= 8 || terms.length > 0 || selected !== 'all';
     more.setAttribute('aria-expanded', String(expanded));
   }
 
@@ -81,6 +82,7 @@
         + options.map(([id,label])=>'<option value="'+esc(id)+'">'+esc(label)+'</option>').join('');
       input.disabled = false;
       category.disabled = false;
+      if (mainInput?.value.trim()) input.value = mainInput.value;
       render();
     } catch (error) {
       status.textContent = 'Partnerübersicht vorübergehend nicht geladen.';
@@ -90,6 +92,7 @@
   }
 
   input.addEventListener('input', () => { expanded = false; render(); });
+  mainInput?.addEventListener('input', () => { input.value = mainInput.value; category.value = 'all'; expanded = false; if(entries.length)render(); });
   category.addEventListener('change', () => { expanded = false; render(); });
   more.addEventListener('click', () => { expanded = true; render(); });
   init();
