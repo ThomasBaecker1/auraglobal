@@ -4502,3 +4502,16 @@ a.ag-brand.approved-logo .ag-wordmark .global{color:#f7fbf8!important;margin-lef
 @media(hover:hover){a.ag-brand.approved-logo:hover{transform:translateY(-1px);filter:drop-shadow(0 5px 13px rgba(102,238,164,.13))}}
 @media(max-width:620px){a.ag-brand.approved-logo .ag-wordmark{font-size:11px!important;letter-spacing:.25em!important}a.ag-brand.approved-logo .ag-wordmark .global{margin-left:.25em!important}}
 @media(prefers-reduced-motion:reduce){a.ag-brand.approved-logo{transition:none!important}}
+
+/* AuraGlobal signature refresh: a luminous orbital monogram and editorial wordmark */
+.approved-logo{gap:10px!important;align-items:center!important}
+.approved-logo>.ag-symbol{display:none!important}
+.approved-logo::before{content:"";display:block;flex:0 0 43px;width:43px;height:43px;border-radius:14px;background:url('/assets/auraglobal-mark.svg') center/contain no-repeat;filter:drop-shadow(0 0 8px rgba(110,242,168,.22));animation:ag-signature-glow 6s ease-in-out infinite;transition:transform .28s ease,filter .28s ease}
+.approved-logo:hover::before{transform:scale(1.06) rotate(-3deg);filter:drop-shadow(0 0 13px rgba(110,242,168,.52))}
+.approved-logo .ag-wordmark{display:flex!important;flex-direction:column!important;align-items:flex-start!important;justify-content:center!important;gap:3px!important;white-space:nowrap!important;font-family:Georgia,'Times New Roman',serif!important;font-size:17px!important;font-weight:700!important;line-height:.9!important;letter-spacing:0!important}
+.approved-logo .ag-wordmark .aura{font-family:Georgia,'Times New Roman',serif!important;font-size:17px!important;font-weight:700!important;letter-spacing:.19em!important;color:transparent!important;background:linear-gradient(105deg,#effff5 5%,#9bf0bd 48%,#f3fff6 83%)!important;background-size:220% 100%!important;background-clip:text!important;-webkit-background-clip:text!important;animation:ag-wordmark-glint 8s ease-in-out infinite!important}
+.approved-logo .ag-wordmark .global{display:block!important;margin:0!important;padding:3px 0 0 .34em!important;border-top:1px solid rgba(165,247,195,.58)!important;color:#bcefcf!important;font-family:system-ui,-apple-system,'Segoe UI',sans-serif!important;font-size:7px!important;font-weight:750!important;line-height:1!important;letter-spacing:.48em!important}
+@keyframes ag-signature-glow{0%,100%{filter:drop-shadow(0 0 6px rgba(110,242,168,.16));transform:translateY(0)}50%{filter:drop-shadow(0 0 11px rgba(110,242,168,.34));transform:translateY(-1px)}}
+@keyframes ag-wordmark-glint{0%,70%,100%{background-position:0% 50%}82%{background-position:100% 50%}}
+@media(max-width:620px){.approved-logo{gap:8px!important}.approved-logo::before{flex-basis:38px;width:38px;height:38px;border-radius:12px}.approved-logo .ag-wordmark .aura{font-size:15px!important}.approved-logo .ag-wordmark .global{font-size:6.5px!important;letter-spacing:.45em!important}}
+@media(prefers-reduced-motion:reduce){.approved-logo::before,.approved-logo .ag-wordmark .aura{animation:none!important;transition:none!important}}

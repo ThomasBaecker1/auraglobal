@@ -277,12 +277,42 @@
     history.replaceState({},'',url.pathname + (url.searchParams.toString() ? '?' + url.searchParams.toString() : '') + url.hash);
   }
 
+  const BOOK_INTENT_RE = /\b(buch|bucher|book|books|roman|romane|krimi|krimis|thriller|sachbuch|sachbucher|lesen)\b/;
+
+  function isBookSearchQuery(query) {
+    return BOOK_INTENT_RE.test(fold(query));
+  }
+
+  function isBookCatalogProduct(product) {
+    const merchant = fold(product?.merchant);
+    const category = fold(product?.category);
+    const name = fold(product?.name);
+    return /medimops|momox/.test(merchant)
+      && /\bbooks?\b/.test(category)
+      && !/\b(regal|regale|bookshelf|bookcase)\b/.test(name);
+  }
+
+  function matchesBookQuery(product, query) {
+    if (!isBookCatalogProduct(product)) return false;
+    const generic = new Set(['buch','bucher','book','books','roman','romane','krimi','krimis','thriller','sachbuch','sachbucher','lesen','suche','such','finden','zeige','fuer','fur','bitte','von','mit','und','der','die','das']);
+    const specific = fold(query).split(/[^a-z0-9-]+/).filter(term => term && !generic.has(term));
+    if (!specific.length) return true;
+    const titleAndDetails = fold([product.name,product.description,product.brand].filter(Boolean).join(' '));
+    return specific.every(term => titleAndDetails.includes(term));
+  }
+
+  function categoryLabel(category) {
+    return fold(category) === 'books' ? 'Bücher' : norm(category || 'Produkt');
+  }
+
   function apply({updateUrl = true} = {}) {
     const q = fold(state.query);
     let rows = state.products.filter((p) => {
       if (state.merchant !== 'all' && norm(p.merchant) !== state.merchant) return false;
       if (state.category !== 'all' && norm(p.category) !== state.category) return false;
-      if (q && !searchable(p).includes(q)) {
+      if (isBookSearchQuery(q)) {
+        if (!matchesBookQuery(p,q)) return false;
+      } else if (q && !searchable(p).includes(q)) {
         if(!p.curated)return false;
         const ignored=new Set(['unter','bis','max','maximal','euro','eur','kaufen','test','testsieger','preis','preise','günstig','günstiges','günstige','für','mit','von','einen','eine','einer','ein','und','der','die','das','beste','bestes','alternative','online']);
         const meaningful=q.split(/[^a-z0-9äöüß-]+/).filter(t=>t.length>=3&&!/^\\d+$/.test(t)&&!ignored.has(t));
@@ -300,9 +330,12 @@
     } else {
       rows.sort((a,b) => {
         if (q) {
-          const matchPriority = p => { const title = fold(p.name); const brand = fold(p.brand); const seller = fold(p.merchant);
+          const matchPriority = p => {
+            const title = fold(p.name); const brand = fold(p.brand); const seller = fold(p.merchant);
+            if (isBookSearchQuery(q)) return isBookCatalogProduct(p) ? 200 : 0;
             return (title === q ? 100 : title.startsWith(q) ? 75 : title.includes(q) ? 50 : 0)
-              + (brand.includes(q) ? 25 : 0) + (seller.includes(q) ? 12 : 0); };
+              + (brand.includes(q) ? 25 : 0) + (seller.includes(q) ? 12 : 0);
+          };
           const difference = matchPriority(b) - matchPriority(a);
           if (difference) return difference;
         }
@@ -341,7 +374,7 @@
 
     return '<article class="pf-card" data-product-card>'+
       '<div class="pf-image"><img loading="lazy" decoding="async" src="'+esc(img)+'" alt="'+esc(p.name)+'">'+badge+guideBadge+'</div>'+
-      '<div class="pf-body"><div class="pf-topline"><span>'+esc(p.merchant)+'</span><span>'+esc(p.category || 'Produkt')+'</span></div>'+
+      '<div class="pf-body"><div class="pf-topline"><span>'+esc(p.merchant)+'</span><span>'+esc(categoryLabel(p.category))+'</span></div>'+
       '<h2>'+esc(p.name)+'</h2>'+
       '<p>'+esc(p.description || 'Produktdetails, Verfügbarkeit und aktuellen Preis direkt beim Anbieter prüfen.')+'</p>'+
       priceBlock+
@@ -447,6 +480,7 @@
   ]);
 
   const INTENT_SYNONYMS = [
+    {re:/\b(buch|bucher|book|books|roman|romane|krimi|krimis|thriller|sachbuch|sachbucher|lesen)\b/i, terms:['book','books','medimops','momox']},
     {re:/\b(e[- ]?bike|ebike|fahrrad|rad)\b/i, terms:['e-bike','ebike','bike','fahrrad','tenways','urwahn','dotblue']},
     {re:/\b(sneaker|schuh|schuhe|jordan|adidas|nike)\b/i, terms:['sneaker','schuh','jordan','adidas','nike','house-of-sneakers']},
     {re:/\b(kaffee|espresso|kaffeemaschine|coffee)\b/i, terms:['kaffee','espresso','coffee','outin','nespresso']},
@@ -494,6 +528,7 @@
     const category = fold(p.category);
     const desc = fold(p.description);
     const whole = [name,brand,merchant,category,desc].join(' ');
+    if (isBookSearchQuery(intent.q) && !isBookCatalogProduct(p)) return {score:0,matched:0,whole};
     let score = 0;
     let matched = 0;
 
