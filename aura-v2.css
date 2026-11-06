@@ -4586,3 +4586,22 @@ a.approved-logo .ag-wordmark .global {
   a.approved-logo::before,
   a.approved-logo .ag-wordmark .aura { animation: none !important; transition: none !important; }
 }
+
+
+/* The current header's older ag-brand rule hides its pseudo-element; restore the approved globe mark. */
+body .topbar .ag-brand.approved-logo::before {
+  content: "" !important;
+  display: block !important;
+  flex: 0 0 44px !important;
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 50% !important;
+  background: url("/assets/auraglobal-mark.svg?mark=signature-3") center / contain no-repeat !important;
+}
+@media (max-width: 620px) {
+  body .topbar .ag-brand.approved-logo::before {
+    flex-basis: 39px !important;
+    width: 39px !important;
+    height: 39px !important;
+  }
+}
