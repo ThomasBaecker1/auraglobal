@@ -91,7 +91,7 @@
     const results = await Promise.allSettled([read(primary),read(fallback)]);
     const candidates = results.filter(r=>r.status === 'fulfilled').map(r=>r.value);
     if (!candidates.length) throw new Error('Catalog unavailable');
-    if (expected === 'products' && candidates.length > 1) {
+    if (candidates.length > 1) {
       const dates = await Promise.all(candidates.map(async res=>Date.parse((await res.clone().json()).updatedAt) || 0));
       return candidates[dates[1] > dates[0] ? 1 : 0];
     }
