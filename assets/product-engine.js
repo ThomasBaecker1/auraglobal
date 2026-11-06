@@ -317,6 +317,8 @@
     }
 
     state.filtered = rows;
+    if (els.catalog) els.catalog.dataset.hasSearch = String(Boolean(norm(state.query)));
+    document.dispatchEvent(new CustomEvent('ag:product-search', {detail:{query:state.query}}));
     render();
     if (updateUrl) syncUrl();
   }
@@ -411,12 +413,28 @@
     el.innerHTML = '<option value="all">'+label+'</option>' + values.map(v => '<option value="'+esc(v)+'">'+esc(v)+'</option>').join('');
   }
 
+  function scheduleSearchChunks() {
+    clearTimeout(state.searchTimer);
+    const query = norm(state.query);
+    if (query.length < 2 || !hasMoreCatalogData()) return;
+    state.searchTimer = setTimeout(async () => {
+      if (query !== norm(state.query)) return;
+      for (let n = 0; n < 4 && query === norm(state.query) && hasMoreCatalogData(); n++) {
+        const changed = await loadNextCatalogChunks(6);
+        if (!changed) break;
+        apply({updateUrl:false});
+        if (state.filtered.length >= 18) break;
+      }
+    }, 260);
+  }
+
   function setQuery(value,{scroll=false}={}) {
     state.query = norm(value);
     state.visible = 24;
     if (els.query) els.query.value = state.query;
     if (els.heroQuery) els.heroQuery.value = state.query;
     apply();
+    scheduleSearchChunks();
     if (scroll && els.catalog) els.catalog.scrollIntoView({behavior:'smooth',block:'start'});
   }
 
@@ -628,21 +646,22 @@
     els.query?.addEventListener('input', (e) => {
       state.query = e.target.value;
       state.visible = 24;
+      if (els.heroQuery) els.heroQuery.value = state.query;
       apply();
-      clearTimeout(state.searchTimer);
-      if (norm(state.query).length >= 2 && hasMoreCatalogData()) {
-        state.searchTimer = setTimeout(async ()=>{
-          const changed = await loadNextCatalogChunks(6);
-          if (changed) apply({updateUrl:false});
-        },350);
-      }
+      scheduleSearchChunks();
+    });
+
+    els.heroQuery?.addEventListener('input', (e) => {
+      state.query = e.target.value;
+      state.visible = 24;
+      if (els.query) els.query.value = state.query;
+      apply();
+      scheduleSearchChunks();
     });
 
     els.heroForm?.addEventListener('submit', (e) => {
       e.preventDefault();
-      const value = els.heroQuery?.value || '';
-      if (value.split(/\s+/).filter(Boolean).length >= 3) askAuraGlobal(value);
-      else setQuery(value,{scroll:true});
+      setQuery(els.heroQuery?.value || '', {scroll:true});
     });
 
     els.assistantForm?.addEventListener('submit',(e)=>{
