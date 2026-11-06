@@ -356,6 +356,43 @@ body .pf-card .pf-buy,body .pf-card .pf-buy:visited{background:#111;color:#fff!i
 @media(max-width:620px){.ag-partner-catalog{padding:16px;border-radius:16px}.ag-partner-controls,.ag-partner-grid{grid-template-columns:1fr}.ag-partner-heading h3{font-size:29px}}
 </style>
 
+
+<style id="ag-simple-catalog-2026">
+/* Shopping first: no landing-page detours before the search and product results. */
+body.product-finder{background:#f7faf8!important;color:#15281e}
+body.product-finder .pf-catalog{padding:30px 0 56px!important;background:#f7faf8!important;color:#14261e!important;min-height:80vh}
+body.product-finder .pf-catalog-head{display:block!important;margin:0 0 17px!important}
+body.product-finder .pf-catalog-head .pf-kicker{font-size:10px;color:#478369}
+body.product-finder .pf-catalog-head h2{font-size:clamp(35px,5vw,55px)!important;line-height:1.04!important;letter-spacing:-.055em!important;margin:8px 0!important}
+body.product-finder .pf-catalog-head p{font-size:14px!important;max-width:700px;line-height:1.5!important}
+body.product-finder .pf-controls{margin:0 0 9px!important;align-items:stretch!important}
+body.product-finder .pf-controls input[data-product-query]{min-height:56px!important;font-size:17px!important;border:2px solid #87d8aa!important;background:#fff!important;border-radius:13px!important;box-shadow:0 7px 30px rgba(28,66,40,.06)!important;color:#0f281d!important}
+body.product-finder .pf-controls input[data-product-query]:focus{outline:3px solid rgba(43,170,99,.15)!important;outline-offset:1px}
+body.product-finder .pf-controls select{min-height:47px!important;background:#fff!important;border:1px solid #dae6de!important;border-radius:11px!important;color:#223c2e!important}
+body.product-finder .pf-status{margin:12px 0 15px!important}
+body.product-finder .pf-status strong{color:#123527!important}
+body.product-finder .pf-status span{color:#536c5c!important}
+body.product-finder .pf-grid{margin-top:0!important}
+body.product-finder .pf-card{box-shadow:0 5px 20px rgba(19,54,31,.05)!important;border-color:#e2eae4!important}
+body.product-finder .ag-partner-catalog{margin:42px 0 0!important;padding:20px!important;background:#eff6f1!important;border-radius:20px!important}
+body.product-finder .ag-partner-heading h3{font-size:clamp(25px,3vw,34px)!important}
+body.product-finder .ag-partner-item{border-radius:12px!important}
+body.product-finder .ag-simple-search-ideas{display:flex;align-items:center;flex-wrap:wrap;gap:7px;margin:7px 0 13px;color:#557161;font-size:12px}
+body.product-finder .ag-simple-search-ideas button{border:1px solid #bedbcb;border-radius:999px;background:#fff;color:#174b32;padding:7px 12px;cursor:pointer;font-weight:750;font-size:12px}
+body.product-finder .ag-simple-search-ideas button:hover{background:#dcf5e8}
+body.product-finder .ag-simple-footer-links{max-width:1300px;margin:12px auto 38px;padding:0 18px;display:flex;gap:15px;flex-wrap:wrap}
+body.product-finder .ag-simple-footer-links a{font-size:12px;color:#216947!important;text-decoration:underline;text-underline-offset:3px}
+body.product-finder .ag-partner-more[hidden],body.product-finder .ag-partner-empty[hidden],body.product-finder .pf-more[hidden],body.product-finder .pf-empty[hidden]{display:none!important}
+@media(max-width:680px){
+body.product-finder .pf-catalog{padding:19px 0 40px!important}
+body.product-finder .pf-catalog-head p{font-size:13px!important}
+body.product-finder .pf-controls{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:7px!important}
+body.product-finder .pf-controls input[data-product-query]{grid-column:1/-1;min-height:54px!important;font-size:16px!important}
+body.product-finder .pf-controls select{font-size:12px!important;padding:0 9px!important}
+body.product-finder .ag-partner-catalog{padding:14px!important;margin-top:26px!important}
+}
+</style>
+
 </head>
 <body class="product-finder">
 <header class="topbar mock-nav"><div class="shell nav">
@@ -365,181 +402,14 @@ body .pf-card .pf-buy,body .pf-card .pf-buy:visited{background:#111;color:#fff!i
 </div></header>
 
 <main>
-<section class="pf-hero">
-  <div class="pf-hero-bg"><img src="https://images.pexels.com/photos/7242978/pexels-photo-7242978.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=2200" alt="Radfahrerin unterwegs in der Stadt" fetchpriority="high"></div>
-  <div class="pf-shell pf-hero-inner">
-    <div class="pf-hero-copy">
-      <div class="pf-kicker" style="color:#bfffdc">AURAGLOBAL · SHOPPING, DAS SICH NACH DIR RICHTET</div>
-      <h1>Du suchst kein Produkt. <em>Du suchst das Gefühl danach.</em></h1>
-      <p>Schneller unterwegs. Besser arbeiten. Mehr genießen. Weniger organisieren. AuraGlobal führt dich vom Wunsch zum passenden Produkt — und vom Produkt zum richtigen Angebot.</p>
-      <form class="pf-hero-search" data-hero-search-form>
-        <input type="search" data-hero-search placeholder="Was soll dein nächster Kauf besser machen?" autocomplete="off" aria-label="AuraGlobal durchsuchen">
-        <button type="submit">Zeig's mir →</button>
-      </form>
-      <a class="ag-match-go-inline" href="/match.html">✨ AuraMatch: In zwei Schritten zum passenden Kaufweg ↗</a>
-      <div class="pf-hot" aria-label="Beliebte Einstiege">
-        <span>Direkt rein</span>
-        <button type="button" data-quick-search="E-Bike">E-Bikes</button>
-        <button type="button" data-quick-search="Sneaker">Sneaker</button>
-        <a href="/kaffee.html">Kaffee</a>
-        <a href="/petlibro.html">Smart Pet</a>
-      </div>
-    </div>
-    <aside class="pf-hero-side">
-      <div class="pf-side-card"><strong><span data-partner-count>28</span> Shops zur Auswahl</strong><span>Vergleiche Angebote und prüfe aktuelle Preise direkt bei den Shops.</span></div>
-      <div class="pf-side-card"><strong>1 Suche statt 10 Shops</strong><span>Entdecken, vergleichen und dann gezielt zum passenden Anbieter springen.</span></div>
-    </aside>
-  </div>
-  <div class="pf-scrollhint">Weiter entdecken</div>
-</section>
-
-<section class="pf-band">
-  <div class="pf-shell pf-band-inner">
-    <div class="pf-band-item"><small>AuraGlobal Vorteil 01</small><b>Erst verstehen.</b><span>Wo wir Guides haben, siehst du Unterschiede vor dem Shop-Klick.</span></div>
-    <div class="pf-band-item"><small>AuraGlobal Vorteil 02</small><b>Dann auswählen.</b><span>Suche und Filter verbinden viele Produktwelten an einem Ort.</span></div>
-    <div class="pf-band-item"><small>AuraGlobal Vorteil 03</small><b>Direkt zum Modell.</b><span>Produktlinks führen möglichst genau statt pauschal auf die Startseite.</span></div>
-    <div class="pf-band-item"><small>Transparenz</small><b>Für dich kostenlos.</b><span>Bei Käufen über Partnerlinks können wir eine Provision erhalten.</span></div>
-  </div>
-</section>
-
-<section class="pf-chapter">
-  <div class="pf-shell">
-    <div class="pf-chapter-head reveal">
-      <div><div class="pf-kicker">SHOP NACH LEBEN, NICHT NACH MENÜ</div><h2>Was soll sich besser anfühlen?</h2></div>
-      <p>Große Shops zeigen Kategorien. AuraGlobal soll einen Schritt vorher anfangen: bei dem Moment, den du willst. Danach wird aus Inspiration eine konkrete Kaufentscheidung.</p>
-    </div>
-    <div class="pf-story-grid">
-      <a class="pf-story reveal" href="/e-bikes.html"><img src="https://images.pexels.com/photos/7242978/pexels-photo-7242978.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1800" alt="Radfahrerin in der Stadt" loading="lazy" decoding="async"><span class="pf-story-copy"><small>FREIHEIT · MOBILITÄT</small><b>Stau aus. Kopf an.</b><span>City-E-Bikes nach Gewicht, Reichweite und Komfort einordnen →</span></span></a>
-      <a class="pf-story reveal reveal-delay-1" href="/momox-fashion.html"><img src="https://images.pexels.com/photos/4005033/pexels-photo-4005033.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200" alt="Frau freut sich beim Shopping" loading="lazy" decoding="async"><span class="pf-story-copy"><small>STYLE · BELOHNUNG</small><b>Dieses „genau mein Ding“.</b><span>Fashion entdecken →</span></span></a>
-      <a class="pf-story reveal reveal-delay-2" href="/petlibro.html"><img src="https://images.pexels.com/photos/6001460/pexels-photo-6001460.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200" alt="Mann mit Katze zuhause" loading="lazy" decoding="async"><span class="pf-story-copy"><small>NÄHE · RUHE</small><b>Weniger organisieren. Mehr zusammen sein.</b><span>Smart Pet entdecken →</span></span></a>
-      <a class="pf-story reveal" href="/kaffee.html"><img src="https://images.pexels.com/photos/1549181/pexels-photo-1549181.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1100" alt="Kaffee unterwegs" loading="lazy" decoding="async"><span class="pf-story-copy"><small>GENUSS · FREIHEIT</small><b>Kaffee, wo dein Tag passiert.</b><span>Kaffee & Espresso →</span></span></a>
-      <a class="pf-story reveal reveal-delay-1" href="/desktronic.html"><img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&amp;fit=crop&amp;w=1400&amp;q=90" alt="Moderner Arbeitsplatz" loading="lazy" decoding="async"><span class="pf-story-copy"><small>FOKUS · KOMFORT</small><b>Arbeit, die sich leichter anfühlt.</b><span>Home Office →</span></span></a>
-      <a class="pf-story reveal reveal-delay-2" href="/allpowers.html"><img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&amp;fit=crop&amp;w=1400&amp;q=90" alt="Solaranlage im Sonnenlicht" loading="lazy" decoding="async"><span class="pf-story-copy"><small>ENERGIE · UNABHÄNGIGKEIT</small><b>Strom, wo du ihn brauchst.</b><span>Powerstations →</span></span></a>
-    </div>
-  </div>
-</section>
-
-<section class="pf-desires">
-  <div class="pf-shell">
-    <div class="pf-desires-head reveal">
-      <div><div class="pf-kicker" style="color:#a7b2c0">DREI WEGE REIN</div><h2>Wie willst du heute entscheiden?</h2></div>
-      <p>Nicht jeder shoppt gleich. Deshalb geben wir dir drei klare Wege statt einer Wand aus Produkten.</p>
-    </div>
-    <div class="pf-desire-grid">
-      <a class="pf-desire reveal" href="#katalog"><span class="pf-desire-orb"></span><div><div class="pf-kicker">ICH WEISS ES SCHON</div><b>Schnell zum Produkt.</b><p>Du hast Marke, Modell oder Kategorie im Kopf? Suche rein, filtern, fertig.</p></div><strong>Produktfinder öffnen →</strong></a>
-      <a class="pf-desire reveal reveal-delay-1" href="#inspiration"><span class="pf-desire-orb"></span><div><div class="pf-kicker">ICH WILL ES FÜHLEN</div><b>Zeig mir die richtige Richtung.</b><p>Menschen, Situationen und echter Nutzen zuerst. Daten kommen danach.</p></div><strong>Inspiration ansehen →</strong></a>
-      <a class="pf-desire reveal reveal-delay-2" href="/marken.html"><span class="pf-desire-orb"></span><div><div class="pf-kicker">ICH WILL ES VERSTEHEN</div><b>Erst vergleichen. Dann kaufen.</b><p>Eigene Guides zeigen, welche Unterschiede deine Entscheidung wirklich verändern.</p></div><strong>Vergleiche öffnen →</strong></a>
-    </div>
-  </div>
-</section>
-
-<section class="pf-featured" id="inspiration">
-  <div class="pf-shell">
-    <div class="pf-featured-head reveal">
-      <div class="pf-kicker">PRODUKT + MOMENT + ENTSCHEIDUNG</div>
-      <h2>Nicht anschauen. Vorstellen.</h2>
-      <p>Starke Commerce-Seiten verkaufen selten nur Spezifikationen. Sie zeigen dir, wie das Produkt in dein Leben passt. Genau das übernehmen wir — und verbinden es mit ehrlicher Vergleichshilfe.</p>
-    </div>
-
-    <article class="pf-feature reveal">
-      <div class="pf-feature-media">
-        <img src="https://images.pexels.com/photos/7242978/pexels-photo-7242978.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1600" alt="Radfahrerin unterwegs" loading="lazy" decoding="async">
-        <img class="pf-feature-product" src="https://www.tenways.com/cdn/shop/files/Greygreen-1_1500x.webp?v=1758781276" alt="TENWAYS CGO600" loading="lazy" decoding="async">
-      </div>
-      <div class="pf-feature-copy">
-        <div class="pf-kicker">CITY E-BIKES · WENIGER AUTO, MEHR TAG</div>
-        <h3>Das Bike soll verschwinden. Der gute Weg bleiben.</h3>
-        <p>Bei einem City-E-Bike zählt nicht nur Motorleistung. Gewicht, Reichweite, Wartung und Alltagstauglichkeit entscheiden, ob du es wirklich jeden Tag nutzen willst.</p>
-        <div class="pf-feature-points"><div><b>ca. 15 kg*</b><span>CGO600 laut aktuellem Guide</span></div><div><b>bis 70 km*</b><span>Reichweite laut Herstellerangabe im Guide</span></div><div><b>Carbon-Riemen*</b><span>wartungsarmer City-Fokus</span></div></div>
-        <div class="pf-feature-actions"><a href="/tenways.html">TENWAYS vergleichen →</a><a href="/e-bikes.html">E-Bike-Welt entdecken</a></div>
-      </div>
-    </article>
-
-    <article class="pf-feature reveal">
-      <div class="pf-feature-copy">
-        <div class="pf-kicker">KAFFEE · MOMENT STATT ORT</div>
-        <h3>Espresso soll da sein, wo du bist.</h3>
-        <p>Portable Maschinen verkaufen nicht nur Kaffee. Sie verkaufen die Freiheit, den guten Moment nicht an eine Küche zu binden. Danach prüfen wir, welche Lösung wirklich zu deinem Alltag passt.</p>
-        <div class="pf-feature-points"><div><b>Nano</b><span>mobiler Fokus</span></div><div><b>Mino</b><span>andere Größe & Nutzung</span></div><div><b>Guide</b><span>beide direkt einordnen</span></div></div>
-        <div class="pf-feature-actions"><a href="/outin.html">OutIn vergleichen →</a><a href="/kaffee.html">Kaffee-Welt entdecken</a></div>
-      </div>
-      <div class="pf-feature-media">
-        <img src="https://images.pexels.com/photos/1549181/pexels-photo-1549181.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1600" alt="Kaffee unterwegs" loading="lazy" decoding="async">
-        <img class="pf-feature-product" src="https://de.outin.com/cdn/shop/files/nano-listing-grey-view_01bfe22a-eec7-44d4-9967-454fb7871b7e.jpg?v=1756794363&amp;width=1100" alt="OutIn Nano" loading="lazy" decoding="async">
-      </div>
-    </article>
-  </div>
-</section>
-
-<section class="pf-cinema">
-  <div class="pf-shell">
-    <div class="pf-cinema-head reveal">
-      <div><div class="pf-kicker" style="color:#a7b2c0">SEHEN STATT NUR LESEN</div><h2>Produkte in Bewegung.</h2></div>
-      <p>Videos zeigen Nutzung, Proportionen und Atmosphäre viel schneller als eine weitere Tabelle. Deshalb binden wir echtes Markenmaterial genau dort ein, wo es die Entscheidung besser macht.</p>
-    </div>
-    <div class="pf-video-grid">
-      <article class="pf-video-card reveal">
-        <div class="pf-video"><button class="pf-video-poster" type="button" data-video-load="3Ye1pCWN3XQ" aria-label="Offiziellen TENWAYS CGO600 Trailer abspielen"><img src="https://images.pexels.com/photos/7242978/pexels-photo-7242978.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1400" alt="Radfahrerin unterwegs" loading="lazy" decoding="async"><span class="pf-video-play"><i>▶</i><span><b>TENWAYS CGO600 erleben</b><small>Offizieller TENWAYS Trailer · Video lädt erst nach Klick</small></span></span></button></div>
-        <div class="pf-video-meta"><small>MOBILITÄT · OFFIZIELLES MARKENVIDEO</small><b>So sieht leichtes City-Pendeln aus.</b><span>Erleben, dann im AuraGlobal-Guide Gewicht, Reichweite und Komfort einordnen.</span><a href="/tenways.html">TENWAYS Guide →</a></div>
-      </article>
-      <article class="pf-video-card reveal reveal-delay-1">
-        <div class="pf-video"><button class="pf-video-poster" type="button" data-video-load="3MBubfxQH2M" aria-label="Offizielles OutIn Nano Anwendungsvideo abspielen"><img src="https://images.pexels.com/photos/1549181/pexels-photo-1549181.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1400" alt="Kaffee unterwegs" loading="lazy" decoding="async"><span class="pf-video-play"><i>▶</i><span><b>OutIn Nano in Aktion</b><small>OutIn Official · Anwendungsvideo · Video lädt erst nach Klick</small></span></span></button></div>
-        <div class="pf-video-meta"><small>KAFFEE · OFFIZIELLES MARKENVIDEO</small><b>Was „portabel“ im Alltag wirklich heißt.</b><span>Die Anwendung sehen und danach Nano, Mino und Einsatzbereiche vergleichen.</span><a href="/outin.html">OutIn Guide →</a></div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section class="ag-assistant" id="frag-auraglobal">
-  <div class="pf-shell ag-assistant-wrap">
-    <div class="ag-assistant-copy reveal">
-      <div class="pf-kicker">KAUFHILFE · EINFACH FRAGEN</div>
-      <h2>Sag nicht, was du kaufen willst. Sag, was du brauchst.</h2>
-      <p>Schreib so, wie du mit einem Menschen reden würdest: <strong>Budget, Alltag, Prioritäten.</strong> Beschreibe, was du suchst – AuraGlobal hilft dir dabei, passende Produkte und die wichtigsten Unterschiede zu entdecken.</p>
-      <div class="ag-ai-badge">Kostenlos · ohne Anmeldung</div>
-    </div>
-    <div class="ag-assistant-box reveal reveal-delay-1">
-      <div class="ag-assistant-top">
-        <form class="ag-assistant-form" data-assistant-form>
-          <input type="search" data-assistant-input placeholder="z. B. günstiges E-Bike unter 2.000 € für die Stadt" autocomplete="off" aria-label="Frag AuraGlobal">
-          <button class="ag-assistant-voice" type="button" data-assistant-voice aria-label="Anfrage sprechen">🎙</button>
-          <button class="ag-assistant-submit" type="submit">AuraGlobal fragen →</button>
-        </form>
-        <div class="ag-examples"><span>Probier:</span>
-          <button type="button" data-assistant-example="günstiges E-Bike unter 2000 Euro für die Stadt">E-Bike unter 2.000 €</button>
-          <button type="button" data-assistant-example="portable Espressomaschine fürs Camping">Espresso fürs Camping</button>
-          <button type="button" data-assistant-example="automatischer Futterspender für meine Katze">Smart Pet für Katze</button>
-        </div>
-      </div>
-      <div class="ag-assistant-output" data-assistant-output>
-        <div class="ag-assistant-empty">Stell eine konkrete Frage. AuraGlobal zeigt dir keine endlose Trefferliste, sondern zuerst die aktuell stärksten Matches und warum sie passen könnten.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="pf-intent-hub">
-  <div class="pf-shell">
-    <div class="pf-intent-hub-head">
-      <div><div class="pf-kicker">BELIEBTE ENTSCHEIDUNGEN</div><h2>Nicht suchen. Ein Problem lösen.</h2></div>
-      <p>Du hast schon ein bestimmtes Ziel? Steig direkt in den passenden Ratgeber ein und vergleiche Modelle, die zu deinem Alltag passen.</p>
-    </div>
-    <div class="pf-intent-hub-grid">
-      <a class="pf-intent-link" href="/e-bike-unter-2000.html"><div><small>MOBILITÄT · BUDGET</small><b>E-Bike unter 2.000 €</b></div><span>Entscheidungshilfe + aktuelle Treffer →</span></a>
-      <a class="pf-intent-link" href="/portable-espressomaschine-camping.html"><div><small>OUTDOOR · GENUSS</small><b>Espresso fürs Camping</b></div><span>Portable Lösungen entdecken →</span></a>
-      <a class="pf-intent-link" href="/futterautomat-katze.html"><div><small>SMART PET · ALLTAG</small><b>Futterautomat für Katzen</b></div><span>Routine passend auswählen →</span></a>
-    </div>
-  </div>
-</section>
-
 <section class="pf-catalog" id="katalog">
   <div class="pf-shell">
     <div class="pf-catalog-head reveal">
-      <div><div class="pf-kicker">JETZT KONKRET</div><h2>Vom Gefühl zum Produkt.</h2></div>
-      <p>Hier wird aus Inspiration eine konkrete Auswahl. Entdecke Produkte verschiedener Shops, nutze die Filter und prüfe Preis und Verfügbarkeit direkt beim Anbieter.</p>
+      <div><div class="pf-kicker">AURAGLOBAL · EINFACH EINKAUFEN</div><h2>Finde dein Produkt.</h2></div>
+      <p>Suche direkt nach iPhone, Sneakern, E-Bikes oder einer Marke. Passende Angebote erscheinen sofort darunter.</p>
     </div>
     <div class="pf-controls" aria-label="Produktfilter">
-      <input type="search" data-product-query placeholder="Produkt, Marke oder Kategorie suchen …" autocomplete="off">
+      <input type="search" data-product-query placeholder="Was suchst du? z. B. iPhone, Sneaker, E-Bike …" autocomplete="off">
       <select data-product-merchant aria-label="Shop"><option>Alle Shops</option></select>
       <select data-product-category aria-label="Kategorie"><option>Alle Kategorien</option></select>
       <select data-product-sort aria-label="Sortierung">
@@ -549,14 +419,20 @@ body .pf-card .pf-buy,body .pf-card .pf-buy:visited{background:#111;color:#fff!i
         <option value="merchant">Shop A–Z</option>
       </select>
     </div>
+<div class="ag-simple-search-ideas" aria-label="Beliebte Produktsuchen"><span>Beliebt:</span><button type="button" data-quick-search="iPhone">iPhone</button><button type="button" data-quick-search="Sneaker">Sneaker</button><button type="button" data-quick-search="E-Bike">E-Bike</button><button type="button" data-quick-search="Kaffeemaschine">Kaffeemaschine</button></div>
     <div class="pf-status"><strong data-product-count>Produkte werden geladen …</strong><span data-feed-meta>Partnerdaten werden geladen …</span></div>
     
+
+
+    <div class="pf-grid" data-product-grid></div>
+    <div class="pf-empty" data-product-empty hidden><b>Nichts Passendes gefunden.</b><span>Suche allgemeiner oder geh zurück zu den Produktwelten oben.</span></div>
+    <button class="pf-more" type="button" data-product-more hidden>Weitere Produkte laden</button>
     <section class="ag-partner-catalog" data-partner-catalog aria-label="Alle Affiliate-Partner im Produktfinder">
       <div class="ag-partner-heading">
         <div>
           <small>ALLE PARTNER · AUCH OHNE PRODUKTFEED</small>
-          <h3>Finde den passenden Partnershop.</h3>
-          <p>Alle auf AuraGlobal eingebundenen Awin-Partnerprogramme an einem Ort. Bei Partnern ohne automatischen Produktfeed gelangst du über unsere Kaufberatung zum gekennzeichneten Affiliate-Link.</p>
+          <h3>80 Partner &amp; Marken entdecken</h3>
+          <p>Auch bei Marken ohne Produktfeed kannst du hier eine Kaufberatung öffnen und zum passenden Partnershop gelangen.</p>
         </div>
       </div>
       <div class="ag-partner-controls">
@@ -566,28 +442,13 @@ body .pf-card .pf-buy,body .pf-card .pf-buy:visited{background:#111;color:#fff!i
       <div class="ag-partner-status" data-partner-status aria-live="polite">Partnerprogramme werden geladen …</div>
       <div class="ag-partner-grid" data-partner-grid></div>
       <p class="ag-partner-empty" data-partner-empty hidden>Keine passende Marke gefunden. Versuche eine andere Suchanfrage.</p>
-      <button type="button" class="ag-partner-more" data-partner-more aria-expanded="false" hidden>Alle Partnerprogramme anzeigen</button>
+      <button type="button" class="ag-partner-more" data-partner-more aria-expanded="false" hidden>Weitere Partner anzeigen</button>
       <div class="ag-partner-disclosure">Anzeige · Beim Klick auf Partnerlinks und anschließendem Kauf können wir eine Provision erhalten. Aktuelle Preise, Lieferregionen und Verfügbarkeit im Shop prüfen. Nur bei den Händlern mit Produktfeed werden einzelne Produktpreise automatisch importiert.</div>
       <noscript><a href="/marken.html">Alle Partner und Vergleichsseiten öffnen →</a></noscript>
     </section>
-
-    <div class="pf-grid" data-product-grid></div>
-    <div class="pf-empty" data-product-empty hidden><b>Nichts Passendes gefunden.</b><span>Suche allgemeiner oder geh zurück zu den Produktwelten oben.</span></div>
-    <button class="pf-more" type="button" data-product-more hidden>Mehr Produkte anzeigen</button>
   </div>
 </section>
-
-<section class="section"><div class="shell"><div class="section-head"><div><div class="kicker">SUCHST DU SCHON KONKRET?</div><h2>Direkt zur passenden Kaufberatung.</h2></div><p>Statt im gesamten Katalog zu suchen: E-Bike unter 2.000 €, Futterautomat für zwei Katzen, Powerstation fürs Camping und viele weitere konkrete Kaufentscheidungen.</p></div><div class="directory-cta"><div><small>29 kaufnahe Vergleichsseiten</small><b>Deine Suchfrage → passende Produkte</b></div><a class="btn main" href="/kaufberatung.html">Kaufberatung öffnen →</a></div></div></section>
-<section class="pf-close">
-  <div class="pf-shell pf-close-grid">
-    <div class="reveal"><div class="pf-kicker" style="color:#a7b2c0">WARUM NICHT EINFACH DIREKT ZUM SHOP?</div><h2>Weil Auswahl ohne Orientierung nur mehr Scrollen ist.</h2><a class="pf-close-cta" href="/marken.html">Alle AuraGlobal-Vergleiche →</a></div>
-    <div class="pf-close-copy">
-      <div class="pf-close-point reveal"><small>01 · ORIENTIERUNG</small><b>Welche Richtung passt zu mir?</b><span>AuraGlobal soll den Bedarf zuerst verständlich machen, bevor du in einem Shop mit hunderten Varianten landest.</span></div>
-      <div class="pf-close-point reveal reveal-delay-1"><small>02 · VERGLEICH</small><b>Was verändert die Entscheidung wirklich?</b><span>Gewicht, Reichweite, Nutzung, Größe, Ausstattung oder aktueller Preis — je nach Produktwelt andere Kriterien.</span></div>
-      <div class="pf-close-point reveal reveal-delay-2"><small>03 · WEITERLEITUNG</small><b>Dann gezielt zum Anbieter.</b><span>Wenn du weißt, was du willst, führt der Partnerlink möglichst direkt zum passenden Produkt. Bei einem Kauf können wir eine Provision erhalten; für dich entstehen dadurch keine Mehrkosten.</span></div>
-    </div>
-  </div>
-</section>
+<div class="ag-simple-footer-links"><a href="/marken.html">Alle Marken ansehen →</a><a href="/kaufberatung.html">Kaufberatung öffnen →</a><a href="/affiliate-disclosure.html">So funktionieren unsere Partnerlinks</a></div>
 </main>
 
 <footer class="footer"><div class="shell">
