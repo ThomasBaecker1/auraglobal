@@ -330,6 +330,31 @@ body .pf-card .pf-buy,body .pf-card .pf-buy:visited{background:#111;color:#fff!i
 }
 </style>
 <link rel="stylesheet" href="/assets/productfinder-premium.css">
+
+<style>
+/* Brand-and-partner access inside the product catalog. Product-feed items remain separate. */
+.ag-partner-catalog{background:#eef5f1;color:#12251e;border:1px solid #d8e7df;border-radius:24px;padding:24px;margin:18px 0 34px}
+.ag-partner-heading{display:flex;justify-content:space-between;gap:20px;align-items:flex-start}
+.ag-partner-heading small{display:block;color:#426859;font-size:11px;font-weight:950;letter-spacing:.12em;text-transform:uppercase}
+.ag-partner-heading h3{font-size:clamp(27px,3vw,39px);line-height:1.08;margin:8px 0 9px;letter-spacing:-.045em}
+.ag-partner-heading p{font-size:13px;line-height:1.6;color:#3e5a50;max-width:690px;margin:0}
+.ag-partner-controls{display:grid;grid-template-columns:minmax(0,1fr) minmax(190px,270px);gap:9px;margin:20px 0 12px}
+.ag-partner-controls input,.ag-partner-controls select{height:45px;width:100%;min-width:0;border:1px solid #cadaD2;border-radius:11px;background:white;color:#163329;padding:0 12px;font:inherit;font-size:13px}
+.ag-partner-status{font-size:12px;font-weight:800;color:#416554;margin-bottom:14px}
+.ag-partner-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.ag-partner-item{display:flex;flex-direction:column;min-width:0;background:#fff;border:1px solid #d5e2dd;border-radius:16px;padding:16px}
+.ag-partner-kind{font-size:10px;font-weight:850;color:#477563;text-transform:uppercase;letter-spacing:.045em}
+.ag-partner-item h3{font-size:21px;letter-spacing:-.035em;color:#10251c;margin:9px 0}
+.ag-partner-item p{font-size:12px;line-height:1.55;color:#55635e;margin:0 0 15px;flex:1}
+.ag-partner-item a{display:inline-flex;justify-content:center;align-items:center;min-height:41px;border-radius:10px;background:#10291f;color:#fff!important;padding:9px 11px;text-decoration:none;font-size:12px;font-weight:850}
+.ag-partner-item a:hover{background:#236e4f}
+.ag-partner-more{display:block;margin:18px auto 0;border:0;background:#103c2b;color:#fff;padding:13px 23px;border-radius:11px;font-weight:850;cursor:pointer}
+.ag-partner-disclosure{margin-top:17px;font-size:11px;line-height:1.6;color:#516a5f}
+.ag-partner-empty{padding:16px;border:1px dashed #9caea4;border-radius:12px;color:#3e5a50}
+@media(max-width:850px){.ag-partner-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){.ag-partner-catalog{padding:16px;border-radius:16px}.ag-partner-controls,.ag-partner-grid{grid-template-columns:1fr}.ag-partner-heading h3{font-size:29px}}
+</style>
+
 </head>
 <body class="product-finder">
 <header class="topbar mock-nav"><div class="shell nav">
@@ -524,6 +549,27 @@ body .pf-card .pf-buy,body .pf-card .pf-buy:visited{background:#111;color:#fff!i
       </select>
     </div>
     <div class="pf-status"><strong data-product-count>Produkte werden geladen …</strong><span data-feed-meta>Partnerdaten werden geladen …</span></div>
+    
+    <section class="ag-partner-catalog" data-partner-catalog aria-label="Alle Affiliate-Partner im Produktfinder">
+      <div class="ag-partner-heading">
+        <div>
+          <small>ALLE PARTNER · AUCH OHNE PRODUKTFEED</small>
+          <h3>Finde den passenden Partnershop.</h3>
+          <p>Alle auf AuraGlobal eingebundenen Awin-Partnerprogramme an einem Ort. Bei Partnern ohne automatischen Produktfeed gelangst du über unsere Kaufberatung zum gekennzeichneten Affiliate-Link.</p>
+        </div>
+      </div>
+      <div class="ag-partner-controls">
+        <input type="search" data-partner-search placeholder="Marke, Shop oder Produktwelt suchen …" aria-label="Partner und Shops durchsuchen" disabled>
+        <select data-partner-category aria-label="Partnerkategorie" disabled><option value="all">Alle Partnerkategorien</option></select>
+      </div>
+      <div class="ag-partner-status" data-partner-status aria-live="polite">Partnerprogramme werden geladen …</div>
+      <div class="ag-partner-grid" data-partner-grid></div>
+      <p class="ag-partner-empty" data-partner-empty hidden>Keine passende Marke gefunden. Versuche eine andere Suchanfrage.</p>
+      <button type="button" class="ag-partner-more" data-partner-more aria-expanded="false" hidden>Alle Partnerprogramme anzeigen</button>
+      <div class="ag-partner-disclosure">Anzeige · Beim Klick auf Partnerlinks und anschließendem Kauf können wir eine Provision erhalten. Aktuelle Preise, Lieferregionen und Verfügbarkeit im Shop prüfen. Nur bei den Händlern mit Produktfeed werden einzelne Produktpreise automatisch importiert.</div>
+      <noscript><a href="/marken.html">Alle Partner und Vergleichsseiten öffnen →</a></noscript>
+    </section>
+
     <div class="pf-grid" data-product-grid></div>
     <div class="pf-empty" data-product-empty hidden><b>Nichts Passendes gefunden.</b><span>Suche allgemeiner oder geh zurück zu den Produktwelten oben.</span></div>
     <button class="pf-more" type="button" data-product-more hidden>Mehr Produkte anzeigen</button>
@@ -551,6 +597,7 @@ body .pf-card .pf-buy,body .pf-card .pf-buy:visited{background:#111;color:#fff!i
 <script src="/aura-v2.js"></script>
 <script src="/assets/aura-match-data.js"></script>
 <script src="/assets/product-engine.js"></script>
+<script src="/assets/partner-catalog.js"></script>
 <script>
 (() => {
   const items=[...document.querySelectorAll('.reveal')];
