@@ -28,7 +28,7 @@
       }
     }
   }
-  const active = document.querySelectorAll('[data-hot-deal]').length;
+  const active = document.querySelectorAll('.ag-hot-card[data-hot-deal]').length;
   const count = document.querySelector('[data-hot-deal-count]');
   if (count) count.textContent = active ? String(active) : '0';
   if (!active) document.querySelector('.ag-hot-deals')?.remove();
