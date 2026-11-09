@@ -28,6 +28,14 @@
       }
     }
   }
+  // The separate Deal Radar uses data-deal-start/end, not data-hot-deal.
+  // Hide expired cards independently so outdated coupon codes cannot remain clickable.
+  document.querySelectorAll('[data-deal-grid] [data-deal-end]').forEach(card => {
+    const start = card.dataset.dealStart;
+    const end = card.dataset.dealEnd;
+    if ((end && berlinDay > end) || (start && berlinDay < start)) card.remove();
+  });
+
   const active = document.querySelectorAll('.ag-hot-card[data-hot-deal]').length;
   const count = document.querySelector('[data-hot-deal-count]');
   if (count) count.textContent = active ? String(active) : '0';
