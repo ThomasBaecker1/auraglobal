@@ -7,7 +7,7 @@ Stand: 10.11.2026 · Keine neuen Werbeausgaben · Nur bestehende, freigegebene A
 - Vercel Web Analytics, 11.10.–10.11.: 410 Besucher und 984 Seitenaufrufe. Die häufigsten kaufnahen Landingpages: `/tenways.html` (14 Besucher), `/e-bikes.html` (12), `/e-bike-unter-2000.html` (11), `/petlibro.html` (6).
 - Die Werte belegen Reichweite auf Vercel, aber weder echte Qualifizierung noch Awin-Klicks oder Provisionen.
 - Google Search Console ist verbunden, liefert derzeit wegen der Windsor.ai-Kontolimitierung aber keine Auswertung. Es wurde kein Upgrade ausgelöst.
-- `auraglobal.net` ist extern fehlkonfiguriert und zeigt noch auf die Squarespace-Parkseite. Bis zur DNS-Korrektur die Vercel-Adresse als Ziel verwenden.
+- Die vom Nutzer bestätigte Live-Adresse ist `https://auraglobal.vercel.app/`. Kampagnenlinks, Canonicals und Sitemap auf diesem Host ausrichten.
 - Zeitlich befristete Aktionen nur nennen, solange Start/Ende und Partnerinformation aktuell sind. Preis, Rabattcode und Verfügbarkeit jeweils im Händler-Checkout prüfen.
 
 ## YouTube: Hauptvideo und Folgeclips
@@ -29,8 +29,8 @@ Stand: 10.11.2026 · Keine neuen Werbeausgaben · Nur bestehende, freigegebene A
 
 > Drei Dinge vor dem E-Bike-Kauf: passende Nutzung, vollständiger Endpreis und aktuelle Ausstattung. In diesem Video ordne ich Herstellerangaben ein; es ist kein eigener Praxistest. Preise, Varianten, Rabattbedingungen und Verfügbarkeit können sich ändern – bitte vor dem Kauf beim Anbieter prüfen.
 >
-> TENWAYS-Modelle vergleichen: https://auraglobal.vercel.app/tenways.html?utm_source=youtube&utm_medium=video&utm_campaign=bf2026_ebike
-> E-Bike-Auswahlhilfe: https://auraglobal.vercel.app/e-bike-unter-2000.html?utm_source=youtube&utm_medium=video&utm_campaign=bf2026_ebike
+> Laufende Black-Friday-Angebote vergleichen: https://auraglobal.vercel.app/black-friday-2026.html?utm_source=youtube&utm_medium=video&utm_campaign=bf2026_ebike&utm_content=main_video
+> TENWAYS-Modelle vergleichen: https://auraglobal.vercel.app/tenways.html?utm_source=youtube&utm_medium=video&utm_campaign=bf2026_ebike&utm_content=main_video
 >
 > Werbung/Affiliate-Hinweis: Bei einem Kauf über gekennzeichnete Partnerlinks kann AuraGlobal eine Provision erhalten. Für dich ändert sich der Preis dadurch nicht.
 
@@ -40,7 +40,7 @@ Nach Veröffentlichung aus dem vollständigen Video mehrere Shorts schneiden; Sh
 
 - Die drei überarbeiteten Kaufseiten sind TENWAYS, PETLIBRO und ALLPOWERS. TENWAYS und E-Bike-Auswahlseiten bekommen wegen ihrer gemessenen Reichweite die erste Video- und Community-Verteilung; PETLIBRO und ALLPOWERS erhalten nur eigene Beiträge, wenn die Partneraktion zum Veröffentlichungszeitpunkt noch gültig ist.
 - Suchintentionen für natürliche Überschriften und FAQ: „TENWAYS CGO600 vs CGO600 Pro“, „E-Bike unter 2000 Euro“, „PETLIBRO Futterautomat zwei Katzen“, „ALLPOWERS Powerstation Black Friday“. Keine ungeprüften Volumenangaben und kein Keyword-Stuffing.
-- Nach DNS-Korrektur: kanonische Hostnamen, Search-Console-Property und Sitemap auf dieselbe Domain bringen; Sitemap erneut einreichen und Indexierungsstatus prüfen. Solange die Domain geparkt ist, keine Umschaltung von Canonicals auf `.net` vornehmen.
+- Search-Console-Property und Sitemap auf `https://auraglobal.vercel.app/` ausrichten; Sitemap dort erneut einreichen und Indexierungsstatus prüfen. Keine Domainumstellung ohne bestätigte Nutzerangabe.
 - Search-Console-Klicks, Impressionen, Position und Seiten getrennt von Vercel-Aufrufen messen. Erneut prüfen, sobald Windsor.ai-Suche freigeschaltet ist oder ein direkter Search-Console-Zugang besteht; kein kostenpflichtiges Upgrade ohne ausdrückliche Kostenfreigabe.
 
 ## Communities: vorbereitet, noch nicht veröffentlicht
