@@ -45,8 +45,11 @@ Nach Veröffentlichung aus dem vollständigen Video mehrere Shorts schneiden; Sh
 
 ## Communities: vorbereitet, noch nicht veröffentlicht
 
-- Vorrangig fachliche E-Bike-, Kaffee-, Haustier- und Camping-Communities mit echter thematischer Passung.
-- Vor jeder Veröffentlichung die aktuellen Eigenwerbungs-, Affiliate-Link-, Rabatt- und Posting-Regeln der konkreten Plattform/Community lesen. Regeln und Datum als Nachweis im Kampagnenprotokoll vermerken.
+- **YouTube:** Das vollständige E-Bike-Video ist der Hauptbeitrag. Externe Affiliate-Links sind laut YouTube nicht pauschal untersagt; Spam und eine übermäßige Affiliate-Ausrichtung können aber gegen Regeln verstoßen. Links im regulären Longform-Video/Description verwenden; Links in Shorts-Beschreibung und -Kommentaren sind nicht anklickbar. Richtlinien vor Upload prüfen: https://support.google.com/youtube/answer/9054257 und https://support.google.com/youtube/answer/13748639.
+- **Pedelecforum.de:** thematisch passende E-Bike-Community. Der sichtbare Forenhinweis verweist auf bereichsspezifische Regeln. Vor einem Beitrag genau das gewählte Unterforum und dessen Regeln öffnen; bis dahin kein Posting und kein Affiliate-Link: https://www.pedelecforum.de/forum/index.php.
+- **Reddit:** grundsätzlich kein Reichweitenkanal für wiederholte Firmenlinks. Reddit empfiehlt authentische Teilnahme, vorsichtige Frequenz bei Links zu einem eigenen/kommerziell begünstigenden Geschäft und die Regeln des einzelnen Subreddits; im Zweifel Mods fragen. Ein einzelnes passendes Subreddit wurde noch nicht freigegeben: https://support.reddithelp.com/hc/en-us/articles/360043504051-Spam.
+- Ergänzende Communities für Kaffee, Haustiere und Camping erst auswählen, wenn deren aktuelle Regeln Eigenwerbung und Affiliate-Links eindeutig zulassen.
+- Vor jeder Veröffentlichung die aktuellen Eigenwerbungs-, Affiliate-Link-, Rabatt- und Posting-Regeln der konkreten Community erneut prüfen. Regeln und Datum als Nachweis im Kampagnenprotokoll vermerken.
 - Erst nützliche Antwort oder eigener Vergleich, dann offener Affiliate-/Werbehinweis; kein Massenposting, keine Mehrfachaccounts, keine ungefragten Direktnachrichten und keine fingierten Nutzerberichte.
 - Wenn Eigenwerbung oder Affiliate-Links nicht erlaubt sind, keinen Link posten. Stattdessen eine regelkonforme, informative Antwort ohne Verkaufslink oder die Community auslassen.
 
