@@ -1,0 +1,42 @@
+{
+  "date": "2026-11-11",
+  "publisherId": "3076553",
+  "status": "approved_and_added_to_brand_directory",
+  "partners": [
+    {
+      "name": "HRS DE & AT",
+      "advertiserId": "15152",
+      "url": "/hotelbuchung.html",
+      "awinDestination": "https://www.hrs.de/",
+      "approvalEvidence": "Awin approval email 2026-11-11"
+    },
+    {
+      "name": "HOTEL DE DE/AT",
+      "advertiserId": "16018",
+      "url": "/hotelbuchung.html",
+      "awinDestination": "https://www.hotel.de/",
+      "approvalEvidence": "Awin approval email 2026-11-11"
+    },
+    {
+      "name": "Marley Spoon DE",
+      "advertiserId": "10954",
+      "url": "/marley-spoon.html",
+      "awinDestination": "https://marleyspoon.de/menu",
+      "approvalEvidence": "Awin approval email 2026-11-11"
+    },
+    {
+      "name": "Schuback-Parfümerien DE",
+      "advertiserId": "66754",
+      "url": "/schuback.html",
+      "awinDestination": "https://www.schuback-parfuemerien.de/",
+      "approvalEvidence": "Awin approval email 2026-11-11"
+    },
+    {
+      "name": "Softwarehunter DE",
+      "advertiserId": "20681",
+      "url": "/softwarehunter.html",
+      "awinDestination": "https://www.softwarehunter.de/",
+      "approvalEvidence": "Awin approval email 2026-11-10"
+    }
+  ]
+}
