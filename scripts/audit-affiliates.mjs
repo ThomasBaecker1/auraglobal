@@ -20,12 +20,16 @@ function validateAffiliate(raw,where){
   if(u.protocol!=='https:' || !['www.awin1.com','awin1.com'].includes(u.hostname)){
     errors.push(where+': affiliate destination is not HTTPS Awin');return false;
   }
-  // Awin deep links use awinaffid; original awclick shop links use id.
-  const publisher=u.searchParams.get('awinaffid') || (u.pathname==='/awclick.php' ? u.searchParams.get('id') : null);
+  // Awin product-feed links use a/m, deep links use awinaffid/awinmid,
+  // and original shop links use id/mid.
+  const isProductLink=u.pathname==='/pclick.php';
+  const publisher=isProductLink ? u.searchParams.get('a')
+    : u.searchParams.get('awinaffid') || (u.pathname==='/awclick.php' ? u.searchParams.get('id') : null);
   if(publisher!=='3076553'){
     errors.push(where+': missing or different publisher id');return false;
   }
-  if(!u.searchParams.get('awinmid')&&!u.searchParams.get('mid')){
+  const merchant=isProductLink ? u.searchParams.get('m') : u.searchParams.get('awinmid') || u.searchParams.get('mid');
+  if(!merchant){
     warnings.push(where+': check missing merchant id');
   }
   counts.awinLinks++;
