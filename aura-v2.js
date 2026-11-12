@@ -285,8 +285,14 @@ function initAffiliateClickTracking(){
             product=target.pathname.split('/').filter(Boolean).pop()||'shop';
           }catch{product='shop'}
         }
-        const ref=[refBase.slice(0,44),clean(merchantId).slice(0,8),clean(product).slice(0,24),clean(attribution.campaign).slice(0,16)]
-          .filter(Boolean).join('_').slice(0,100);
+        const campaign=clean(attribution.campaign).slice(0,16);
+        const merchant=clean(merchantId).slice(0,8);
+        const productRef=clean(product).slice(0,24);
+        const parts=campaign
+          ? ['ag',clean(attribution.source).slice(0,10),campaign,merchant,page,productRef]
+          : [refBase,merchant,productRef];
+        // Awin truncates longer references in its report, so keep the campaign first.
+        const ref=parts.filter(Boolean).join('_').slice(0,50);
         clickReference=ref;
         const current=url.searchParams.get('clickref');
         if(current&&current!==ref){
