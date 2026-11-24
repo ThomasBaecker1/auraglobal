@@ -9,6 +9,7 @@ const FEED_LIST_URL = process.env.AWIN_DATAFEED_LIST_URL;
 const API_KEY_INPUT = process.env.AWIN_DATAFEED_API_KEY;
 const API_KEY = API_KEY_INPUT && !/^https?:\/\//i.test(API_KEY_INPUT) ? API_KEY_INPUT : '';
 const PUBLISHER_ID = process.env.AWIN_PUBLISHER_ID || '3076553';
+const EXCLUDED_MERCHANT_IDS = new Set(['68034', '116603']);
 
 function optionalLimit(name) {
   const value = Number(process.env[name]);
@@ -22,7 +23,7 @@ const BLOB_UPLOAD_CONCURRENCY = Math.max(1, Math.min(12, Number(process.env.AWIN
 const PREVIEW_PER_MERCHANT = Math.max(12, Number(process.env.AWIN_PREVIEW_PER_MERCHANT || 48));
 // Leave room for manifest/preview writes before the 300-second Vercel function ceiling.
 const SYNC_TIME_BUDGET_MS = Math.max(60000, Math.min(220000, Number(process.env.AWIN_SYNC_TIME_BUDGET_MS || 115000)));
-const BUYER_PRIORITY_IDS = ['72399','115541','127821','77942','67914','99887','11346','116603'];
+const BUYER_PRIORITY_IDS = ['72399','115541','127821','77942','67914','99887','11346'];
 const OUTPUT = path.resolve('data/products.json');
 const CATALOG_DIR = path.resolve('data/catalog');
 const MANIFEST_OUTPUT = path.join(CATALOG_DIR,'index.json');
@@ -75,7 +76,6 @@ const INTERNAL_GUIDES = {
   '119967':'/delst.html',
   '127589':'/braingood.html',
   '124508':'/go-off.html', // GO-OFF
-  '116603':'/pure-electric.html', // Pure Electric
   '45579':'/iscooter.html', // iScooter
   '129923':'/manhenke.html', // Manhenke
   '15538':'/vingino.html', // Vingino
@@ -406,7 +406,7 @@ export async function runSync({storageMode=process.env.AWIN_STORAGE_MODE || 'fil
   const allowedIds = new Set((merchantAllowlist || '').split(',').map(id => id.trim()).filter(id => /^\d+$/.test(id)));
   const eligibleFeeds = allJoinedFeeds.filter(feed => {
     const id = pick(feed,['Advertiser ID','Merchant ID','merchant_id']);
-    return id !== '68034' && (!allowedIds.size || allowedIds.has(id));
+    return !EXCLUDED_MERCHANT_IDS.has(id) && (!allowedIds.size || allowedIds.has(id));
   });
   
   const byMerchant = new Map();
