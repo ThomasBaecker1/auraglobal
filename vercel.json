@@ -12,6 +12,11 @@
   ],
   "redirects": [
     {
+      "source": "/sitemap-complete.xml",
+      "destination": "/sitemap.xml",
+      "permanent": true
+    },
+    {
       "source": "/freelance",
       "destination": "/freelance.html",
       "permanent": true
